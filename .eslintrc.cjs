@@ -52,5 +52,14 @@ module.exports = {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
     },
+    {
+      files: ['**/*.test.ts', '**/*.test.tsx'],
+      env: {
+        node: true,
+      },
+      rules: {
+        '@typescript-eslint/no-unused-vars': 'off',
+      },
+    },
   ],
 };

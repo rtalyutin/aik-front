@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+
     "lint": "eslint . --ext ts,tsx --max-warnings=0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -23,5 +24,6 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.4.1"
+
   }
 }
