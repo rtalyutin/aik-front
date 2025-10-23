@@ -1,0 +1,6 @@
+{
+  "name": "eslint-config-prettier",
+  "version": "0.0.0-stub",
+  "type": "commonjs",
+  "description": "Stub Prettier ESLint config for offline linting"
+}

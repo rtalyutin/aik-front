@@ -1,0 +1,6 @@
+{
+  "name": "eslint-plugin-react",
+  "version": "0.0.0-stub",
+  "type": "commonjs",
+  "description": "Stub React ESLint plugin for offline linting"
+}

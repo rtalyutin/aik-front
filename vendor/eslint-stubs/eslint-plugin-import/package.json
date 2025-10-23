@@ -1,0 +1,6 @@
+{
+  "name": "eslint-plugin-import",
+  "version": "0.0.0-stub",
+  "type": "commonjs",
+  "description": "Stub import ESLint plugin for offline linting"
+}
