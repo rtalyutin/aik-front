@@ -4,10 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/dev-server.mjs .",
-    "build": "node scripts/build.mjs",
-    "lint": "node scripts/lint.mjs",
-    "preview": "node scripts/dev-server.mjs dist"
+    "lint": "eslint . --ext ts,tsx --max-warnings=0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit && vite build",
+    "dev": "vite",
+    "preview": "vite preview"
   },
   "dependencies": {},
   "devDependencies": {
