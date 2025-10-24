@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "id": "season-opener",
+      "opponent": "Северные Волки",
+      "date": "2025-02-14T17:00:00.000Z",
+      "location": "Ледовый дворец AIK Front",
+      "competition": "Регулярный чемпионат",
+      "broadcast": "https://aik-front.example.com/broadcasts/game-1"
+    },
+    {
+      "id": "derby",
+      "opponent": "Космические Киты",
+      "date": "2025-02-20T18:30:00.000Z",
+      "location": "Арена Метрополия",
+      "competition": "Регулярный чемпионат"
+    },
+    {
+      "id": "home-series",
+      "opponent": "Стальные Орлы",
+      "date": "2025-02-25T17:30:00.000Z",
+      "location": "Ледовый дворец AIK Front",
+      "competition": "Регулярный чемпионат",
+      "broadcast": "https://aik-front.example.com/broadcasts/game-3"
+    }
+  ]
+}

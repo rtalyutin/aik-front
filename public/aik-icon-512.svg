@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">AIK Front Emblem</title>
+  <desc id="desc">Stylised AF monogram on gradient shield</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="24" fill="url(#bg)" />
+  <path
+    d="M36 96L64 32l28 64h-12l-5.2-12H53.2L48 96H36Zm24-24h16L64 48l-4 24Z"
+    fill="#f8fafc"
+  />
+</svg>

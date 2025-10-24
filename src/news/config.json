@@ -1,0 +1,30 @@
+{
+  "items": [
+    {
+      "id": "preseason-camp",
+      "title": "AIK выходит на предсезонный сбор",
+      "summary": "Основная команда отправилась в Сочи, чтобы провести двухнедельный интенсив перед стартом чемпионата.",
+      "publishedAt": "2025-02-01T09:00:00.000Z",
+      "link": "https://aik-front.example.com/news/preseason-camp",
+      "imageUrl": "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
+      "tags": ["команда", "тренировки"]
+    },
+    {
+      "id": "academy-graduates",
+      "title": "В основной состав включены два воспитанника академии",
+      "summary": "Полузащитник Артём Мартынов и защитник Алиса Королёва подписали профессиональные контракты сроком на три года.",
+      "publishedAt": "2025-01-28T12:15:00.000Z",
+      "link": "https://aik-front.example.com/news/academy-graduates",
+      "imageUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2",
+      "tags": ["академия", "контракты"]
+    },
+    {
+      "id": "new-kit",
+      "title": "Представлена новая домашняя форма",
+      "summary": "Дизайн вдохновлён клубной историей: темно-синий градиент и лазурные акценты.",
+      "publishedAt": "2025-01-12T17:40:00.000Z",
+      "link": "https://aik-front.example.com/news/new-kit",
+      "tags": ["мерч", "болельщики"]
+    }
+  ]
+}
