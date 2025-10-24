@@ -7,6 +7,7 @@ const HomePage = lazy(() => import('./pages/Home.jsx'))
 const NewsPage = lazy(() => import('./pages/NewsPage.jsx'))
 const SchedulePage = lazy(() => import('./pages/SchedulePage.jsx'))
 const TeamsPage = lazy(() => import('./pages/TeamsPage.jsx'))
+const PlayerPage = lazy(() => import('./pages/PlayerPage.jsx'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'))
 
 const withSuspense = (Component) => (
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
       {
         path: 'teams',
         element: withSuspense(TeamsPage),
+      },
+      {
+        path: 'player',
+        element: withSuspense(PlayerPage),
       },
       {
         path: '*',

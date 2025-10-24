@@ -48,6 +48,14 @@ const Navigation = () => {
               Команда
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/player"
+              className={({ isActive }) => (isActive ? styles.active : undefined)}
+            >
+              Плеер
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>
