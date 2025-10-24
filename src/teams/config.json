@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "id": "captains",
+      "name": "AIK Front",
+      "city": "Санкт-Петербург",
+      "coach": "Андрей Константинов",
+      "arena": "Ледовый дворец AIK Front",
+      "founded": 1968,
+      "conference": "Восточная",
+      "website": "https://aik-front.example.com/team"
+    },
+    {
+      "id": "farm",
+      "name": "AIK Front Academy",
+      "city": "Санкт-Петербург",
+      "coach": "Екатерина Левченко",
+      "arena": "Арена Академии",
+      "founded": 2015,
+      "conference": "Молодёжная",
+      "website": "https://aik-front.example.com/academy"
+    }
+  ]
+}
