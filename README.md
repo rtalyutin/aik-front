@@ -1,17 +1,10 @@
-# AIK Front
+# GitHub: "Resource not found"
 
-A modern React starter powered by [Vite](https://vitejs.dev/). It includes sensible defaults for linting, testing, and local development so you can focus on building features.
+Если при работе с репозиторием отображается ошибка «Resource not found», проверьте следующее:
 
-## Getting started
+1. **Доступ к репозиторию.** Убедитесь, что используемый токен или аккаунт имеет права на чтение/запись к текущему репозиторию. Ошибка часто означает, что GitHub API не видит репозиторий из-за отсутствия прав.
+2. **Правильность URL.** Проверьте, что в конфигурации CI/CD или локального git-remote указан корректный адрес `https://github.com/<owner>/<repo>.git`.
+3. **Наличие ветки.** Ошибка возникает, если запрашиваемая ветка или PR удалены. Создайте новую ветку и повторите запрос.
+4. **Ограничения API.** При обращении к GitHub API без аутентификации возможны ограничения. Добавьте персональный токен в переменные окружения `GITHUB_TOKEN` или `GH_TOKEN`.
 
-```bash
-npm install
-npm run dev
-```
-
-## Available scripts
-
-- `npm run dev` – start the development server with hot reloading.
-- `npm run build` – bundle the app for production.
-- `npm run preview` – preview the production build locally.
-- `npm run test` – run unit tests with Vitest and Testing Library.
+После проверки повторите запрос или действие, которое вызывало ошибку.

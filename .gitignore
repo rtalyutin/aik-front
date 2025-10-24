@@ -1,7 +1,0 @@
-node_modules
-npm-debug.log*
-dist
-.vite
-.DS_Store
-.env.local
-
