@@ -1,26 +1,11 @@
-import { dirname, resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-
-export const resolveAliases = {
-  '@': resolve(__dirname, 'src'),
-}
-
-export const testConfig = {
-  environment: 'jsdom',
-  setupFiles: resolve(__dirname, 'src/setupTests.js'),
-  coverage: {
-    provider: 'c8',
-    reporter: ['text', 'html'],
-    reportsDirectory: resolve(__dirname, 'coverage'),
-  },
-}
-
-export default {
-  resolve: {
-    alias: resolveAliases,
-  },
-  test: testConfig,
-}
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: 'jsdom',
+    setupFiles: './vitest.setup.js'
+  }
+});

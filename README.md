@@ -1,38 +1,17 @@
-# aik-front
+# AIK Front
 
-Лёгкое статическое демо-приложение без внешних npm-зависимостей. Проект можно собрать и запустить даже в средах без доступа к публичному npm-репозиторию.
+A modern React starter powered by [Vite](https://vitejs.dev/). It includes sensible defaults for linting, testing, and local development so you can focus on building features.
 
-## Требования
-
-- Node.js 18+
-- npm 9+
-
-## Установка
+## Getting started
 
 ```bash
 npm install
-```
-
-Команда не загружает пакеты из сети и всегда завершается успешно, создавая (при необходимости) `package-lock.json`.
-
-## Доступные команды
-
-- `npm run dev` — запускает встроенный статический сервер (по умолчанию на `http://localhost:5173`).
-- `npm run build` — копирует статические файлы в каталог `dist/`.
-- `npm run preview` — запускает сервер для содержимого `dist/`.
-- `npm run lint` — проверяет файлы JavaScript на синтаксические ошибки через `node --check`.
-
-## Структура проекта
-
-- `index.html` — точка входа приложения.
-- `public/` — статические ресурсы (например, `vite.svg`).
-- `src/` — исходный код и стили приложения.
-- `scripts/` — утилиты на Node.js для разработки и сборки.
-
-## Запуск приложения
-
-```bash
 npm run dev
 ```
 
-После запуска откройте адрес, указанный в терминале, в браузере. Для предпросмотра собранной версии выполните `npm run build`, затем `npm run preview`.
+## Available scripts
+
+- `npm run dev` – start the development server with hot reloading.
+- `npm run build` – bundle the app for production.
+- `npm run preview` – preview the production build locally.
+- `npm run test` – run unit tests with Vitest and Testing Library.
