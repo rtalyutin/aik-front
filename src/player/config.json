@@ -1,0 +1,46 @@
+{
+  "tracks": [
+    {
+      "id": "anthem-of-dawn",
+      "title": "Anthem of Dawn",
+      "artist": "AIK Front Ensemble",
+      "duration": 248,
+      "audioUrl": "https://cdn.pixabay.com/download/audio/2024/02/09/audio_9fb3dbfc84.mp3?filename=uplifting-epic-201523.mp3",
+      "coverUrl": "https://images.unsplash.com/photo-1524386189624-0f0a5f1e04b3",
+      "lyrics": [
+        "Light up the sky, feel the thunder arise",
+        "Echoes of hearts beating strong side by side",
+        "We carry the fire, we raise it above",
+        "For glory and honor and all that we love"
+      ]
+    },
+    {
+      "id": "northern-pulse",
+      "title": "Northern Pulse",
+      "artist": "Stadium Lights",
+      "duration": 214,
+      "audioUrl": "https://cdn.pixabay.com/download/audio/2023/03/20/audio_d8813ae59c.mp3?filename=travelling-ambient-141859.mp3",
+      "coverUrl": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745",
+      "lyrics": [
+        "Breathe in the northern lights",
+        "Colors collide in the night",
+        "We are the rhythm and the sound",
+        "Racing the echoes around"
+      ]
+    },
+    {
+      "id": "champions-reprise",
+      "title": "Champions' Reprise",
+      "artist": "AIK Youth Choir",
+      "duration": 198,
+      "audioUrl": "https://cdn.pixabay.com/download/audio/2022/10/25/audio_51e18bdc2c.mp3?filename=stadium-rock-121264.mp3",
+      "coverUrl": "https://images.unsplash.com/photo-1517649763962-0c623066013b",
+      "lyrics": [
+        "Voices rise, tonight we make a stand",
+        "Every stride, we hold the future in our hands",
+        "Hear the call, it rings across the sea",
+        "Champions forever, together we will be"
+      ]
+    }
+  ]
+}
