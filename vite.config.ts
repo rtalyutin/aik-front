@@ -2,6 +2,11 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
+const appEnv = {
+  VITE_API_BASE_URL: process.env.VITE_API_BASE_URL ?? '',
+  VITE_REQUEST_TIMEOUT: process.env.VITE_REQUEST_TIMEOUT ?? '8000',
+}
+
 export default defineConfig({
   plugins: [
     react(),
@@ -37,7 +42,7 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,png,svg,ico,json}'],
         runtimeCaching: [
           {
-            urlPattern: ({ url }) =>
+            urlPattern: ({ url }: { url: URL }): boolean =>
               url.pathname.startsWith('/news') || url.pathname.startsWith('/schedule'),
             handler: 'NetworkFirst',
             options: {
@@ -50,9 +55,6 @@ export default defineConfig({
     }),
   ],
   define: {
-    __APP_ENV__: {
-      VITE_API_BASE_URL: process.env.VITE_API_BASE_URL || '',
-      VITE_REQUEST_TIMEOUT: process.env.VITE_REQUEST_TIMEOUT || '8000',
-    },
+    __APP_ENV__: appEnv,
   },
 })

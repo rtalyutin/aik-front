@@ -1,0 +1,17 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-yaml
+      - id: check-json
+      - id: check-added-large-files
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: forbid-binary
+  - repo: local
+    hooks:
+      - id: forbid-tracked-binaries
+        name: Prevent tracked binary assets
+        entry: bash -c "set -euo pipefail; files=$(git ls-files -z | tr '\0' '\n' | grep -E '\\.(mp3|mp4|avi|mov|mkv|zip|tar|gz|tgz|7z|rar|exe|dll|so|dylib|pdf|png|jpe?g|gif|bmp|woff2?|ttf|otf)$' || true); if [ -n \"$files\" ]; then printf 'Binary assets detected in repository\\n%s\\n' \"$files\"; exit 1; fi"
+        language: system
+        pass_filenames: false
