@@ -42,6 +42,14 @@ const Navigation = () => {
           </li>
           <li>
             <NavLink
+              to="/audio-player"
+              className={({ isActive }) => (isActive ? styles.active : undefined)}
+            >
+              Музыка
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/teams"
               className={({ isActive }) => (isActive ? styles.active : undefined)}
             >
