@@ -1,0 +1,36 @@
+version: 1
+ci:
+  required_checks:
+    - lint
+    - typecheck
+    - test
+    - build
+    - format
+quality_gates:
+  forbid_binaries:
+    extensions:
+      - mp3
+      - mp4
+      - avi
+      - mov
+      - mkv
+      - png
+      - jpg
+      - jpeg
+      - gif
+      - bmp
+      - pdf
+      - zip
+      - tar
+      - gz
+      - tgz
+      - 7z
+      - rar
+      - exe
+      - dll
+      - so
+      - dylib
+      - woff
+      - woff2
+      - ttf
+      - otf

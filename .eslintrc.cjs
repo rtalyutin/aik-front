@@ -1,14 +1,12 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import jsxA11y from 'eslint-plugin-jsx-a11y'
-import security from 'eslint-plugin-security'
-import prettierPlugin from 'eslint-plugin-prettier'
-import { defineConfig, globalIgnores } from 'eslint/config'
+const js = require('@eslint/js')
+const globals = require('globals')
+const reactHooks = require('eslint-plugin-react-hooks')
+const reactRefresh = require('eslint-plugin-react-refresh')
+const jsxA11y = require('eslint-plugin-jsx-a11y')
+const security = require('eslint-plugin-security')
+const prettierPlugin = require('eslint-plugin-prettier')
 
 const files = ['**/*.{js,jsx}']
-
 const languageOptions = {
   ecmaVersion: 'latest',
   sourceType: 'module',
@@ -21,8 +19,10 @@ const languageOptions = {
   },
 }
 
-export default defineConfig([
-  globalIgnores(['dist', 'coverage']),
+module.exports = [
+  {
+    ignores: ['dist', 'coverage', 'vite.config.ts'],
+  },
   {
     files,
     ignores: ['node_modules'],
@@ -61,4 +61,4 @@ export default defineConfig([
       },
     },
   },
-])
+]
