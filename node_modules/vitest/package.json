@@ -1,9 +1,0 @@
-{
-  "name": "vitest",
-  "type": "module",
-  "exports": {
-    ".": "./runtime.js",
-    "./config": "./config.js",
-    "./globals": "./runtime.js"
-  }
-}
