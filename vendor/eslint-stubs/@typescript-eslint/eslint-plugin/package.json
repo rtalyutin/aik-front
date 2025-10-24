@@ -1,6 +1,0 @@
-{
-  "name": "@typescript-eslint/eslint-plugin",
-  "version": "0.0.0-stub",
-  "type": "commonjs",
-  "description": "Stub TypeScript ESLint plugin for offline linting"
-}
