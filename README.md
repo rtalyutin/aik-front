@@ -24,7 +24,7 @@
 - **@tanstack/react-query** для кэширования и повторных запросов
 - **Axios** + **Zod** для работы с REST API и валидации
 - **ESLint 9** + **Prettier** + плагины `jsx-a11y`, `security`
-- **Jest** + **Testing Library** + **MSW** для unit и интеграционных тестов
+- **Jest** + **Testing Library** для unit и интеграционных тестов
 - **Vite 5** с плагином **vite-plugin-pwa**
 
 ## Структура каталогов
