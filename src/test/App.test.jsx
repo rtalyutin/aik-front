@@ -2,12 +2,13 @@ import { render, screen } from '@testing-library/react'
 import App from '../App'
 
 describe('App', () => {
-  it('renders karaoke hero copy and single navigation item', () => {
+  it('renders karaoke hero title and static navigation label', () => {
     render(<App />)
 
     expect(screen.getByRole('heading', { level: 1, name: 'Пой со мной!' })).toBeInTheDocument()
     expect(screen.getByRole('navigation', { name: 'Основное меню' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Музыка' })).toHaveAttribute('href', '#music')
+    expect(screen.getByText('Музыка')).toHaveAttribute('aria-current', 'page')
+    expect(screen.queryByRole('link', { name: 'Музыка' })).toBeNull()
   })
 
   it('shows the demo lyrics list', () => {

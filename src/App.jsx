@@ -27,9 +27,9 @@ const App = () => {
       <nav className="app-nav" aria-label="Основное меню">
         <ul className="app-nav__list">
           <li className="app-nav__item">
-            <a className="app-nav__link app-nav__link--active" href="#music">
+            <span className="app-nav__pill" aria-current="page">
               Музыка
-            </a>
+            </span>
           </li>
         </ul>
       </nav>
@@ -39,11 +39,151 @@ const App = () => {
         <div className="title-block">
           <span className="title-badge">новый сервис</span>
           <h1 className="title">Пой со мной!</h1>
-          <p className="title-description">
-            Пой со мной.
-            <br />
-            Загрузи музыку по ссылке -&gt; дождись загрузки -&gt; пой со мной!
-          </p>
+          <div className="infographic" aria-label="Как работает AI караоке">
+            <div className="infographic__step infographic__step--source">
+              <span className="visually-hidden">Загрузи трек по ссылке</span>
+              <svg
+                className="infographic__symbol"
+                viewBox="0 0 80 80"
+                role="presentation"
+                aria-hidden="true"
+              >
+                <defs>
+                  <linearGradient id="infographicSourceGradient" x1="0" x2="1" y1="1" y2="0">
+                    <stop offset="0%" stopColor="rgba(255, 160, 255, 0.9)" />
+                    <stop offset="100%" stopColor="rgba(134, 191, 255, 0.9)" />
+                  </linearGradient>
+                </defs>
+                <rect
+                  x="18"
+                  y="12"
+                  width="32"
+                  height="48"
+                  rx="10"
+                  stroke="url(#infographicSourceGradient)"
+                  strokeWidth="3"
+                  fill="none"
+                />
+                <path
+                  d="M46 24c6 0 11 5 11 11s-5 11-11 11h-6"
+                  stroke="url(#infographicSourceGradient)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <path
+                  d="M34 35c-6 0-11 5-11 11s5 11 11 11h6"
+                  stroke="url(#infographicSourceGradient)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <path
+                  d="M32 30v14.5a4.5 4.5 0 1 0 3 4.24"
+                  stroke="url(#infographicSourceGradient)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <circle cx="39" cy="26" r="4" fill="url(#infographicSourceGradient)" />
+              </svg>
+            </div>
+            <div className="infographic__arrow" aria-hidden="true" />
+            <div className="infographic__step infographic__step--cloud">
+              <span className="visually-hidden">Облако AI готовит караоке</span>
+              <svg
+                className="infographic__symbol"
+                viewBox="0 0 80 80"
+                role="presentation"
+                aria-hidden="true"
+              >
+                <defs>
+                  <linearGradient id="infographicCloudGradient" x1="0" x2="1" y1="1" y2="0">
+                    <stop offset="0%" stopColor="rgba(138, 173, 255, 0.9)" />
+                    <stop offset="100%" stopColor="rgba(164, 255, 255, 0.9)" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M28 46h23a9 9 0 0 0 0-18 14 14 0 0 0-27-3.5A10 10 0 0 0 28 46Z"
+                  stroke="url(#infographicCloudGradient)"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <circle cx="32" cy="54" r="4" fill="url(#infographicCloudGradient)" />
+                <circle cx="48" cy="54" r="4" fill="url(#infographicCloudGradient)" />
+                <rect
+                  x="28"
+                  y="54"
+                  width="24"
+                  height="6"
+                  rx="3"
+                  fill="url(#infographicCloudGradient)"
+                />
+              </svg>
+            </div>
+            <div className="infographic__arrow" aria-hidden="true" />
+            <div className="infographic__step infographic__step--stage">
+              <span className="visually-hidden">На сцене пой со мной</span>
+              <svg
+                className="infographic__symbol"
+                viewBox="0 0 80 80"
+                role="presentation"
+                aria-hidden="true"
+              >
+                <defs>
+                  <linearGradient id="infographicStageGradient" x1="0" x2="1" y1="1" y2="0">
+                    <stop offset="0%" stopColor="rgba(92, 159, 255, 0.9)" />
+                    <stop offset="100%" stopColor="rgba(184, 96, 255, 0.9)" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M34 48 46 36"
+                  stroke="url(#infographicStageGradient)"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <path
+                  d="M46.5 35.5a7 7 0 1 1 9.9 9.9"
+                  stroke="url(#infographicStageGradient)"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <circle
+                  cx="50"
+                  cy="30"
+                  r="6"
+                  stroke="url(#infographicStageGradient)"
+                  strokeWidth="4"
+                  fill="none"
+                />
+                <path
+                  d="M24 54c0-8 4-12 10-12"
+                  stroke="url(#infographicStageGradient)"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <path
+                  d="M28 46a8 8 0 1 0-9-8"
+                  stroke="url(#infographicStageGradient)"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
       </header>
 
