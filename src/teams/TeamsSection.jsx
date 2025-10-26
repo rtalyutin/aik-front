@@ -55,7 +55,7 @@ const TeamsSection = () => {
                         href={team.website}
                         className={styles.link}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                       >
                         Перейти
                       </a>

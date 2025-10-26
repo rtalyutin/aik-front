@@ -39,7 +39,12 @@ const ScheduleSection = () => {
               <div className={styles.details}>
                 {game.competition ? <p className={styles.competition}>{game.competition}</p> : null}
                 {game.broadcast ? (
-                  <a href={game.broadcast} className={styles.link} target="_blank" rel="noreferrer">
+                  <a
+                    href={game.broadcast}
+                    className={styles.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Смотреть трансляцию
                   </a>
                 ) : (

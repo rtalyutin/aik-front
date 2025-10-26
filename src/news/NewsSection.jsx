@@ -33,7 +33,12 @@ const NewsSection = () => {
               meta={formatDateTime(item.publishedAt)}
             >
               <div className={styles.meta}>
-                <a className={styles.link} href={item.link} target="_blank" rel="noreferrer">
+                <a
+                  className={styles.link}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Читать полностью
                 </a>
                 {item.tags?.length ? (
