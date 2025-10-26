@@ -1,0 +1,73 @@
+{
+  "tracks": [
+    {
+      "id": "track-1",
+      "title": "Лунная ночь",
+      "lines": [
+        {
+          "time": 0,
+          "text": "Лунный свет скользит по крыше",
+          "words": [
+            { "text": "Лунный", "time": 0, "trailing": " " },
+            { "text": "свет", "time": 600, "trailing": " " },
+            { "text": "скользит", "time": 1100, "trailing": " " },
+            { "text": "по", "time": 1700, "trailing": " " },
+            { "text": "крыше", "time": 1900, "trailing": "" }
+          ]
+        },
+        {
+          "time": 2800,
+          "text": "Город дремлет и дышит",
+          "words": [
+            { "text": "Город", "time": 0, "trailing": " " },
+            { "text": "дремлет", "time": 520, "trailing": " " },
+            { "text": "и", "time": 1020, "trailing": " " },
+            { "text": "дышит", "time": 1180, "trailing": "" }
+          ]
+        },
+        {
+          "time": 4300,
+          "text": "Мы с тобой ловим каждое слово",
+          "words": [
+            { "text": "Мы", "time": 0, "trailing": " " },
+            { "text": "с", "time": 400, "trailing": " " },
+            { "text": "тобой", "time": 540, "trailing": " " },
+            { "text": "ловим", "time": 1000, "trailing": " " },
+            { "text": "каждое", "time": 1520, "trailing": " " },
+            { "text": "слово", "time": 2100, "trailing": "" }
+          ]
+        },
+        {
+          "time": 6400,
+          "text": "Этой ночью нам все по силам",
+          "words": [
+            { "text": "Этой", "time": 0, "trailing": " " },
+            { "text": "ночью", "time": 500, "trailing": " " },
+            { "text": "нам", "time": 1100, "trailing": " " },
+            { "text": "все", "time": 1450, "trailing": " " },
+            { "text": "по", "time": 1820, "trailing": " " },
+            { "text": "силам", "time": 2100, "trailing": "" }
+          ]
+        },
+        {
+          "time": 8600,
+          "text": "Пой со мной — и пусть утро подождет",
+          "words": [
+            { "text": "Пой", "time": 0, "trailing": " " },
+            { "text": "со", "time": 420, "trailing": " " },
+            { "text": "мной", "time": 700, "trailing": " " },
+            { "text": "—", "time": 900, "trailing": " " },
+            { "text": "и", "time": 1120, "trailing": " " },
+            { "text": "пусть", "time": 1350, "trailing": " " },
+            { "text": "утро", "time": 1800, "trailing": " " },
+            { "text": "подождет", "time": 2300, "trailing": "" }
+          ]
+        }
+      ]
+    },
+    { "id": "track-2", "title": "Городские огни", "lines": [] },
+    { "id": "track-3", "title": "Танец ветра", "lines": [] },
+    { "id": "track-4", "title": "Зимний блюз", "lines": [] },
+    { "id": "track-5", "title": "Свободный полёт", "lines": [] }
+  ]
+}

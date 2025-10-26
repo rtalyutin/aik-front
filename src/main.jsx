@@ -1,33 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { RouterProvider } from 'react-router-dom'
-import { HelmetProvider } from 'react-helmet-async'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import router from './router.jsx'
-import './index.css'
-import { initPwa } from './pwa/registerSW.js'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import playerStore from './store/player.js'
+import './styles/theme.css'
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      refetchOnReconnect: true,
-      retry: 2,
-    },
-  },
-})
+const rootElement = document.getElementById('root')
 
-const container = document.getElementById('root')
-const root = createRoot(container)
+if (rootElement) {
+  if (!document.documentElement.dataset.theme) {
+    document.documentElement.dataset.theme = 'male'
+  }
 
-root.render(
-  <StrictMode>
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>
-    </HelmetProvider>
-  </StrictMode>,
-)
-
-initPwa()
+  ReactDOM.createRoot(rootElement).render(
+    <React.StrictMode>
+      <App player={playerStore} />
+    </React.StrictMode>,
+  )
+}
