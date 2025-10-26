@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import App from '../App'
 
 describe('App', () => {
@@ -16,5 +16,14 @@ describe('App', () => {
 
     const lyricsItems = screen.getAllByRole('listitem')
     expect(lyricsItems.length).toBeGreaterThan(0)
+  })
+
+  it('allows hiding the infographic card', () => {
+    render(<App />)
+
+    const closeButton = screen.getByRole('button', { name: 'Скрыть инфографику' })
+    fireEvent.click(closeButton)
+
+    expect(screen.queryByRole('region', { name: 'Как работает AI караоке' })).toBeNull()
   })
 })
