@@ -27,6 +27,56 @@ body {
   backdrop-filter: blur(60px);
 }
 
+.app-nav {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.app-nav__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.app-nav__item {
+  display: flex;
+}
+
+.app-nav__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(16, 9, 38, 0.45);
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.app-nav__link:hover,
+.app-nav__link:focus-visible {
+  color: #ffffff;
+  background: rgba(16, 9, 38, 0.75);
+}
+
+.app-nav__link--active {
+  background: linear-gradient(135deg, rgba(255, 116, 208, 0.85), rgba(123, 112, 255, 0.95));
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 16px 42px rgba(123, 112, 255, 0.35);
+}
+
 .karaoke-header {
   display: flex;
   align-items: center;
@@ -66,6 +116,14 @@ body {
   font-size: clamp(32px, 4vw, 56px);
   font-weight: 700;
   letter-spacing: 0.02em;
+}
+
+.title-description {
+  margin: 12px 0 0;
+  max-width: 520px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.5;
 }
 
 .layout {
@@ -358,6 +416,10 @@ body {
 @media (max-width: 640px) {
   .karaoke-app {
     padding: 32px 20px 48px;
+  }
+
+  .app-nav__link {
+    padding: 8px 18px;
   }
 
   .karaoke-header {
