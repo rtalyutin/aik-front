@@ -1,4 +1,4 @@
-import './MusicApp.css'
+import './App.css'
 
 const demoLyrics = [
   'Строка текста №1',
@@ -21,7 +21,7 @@ const statuses = [
   { label: 'Темп', value: '95 BPM', tone: 'neutral' },
 ]
 
-const MusicApp = () => {
+const App = () => {
   return (
     <div className="karaoke-app">
       <nav className="app-nav" aria-label="Основное меню">
@@ -122,4 +122,4 @@ const MusicApp = () => {
   )
 }
 
-export default MusicApp
+export default App
