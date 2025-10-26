@@ -54,6 +54,10 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    outDir: '../dist',
+    emptyOutDir: true,
+  },
   define: {
     __APP_ENV__: appEnv,
   },
