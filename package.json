@@ -12,9 +12,9 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch --passWithNoTests",
+    "test:coverage": "jest --coverage --passWithNoTests"
   },
   "lint-staged": {
     "*.{js,jsx}": [
@@ -48,7 +48,9 @@
     "eslint-plugin-react-refresh": "^0.4.22",
     "eslint-plugin-security": "^3.0.1",
     "globals": "^16.4.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
+    "jest-environment-jsdom": "^30.2.0",
     "lint-staged": "^15.4.3",
     "prettier": "^3.4.2",
     "typescript": "^5.9.3",
