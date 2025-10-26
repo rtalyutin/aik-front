@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from './footer.module.css'
 
 const Footer = () => {
@@ -9,9 +10,9 @@ const Footer = () => {
         <p className={styles.caption}>© {year}. Все права защищены.</p>
       </div>
       <div className={styles.links}>
-        <a href="/docs" className={styles.link}>
+        <Link to="/docs" className={styles.link}>
           Документация
-        </a>
+        </Link>
         <a href="mailto:support@aik-front.test" className={styles.link}>
           Поддержка
         </a>

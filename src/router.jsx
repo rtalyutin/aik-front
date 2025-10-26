@@ -8,6 +8,7 @@ const NewsPage = lazy(() => import('./pages/NewsPage.jsx'))
 const SchedulePage = lazy(() => import('./pages/SchedulePage.jsx'))
 const TeamsPage = lazy(() => import('./pages/TeamsPage.jsx'))
 const AudioPlayerPage = lazy(() => import('./pages/AudioPlayerPage.jsx'))
+const DocsPage = lazy(() => import('./pages/DocsPage.jsx'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'))
 
 const withSuspense = (Component) => (
@@ -22,7 +23,7 @@ const withSuspense = (Component) => (
   </Suspense>
 )
 
-export const router = createBrowserRouter([
+export const routes = [
   {
     path: '/',
     element: <AppLayout />,
@@ -49,11 +50,17 @@ export const router = createBrowserRouter([
         element: withSuspense(TeamsPage),
       },
       {
+        path: 'docs',
+        element: withSuspense(DocsPage),
+      },
+      {
         path: '*',
         element: withSuspense(NotFoundPage),
       },
     ],
   },
-])
+]
+
+export const router = createBrowserRouter(routes)
 
 export default router
