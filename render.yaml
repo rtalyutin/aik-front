@@ -1,0 +1,10 @@
+services:
+  - type: static_site
+    name: aik-front
+    buildCommand: npm ci && npm run build
+    publishPath: dist
+    envVars:
+      - key: RENDER_BUILD_RUNTIME
+        value: static-advanced-node-20-ng20
+      - key: NODE_VERSION
+        value: "20"
