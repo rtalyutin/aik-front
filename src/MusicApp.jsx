@@ -1,4 +1,4 @@
-import './App.css'
+import './MusicApp.css'
 
 const demoLyrics = [
   'Строка текста №1',
@@ -21,14 +21,29 @@ const statuses = [
   { label: 'Темп', value: '95 BPM', tone: 'neutral' },
 ]
 
-const App = () => {
+const MusicApp = () => {
   return (
     <div className="karaoke-app">
+      <nav className="app-nav" aria-label="Основное меню">
+        <ul className="app-nav__list">
+          <li className="app-nav__item">
+            <a className="app-nav__link app-nav__link--active" href="#music">
+              Музыка
+            </a>
+          </li>
+        </ul>
+      </nav>
+
       <header className="karaoke-header">
         <div className="logo-slot" aria-hidden="true" />
         <div className="title-block">
           <span className="title-badge">новый сервис</span>
           <h1 className="title">Пой со мной!</h1>
+          <p className="title-description">
+            Пой со мной.
+            <br />
+            Загрузи музыку по ссылке -&gt; дождись загрузки -&gt; пой со мной!
+          </p>
         </div>
       </header>
 
@@ -58,7 +73,7 @@ const App = () => {
           </ul>
         </aside>
 
-        <main className="player" aria-labelledby="player-title">
+        <main id="music" className="player" aria-labelledby="player-title">
           <div className="player__controls">
             <button className="play-button" type="button" aria-label="Запустить демо-трек">
               <span className="play-button__icon" />
@@ -107,4 +122,4 @@ const App = () => {
   )
 }
 
-export default App
+export default MusicApp
