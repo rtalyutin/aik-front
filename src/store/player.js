@@ -15,6 +15,15 @@ export function createPlayerStore(initialState = {}) {
   let animationFrame = null
   let startTimestamp = 0
   const listeners = new Set()
+  const scheduleAnimation =
+    typeof requestAnimationFrame === 'function'
+      ? (callback) => requestAnimationFrame(callback)
+      : (callback) => setTimeout(callback, 16)
+
+  const cancelAnimation =
+    typeof cancelAnimationFrame === 'function'
+      ? (handle) => cancelAnimationFrame(handle)
+      : (handle) => clearTimeout(handle)
 
   const notify = () => {
     listeners.forEach((listener) => listener(state))
@@ -27,7 +36,7 @@ export function createPlayerStore(initialState = {}) {
 
   const stopAnimation = () => {
     if (animationFrame !== null) {
-      cancelAnimationFrame(animationFrame)
+      cancelAnimation(animationFrame)
       animationFrame = null
     }
   }
@@ -40,7 +49,7 @@ export function createPlayerStore(initialState = {}) {
 
     const elapsed = Math.max(0, now() - startTimestamp)
     setState({ currentMs: elapsed })
-    animationFrame = requestAnimationFrame(tick)
+    animationFrame = scheduleAnimation(tick)
   }
 
   const play = () => {
@@ -51,7 +60,7 @@ export function createPlayerStore(initialState = {}) {
     startTimestamp = now() - state.currentMs
     setState({ playing: true })
     stopAnimation()
-    animationFrame = requestAnimationFrame(tick)
+    animationFrame = scheduleAnimation(tick)
   }
 
   const pause = () => {
