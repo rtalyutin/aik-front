@@ -1,29 +1,16 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import App from '../App'
 
 describe('App', () => {
-  it('renders karaoke hero title and static navigation label', () => {
+  it('renders a placeholder heading for the main page', () => {
     render(<App />)
 
-    expect(screen.getByRole('heading', { level: 1, name: 'Пой со мной!' })).toBeInTheDocument()
-    expect(screen.getByRole('navigation', { name: 'Основное меню' })).toBeInTheDocument()
-    expect(screen.getByText('Музыка')).toHaveAttribute('aria-current', 'page')
-    expect(screen.queryByRole('link', { name: 'Музыка' })).toBeNull()
+    expect(screen.getByRole('heading', { level: 1, name: 'Главная страница' })).toBeInTheDocument()
   })
 
-  it('shows the demo lyrics list', () => {
+  it('describes upcoming content for the application', () => {
     render(<App />)
 
-    const lyricsItems = screen.getAllByRole('listitem')
-    expect(lyricsItems.length).toBeGreaterThan(0)
-  })
-
-  it('allows hiding the infographic card', () => {
-    render(<App />)
-
-    const closeButton = screen.getByRole('button', { name: 'Скрыть инфографику' })
-    fireEvent.click(closeButton)
-
-    expect(screen.queryByRole('region', { name: 'Как работает AI караоке' })).toBeNull()
+    expect(screen.getByText('Здесь появится приложение AI Karaoke.')).toBeInTheDocument()
   })
 })
