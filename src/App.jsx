@@ -10,6 +10,9 @@ import {
 } from './features/job-status/statusUtils';
 import Uploader from './features/uploader/Uploader';
 import uploaderConfig from './features/uploader/config.json';
+import { PlaybackProvider } from './features/player/PlaybackProvider.jsx';
+import Player from './features/player/Player.jsx';
+import Lyrics from './features/lyrics/Lyrics.jsx';
 
 const uploaderMessages = uploaderConfig.messages ?? {};
 const createJobEndpoint = uploaderConfig.api?.createJobEndpoint ?? '/api/jobs';
@@ -577,6 +580,12 @@ function App() {
         ) : (
           <p className="track-list__empty">Треки ещё не загружены. Добавьте первый трек, чтобы начать обработку.</p>
         )}
+        <PlaybackProvider>
+          <section className="workspace__playback" aria-label="Прослушивание и синхронизация текста">
+            <Player />
+            <Lyrics />
+          </section>
+        </PlaybackProvider>
       </main>
       {isUploaderOpen && (
         <Modal onClose={() => setIsUploaderOpen(false)} labelledBy="uploader-title">

@@ -1,0 +1,21 @@
+{
+  "id": "player",
+  "title": "Аудиоплеер",
+  "description": "Управление воспроизведением треков с поддержкой телеметрии событий.",
+  "track": {
+    "id": "demo-track",
+    "title": "AI Karaoke Demo",
+    "artist": "AI Karaoke Lab",
+    "src": "https://cdn.pixabay.com/audio/2022/10/31/audio_9e8b7b736e.mp3",
+    "durationHint": 30,
+    "captions": {
+      "src": "/captions/demo.vtt",
+      "srclang": "ru",
+      "label": "Русские субтитры"
+    }
+  },
+  "controls": {
+    "seekStepSeconds": 1,
+    "progressUpdateMs": 200
+  }
+}

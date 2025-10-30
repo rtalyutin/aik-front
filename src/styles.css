@@ -420,6 +420,19 @@ body {
   align-items: center;
 }
 
+.workspace__playback {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .workspace__playback {
+    grid-template-columns: 1fr;
+  }
+}
+
 .card {
   padding: 1.25rem;
   border-radius: var(--radius-md);
