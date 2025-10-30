@@ -1,0 +1,16 @@
+{
+  "id": "uploader",
+  "title": "Загрузка по ссылке",
+  "description": "Создание задач обработки аудио и видео по ссылке на источник.",
+  "api": {
+    "createJobEndpoint": "/api/jobs"
+  },
+  "constraints": {
+    "allowedProtocols": ["http:", "https:"],
+    "maxUrlLength": 2048
+  },
+  "messages": {
+    "success": "Задача успешно создана. Проверяем статус…",
+    "restart": "Повторная обработка запущена."
+  }
+}

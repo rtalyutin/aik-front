@@ -1,0 +1,26 @@
+{
+  "id": "job-status",
+  "title": "Статус обработки",
+  "description": "Пошаговый мониторинг выполнения задачи обработки.",
+  "api": {
+    "statusEndpoint": "/api/jobs"
+  },
+  "polling": {
+    "intervalMs": 5000,
+    "maxAttempts": 120
+  },
+  "icons": {
+    "uploading": "⬆️",
+    "splitting": "🪄",
+    "transcribing": "🎙️",
+    "complete": "✅",
+    "error": "⚠️",
+    "unknown": "❔"
+  },
+  "steps": [
+    { "id": "uploading", "label": "Загрузка" },
+    { "id": "splitting", "label": "Разделение LALAL" },
+    { "id": "transcribing", "label": "Транскрибация ASR" },
+    { "id": "complete", "label": "Готово", "errorLabel": "Ошибка" }
+  ]
+}
