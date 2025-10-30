@@ -9,10 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .js,.jsx",
     "format": "prettier --write .",
-
-     "test": "@esbuild-kit/esm-loader --test"
+    "test": "node --loader @esbuild-kit/esm-loader --test",
     "deploy": "bash scripts/deploy.sh"
-
   },
   "dependencies": {
     "react": "^18.0.0",
