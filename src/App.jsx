@@ -101,6 +101,7 @@ const formatTimestamp = (value) => {
 
 function App() {
   const [theme, setTheme] = useState('light');
+  const [accentPreset, setAccentPreset] = useState('pink');
   const [tracks, setTracks] = useState([]);
   const [globalNotice, setGlobalNotice] = useState('');
   const [globalError, setGlobalError] = useState('');
@@ -128,6 +129,15 @@ function App() {
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
   }, [theme]);
+
+  useEffect(() => {
+    document.documentElement.dataset.accent = accentPreset;
+    const rootNode = document.getElementById('root');
+
+    if (rootNode) {
+      rootNode.dataset.accent = accentPreset;
+    }
+  }, [accentPreset]);
 
   useEffect(() => {
     tracksRef.current = tracks;
@@ -488,8 +498,20 @@ function App() {
   }, [tracks]);
 
   return (
-    <div className="app" data-theme={theme} aria-live="polite" aria-label={statusSummary}>
-      <Header theme={theme} onToggleTheme={() => setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))} />
+    <div
+      className="app"
+      data-theme={theme}
+      data-accent={accentPreset}
+      data-testid="app-shell"
+      aria-live="polite"
+      aria-label={statusSummary}
+    >
+      <Header
+        theme={theme}
+        accentPreset={accentPreset}
+        onToggleTheme={() => setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))}
+        onSelectAccent={setAccentPreset}
+      />
       <main className="workspace" aria-label="Список треков и управление загрузками">
         <section className="workspace__toolbar">
           <div>
