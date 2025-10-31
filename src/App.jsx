@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Header from './components/Header';
-import Button from './components/Button';
 import Modal from './components/Modal';
+import SplitPane from './components/SplitPane.jsx';
+import Card from './components/Card.jsx';
+import Tag from './components/Tag.jsx';
 import jobStatusConfig from './features/job-status/config.json';
 import {
   appendHistoryEntry,
@@ -13,6 +15,7 @@ import uploaderConfig from './features/uploader/config.json';
 import { PlaybackProvider } from './features/player/PlaybackProvider.jsx';
 import Player from './features/player/Player.jsx';
 import Lyrics from './features/lyrics/Lyrics.jsx';
+import Playlist from './features/playlist/Playlist.jsx';
 
 const uploaderMessages = uploaderConfig.messages ?? {};
 const createJobEndpoint = uploaderConfig.api?.createJobEndpoint ?? '/api/jobs';
@@ -99,10 +102,11 @@ const formatTimestamp = (value) => {
   }
 };
 
-function App() {
+function App({ initialTracks = [] } = {}) {
   const [theme, setTheme] = useState('light');
   const [accentPreset, setAccentPreset] = useState('pink');
-  const [tracks, setTracks] = useState([]);
+  const [tracks, setTracks] = useState(() => initialTracks);
+  const [selectedTrackId, setSelectedTrackId] = useState('');
   const [globalNotice, setGlobalNotice] = useState('');
   const [globalError, setGlobalError] = useState('');
   const [isCreatingJob, setIsCreatingJob] = useState(false);
@@ -111,7 +115,7 @@ function App() {
 
   const pollAttemptsRef = useRef(new Map());
   const pollingTimersRef = useRef(new Map());
-  const tracksRef = useRef([]);
+  const tracksRef = useRef(initialTracks);
 
   const statusIcons = useMemo(() => ({ ...defaultStatusIcons, ...statusIconsConfig }), []);
 
@@ -142,6 +146,17 @@ function App() {
   useEffect(() => {
     tracksRef.current = tracks;
   }, [tracks]);
+
+  useEffect(() => {
+    if (tracks.length === 0) {
+      setSelectedTrackId('');
+      return;
+    }
+
+    if (!selectedTrackId || !tracks.some((track) => track.id === selectedTrackId)) {
+      setSelectedTrackId(tracks[0].id);
+    }
+  }, [tracks, selectedTrackId]);
 
   const stopPolling = useCallback((jobId) => {
     if (!jobId) {
@@ -375,6 +390,8 @@ function App() {
           return [newTrack, ...filtered];
         });
 
+        setSelectedTrackId(newJobId);
+
         if (!normalized.isFinal) {
           startPolling(newJobId);
         } else {
@@ -479,6 +496,26 @@ function App() {
     [statusIcons],
   );
 
+  const getStatusVariant = useCallback((status) => {
+    if (!status) {
+      return 'neutral';
+    }
+
+    if (status.isError) {
+      return 'danger';
+    }
+
+    if (status.stage === 'complete') {
+      return 'success';
+    }
+
+    if (['uploading', 'splitting', 'transcribing'].includes(status.stage)) {
+      return 'warning';
+    }
+
+    return 'neutral';
+  }, []);
+
   const statusSummary = useMemo(() => {
     if (tracks.length === 0) {
       return 'Нет активных задач';
@@ -497,6 +534,30 @@ function App() {
     return 'Выполняется обработка задач';
   }, [tracks]);
 
+  const playlistTracks = useMemo(
+    () =>
+      tracks.map((track) => ({
+        id: track.id,
+        sourceUrl: track.sourceUrl,
+        statusStage: track.status?.stage ?? null,
+        statusLabel: getStatusLabel(track.status),
+        statusIcon: getStatusIcon(track.status),
+        statusRaw: track.status?.rawStatus ?? '',
+        statusMessage: track.status?.message ?? '',
+        updatedLabel: formatTimestamp(track.lastUpdatedAt) || '—',
+        pollingError: track.pollingError ?? '',
+        isManualRefresh: track.isManualRefresh ?? false,
+        isError: track.status?.isError ?? false,
+        tagVariant: getStatusVariant(track.status),
+      })),
+    [tracks, getStatusLabel, getStatusIcon, getStatusVariant],
+  );
+
+  const selectedPlaylistTrack = useMemo(
+    () => playlistTracks.find((item) => item.id === selectedTrackId) ?? null,
+    [playlistTracks, selectedTrackId],
+  );
+
   return (
     <div
       className="app"
@@ -513,101 +574,75 @@ function App() {
         onSelectAccent={setAccentPreset}
       />
       <main className="workspace" aria-label="Список треков и управление загрузками">
-        <section className="workspace__toolbar">
-          <div>
-            <h1 className="workspace__title">Треки для обработки</h1>
-            <p className="workspace__subtitle">Добавляйте новые треки и следите за статусом обработки.</p>
-          </div>
-          <Button type="button" onClick={() => setIsUploaderOpen(true)}>
-            Добавить трек
-          </Button>
-        </section>
-        {globalNotice && (
-          <p className="workspace__notice" role="status">
-            {globalNotice}
-          </p>
-        )}
-        {globalError && (
-          <p className="workspace__error" role="alert">
-            {globalError}
-          </p>
-        )}
-        {tracks.length > 0 ? (
-          <ul className="track-list" aria-label="Список треков">
-            {tracks.map((track) => {
-              const statusLabel = getStatusLabel(track.status);
-              const statusIcon = getStatusIcon(track.status);
-              const iconKey = track.status?.isError ? 'error' : track.status?.stage ?? 'unknown';
-
-              return (
-                <li key={track.id} className="track-list__item">
-                  <span
-                    className={`track-list__status track-list__status--${iconKey}`}
-                    aria-label={statusLabel}
-                    title={statusLabel}
-                  >
-                    {statusIcon}
-                  </span>
-                  <div className="track-list__body">
-                    <div className="track-list__row">
-                      <div className="track-list__primary">
-                        <span className="track-list__source" title={track.sourceUrl}>
-                          {track.sourceUrl}
-                        </span>
-                        <span className="track-list__job" aria-label="Идентификатор задачи">
-                          ID: {track.id}
-                        </span>
-                      </div>
-                      <div className="track-list__meta" aria-live="polite">
-                        <span className="track-list__stage">{statusLabel}</span>
-                        <span className="track-list__updated">
-                          Обновлено: {formatTimestamp(track.lastUpdatedAt) || '—'}
-                        </span>
-                        {track.status?.rawStatus && (
-                          <span className="track-list__raw">API: {String(track.status.rawStatus)}</span>
-                        )}
-                      </div>
+        <SplitPane
+          leftWidth="30%"
+          rightWidth="70%"
+          ariaLabel="Плейлист и управление воспроизведением"
+          left={
+            <Playlist
+              tracks={playlistTracks}
+              selectedTrackId={selectedTrackId}
+              notice={globalNotice}
+              error={globalError}
+              onSelect={setSelectedTrackId}
+              onAddClick={() => setIsUploaderOpen(true)}
+              onRefresh={handleManualRefresh}
+              onRetry={handleRestart}
+              isAddDisabled={isCreatingJob}
+              isRetryDisabled={isCreatingJob}
+            />
+          }
+          right={
+            <div className="workspace__details">
+              <Card className="workspace__status-widget" padding="md">
+                <h2 className="workspace__status-title">Статус обработки</h2>
+                <p className="workspace__status-summary">{statusSummary}</p>
+                {selectedPlaylistTrack ? (
+                  <div className="workspace__status-details">
+                    <div className="workspace__status-track">
+                      <span
+                        className="workspace__status-source"
+                        title={selectedPlaylistTrack.sourceUrl}
+                      >
+                        {selectedPlaylistTrack.sourceUrl}
+                      </span>
+                      <span className="workspace__status-id">ID: {selectedPlaylistTrack.id}</span>
                     </div>
-                    {track.status?.message && (
-                      <p className="track-list__message">{track.status.message}</p>
-                    )}
-                    {track.pollingError && (
-                      <p className="track-list__error" role="alert">
-                        {track.pollingError}
+                    <div className="workspace__status-state">
+                      <span className="workspace__status-icon" aria-hidden="true">
+                        {selectedPlaylistTrack.statusIcon}
+                      </span>
+                      <Tag variant={selectedPlaylistTrack.tagVariant ?? 'neutral'}>
+                        {selectedPlaylistTrack.statusLabel}
+                      </Tag>
+                    </div>
+                    <p className="workspace__status-updated">
+                      Обновлено: {selectedPlaylistTrack.updatedLabel || '—'}
+                    </p>
+                    {selectedPlaylistTrack.statusMessage && (
+                      <p className="workspace__status-message">
+                        {selectedPlaylistTrack.statusMessage}
                       </p>
                     )}
                   </div>
-                  <div className="track-list__actions">
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      onClick={() => handleManualRefresh(track.id)}
-                      disabled={track.isManualRefresh}
-                    >
-                      {track.isManualRefresh ? 'Обновление…' : 'Обновить'}
-                    </Button>
-                    <Button
-                      type="button"
-                      variant="secondary"
-                      onClick={() => handleRestart(track.id)}
-                      disabled={isCreatingJob}
-                    >
-                      Повторить
-                    </Button>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        ) : (
-          <p className="track-list__empty">Треки ещё не загружены. Добавьте первый трек, чтобы начать обработку.</p>
-        )}
-        <PlaybackProvider>
-          <section className="workspace__playback" aria-label="Прослушивание и синхронизация текста">
-            <Player />
-            <Lyrics />
-          </section>
-        </PlaybackProvider>
+                ) : (
+                  <p className="workspace__status-placeholder">
+                    Выберите трек, чтобы увидеть детали обработки.
+                  </p>
+                )}
+              </Card>
+              <PlaybackProvider>
+                <div
+                  className="workspace__playback"
+                  aria-label="Прослушивание и синхронизация текста"
+                >
+                  <Player />
+                  <Lyrics />
+                </div>
+              </PlaybackProvider>
+            </div>
+          }
+        />
       </main>
       {isUploaderOpen && (
         <Modal onClose={() => setIsUploaderOpen(false)} labelledBy="uploader-title">
