@@ -1,0 +1,35 @@
+{
+  "id": "playlist",
+  "title": "Треки для обработки",
+  "subtitle": "Добавляйте новые треки и следите за статусом обработки.",
+  "listLabel": "Список треков для обработки",
+  "columns": [
+    { "id": "source", "label": "Источник" },
+    { "id": "status", "label": "Статус" },
+    { "id": "actions", "label": "Действия" }
+  ],
+  "actions": {
+    "refresh": { "label": "Обновить" },
+    "retry": { "label": "Повторить" }
+  },
+  "addButton": {
+    "label": "Добавить трек",
+    "icon": "+"
+  },
+  "selection": {
+    "label": "Выбрать трек"
+  },
+  "statusTags": {
+    "default": { "variant": "neutral", "label": "Статус обновляется" },
+    "uploading": { "variant": "warning" },
+    "splitting": { "variant": "warning" },
+    "transcribing": { "variant": "warning" },
+    "complete": { "variant": "success" },
+    "error": { "variant": "danger", "label": "Ошибка обработки" },
+    "unknown": { "variant": "neutral", "label": "Статус не получен" }
+  },
+  "emptyState": {
+    "title": "Треки ещё не загружены",
+    "description": "Добавьте первый трек, чтобы запустить обработку и синхронизацию."
+  }
+}

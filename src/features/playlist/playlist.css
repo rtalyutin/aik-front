@@ -1,0 +1,240 @@
+.playlist {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  height: 100%;
+}
+
+.playlist__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.playlist__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.playlist__subtitle {
+  margin: 0.4rem 0 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.playlist__notice,
+.playlist__error {
+  margin: 0;
+}
+
+.playlist__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.playlist__content {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.playlist__columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) auto;
+  gap: 1rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  padding: 0 1rem;
+}
+
+.playlist__column {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.25rem;
+}
+
+.playlist__column--actions {
+  justify-content: flex-end;
+}
+
+.playlist__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.playlist__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.playlist__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: stretch;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.playlist__item--active .playlist__card {
+  border-color: var(--accent-solid);
+  box-shadow: 0 16px 36px var(--accent-shadow);
+}
+
+.playlist__select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: none;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.playlist__select:focus-visible {
+  outline: 3px solid var(--accent-focus);
+  outline-offset: 3px;
+  border-radius: calc(var(--radius-md) - 4px);
+}
+
+.playlist__primary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.playlist__source {
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.playlist__id {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.playlist__status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.playlist__status-tag {
+  font-size: 0.7rem;
+}
+
+.playlist__status-icon {
+  font-size: 1.5rem;
+}
+
+.playlist__updated,
+.playlist__raw {
+  white-space: nowrap;
+}
+
+.playlist__message {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.playlist__polling-error {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #c0392b;
+}
+
+.playlist__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-end;
+  padding: 1rem 1.25rem 1rem 0;
+}
+
+.playlist__empty {
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.playlist__empty-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.playlist__empty-description {
+  margin: 0.75rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.playlist__footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.playlist__add-button {
+  min-width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 1200px) {
+  .playlist__columns {
+    display: none;
+  }
+
+  .playlist__card {
+    grid-template-columns: 1fr;
+  }
+
+  .playlist__actions {
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0 1.25rem 1.25rem;
+  }
+
+  .playlist__add-button {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .playlist {
+    gap: 1rem;
+  }
+
+  .playlist__card {
+    box-shadow: none;
+  }
+}
