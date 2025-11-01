@@ -8,7 +8,7 @@ import React, {
   useState,
 } from 'react';
 
-const PlaybackContext = createContext(null);
+export const PlaybackContext = createContext(null);
 
 export function PlaybackProvider({ children }) {
   const [track, setTrack] = useState(null);
