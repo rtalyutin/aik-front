@@ -99,12 +99,33 @@
 }
 
 .lyrics__word {
-  transition: color 120ms ease;
+  --word-progress: 0;
+  position: relative;
+  transition: color 120ms ease, background-image 180ms ease;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 .lyrics__word--active {
   color: var(--accent, #38bdf8);
   font-weight: 700;
+}
+
+.lyrics__word--timed {
+  color: transparent;
+  background-image: linear-gradient(
+    to right,
+    var(--accent, #38bdf8) 0%,
+    var(--accent, #38bdf8) calc(var(--word-progress) * 100%),
+    currentColor calc(var(--word-progress) * 100%),
+    currentColor 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.lyrics__word--active:not(.lyrics__word--timed) {
+  color: var(--accent, #38bdf8);
 }
 
 .lyrics__timestamp {

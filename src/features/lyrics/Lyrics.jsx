@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import lyricsConfig from './config.json';
 import { usePlayback } from '../player/PlaybackProvider.jsx';
+import { calculateWordProgress } from './wordProgress.js';
 import './lyrics.css';
 
 const getActiveIndex = (items, timeMs) => {
@@ -45,6 +46,11 @@ function Lyrics() {
     const words = lines[activeLineIndex]?.words ?? [];
     return getActiveIndex(words, effectiveTimeMs);
   }, [activeLineIndex, effectiveTimeMs, lines]);
+
+  const { progress: activeWordProgress, hasTiming: activeWordHasTiming } = useMemo(
+    () => calculateWordProgress(lines, activeLineIndex, activeWordIndex, effectiveTimeMs),
+    [activeLineIndex, activeWordIndex, effectiveTimeMs, lines],
+  );
 
   useEffect(() => {
     if (lineRefs.current[activeLineIndex]) {
@@ -122,10 +128,21 @@ function Lyrics() {
                   {words.length > 0
                     ? words.map((word, wordIndex) => {
                         const isActiveWord = isActiveLine && wordIndex === activeWordIndex;
+                        const wordClassName = `lyrics__word${
+                          isActiveWord ? ' lyrics__word--active' : ''
+                        }${
+                          isActiveWord && activeWordHasTiming ? ' lyrics__word--timed' : ''
+                        }`;
+                        const wordStyle =
+                          isActiveWord && activeWordHasTiming
+                            ? { '--word-progress': activeWordProgress }
+                            : undefined;
+
                         return (
                           <span
                             key={word.id}
-                            className={`lyrics__word${isActiveWord ? ' lyrics__word--active' : ''}`}
+                            className={wordClassName}
+                            style={wordStyle}
                             aria-current={isActiveWord ? 'true' : undefined}
                           >
                             {word.text}
