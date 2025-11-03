@@ -1,174 +1,162 @@
 :root {
   color-scheme: light;
   font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #f6efe7;
-  --color-bg: #f6efe7;
-  --color-surface: #fff8f1;
-  --color-surface-elevated: #f4e1cf;
-  --color-surface-muted: rgba(210, 106, 44, 0.08);
-  --color-border: #e2d2c0;
-  --color-divider: rgba(153, 107, 70, 0.18);
-  --color-text: #3e2617;
-  --color-text-muted: #7a5a45;
-  --color-track-bg: rgba(153, 107, 70, 0.24);
-  --color-input-bg: rgba(255, 248, 241, 0.78);
-  --color-input-border: rgba(153, 107, 70, 0.28);
-  --accent-solid: #d26a2c;
-  --accent-solid-strong: #b9561f;
-  --accent-solid-active: #994214;
-  --accent-contrast: #fffaf4;
-  --accent-surface: rgba(210, 106, 44, 0.14);
-  --accent-surface-strong: rgba(210, 106, 44, 0.28);
-  --accent-focus: #ffd7b5;
-  --accent-shadow: rgba(184, 90, 34, 0.35);
-  --accent-stroke: #b95727;
-  --accent-notice-bg: rgba(210, 106, 44, 0.1);
-  --accent-notice-border: rgba(210, 106, 44, 0.24);
-  --accent-ring: rgba(210, 106, 44, 0.35);
+  background-color: #f4f1eb;
+  --color-bg: #f4f1eb;
+  --color-surface: #fcfaf5;
+  --color-surface-elevated: #efe8dc;
+  --color-surface-muted: rgba(173, 158, 134, 0.12);
+  --color-border: #ded3c3;
+  --color-divider: rgba(140, 126, 108, 0.18);
+  --color-text: #3d3529;
+  --color-text-muted: #7d7160;
+  --color-track-bg: rgba(140, 126, 108, 0.24);
+  --color-input-bg: rgba(252, 250, 245, 0.8);
+  --color-input-border: rgba(140, 126, 108, 0.22);
+  --accent-solid: #b79c79;
+  --accent-solid-strong: #a58661;
+  --accent-solid-active: #8f734f;
+  --accent-contrast: #fffbf3;
+  --accent-surface: rgba(183, 156, 121, 0.16);
+  --accent-surface-strong: rgba(183, 156, 121, 0.26);
+  --accent-focus: #eadcc7;
+  --accent-shadow: rgba(110, 87, 60, 0.2);
+  --accent-stroke: #aa8f6a;
+  --accent-notice-bg: rgba(183, 156, 121, 0.12);
+  --accent-notice-border: rgba(183, 156, 121, 0.24);
+  --accent-ring: rgba(183, 156, 121, 0.32);
   --app-header-background: var(--color-surface);
   --app-header-border-color: var(--color-border);
-  --app-header-shadow: 0 12px 28px rgba(88, 56, 33, 0.12);
-  --workspace-background: var(--color-bg);
-  --workspace-border-color: transparent;
-  --workspace-shadow: none;
-  --workspace-border-radius: 0;
-  --workspace-playback-background: transparent;
-  --workspace-playback-border-color: transparent;
-  --workspace-playback-shadow: none;
-  --workspace-playback-radius: 0;
-  --workspace-playback-padding: 0;
-  --player-surface-background: var(--color-surface);
-  --player-surface-border-color: transparent;
-  --player-surface-shadow: var(--shadow-elevated);
-  --player-button-background: var(--accent-solid);
+  --app-header-shadow: 0 10px 28px rgba(74, 64, 50, 0.12);
+  --workspace-background: linear-gradient(
+    180deg,
+    rgba(252, 250, 245, 0.9) 0%,
+    rgba(237, 231, 220, 0.9) 100%
+  );
+  --workspace-border-color: rgba(206, 193, 174, 0.4);
+  --workspace-shadow: 0 20px 48px rgba(74, 64, 50, 0.1);
+  --workspace-border-radius: 20px;
+  --workspace-playback-background: var(--color-surface);
+  --workspace-playback-border-color: rgba(210, 198, 178, 0.5);
+  --workspace-playback-shadow: 0 16px 40px rgba(74, 64, 50, 0.12);
+  --workspace-playback-radius: 18px;
+  --workspace-playback-padding: 1.5rem;
+  --player-surface-background: linear-gradient(
+    180deg,
+    rgba(252, 250, 245, 0.95) 0%,
+    rgba(240, 233, 222, 0.95) 100%
+  );
+  --player-surface-border-color: rgba(206, 193, 174, 0.6);
+  --player-surface-shadow: 0 18px 44px rgba(74, 64, 50, 0.14);
+  --player-button-background: linear-gradient(130deg, #cbb495 0%, #b39571 100%);
   --player-button-text-color: var(--accent-contrast);
-  --player-button-shadow: none;
-  --player-button-hover-shadow: 0 8px 16px var(--accent-shadow);
+  --player-button-shadow: 0 12px 28px rgba(110, 87, 60, 0.22);
+  --player-button-hover-shadow: 0 16px 36px rgba(110, 87, 60, 0.24);
   --card-surface-background: var(--color-surface);
-  --card-border-color: var(--color-border);
-  --card-shadow: none;
-  --button-primary-background: linear-gradient(
-    135deg,
-    var(--accent-solid-strong),
-    var(--accent-solid)
-  );
-  --button-primary-hover-background: linear-gradient(
-    135deg,
-    var(--accent-solid),
-    var(--accent-solid-strong)
-  );
-  --button-primary-active-background: linear-gradient(
-    135deg,
-    var(--accent-solid-active),
-    var(--accent-solid)
-  );
-  --button-primary-shadow: 0 12px 28px var(--accent-shadow);
+  --card-border-color: rgba(206, 193, 174, 0.6);
+  --card-shadow: 0 18px 44px rgba(74, 64, 50, 0.1);
+  --button-primary-background: linear-gradient(135deg, #c7b090 0%, #b39571 100%);
+  --button-primary-hover-background: linear-gradient(135deg, #b39571 0%, #a58661 100%);
+  --button-primary-active-background: linear-gradient(135deg, #a58661 0%, #8f734f 100%);
+  --button-primary-shadow: 0 18px 42px rgba(110, 87, 60, 0.22);
   --color-primary: var(--accent-solid);
   --color-primary-hover: var(--accent-solid-strong);
   --color-primary-active: var(--accent-solid-active);
   --color-primary-contrast: var(--accent-contrast);
-  --color-secondary: #f0d9bf;
-  --color-secondary-hover: #e8c7a6;
-  --color-secondary-active: #dfb58f;
-  --color-tag-neutral-bg: #f4e3d2;
-  --color-tag-success-bg: #d8e2c6;
-  --color-tag-warning-bg: #f9d7a6;
-  --color-tag-danger-bg: #f1b7a2;
-  --color-tag-text: #3e2617;
+  --color-secondary: #e1d6c7;
+  --color-secondary-hover: #d7cab7;
+  --color-secondary-active: #ccbea9;
+  --color-tag-neutral-bg: #eee5d8;
+  --color-tag-success-bg: #d9e2d4;
+  --color-tag-warning-bg: #f1e2c7;
+  --color-tag-danger-bg: #e6d0c7;
+  --color-tag-text: var(--color-text);
   --color-focus: var(--accent-focus);
-  --color-danger: #a6452b;
-  --color-danger-surface: rgba(166, 69, 43, 0.14);
-  --color-danger-border: rgba(166, 69, 43, 0.32);
-  --shadow-soft: 0 16px 44px rgba(88, 56, 33, 0.16);
-  --shadow-elevated: 0 12px 30px rgba(88, 56, 33, 0.22);
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  --color-danger: #a5645d;
+  --color-danger-surface: rgba(165, 100, 93, 0.14);
+  --color-danger-border: rgba(165, 100, 93, 0.28);
+  --shadow-soft: 0 20px 48px rgba(74, 64, 50, 0.18);
+  --shadow-elevated: 0 14px 38px rgba(74, 64, 50, 0.2);
+  --radius-md: 14px;
+  --radius-lg: 22px;
   line-height: 1.5;
   text-rendering: optimizeLegibility;
 }
 
 html[data-theme='dark'] {
   color-scheme: dark;
-  background-color: #1f1109;
-  --color-bg: #1f1109;
-  --color-surface: #2c180e;
-  --color-surface-elevated: #3a2115;
-  --color-surface-muted: rgba(244, 131, 49, 0.12);
-  --color-border: #4a2a18;
-  --color-divider: rgba(240, 184, 140, 0.22);
-  --color-text: #f7ece1;
-  --color-text-muted: #d6bfad;
-  --color-track-bg: rgba(240, 184, 140, 0.32);
-  --color-input-bg: rgba(31, 17, 9, 0.72);
-  --color-input-border: rgba(240, 184, 140, 0.32);
-  --accent-solid: #f48331;
-  --accent-solid-strong: #e16d1f;
-  --accent-solid-active: #c05511;
-  --accent-contrast: #1f1109;
-  --accent-surface: rgba(244, 131, 49, 0.22);
-  --accent-surface-strong: rgba(244, 131, 49, 0.35);
-  --accent-focus: #f9b47a;
-  --accent-shadow: rgba(244, 131, 49, 0.42);
-  --accent-stroke: #d4762c;
-  --accent-notice-bg: rgba(244, 131, 49, 0.2);
-  --accent-notice-border: rgba(244, 131, 49, 0.38);
-  --accent-ring: rgba(244, 131, 49, 0.5);
-  --app-header-background: var(--color-surface);
-  --app-header-border-color: var(--color-border);
-  --app-header-shadow: 0 12px 28px rgba(10, 4, 1, 0.65);
-  --workspace-background: rgba(31, 17, 9, 0.84);
-  --workspace-border-color: rgba(244, 131, 49, 0.08);
-  --workspace-shadow: none;
-  --workspace-border-radius: 0;
-  --workspace-playback-background: rgba(31, 17, 9, 0.72);
-  --workspace-playback-border-color: rgba(244, 131, 49, 0.16);
-  --workspace-playback-shadow: none;
-  --workspace-playback-radius: 0;
-  --workspace-playback-padding: 0;
-  --player-surface-background: var(--color-surface);
-  --player-surface-border-color: rgba(244, 131, 49, 0.22);
-  --player-surface-shadow: var(--shadow-elevated);
-  --player-button-background: var(--accent-solid);
+  background-color: #1b1815;
+  --color-bg: #1b1815;
+  --color-surface: #26221e;
+  --color-surface-elevated: #302b25;
+  --color-surface-muted: rgba(133, 112, 86, 0.16);
+  --color-border: #3b352f;
+  --color-divider: rgba(177, 160, 135, 0.25);
+  --color-text: #f2ebe1;
+  --color-text-muted: #c9bcaa;
+  --color-track-bg: rgba(177, 160, 135, 0.32);
+  --color-input-bg: rgba(27, 24, 21, 0.78);
+  --color-input-border: rgba(177, 160, 135, 0.32);
+  --accent-solid: #9a8265;
+  --accent-solid-strong: #886f52;
+  --accent-solid-active: #715940;
+  --accent-contrast: #1b1815;
+  --accent-surface: rgba(154, 130, 101, 0.24);
+  --accent-surface-strong: rgba(154, 130, 101, 0.36);
+  --accent-focus: #d5bfa0;
+  --accent-shadow: rgba(22, 14, 7, 0.6);
+  --accent-stroke: #8a7457;
+  --accent-notice-bg: rgba(154, 130, 101, 0.22);
+  --accent-notice-border: rgba(154, 130, 101, 0.38);
+  --accent-ring: rgba(154, 130, 101, 0.46);
+  --app-header-background: rgba(33, 29, 25, 0.94);
+  --app-header-border-color: rgba(154, 130, 101, 0.32);
+  --app-header-shadow: 0 16px 36px rgba(5, 3, 1, 0.68);
+  --workspace-background: linear-gradient(
+    180deg,
+    rgba(33, 29, 25, 0.92) 0%,
+    rgba(27, 24, 21, 0.92) 100%
+  );
+  --workspace-border-color: rgba(154, 130, 101, 0.24);
+  --workspace-shadow: 0 22px 50px rgba(5, 3, 1, 0.55);
+  --workspace-border-radius: 20px;
+  --workspace-playback-background: rgba(33, 29, 25, 0.88);
+  --workspace-playback-border-color: rgba(154, 130, 101, 0.32);
+  --workspace-playback-shadow: 0 18px 44px rgba(5, 3, 1, 0.55);
+  --workspace-playback-radius: 18px;
+  --workspace-playback-padding: 1.5rem;
+  --player-surface-background: rgba(36, 32, 28, 0.96);
+  --player-surface-border-color: rgba(154, 130, 101, 0.42);
+  --player-surface-shadow: 0 18px 44px rgba(5, 3, 1, 0.58);
+  --player-button-background: linear-gradient(130deg, #9a8265 0%, #715940 100%);
   --player-button-text-color: var(--accent-contrast);
-  --player-button-shadow: none;
-  --player-button-hover-shadow: 0 8px 16px var(--accent-shadow);
-  --card-surface-background: var(--color-surface);
-  --card-border-color: rgba(244, 131, 49, 0.28);
-  --card-shadow: none;
-  --button-primary-background: linear-gradient(
-    135deg,
-    var(--accent-solid-strong),
-    var(--accent-solid)
-  );
-  --button-primary-hover-background: linear-gradient(
-    135deg,
-    var(--accent-solid),
-    var(--accent-solid-strong)
-  );
-  --button-primary-active-background: linear-gradient(
-    135deg,
-    var(--accent-solid-active),
-    var(--accent-solid)
-  );
-  --button-primary-shadow: 0 12px 28px rgba(10, 4, 1, 0.72);
+  --player-button-shadow: 0 12px 28px rgba(5, 3, 1, 0.62);
+  --player-button-hover-shadow: 0 16px 36px rgba(5, 3, 1, 0.65);
+  --card-surface-background: rgba(33, 29, 25, 0.92);
+  --card-border-color: rgba(154, 130, 101, 0.34);
+  --card-shadow: 0 18px 44px rgba(5, 3, 1, 0.58);
+  --button-primary-background: linear-gradient(135deg, #9a8265 0%, #715940 100%);
+  --button-primary-hover-background: linear-gradient(135deg, #856c4e 0%, #6a553d 100%);
+  --button-primary-active-background: linear-gradient(135deg, #6a553d 0%, #56422f 100%);
+  --button-primary-shadow: 0 16px 36px rgba(5, 3, 1, 0.72);
   --color-primary: var(--accent-solid);
   --color-primary-hover: var(--accent-solid-strong);
   --color-primary-active: var(--accent-solid-active);
   --color-primary-contrast: var(--accent-contrast);
-  --color-secondary: #3e2517;
-  --color-secondary-hover: #4a2e1c;
-  --color-secondary-active: #563723;
-  --color-tag-neutral-bg: rgba(244, 131, 49, 0.16);
-  --color-tag-success-bg: rgba(146, 184, 130, 0.26);
-  --color-tag-warning-bg: rgba(245, 178, 82, 0.26);
-  --color-tag-danger-bg: rgba(217, 92, 68, 0.26);
-  --color-tag-text: #fbeee3;
+  --color-secondary: #312a24;
+  --color-secondary-hover: #372f28;
+  --color-secondary-active: #3d352e;
+  --color-tag-neutral-bg: rgba(154, 130, 101, 0.22);
+  --color-tag-success-bg: rgba(122, 160, 134, 0.24);
+  --color-tag-warning-bg: rgba(191, 163, 118, 0.24);
+  --color-tag-danger-bg: rgba(174, 112, 102, 0.26);
+  --color-tag-text: #f5ede3;
   --color-focus: var(--accent-focus);
-  --color-danger: #f38a5b;
-  --color-danger-surface: rgba(243, 138, 91, 0.18);
-  --color-danger-border: rgba(243, 138, 91, 0.32);
-  --shadow-soft: 0 18px 48px rgba(10, 4, 1, 0.72);
-  --shadow-elevated: 0 12px 28px rgba(10, 4, 1, 0.78);
+  --color-danger: #e58f7f;
+  --color-danger-surface: rgba(229, 143, 127, 0.2);
+  --color-danger-border: rgba(229, 143, 127, 0.32);
+  --shadow-soft: 0 20px 48px rgba(5, 3, 1, 0.68);
+  --shadow-elevated: 0 16px 40px rgba(5, 3, 1, 0.72);
 }
 
 [data-accent='fox-dream'] {
@@ -264,19 +252,97 @@ html[data-theme='dark'] {
   transition: background 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
 }
 
+[data-accent='blue'] .app-header,
+[data-accent='blue'] .workspace,
+[data-accent='blue'] .workspace__playback,
+[data-accent='blue'] .player,
+[data-accent='blue'] .player__button,
+[data-accent='blue'] .card {
+  transition: background 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+
 [data-accent='blue'] {
+  --blue-glow: rgba(28, 82, 116, 0.4);
   --accent-solid: #3b6f87;
   --accent-solid-strong: #2d5870;
   --accent-solid-active: #1f4256;
-  --accent-contrast: #f6efe7;
+  --accent-contrast: #f4f9ff;
   --accent-surface: rgba(59, 111, 135, 0.16);
   --accent-surface-strong: rgba(59, 111, 135, 0.28);
   --accent-focus: #a4c2d0;
-  --accent-shadow: rgba(45, 88, 112, 0.32);
+  --accent-shadow: rgba(28, 82, 116, 0.28);
   --accent-stroke: #2f5c75;
   --accent-notice-bg: rgba(59, 111, 135, 0.12);
   --accent-notice-border: rgba(59, 111, 135, 0.26);
   --accent-ring: rgba(59, 111, 135, 0.38);
+  --app-header-background: linear-gradient(
+    140deg,
+    rgba(241, 247, 255, 0.96) 0%,
+    rgba(218, 236, 248, 0.95) 100%
+  );
+  --app-header-border-color: rgba(127, 170, 196, 0.45);
+  --app-header-shadow: 0 24px 56px var(--blue-glow);
+  --workspace-background: radial-gradient(
+      140% 140% at 10% 15%,
+      rgba(154, 203, 232, 0.32) 0%,
+      transparent 65%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(233, 242, 250, 0.94) 0%,
+      rgba(212, 229, 242, 0.94) 100%
+    );
+  --workspace-border-color: rgba(127, 170, 196, 0.32);
+  --workspace-shadow: 0 32px 72px var(--blue-glow);
+  --workspace-border-radius: 30px;
+  --workspace-playback-background: linear-gradient(
+    160deg,
+    rgba(242, 249, 255, 0.96) 0%,
+    rgba(210, 232, 247, 0.98) 100%
+  );
+  --workspace-playback-border-color: rgba(127, 170, 196, 0.38);
+  --workspace-playback-shadow: 0 28px 64px var(--blue-glow);
+  --workspace-playback-radius: 24px;
+  --workspace-playback-padding: 1.75rem;
+  --player-surface-background: linear-gradient(
+    150deg,
+    rgba(244, 250, 255, 0.95) 0%,
+    rgba(214, 234, 246, 0.96) 100%
+  );
+  --player-surface-border-color: rgba(127, 170, 196, 0.45);
+  --player-surface-shadow: 0 26px 64px var(--blue-glow);
+  --player-button-background: linear-gradient(
+    130deg,
+    #6bb5ff 0%,
+    #3b86c5 50%,
+    #216296 100%
+  );
+  --player-button-text-color: #f1f8ff;
+  --player-button-shadow: 0 18px 40px var(--blue-glow);
+  --player-button-hover-shadow: 0 24px 52px var(--blue-glow);
+  --card-surface-background: linear-gradient(
+    160deg,
+    rgba(244, 250, 255, 0.96) 0%,
+    rgba(218, 235, 247, 0.94) 100%
+  );
+  --card-border-color: rgba(127, 170, 196, 0.42);
+  --card-shadow: 0 28px 68px var(--blue-glow);
+  --button-primary-background: linear-gradient(
+    135deg,
+    rgba(83, 150, 201, 0.96) 0%,
+    rgba(58, 123, 170, 0.98) 100%
+  );
+  --button-primary-hover-background: linear-gradient(
+    135deg,
+    rgba(58, 123, 170, 0.98) 0%,
+    rgba(52, 104, 144, 0.98) 100%
+  );
+  --button-primary-active-background: linear-gradient(
+    135deg,
+    rgba(41, 86, 120, 1) 0%,
+    rgba(58, 123, 170, 0.96) 100%
+  );
+  --button-primary-shadow: 0 22px 48px var(--blue-glow);
 }
 
 *, *::before, *::after {
@@ -371,9 +437,9 @@ html[data-theme='dark'] .app-header__accent {
 }
 
 html[data-theme='dark'] .app-header {
-  background-color: rgba(58, 33, 23, 0.92);
-  border-bottom-color: rgba(244, 184, 140, 0.28);
-  box-shadow: 0 16px 36px rgba(10, 4, 1, 0.65);
+  background-color: rgba(40, 35, 30, 0.94);
+  border-bottom-color: rgba(154, 130, 101, 0.32);
+  box-shadow: 0 18px 40px rgba(5, 3, 1, 0.65);
 }
 
 .app-header__accent-button {
