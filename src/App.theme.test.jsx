@@ -31,12 +31,12 @@ test('переключение цветового акцента меняет д
 
   render(<App />);
   const appShell = await screen.findByTestId('app-shell');
-  const pinkButton = screen.getByRole('button', { name: 'Розовый' });
+  const foxDreamButton = screen.getByRole('button', { name: 'Лисий сон' });
   const blueButton = screen.getByRole('button', { name: 'Синий' });
 
-  assert.equal(appShell.dataset.accent, 'pink');
-  assert.equal(document.documentElement.dataset.accent, 'pink');
-  assert.equal(pinkButton.getAttribute('aria-pressed'), 'true');
+  assert.equal(appShell.dataset.accent, 'fox-dream');
+  assert.equal(document.documentElement.dataset.accent, 'fox-dream');
+  assert.equal(foxDreamButton.getAttribute('aria-pressed'), 'true');
   assert.equal(blueButton.getAttribute('aria-pressed'), 'false');
 
   fireEvent.click(blueButton);
@@ -44,12 +44,12 @@ test('переключение цветового акцента меняет д
   assert.equal(appShell.dataset.accent, 'blue');
   assert.equal(document.documentElement.dataset.accent, 'blue');
   assert.equal(blueButton.getAttribute('aria-pressed'), 'true');
-  assert.equal(pinkButton.getAttribute('aria-pressed'), 'false');
+  assert.equal(foxDreamButton.getAttribute('aria-pressed'), 'false');
 
-  fireEvent.click(pinkButton);
+  fireEvent.click(foxDreamButton);
 
-  assert.equal(appShell.dataset.accent, 'pink');
-  assert.equal(document.documentElement.dataset.accent, 'pink');
-  assert.equal(pinkButton.getAttribute('aria-pressed'), 'true');
+  assert.equal(appShell.dataset.accent, 'fox-dream');
+  assert.equal(document.documentElement.dataset.accent, 'fox-dream');
+  assert.equal(foxDreamButton.getAttribute('aria-pressed'), 'true');
   assert.equal(blueButton.getAttribute('aria-pressed'), 'false');
 });
