@@ -3,7 +3,7 @@
   "title": "Статус обработки",
   "description": "Пошаговый мониторинг выполнения задачи обработки.",
   "api": {
-    "statusEndpoint": "/api/jobs"
+    "statusEndpoint": "/api/karaoke-tracks/tasks"
   },
   "polling": {
     "intervalMs": 5000,

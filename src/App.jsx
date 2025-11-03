@@ -12,14 +12,29 @@ import {
 } from './features/job-status/statusUtils';
 import Uploader from './features/uploader/Uploader';
 import uploaderConfig from './features/uploader/config.json';
+import {
+  createHistoryFromEntries,
+  extractHistory,
+  extractJobId,
+  extractMessageFromPayload,
+  extractSourceFromPayload,
+  extractTaskEntities,
+  extractUpdatedAt,
+} from './features/uploader/taskParsers.js';
 import { PlaybackProvider } from './features/player/PlaybackProvider.jsx';
 import Player from './features/player/Player.jsx';
 import Lyrics from './features/lyrics/Lyrics.jsx';
 import Playlist from './features/playlist/Playlist.jsx';
 
 const uploaderMessages = uploaderConfig.messages ?? {};
-const createJobEndpoint = uploaderConfig.api?.createJobEndpoint ?? '/api/jobs';
-const statusEndpointBase = jobStatusConfig.api?.statusEndpoint ?? '/api/jobs';
+const createJobEndpoint =
+  uploaderConfig.api?.createJobEndpoint ?? '/api/karaoke-tracks/create-task-from-url';
+const createFileJobEndpoint = uploaderConfig.api?.createFileJobEndpoint ?? '';
+const statusEndpointBase =
+  jobStatusConfig.api?.statusEndpoint ?? '/api/karaoke-tracks/tasks';
+const tracksCollectionEndpoint =
+  jobStatusConfig.api?.tracksCollectionEndpoint ?? '/api/karaoke-tracks';
+const fileUploadConstraints = uploaderConfig.constraints?.fileUpload ?? {};
 const pollingIntervalMs = jobStatusConfig.polling?.intervalMs ?? 5000;
 const maxPollingAttempts = jobStatusConfig.polling?.maxAttempts ?? 120;
 const statusIconsConfig = jobStatusConfig.icons ?? {};
@@ -33,56 +48,107 @@ const defaultStatusIcons = {
   unknown: '❔',
 };
 
-const extractJobId = (payload) => {
-  if (!payload || typeof payload !== 'object') {
-    return '';
-  }
-
-  const candidates = [
-    'uuid',
-    'jobUuid',
-    'jobUUID',
-    'jobId',
-    'id',
-    'job_id',
-    'job_uuid',
-  ];
-
-  for (const key of candidates) {
-    if (payload[key]) {
-      return String(payload[key]);
-    }
-  }
-
-  if (payload.data && typeof payload.data === 'object') {
-    for (const key of candidates) {
-      if (payload.data[key]) {
-        return String(payload.data[key]);
-      }
-    }
-  }
-
-  return '';
-};
-
 const getStatusEndpoint = (uuid) => {
   const safeUuid = encodeURIComponent(uuid);
   return `${statusEndpointBase.replace(/\/$/, '')}/${safeUuid}`;
 };
 
-const extractMessageFromPayload = (payload) => {
-  if (!payload || typeof payload !== 'object') {
-    return '';
+const isValidHttpUrl = (value) => {
+  if (!value || typeof value !== 'string') {
+    return false;
   }
 
-  return (
-    payload.message ??
-    payload.detail ??
-    payload.statusMessage ??
-    payload.status_message ??
-    payload.error ??
-    ''
-  );
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch (error) {
+    return false;
+  }
+};
+
+const createTrackState = (payload, { fallbackSource = '', message = '', rawPayload = payload } = {}) => {
+  if (!payload || typeof payload !== 'object') {
+    return null;
+  }
+
+  const jobId = extractJobId(payload);
+
+  if (!jobId) {
+    return null;
+  }
+
+  const statusValue = resolveStatusFromPayload(payload);
+  const normalized = normalizeJobStage(statusValue);
+  const updatedAt = extractUpdatedAt(payload) ?? new Date();
+  const updatedTimestamp = updatedAt.getTime();
+  const historyEntries = extractHistory(payload);
+  const history = createHistoryFromEntries(historyEntries, {
+    stage: normalized.stage,
+    rawStatus: statusValue ?? null,
+    timestamp: updatedTimestamp,
+    isError: normalized.isError,
+  });
+  const source = extractSourceFromPayload(payload) || fallbackSource || '';
+
+  return {
+    id: jobId,
+    sourceUrl: source,
+    status: {
+      ...normalized,
+      rawStatus: statusValue ?? null,
+      message,
+      payload: rawPayload ?? payload,
+    },
+    history,
+    lastUpdatedAt: updatedAt,
+    isPolling: !normalized.isFinal,
+    pollingError: '',
+    isManualRefresh: false,
+  };
+};
+
+const mergeTrackStates = (currentTracks, nextTracks) => {
+  if (!Array.isArray(nextTracks) || nextTracks.length === 0) {
+    return currentTracks;
+  }
+
+  const map = new Map(Array.isArray(currentTracks) ? currentTracks.map((track) => [track.id, track]) : []);
+
+  nextTracks.forEach((track) => {
+    if (!track || !track.id) {
+      return;
+    }
+
+    const previous = map.get(track.id);
+
+    if (!previous) {
+      map.set(track.id, track);
+      return;
+    }
+
+    const mergedHistory = track.history?.length ? track.history : previous.history ?? [];
+    const mergedStatus = {
+      ...(previous.status ?? {}),
+      ...(track.status ?? {}),
+    };
+
+    map.set(track.id, {
+      ...previous,
+      ...track,
+      sourceUrl: track.sourceUrl || previous.sourceUrl || '',
+      status: mergedStatus,
+      history: mergedHistory,
+      lastUpdatedAt: track.lastUpdatedAt ?? previous.lastUpdatedAt,
+      pollingError: '',
+      isManualRefresh: false,
+    });
+  });
+
+  return Array.from(map.values()).sort((a, b) => {
+    const aTime = a.lastUpdatedAt instanceof Date ? a.lastUpdatedAt.getTime() : 0;
+    const bTime = b.lastUpdatedAt instanceof Date ? b.lastUpdatedAt.getTime() : 0;
+    return bTime - aTime;
+  });
 };
 
 const formatTimestamp = (value) => {
@@ -322,6 +388,87 @@ function App({ initialTracks = [] } = {}) {
     [fetchJobStatus, stopPolling],
   );
 
+  useEffect(() => {
+    let isCancelled = false;
+
+    const loadExistingTasks = async () => {
+      try {
+        const requests = [];
+
+        if (statusEndpointBase) {
+          requests.push(
+            fetch(statusEndpointBase, {
+              method: 'GET',
+              headers: { Accept: 'application/json' },
+            })
+              .then((response) => (response.ok ? response.json() : null))
+              .catch(() => null),
+          );
+        } else {
+          requests.push(Promise.resolve(null));
+        }
+
+        requests.push(
+          fetch(tracksCollectionEndpoint, {
+            method: 'GET',
+            headers: { Accept: 'application/json' },
+          })
+            .then((response) => (response.ok ? response.json() : null))
+            .catch(() => null),
+        );
+
+        const [tasksPayload, tracksPayload] = await Promise.all(requests);
+
+        if (isCancelled) {
+          return;
+        }
+
+        const entities = [
+          ...(tasksPayload ? extractTaskEntities(tasksPayload) : []),
+          ...(tracksPayload ? extractTaskEntities(tracksPayload) : []),
+        ];
+
+        if (entities.length === 0) {
+          return;
+        }
+
+        const nextTracks = entities
+          .map((entity) =>
+            createTrackState(entity, {
+              fallbackSource: extractSourceFromPayload(entity),
+              message: extractMessageFromPayload(entity),
+              rawPayload: entity,
+            }),
+          )
+          .filter(Boolean);
+
+        if (nextTracks.length === 0) {
+          return;
+        }
+
+        setTracks((prevTracks) => mergeTrackStates(prevTracks, nextTracks));
+
+        nextTracks.forEach((track) => {
+          if (track.status?.isFinal) {
+            stopPolling(track.id);
+          } else {
+            startPolling(track.id);
+          }
+        });
+      } catch (error) {
+        if (!isCancelled) {
+          console.error('Не удалось загрузить историю задач', error);
+        }
+      }
+    };
+
+    loadExistingTasks();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [startPolling, stopPolling]);
+
   const createJob = useCallback(
     async (sourceUrl, options = {}) => {
       const { messageOverride, replaceTrackId } = options;
@@ -337,7 +484,7 @@ function App({ initialTracks = [] } = {}) {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ sourceUrl: trimmedUrl }),
+          body: JSON.stringify({ url: trimmedUrl }),
         });
 
         if (!response.ok) {
@@ -345,62 +492,137 @@ function App({ initialTracks = [] } = {}) {
         }
 
         const payload = await response.json();
-        const newJobId = extractJobId(payload);
+        const [taskEntity] = extractTaskEntities(payload);
+        const trackPayload = taskEntity ?? payload;
+        const jobId = extractJobId(trackPayload);
 
-        if (!newJobId) {
+        if (!jobId) {
           throw new Error('Ответ сервера не содержит идентификатор задачи.');
         }
 
-        const statusValue = resolveStatusFromPayload(payload);
-        const normalized = normalizeJobStage(statusValue);
-        const timestamp = Date.now();
+        const messageFromPayload = extractMessageFromPayload(payload);
+        const sourceLabel = extractSourceFromPayload(trackPayload) || trimmedUrl;
+        const newTrack = createTrackState(trackPayload, {
+          fallbackSource: sourceLabel,
+          message: messageFromPayload,
+          rawPayload: payload,
+        });
+
+        if (!newTrack) {
+          throw new Error('Не удалось подготовить данные задачи.');
+        }
 
         const baseMessage = messageOverride ?? uploaderMessages.success ?? 'Задача успешно создана.';
-        const statusDetails = statusValue ? ` (статус: ${statusValue})` : '';
-        setGlobalNotice(`${baseMessage} ID: ${newJobId}${statusDetails}`);
-        setLastSourceUrl(trimmedUrl);
+        const statusDetails = newTrack.status?.rawStatus ? ` (статус: ${newTrack.status.rawStatus})` : '';
+        setGlobalNotice(`${baseMessage} ID: ${newTrack.id}${statusDetails}`);
 
-        const newTrack = {
-          id: newJobId,
-          sourceUrl: trimmedUrl,
-          status: {
-            ...normalized,
-            rawStatus: statusValue ?? null,
-            message: extractMessageFromPayload(payload),
-            payload,
-          },
-          history: appendHistoryEntry([], {
-            stage: normalized.stage,
-            rawStatus: statusValue ?? 'created',
-            timestamp,
-            isError: normalized.isError,
-          }),
-          lastUpdatedAt: new Date(timestamp),
-          isPolling: !normalized.isFinal,
-          pollingError: '',
-          isManualRefresh: false,
-        };
+        if (isValidHttpUrl(trimmedUrl)) {
+          setLastSourceUrl(trimmedUrl);
+        }
 
         if (replaceTrackId) {
           stopPolling(replaceTrackId);
         }
 
         setTracks((prevTracks) => {
-          const filtered = prevTracks.filter((track) => track.id !== newJobId && track.id !== replaceTrackId);
-          return [newTrack, ...filtered];
+          const filtered = prevTracks.filter((track) => track.id !== newTrack.id && track.id !== replaceTrackId);
+          return mergeTrackStates(filtered, [newTrack]);
         });
 
-        setSelectedTrackId(newJobId);
+        setSelectedTrackId(newTrack.id);
 
-        if (!normalized.isFinal) {
-          startPolling(newJobId);
+        if (!newTrack.status?.isFinal) {
+          startPolling(newTrack.id);
         } else {
-          stopPolling(newJobId);
+          stopPolling(newTrack.id);
         }
 
-        return { jobId: newJobId, payload };
+        return { jobId: newTrack.id, payload };
       } catch (error) {
         const message = error instanceof Error ? error.message : 'Не удалось создать задачу.';
+        setGlobalError(message);
+        throw error;
+      } finally {
+        setIsCreatingJob(false);
+      }
+    },
+    [startPolling, stopPolling],
+  );
+
+  const createJobFromFile = useCallback(
+    async (file, options = {}) => {
+      if (!createFileJobEndpoint) {
+        throw new Error('API не поддерживает загрузку файлов.');
+      }
+
+      if (!file || typeof file !== 'object') {
+        throw new Error('Выберите файл для загрузки.');
+      }
+
+      const { messageOverride, replaceTrackId } = options;
+
+      setIsCreatingJob(true);
+      setGlobalError('');
+      setGlobalNotice('');
+
+      try {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        const response = await fetch(createFileJobEndpoint, {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error(`Не удалось создать задачу из файла (HTTP ${response.status}).`);
+        }
+
+        const payload = await response.json();
+        const [taskEntity] = extractTaskEntities(payload);
+        const trackPayload = taskEntity ?? payload;
+        const jobId = extractJobId(trackPayload);
+
+        if (!jobId) {
+          throw new Error('Ответ сервера не содержит идентификатор задачи.');
+        }
+
+        const messageFromPayload = extractMessageFromPayload(payload);
+        const sourceLabel = extractSourceFromPayload(trackPayload) || file.name || 'Загруженный файл';
+        const newTrack = createTrackState(trackPayload, {
+          fallbackSource: sourceLabel,
+          message: messageFromPayload,
+          rawPayload: payload,
+        });
+
+        if (!newTrack) {
+          throw new Error('Не удалось подготовить данные задачи.');
+        }
+
+        const baseMessage = messageOverride ?? uploaderMessages.success ?? 'Задача успешно создана.';
+        const statusDetails = newTrack.status?.rawStatus ? ` (статус: ${newTrack.status.rawStatus})` : '';
+        setGlobalNotice(`${baseMessage} ID: ${newTrack.id}${statusDetails}`);
+
+        if (replaceTrackId) {
+          stopPolling(replaceTrackId);
+        }
+
+        setTracks((prevTracks) => {
+          const filtered = prevTracks.filter((track) => track.id !== newTrack.id && track.id !== replaceTrackId);
+          return mergeTrackStates(filtered, [newTrack]);
+        });
+
+        setSelectedTrackId(newTrack.id);
+
+        if (!newTrack.status?.isFinal) {
+          startPolling(newTrack.id);
+        } else {
+          stopPolling(newTrack.id);
+        }
+
+        return { jobId: newTrack.id, payload };
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Не удалось создать задачу из файла.';
         setGlobalError(message);
         throw error;
       } finally {
@@ -422,6 +644,18 @@ function App({ initialTracks = [] } = {}) {
     [createJob],
   );
 
+  const handleUploaderFileSubmit = useCallback(
+    async (file) => {
+      try {
+        await createJobFromFile(file);
+        setIsUploaderOpen(false);
+      } catch (error) {
+        // Ошибка отображается через глобальное состояние и Uploader
+      }
+    },
+    [createJobFromFile],
+  );
+
   const handleManualRefresh = useCallback(
     async (trackId) => {
       try {
@@ -437,13 +671,31 @@ function App({ initialTracks = [] } = {}) {
     async (trackId) => {
       const track = tracksRef.current.find((item) => item.id === trackId);
 
-      if (!track || !track.sourceUrl) {
+      if (!track) {
         setGlobalError('Нет исходной ссылки для повторного запуска.');
         return;
       }
 
+      const payloadSource = track.status?.payload
+        ? extractSourceFromPayload(track.status.payload)
+        : '';
+      const restartSource = payloadSource || track.sourceUrl || '';
+
+      if (!restartSource) {
+        setGlobalError('Нет исходной ссылки для повторного запуска.');
+        return;
+      }
+
+      if (!isValidHttpUrl(restartSource)) {
+        setGlobalError('Повторная обработка доступна только для задач по ссылке.');
+        return;
+      }
+
       try {
-        await createJob(track.sourceUrl, { messageOverride: uploaderMessages.restart, replaceTrackId: trackId });
+        await createJob(restartSource, {
+          messageOverride: uploaderMessages.restart,
+          replaceTrackId: trackId,
+        });
       } catch (error) {
         // Ошибка уже обработана в createJob
       }
@@ -648,9 +900,12 @@ function App({ initialTracks = [] } = {}) {
         <Modal onClose={() => setIsUploaderOpen(false)} labelledBy="uploader-title">
           <Uploader
             onCreateJob={handleUploaderSubmit}
+            onCreateFileJob={createFileJobEndpoint ? handleUploaderFileSubmit : undefined}
             isCreating={isCreatingJob}
             initialUrl={lastSourceUrl}
             onCancel={() => setIsUploaderOpen(false)}
+            fileEndpoint={createFileJobEndpoint}
+            fileConstraints={fileUploadConstraints}
           />
         </Modal>
       )}
