@@ -1,7 +1,5 @@
 {
   "id": "job-status",
-  "title": "Статус обработки",
-  "description": "Пошаговый мониторинг выполнения задачи обработки.",
   "api": {
     "statusEndpoint": "/api/karaoke-tracks/tasks"
   },
