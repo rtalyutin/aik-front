@@ -82,7 +82,7 @@ html[data-theme='dark'] {
   --shadow-elevated: 0 12px 28px rgba(5, 8, 20, 0.55);
 }
 
-[data-accent='pink'] {
+[data-accent='fox-dream'] {
   --accent-solid: #f464a6;
   --accent-solid-strong: #e3498a;
   --accent-solid-active: #c92d71;

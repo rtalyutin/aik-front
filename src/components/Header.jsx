@@ -2,7 +2,7 @@ import React from 'react';
 import Button from './Button';
 
 const accentOptions = [
-  { id: 'pink', label: 'Розовый', icon: '🍒' },
+  { id: 'fox-dream', label: 'Лисий сон', icon: '🦊' },
   { id: 'blue', label: 'Синий', icon: '🎵' },
 ];
 
