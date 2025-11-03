@@ -7,52 +7,76 @@
     -apple-system,
     BlinkMacSystemFont,
     sans-serif;
-  background-color: #f6efe7;
-  --color-bg: #f6efe7;
-  --color-surface: #fff8f1;
-  --color-surface-elevated: #f4e1cf;
-  --color-surface-muted: rgba(210, 106, 44, 0.08);
-  --color-border: #e2d2c0;
-  --color-divider: rgba(153, 107, 70, 0.18);
-  --color-text: #3e2617;
-  --color-text-muted: #7a5a45;
-  --color-track-bg: rgba(153, 107, 70, 0.24);
-  --color-input-bg: rgba(255, 248, 241, 0.78);
-  --color-input-border: rgba(153, 107, 70, 0.28);
-  --accent-solid: #d26a2c;
-  --accent-solid-strong: #b9561f;
-  --accent-solid-active: #994214;
-  --accent-contrast: #fffaf4;
-  --accent-surface: rgba(210, 106, 44, 0.14);
-  --accent-surface-strong: rgba(210, 106, 44, 0.28);
-  --accent-focus: #ffd7b5;
-  --accent-shadow: rgba(184, 90, 34, 0.35);
-  --accent-stroke: #b95727;
-  --accent-notice-bg: rgba(210, 106, 44, 0.1);
-  --accent-notice-border: rgba(210, 106, 44, 0.24);
-  --accent-ring: rgba(210, 106, 44, 0.35);
-  --app-header-background: var(--color-surface);
-  --app-header-border-color: var(--color-border);
-  --app-header-shadow: 0 12px 28px rgba(88, 56, 33, 0.12);
-  --workspace-background: var(--color-bg);
-  --workspace-border-color: transparent;
-  --workspace-shadow: none;
-  --workspace-border-radius: 0;
-  --workspace-playback-background: transparent;
-  --workspace-playback-border-color: transparent;
-  --workspace-playback-shadow: none;
-  --workspace-playback-radius: 0;
-  --workspace-playback-padding: 0;
-  --player-surface-background: var(--color-surface);
-  --player-surface-border-color: transparent;
-  --player-surface-shadow: var(--shadow-elevated);
-  --player-button-background: var(--accent-solid);
+  background-color: #f3f0ea;
+  --color-bg: #f3f0ea;
+  --color-surface: #fdfbf7;
+  --color-surface-elevated: #ece6da;
+  --color-surface-muted: rgba(158, 140, 116, 0.12);
+  --color-border: #e1d8ca;
+  --color-divider: rgba(125, 108, 86, 0.16);
+  --color-text: #3d352a;
+  --color-text-muted: #7b6f5f;
+  --color-track-bg: rgba(125, 108, 86, 0.2);
+  --color-input-bg: rgba(253, 251, 247, 0.82);
+  --color-input-border: rgba(125, 108, 86, 0.2);
+  --accent-solid: #cbb89d;
+  --accent-solid-strong: #b59d7a;
+  --accent-solid-active: #a18463;
+  --accent-contrast: #fefbf6;
+  --accent-surface: rgba(203, 184, 157, 0.22);
+  --accent-surface-strong: rgba(181, 157, 122, 0.32);
+  --accent-focus: #e7d8bf;
+  --accent-shadow: rgba(148, 125, 94, 0.28);
+  --accent-stroke: #a88a63;
+  --accent-notice-bg: rgba(203, 184, 157, 0.16);
+  --accent-notice-border: rgba(203, 184, 157, 0.26);
+  --accent-ring: rgba(203, 184, 157, 0.32);
+  --app-header-background: linear-gradient(
+    135deg,
+    rgba(252, 249, 243, 0.96) 0%,
+    rgba(240, 234, 224, 0.92) 100%
+  );
+  --app-header-border-color: rgba(210, 198, 177, 0.36);
+  --app-header-shadow: 0 12px 28px rgba(89, 78, 63, 0.12);
+  --workspace-background: linear-gradient(
+    180deg,
+    rgba(249, 246, 240, 0.98) 0%,
+    rgba(234, 228, 217, 0.94) 100%
+  );
+  --workspace-border-color: rgba(210, 198, 177, 0.24);
+  --workspace-shadow: 0 18px 48px rgba(89, 78, 63, 0.08);
+  --workspace-border-radius: 28px;
+  --workspace-playback-background: linear-gradient(
+    160deg,
+    rgba(253, 250, 244, 0.96) 0%,
+    rgba(239, 232, 221, 0.94) 100%
+  );
+  --workspace-playback-border-color: rgba(203, 191, 168, 0.26);
+  --workspace-playback-shadow: 0 18px 44px rgba(89, 78, 63, 0.1);
+  --workspace-playback-radius: 24px;
+  --workspace-playback-padding: 1.5rem;
+  --player-surface-background: linear-gradient(
+    150deg,
+    rgba(254, 252, 247, 0.96) 0%,
+    rgba(236, 230, 220, 0.94) 100%
+  );
+  --player-surface-border-color: rgba(200, 187, 164, 0.32);
+  --player-surface-shadow: 0 18px 44px rgba(89, 78, 63, 0.12);
+  --player-button-background: linear-gradient(
+    135deg,
+    var(--accent-solid-strong),
+    var(--accent-solid)
+  );
   --player-button-text-color: var(--accent-contrast);
-  --player-button-shadow: none;
-  --player-button-hover-shadow: 0 8px 16px var(--accent-shadow);
-  --card-surface-background: var(--color-surface);
-  --card-border-color: var(--color-border);
-  --card-shadow: none;
+  --player-button-shadow: 0 10px 22px var(--accent-shadow);
+  --player-button-hover-shadow: 0 14px 28px var(--accent-shadow);
+  --card-surface-background: linear-gradient(
+    155deg,
+    rgba(254, 252, 247, 0.96) 0%,
+    rgba(239, 233, 223, 0.94) 100%
+  );
+  --card-border-color: rgba(203, 191, 168, 0.32);
+  --card-shadow: 0 16px 40px rgba(89, 78, 63, 0.1);
   --button-primary-background: linear-gradient(
     135deg,
     var(--accent-solid-strong),
@@ -73,20 +97,20 @@
   --color-primary-hover: var(--accent-solid-strong);
   --color-primary-active: var(--accent-solid-active);
   --color-primary-contrast: var(--accent-contrast);
-  --color-secondary: #f0d9bf;
-  --color-secondary-hover: #e8c7a6;
-  --color-secondary-active: #dfb58f;
-  --color-tag-neutral-bg: #f4e3d2;
-  --color-tag-success-bg: #d8e2c6;
-  --color-tag-warning-bg: #f9d7a6;
-  --color-tag-danger-bg: #f1b7a2;
-  --color-tag-text: #3e2617;
+  --color-secondary: #e4d8c3;
+  --color-secondary-hover: #d7c7ac;
+  --color-secondary-active: #cbb898;
+  --color-tag-neutral-bg: rgba(209, 198, 181, 0.35);
+  --color-tag-success-bg: rgba(188, 208, 183, 0.38);
+  --color-tag-warning-bg: rgba(230, 204, 160, 0.4);
+  --color-tag-danger-bg: rgba(209, 170, 150, 0.35);
+  --color-tag-text: var(--color-text);
   --color-focus: var(--accent-focus);
-  --color-danger: #a6452b;
-  --color-danger-surface: rgba(166, 69, 43, 0.14);
-  --color-danger-border: rgba(166, 69, 43, 0.32);
-  --shadow-soft: 0 16px 44px rgba(88, 56, 33, 0.16);
-  --shadow-elevated: 0 12px 30px rgba(88, 56, 33, 0.22);
+  --color-danger: #b37558;
+  --color-danger-surface: rgba(179, 117, 88, 0.16);
+  --color-danger-border: rgba(179, 117, 88, 0.3);
+  --shadow-soft: 0 16px 44px rgba(89, 78, 63, 0.14);
+  --shadow-elevated: 0 12px 30px rgba(89, 78, 63, 0.2);
   --radius-md: 16px;
   --radius-lg: 24px;
   line-height: 1.5;
@@ -178,6 +202,31 @@ html[data-theme='dark'] {
 }
 
 [data-accent='fox-dream'] {
+  background-color: #f6efe7;
+  --color-bg: #f6efe7;
+  --color-surface: #fff8f1;
+  --color-surface-elevated: #f4e1cf;
+  --color-surface-muted: rgba(210, 106, 44, 0.08);
+  --color-border: #e2d2c0;
+  --color-divider: rgba(153, 107, 70, 0.18);
+  --color-text: #3e2617;
+  --color-text-muted: #7a5a45;
+  --color-track-bg: rgba(153, 107, 70, 0.24);
+  --color-input-bg: rgba(255, 248, 241, 0.78);
+  --color-input-border: rgba(153, 107, 70, 0.28);
+  --color-tag-neutral-bg: #f4e3d2;
+  --color-tag-success-bg: #d8e2c6;
+  --color-tag-warning-bg: #f9d7a6;
+  --color-tag-danger-bg: #f1b7a2;
+  --color-tag-text: #3e2617;
+  --color-secondary: #f0d9bf;
+  --color-secondary-hover: #e8c7a6;
+  --color-secondary-active: #dfb58f;
+  --color-danger: #a6452b;
+  --color-danger-surface: rgba(166, 69, 43, 0.14);
+  --color-danger-border: rgba(166, 69, 43, 0.32);
+  --shadow-soft: 0 16px 44px rgba(88, 56, 33, 0.16);
+  --shadow-elevated: 0 12px 30px rgba(88, 56, 33, 0.22);
   --fox-dream-glow: rgba(244, 125, 70, 0.45);
   --accent-solid: #d26a2c;
   --accent-solid-strong: #b9561f;
@@ -287,6 +336,31 @@ html[data-theme='dark'] {
 }
 
 [data-accent='blue'] {
+  background-color: #eef5ff;
+  --color-bg: #eef5ff;
+  --color-surface: #f8fbff;
+  --color-surface-elevated: #e0ebf7;
+  --color-surface-muted: rgba(61, 164, 240, 0.12);
+  --color-border: #d1e1f5;
+  --color-divider: rgba(52, 130, 196, 0.18);
+  --color-text: #1f2d3d;
+  --color-text-muted: #5b708b;
+  --color-track-bg: rgba(52, 130, 196, 0.24);
+  --color-input-bg: rgba(247, 252, 255, 0.85);
+  --color-input-border: rgba(52, 130, 196, 0.28);
+  --color-tag-neutral-bg: rgba(201, 228, 255, 0.48);
+  --color-tag-success-bg: rgba(174, 218, 229, 0.42);
+  --color-tag-warning-bg: rgba(226, 233, 255, 0.48);
+  --color-tag-danger-bg: rgba(210, 224, 255, 0.46);
+  --color-tag-text: #1f2d3d;
+  --color-secondary: #cfe3f9;
+  --color-secondary-hover: #b7d4f3;
+  --color-secondary-active: #9ec3ea;
+  --color-danger: #1f65a2;
+  --color-danger-surface: rgba(31, 101, 162, 0.16);
+  --color-danger-border: rgba(31, 101, 162, 0.3);
+  --shadow-soft: 0 18px 46px rgba(34, 90, 148, 0.18);
+  --shadow-elevated: 0 14px 34px rgba(34, 90, 148, 0.22);
   --blue-glow: rgba(40, 116, 184, 0.45);
   --accent-solid: #3da4f0;
   --accent-solid-strong: #1f77d4;
