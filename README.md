@@ -4,6 +4,13 @@
 
 This project uses Vite with React 18, ESLint, Prettier, and Node's built-in test runner.
 
+## Содержание
+
+- [Available Commands](#available-commands)
+- [Deployment](#deployment)
+- [Quality Gates](#quality-gates)
+- [API сценарии караоке-треков](#api-сценарии-караоке-треков)
+
 ## Available Commands
 
 - `npm run dev` – start the Vite development server.
@@ -28,5 +35,41 @@ npm run deploy
 For Nginx/CDN setups, ensure client-side routing falls back to the built index. The `deploy/nginx.conf` template configures `try_files` so that any unknown route resolves to `dist/index.html` while assets continue to be served directly from the `dist` folder.
 
 ## Quality Gates
+
+All pull requests should pass the lint, format, and test commands before merging. Run the commands above locally or in CI to ensure compliance with the project's quality standards.
+
+## API сценарии караоке-треков
+
+Этот раздел фиксирует последовательность запросов и используемые эндпоинты для пользовательских сценариев создания и мониторинга задач караоке-треков.
+
+### Обзор потоков
+
+- При загрузке интерфейса приложение запрашивает список задач `GET /api/karaoke-tracks/tasks` и каталог треков `GET /api/karaoke-tracks`. Ответы объединяются, чтобы восстановить историю и текущий статус каждой задачи.
+- Для контроля прогресса любых активных задач выполняется периодический опрос `GET /api/karaoke-tracks/tasks/{task_id}` с интервалом 5 секунд (до 120 попыток по умолчанию). Поллинг прекращается при получении финального статуса (`complete` или `error`).
+
+### Создание задачи по ссылке
+
+1. Отправьте `POST /api/karaoke-tracks/create-task-from-url` с JSON-телом `{ "url": "https://example.com/media" }`.
+2. Клиент ожидает успешный ответ `2xx` с JSON-объектом задачи. Идентификатор ищется по ключам `uuid`, `jobId`, `task_id` и т.д.; источник — по `sourceUrl`, `url`, `mediaUrl`.
+3. После получения ID задача добавляется в список, а UI запускает поллинг `GET /api/karaoke-tracks/tasks/{task_id}` до финального состояния.
+4. При ошибке (любая HTTP-ошибка или пустой идентификатор) пользователю показывается сообщение «Не удалось создать задачу …», и поллинг не стартует.
+
+### Создание задачи по файлу
+
+1. Отправьте `POST /api/karaoke-tracks/create-task-from-file` с `multipart/form-data`, где поле `file` содержит аудио или видео. Допустимые типы: `audio/*`, `video/*`, максимальный размер — 512 МБ.
+2. На успешный ответ `2xx` приложение извлекает ID задачи из JSON так же, как и при создании по ссылке, и начинает поллинг `GET /api/karaoke-tracks/tasks/{task_id}`.
+3. Если сервер не поддерживает загрузку файлов или возвращает ошибку, пользователь видит сообщение «Не удалось создать задачу из файла», а задача не добавляется.
+
+### Опрос `/api/karaoke-tracks/tasks/{task_id}`
+
+- Запрос выполняется с заголовком `Accept: application/json`. Ручное обновление использует тот же эндпоинт и временно помечает задачу как «обновляется вручную».
+- Клиент ожидает, что ответ содержит актуальный статус (`uploading`, `splitting`, `transcribing`, `complete`, `error` или `unknown`), историю этапов и метки времени. Любая неуспешная попытка завершает текущий поллинг и показывает ошибку в карточке задачи.
+- После финального статуса поллинг останавливается, таймеры очищаются.
+
+### Получение каталога `/api/karaoke-tracks`
+
+- Вызывается `GET /api/karaoke-tracks` с заголовком `Accept: application/json` при загрузке приложения и когда необходимо объединить метаданные треков.
+- Ответ может быть как массивом (`tasks`, `items`, `tracks`, `results`, `entities`), так и объектом `task`/`track`; клиент извлекает все возможные сущности и объединяет их с текущими задачами.
+- Если запрос завершается ошибкой или возвращает пустой ответ, приложение продолжает работу без каталога, сохраняя существующий список задач.
 
 Automated checks run in the **CI** workflow for every push and pull request via GitHub Actions. The pipeline installs dependencies with `npm ci` and executes `npm run lint` followed by `npm run test`. Ensure these commands pass locally before opening a pull request to keep the main branch healthy.
