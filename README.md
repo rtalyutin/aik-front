@@ -1,5 +1,7 @@
 # AIK Frontend Tooling
 
+[![CI](https://github.com/<OWNER>/<REPO>/actions/workflows/ci.yml/badge.svg)](https://github.com/<OWNER>/<REPO>/actions/workflows/ci.yml)
+
 This project uses Vite with React 18, ESLint, Prettier, and Node's built-in test runner.
 
 ## Содержание
@@ -69,3 +71,5 @@ All pull requests should pass the lint, format, and test commands before merging
 - Вызывается `GET /api/karaoke-tracks` с заголовком `Accept: application/json` при загрузке приложения и когда необходимо объединить метаданные треков.
 - Ответ может быть как массивом (`tasks`, `items`, `tracks`, `results`, `entities`), так и объектом `task`/`track`; клиент извлекает все возможные сущности и объединяет их с текущими задачами.
 - Если запрос завершается ошибкой или возвращает пустой ответ, приложение продолжает работу без каталога, сохраняя существующий список задач.
+
+Automated checks run in the **CI** workflow for every push and pull request via GitHub Actions. The pipeline installs dependencies with `npm ci` and executes `npm run lint` followed by `npm run test`. Ensure these commands pass locally before opening a pull request to keep the main branch healthy.
