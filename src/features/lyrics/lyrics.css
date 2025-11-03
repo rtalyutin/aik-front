@@ -1,11 +1,11 @@
 .lyrics {
-  background: var(--card-bg, #111827);
+  background: var(--color-surface);
   border-radius: 16px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.35);
+  box-shadow: var(--shadow-elevated);
   color: inherit;
 }
 
@@ -23,7 +23,7 @@
 
 .lyrics__description {
   margin: 4px 0 0;
-  color: var(--muted-foreground, #94a3b8);
+  color: var(--color-text-muted);
   font-size: 0.95rem;
 }
 
@@ -43,8 +43,8 @@
 .lyrics__offset-button {
   border: none;
   border-radius: 8px;
-  background: rgba(56, 189, 248, 0.15);
-  color: var(--accent, #38bdf8);
+  background: var(--accent-surface);
+  color: var(--accent-solid);
   padding: 8px 12px;
   cursor: pointer;
   font-weight: 600;
@@ -53,8 +53,8 @@
 .lyrics__offset-input {
   width: 90px;
   border-radius: 8px;
-  border: 1px solid rgba(148, 163, 184, 0.4);
-  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid var(--color-input-border);
+  background: var(--color-input-bg);
   color: inherit;
   padding: 6px 8px;
   text-align: right;
@@ -88,7 +88,7 @@
 }
 
 .lyrics__line--active {
-  background: rgba(56, 189, 248, 0.12);
+  background: var(--accent-surface);
   transform: translateX(4px);
 }
 
@@ -107,7 +107,7 @@
 }
 
 .lyrics__word--active {
-  color: var(--accent, #38bdf8);
+  color: var(--accent-solid);
   font-weight: 700;
 }
 
@@ -115,8 +115,8 @@
   color: transparent;
   background-image: linear-gradient(
     to right,
-    var(--accent, #38bdf8) 0%,
-    var(--accent, #38bdf8) calc(var(--word-progress) * 100%),
+    var(--accent-solid) 0%,
+    var(--accent-solid) calc(var(--word-progress) * 100%),
     currentColor calc(var(--word-progress) * 100%),
     currentColor 100%
   );
@@ -125,12 +125,12 @@
 }
 
 .lyrics__word--active:not(.lyrics__word--timed) {
-  color: var(--accent, #38bdf8);
+  color: var(--accent-solid);
 }
 
 .lyrics__timestamp {
   font-size: 0.8rem;
-  color: var(--muted-foreground, #94a3b8);
+  color: var(--color-text-muted);
   min-width: 48px;
   text-align: right;
 }

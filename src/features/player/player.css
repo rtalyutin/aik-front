@@ -1,11 +1,11 @@
 .player {
-  background: var(--card-bg, #1f2430);
+  background: var(--color-surface);
   border-radius: 16px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.35);
+  box-shadow: var(--shadow-elevated);
   color: inherit;
 }
 
@@ -23,7 +23,7 @@
 
 .player__description {
   margin: 4px 0 0;
-  color: var(--muted-foreground, #94a3b8);
+  color: var(--color-text-muted);
   font-size: 0.95rem;
 }
 
@@ -36,7 +36,7 @@
 
 .player__meta-term {
   font-weight: 600;
-  color: var(--muted-foreground, #94a3b8);
+  color: var(--color-text-muted);
 }
 
 .player__meta-value {
@@ -51,9 +51,9 @@
 }
 
 .player__button {
-  background: var(--accent, #38bdf8);
+  background: var(--accent-solid);
   border: none;
-  color: var(--accent-foreground, #0f172a);
+  color: var(--accent-contrast);
   padding: 10px 18px;
   border-radius: 999px;
   font-weight: 600;
@@ -68,7 +68,7 @@
 
 .player__button:not(:disabled):hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 16px rgba(56, 189, 248, 0.35);
+  box-shadow: 0 8px 16px var(--accent-shadow);
 }
 
 .player__time {
@@ -86,12 +86,12 @@
 
 .player__slider {
   width: 100%;
-  accent-color: var(--accent, #38bdf8);
+  accent-color: var(--accent-solid);
 }
 
 .player__progress {
   height: 6px;
-  background: rgba(148, 163, 184, 0.25);
+  background: var(--color-track-bg);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -99,5 +99,5 @@
 .player__progress-indicator {
   display: block;
   height: 100%;
-  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  background: linear-gradient(90deg, var(--accent-solid), var(--accent-solid-strong));
 }
