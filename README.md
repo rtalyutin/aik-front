@@ -1,5 +1,7 @@
 # AIK Frontend Tooling
 
+[![CI](https://github.com/<OWNER>/<REPO>/actions/workflows/ci.yml/badge.svg)](https://github.com/<OWNER>/<REPO>/actions/workflows/ci.yml)
+
 This project uses Vite with React 18, ESLint, Prettier, and Node's built-in test runner.
 
 ## Available Commands
@@ -27,4 +29,4 @@ For Nginx/CDN setups, ensure client-side routing falls back to the built index. 
 
 ## Quality Gates
 
-All pull requests should pass the lint, format, and test commands before merging. Run the commands above locally or in CI to ensure compliance with the project's quality standards.
+Automated checks run in the **CI** workflow for every push and pull request via GitHub Actions. The pipeline installs dependencies with `npm ci` and executes `npm run lint` followed by `npm run test`. Ensure these commands pass locally before opening a pull request to keep the main branch healthy.
