@@ -3,11 +3,16 @@
   "title": "Загрузка по ссылке",
   "description": "Создание задач обработки аудио и видео по ссылке на источник.",
   "api": {
-    "createJobEndpoint": "/api/jobs"
+    "createJobEndpoint": "/api/karaoke-tracks/create-task-from-url",
+    "createFileJobEndpoint": "/api/karaoke-tracks/create-task-from-file"
   },
   "constraints": {
     "allowedProtocols": ["http:", "https:"],
-    "maxUrlLength": 2048
+    "maxUrlLength": 2048,
+    "fileUpload": {
+      "accept": ["audio/*", "video/*"],
+      "maxSizeMb": 512
+    }
   },
   "messages": {
     "success": "Задача успешно создана. Проверяем статус…",

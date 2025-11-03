@@ -1,3 +1,5 @@
+import { collectCandidateObjects } from '../../utils/payloadUtils.js';
+
 const STATUS_KEYS = [
   'status',
   'stage',
@@ -59,6 +61,16 @@ export const resolveStatusFromPayload = (payload) => {
     for (const key of STATUS_KEYS) {
       if (key in payload.data && payload.data[key] != null) {
         return payload.data[key];
+      }
+    }
+  }
+
+  const candidates = collectCandidateObjects(payload);
+
+  for (const candidate of candidates) {
+    for (const key of STATUS_KEYS) {
+      if (key in candidate && candidate[key] != null) {
+        return candidate[key];
       }
     }
   }

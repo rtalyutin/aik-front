@@ -551,6 +551,16 @@ html[data-theme='dark'] .app-header__accent {
   gap: 1rem;
 }
 
+.uploader__mode-switch {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.uploader__mode-switch .btn {
+  flex: 1 1 auto;
+}
+
 .uploader__title {
   margin: 0;
   font-size: 1.25rem;
@@ -590,6 +600,10 @@ html[data-theme='dark'] .app-header__accent {
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
+.uploader__input--file {
+  padding: 0.6rem 0.75rem;
+}
+
 .uploader__input:focus-visible {
   outline: none;
   border-color: var(--color-primary);
@@ -599,6 +613,12 @@ html[data-theme='dark'] .app-header__accent {
 .uploader__help {
   margin: 0;
   font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.uploader__file-name {
+  margin: 0;
+  font-size: 0.85rem;
   color: var(--color-text-muted);
 }
 
