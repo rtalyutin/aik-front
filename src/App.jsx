@@ -846,6 +846,15 @@ function App({ initialTracks = [] } = {}) {
           }
           right={
             <div className="workspace__details">
+              <PlaybackProvider>
+                <div
+                  className="workspace__playback"
+                  aria-label="Прослушивание и синхронизация текста"
+                >
+                  <Player />
+                  <Lyrics />
+                </div>
+              </PlaybackProvider>
               <Card className="workspace__status-widget" padding="md">
                 <h2 className="workspace__status-title">Статус обработки</h2>
                 <p className="workspace__status-summary">{statusSummary}</p>
@@ -883,15 +892,6 @@ function App({ initialTracks = [] } = {}) {
                   </p>
                 )}
               </Card>
-              <PlaybackProvider>
-                <div
-                  className="workspace__playback"
-                  aria-label="Прослушивание и синхронизация текста"
-                >
-                  <Player />
-                  <Lyrics />
-                </div>
-              </PlaybackProvider>
             </div>
           }
         />
