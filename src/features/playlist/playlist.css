@@ -89,7 +89,7 @@
   align-items: stretch;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-elevated);
   box-shadow: var(--shadow-soft);
 }
 
@@ -167,7 +167,7 @@
 .playlist__polling-error {
   margin: 0;
   font-size: 0.9rem;
-  color: #c0392b;
+  color: var(--color-danger);
 }
 
 .playlist__actions {
@@ -183,7 +183,16 @@
   border-radius: var(--radius-md);
   padding: 2rem 1.5rem;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: var(--color-surface-muted);
+}
+
+html[data-theme='dark'] .playlist__card {
+  border-color: rgba(244, 184, 140, 0.28);
+  box-shadow: 0 20px 40px rgba(10, 4, 1, 0.55);
+}
+
+html[data-theme='dark'] .playlist__empty {
+  border-color: rgba(244, 184, 140, 0.24);
 }
 
 .playlist__empty-title {
