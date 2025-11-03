@@ -288,71 +288,8 @@ html[data-theme='dark'] .app-header__accent {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  flex: 1;
   min-height: 0;
-}
-
-.workspace__status-widget {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.workspace__status-title {
-  margin: 0;
-  font-size: 1.35rem;
-  font-weight: 700;
-}
-
-.workspace__status-summary {
-  margin: 0;
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-}
-
-.workspace__status-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.workspace__status-track {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.workspace__status-source {
-  font-weight: 600;
-  word-break: break-word;
-}
-
-.workspace__status-id {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-}
-
-.workspace__status-state {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.workspace__status-icon {
-  font-size: 1.75rem;
-}
-
-.workspace__status-updated,
-.workspace__status-message {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
-.workspace__status-placeholder {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
 }
 
 .workspace__playback {
@@ -360,6 +297,8 @@ html[data-theme='dark'] .app-header__accent {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   align-items: start;
+  flex: 1;
+  min-height: 0;
 }
 
 .modal {

@@ -2,8 +2,6 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Header from './components/Header';
 import Modal from './components/Modal';
 import SplitPane from './components/SplitPane.jsx';
-import Card from './components/Card.jsx';
-import Tag from './components/Tag.jsx';
 import jobStatusConfig from './features/job-status/config.json';
 import {
   appendHistoryEntry,
@@ -768,24 +766,6 @@ function App({ initialTracks = [] } = {}) {
     return 'neutral';
   }, []);
 
-  const statusSummary = useMemo(() => {
-    if (tracks.length === 0) {
-      return 'Нет активных задач';
-    }
-
-    const active = tracks.find((track) => !track.status?.isFinal || track.status?.isError);
-
-    if (!active) {
-      return 'Все задачи завершены';
-    }
-
-    if (active.status?.isError) {
-      return 'Есть задачи с ошибками';
-    }
-
-    return 'Выполняется обработка задач';
-  }, [tracks]);
-
   const playlistTracks = useMemo(
     () =>
       tracks.map((track) => ({
@@ -805,11 +785,6 @@ function App({ initialTracks = [] } = {}) {
     [tracks, getStatusLabel, getStatusIcon, getStatusVariant],
   );
 
-  const selectedPlaylistTrack = useMemo(
-    () => playlistTracks.find((item) => item.id === selectedTrackId) ?? null,
-    [playlistTracks, selectedTrackId],
-  );
-
   return (
     <div
       className="app"
@@ -817,7 +792,7 @@ function App({ initialTracks = [] } = {}) {
       data-accent={accentPreset}
       data-testid="app-shell"
       aria-live="polite"
-      aria-label={statusSummary}
+      aria-label="Рабочее пространство загрузок и плеера"
     >
       <Header
         theme={theme}
@@ -846,43 +821,6 @@ function App({ initialTracks = [] } = {}) {
           }
           right={
             <div className="workspace__details">
-              <Card className="workspace__status-widget" padding="md">
-                <h2 className="workspace__status-title">Статус обработки</h2>
-                <p className="workspace__status-summary">{statusSummary}</p>
-                {selectedPlaylistTrack ? (
-                  <div className="workspace__status-details">
-                    <div className="workspace__status-track">
-                      <span
-                        className="workspace__status-source"
-                        title={selectedPlaylistTrack.sourceUrl}
-                      >
-                        {selectedPlaylistTrack.sourceUrl}
-                      </span>
-                      <span className="workspace__status-id">ID: {selectedPlaylistTrack.id}</span>
-                    </div>
-                    <div className="workspace__status-state">
-                      <span className="workspace__status-icon" aria-hidden="true">
-                        {selectedPlaylistTrack.statusIcon}
-                      </span>
-                      <Tag variant={selectedPlaylistTrack.tagVariant ?? 'neutral'}>
-                        {selectedPlaylistTrack.statusLabel}
-                      </Tag>
-                    </div>
-                    <p className="workspace__status-updated">
-                      Обновлено: {selectedPlaylistTrack.updatedLabel || '—'}
-                    </p>
-                    {selectedPlaylistTrack.statusMessage && (
-                      <p className="workspace__status-message">
-                        {selectedPlaylistTrack.statusMessage}
-                      </p>
-                    )}
-                  </div>
-                ) : (
-                  <p className="workspace__status-placeholder">
-                    Выберите трек, чтобы увидеть детали обработки.
-                  </p>
-                )}
-              </Card>
               <PlaybackProvider>
                 <div
                   className="workspace__playback"
