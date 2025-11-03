@@ -57,3 +57,10 @@ Object.defineProperty(window.HTMLMediaElement.prototype, 'load', {
     this.dispatchEvent(new window.Event('loadedmetadata'));
   },
 });
+
+if (!window.HTMLElement.prototype.scrollIntoView) {
+  Object.defineProperty(window.HTMLElement.prototype, 'scrollIntoView', {
+    configurable: true,
+    value() {},
+  });
+}

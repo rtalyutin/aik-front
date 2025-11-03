@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .js,.jsx",
     "format": "prettier --write .",
 
-    "test": "node --loader @esbuild-kit/esm-loader --test",
+    "test": "node --loader ./test/css-loader.js --loader @esbuild-kit/esm-loader --test",
 
     "deploy": "bash scripts/deploy.sh"
   },
