@@ -25,6 +25,44 @@
   --accent-notice-bg: rgba(210, 106, 44, 0.1);
   --accent-notice-border: rgba(210, 106, 44, 0.24);
   --accent-ring: rgba(210, 106, 44, 0.35);
+  --app-header-background: var(--color-surface);
+  --app-header-border-color: var(--color-border);
+  --app-header-shadow: 0 12px 28px rgba(88, 56, 33, 0.12);
+  --workspace-background: var(--color-bg);
+  --workspace-border-color: transparent;
+  --workspace-shadow: none;
+  --workspace-border-radius: 0;
+  --workspace-playback-background: transparent;
+  --workspace-playback-border-color: transparent;
+  --workspace-playback-shadow: none;
+  --workspace-playback-radius: 0;
+  --workspace-playback-padding: 0;
+  --player-surface-background: var(--color-surface);
+  --player-surface-border-color: transparent;
+  --player-surface-shadow: var(--shadow-elevated);
+  --player-button-background: var(--accent-solid);
+  --player-button-text-color: var(--accent-contrast);
+  --player-button-shadow: none;
+  --player-button-hover-shadow: 0 8px 16px var(--accent-shadow);
+  --card-surface-background: var(--color-surface);
+  --card-border-color: var(--color-border);
+  --card-shadow: none;
+  --button-primary-background: linear-gradient(
+    135deg,
+    var(--accent-solid-strong),
+    var(--accent-solid)
+  );
+  --button-primary-hover-background: linear-gradient(
+    135deg,
+    var(--accent-solid),
+    var(--accent-solid-strong)
+  );
+  --button-primary-active-background: linear-gradient(
+    135deg,
+    var(--accent-solid-active),
+    var(--accent-solid)
+  );
+  --button-primary-shadow: 0 12px 28px var(--accent-shadow);
   --color-primary: var(--accent-solid);
   --color-primary-hover: var(--accent-solid-strong);
   --color-primary-active: var(--accent-solid-active);
@@ -75,6 +113,44 @@ html[data-theme='dark'] {
   --accent-notice-bg: rgba(244, 131, 49, 0.2);
   --accent-notice-border: rgba(244, 131, 49, 0.38);
   --accent-ring: rgba(244, 131, 49, 0.5);
+  --app-header-background: var(--color-surface);
+  --app-header-border-color: var(--color-border);
+  --app-header-shadow: 0 12px 28px rgba(10, 4, 1, 0.65);
+  --workspace-background: rgba(31, 17, 9, 0.84);
+  --workspace-border-color: rgba(244, 131, 49, 0.08);
+  --workspace-shadow: none;
+  --workspace-border-radius: 0;
+  --workspace-playback-background: rgba(31, 17, 9, 0.72);
+  --workspace-playback-border-color: rgba(244, 131, 49, 0.16);
+  --workspace-playback-shadow: none;
+  --workspace-playback-radius: 0;
+  --workspace-playback-padding: 0;
+  --player-surface-background: var(--color-surface);
+  --player-surface-border-color: rgba(244, 131, 49, 0.22);
+  --player-surface-shadow: var(--shadow-elevated);
+  --player-button-background: var(--accent-solid);
+  --player-button-text-color: var(--accent-contrast);
+  --player-button-shadow: none;
+  --player-button-hover-shadow: 0 8px 16px var(--accent-shadow);
+  --card-surface-background: var(--color-surface);
+  --card-border-color: rgba(244, 131, 49, 0.28);
+  --card-shadow: none;
+  --button-primary-background: linear-gradient(
+    135deg,
+    var(--accent-solid-strong),
+    var(--accent-solid)
+  );
+  --button-primary-hover-background: linear-gradient(
+    135deg,
+    var(--accent-solid),
+    var(--accent-solid-strong)
+  );
+  --button-primary-active-background: linear-gradient(
+    135deg,
+    var(--accent-solid-active),
+    var(--accent-solid)
+  );
+  --button-primary-shadow: 0 12px 28px rgba(10, 4, 1, 0.72);
   --color-primary: var(--accent-solid);
   --color-primary-hover: var(--accent-solid-strong);
   --color-primary-active: var(--accent-solid-active);
@@ -96,6 +172,7 @@ html[data-theme='dark'] {
 }
 
 [data-accent='fox-dream'] {
+  --fox-dream-glow: rgba(244, 125, 70, 0.45);
   --accent-solid: #d26a2c;
   --accent-solid-strong: #b9561f;
   --accent-solid-active: #994214;
@@ -108,6 +185,83 @@ html[data-theme='dark'] {
   --accent-notice-bg: rgba(210, 106, 44, 0.1);
   --accent-notice-border: rgba(210, 106, 44, 0.24);
   --accent-ring: rgba(210, 106, 44, 0.35);
+  --app-header-background: linear-gradient(
+    135deg,
+    rgba(255, 243, 234, 0.96) 0%,
+    rgba(255, 219, 188, 0.92) 100%
+  );
+  --app-header-border-color: rgba(255, 193, 153, 0.58);
+  --app-header-shadow: 0 24px 54px var(--fox-dream-glow);
+  --workspace-background: radial-gradient(
+      120% 120% at 15% 15%,
+      rgba(255, 215, 180, 0.42) 0%,
+      transparent 65%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 236, 218, 0.92) 0%,
+      rgba(249, 208, 174, 0.9) 100%
+    );
+  --workspace-border-color: rgba(255, 193, 153, 0.28);
+  --workspace-shadow: 0 36px 84px var(--fox-dream-glow);
+  --workspace-border-radius: 32px;
+  --workspace-playback-background: linear-gradient(
+    150deg,
+    rgba(255, 242, 229, 0.94) 0%,
+    rgba(255, 217, 185, 0.98) 100%
+  );
+  --workspace-playback-border-color: rgba(255, 193, 153, 0.42);
+  --workspace-playback-shadow: 0 32px 68px var(--fox-dream-glow);
+  --workspace-playback-radius: 28px;
+  --workspace-playback-padding: 1.75rem;
+  --player-surface-background: linear-gradient(
+    160deg,
+    rgba(255, 243, 234, 0.95) 0%,
+    rgba(255, 224, 199, 0.96) 100%
+  );
+  --player-surface-border-color: rgba(255, 193, 153, 0.45);
+  --player-surface-shadow: 0 28px 64px var(--fox-dream-glow);
+  --player-button-background: linear-gradient(
+    120deg,
+    #ffb76b 0%,
+    #ff8b4f 48%,
+    #f76b68 100%
+  );
+  --player-button-text-color: #fffdf8;
+  --player-button-shadow: 0 16px 34px var(--fox-dream-glow);
+  --player-button-hover-shadow: 0 20px 40px var(--fox-dream-glow);
+  --card-surface-background: linear-gradient(
+    155deg,
+    rgba(255, 248, 239, 0.96) 0%,
+    rgba(255, 226, 199, 0.94) 100%
+  );
+  --card-border-color: rgba(255, 193, 153, 0.42);
+  --card-shadow: 0 26px 72px var(--fox-dream-glow);
+  --button-primary-background: linear-gradient(
+    135deg,
+    rgba(255, 182, 114, 0.95) 0%,
+    rgba(244, 124, 86, 0.96) 100%
+  );
+  --button-primary-hover-background: linear-gradient(
+    135deg,
+    rgba(244, 124, 86, 0.96) 0%,
+    rgba(240, 102, 112, 0.98) 100%
+  );
+  --button-primary-active-background: linear-gradient(
+    135deg,
+    rgba(224, 90, 68, 0.98) 0%,
+    rgba(242, 118, 82, 0.96) 100%
+  );
+  --button-primary-shadow: 0 20px 44px var(--fox-dream-glow);
+}
+
+[data-accent='fox-dream'] .app-header,
+[data-accent='fox-dream'] .workspace,
+[data-accent='fox-dream'] .workspace__playback,
+[data-accent='fox-dream'] .player,
+[data-accent='fox-dream'] .player__button,
+[data-accent='fox-dream'] .card {
+  transition: background 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
 }
 
 [data-accent='blue'] {
@@ -151,9 +305,9 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem clamp(1.5rem, 2vw, 3rem);
-  border-bottom: 1px solid var(--color-border);
-  background-color: var(--color-surface);
-  box-shadow: 0 12px 28px rgba(88, 56, 33, 0.12);
+  border-bottom: 1px solid var(--app-header-border-color);
+  background: var(--app-header-background);
+  box-shadow: var(--app-header-shadow);
   backdrop-filter: blur(8px);
 }
 
@@ -250,6 +404,10 @@ html[data-theme='dark'] .app-header {
   flex-direction: column;
   gap: 1.5rem;
   padding: 2rem clamp(1.5rem, 2vw, 3rem) 3rem;
+  background: var(--workspace-background);
+  border: 1px solid var(--workspace-border-color);
+  border-radius: var(--workspace-border-radius);
+  box-shadow: var(--workspace-shadow);
 }
 
 .workspace__notice,
@@ -322,6 +480,11 @@ html[data-theme='dark'] .app-header {
   align-items: start;
   flex: 1;
   min-height: 0;
+  background: var(--workspace-playback-background);
+  border: 1px solid var(--workspace-playback-border-color);
+  border-radius: var(--workspace-playback-radius);
+  padding: var(--workspace-playback-padding);
+  box-shadow: var(--workspace-playback-shadow);
 }
 
 .modal {
@@ -410,19 +573,19 @@ html[data-theme='dark'] .modal__backdrop {
 }
 
 .btn--primary {
-  background: linear-gradient(135deg, var(--accent-solid), var(--accent-solid-strong));
+  background: var(--button-primary-background);
   color: var(--accent-contrast);
-  box-shadow: 0 14px 30px var(--accent-shadow);
+  box-shadow: var(--button-primary-shadow);
 }
 
 .btn--primary:hover:not(:disabled) {
   transform: translateY(-1px);
-  background: linear-gradient(135deg, var(--accent-solid-strong), var(--accent-solid));
+  background: var(--button-primary-hover-background);
 }
 
 .btn--primary:active:not(:disabled) {
   transform: translateY(1px);
-  background: linear-gradient(135deg, var(--accent-solid-active), var(--accent-solid));
+  background: var(--button-primary-active-background);
 }
 
 .btn--secondary {
@@ -465,8 +628,9 @@ html[data-theme='dark'] .modal__backdrop {
 .card {
   padding: 1.25rem;
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  background-color: var(--color-surface);
+  border: 1px solid var(--card-border-color);
+  background: var(--card-surface-background);
+  box-shadow: var(--card-shadow);
   color: inherit;
   text-decoration: none;
 }
