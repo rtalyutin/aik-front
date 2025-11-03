@@ -1,11 +1,12 @@
 .player {
-  background: var(--color-surface);
+  background: var(--player-surface-background);
+  border: 1px solid var(--player-surface-border-color);
   border-radius: 16px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  box-shadow: var(--shadow-elevated);
+  box-shadow: var(--player-surface-shadow);
   color: inherit;
 }
 
@@ -51,13 +52,14 @@
 }
 
 .player__button {
-  background: var(--accent-solid);
+  background: var(--player-button-background);
   border: none;
-  color: var(--accent-contrast);
+  color: var(--player-button-text-color);
   padding: 10px 18px;
   border-radius: 999px;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: var(--player-button-shadow);
   transition: transform 120ms ease, box-shadow 120ms ease;
 }
 
@@ -68,7 +70,7 @@
 
 .player__button:not(:disabled):hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 16px var(--accent-shadow);
+  box-shadow: var(--player-button-hover-shadow);
 }
 
 .player__time {
