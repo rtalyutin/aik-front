@@ -35,25 +35,30 @@ test('переключение цветового акцента меняет д
 
   const { findByTestId, getByRole } = render(<App />);
   const appShell = await findByTestId('app-shell');
-  const foxDreamButton = getByRole('button', { name: 'Лисий сон' });
-  const blueButton = getByRole('button', { name: 'Синий' });
+  const accentButtons = {
+    'fox-dream': getByRole('button', { name: 'Лисий сон' }),
+    blue: getByRole('button', { name: 'Синий' }),
+    'aurora-pulse': getByRole('button', { name: 'Пульс Авроры' }),
+  };
 
-  assert.equal(appShell.dataset.accent, 'fox-dream');
-  assert.equal(document.documentElement.dataset.accent, 'fox-dream');
-  assert.equal(foxDreamButton.getAttribute('aria-pressed'), 'true');
-  assert.equal(blueButton.getAttribute('aria-pressed'), 'false');
+  const assertAccentState = (expectedAccent) => {
+    assert.equal(appShell.dataset.accent, expectedAccent);
+    assert.equal(document.documentElement.dataset.accent, expectedAccent);
 
-  fireEvent.click(blueButton);
+    Object.entries(accentButtons).forEach(([preset, button]) => {
+      const expectedPressed = preset === expectedAccent ? 'true' : 'false';
+      assert.equal(button.getAttribute('aria-pressed'), expectedPressed);
+    });
+  };
 
-  assert.equal(appShell.dataset.accent, 'blue');
-  assert.equal(document.documentElement.dataset.accent, 'blue');
-  assert.equal(blueButton.getAttribute('aria-pressed'), 'true');
-  assert.equal(foxDreamButton.getAttribute('aria-pressed'), 'false');
+  assertAccentState('fox-dream');
 
-  fireEvent.click(foxDreamButton);
+  fireEvent.click(accentButtons.blue);
+  assertAccentState('blue');
 
-  assert.equal(appShell.dataset.accent, 'fox-dream');
-  assert.equal(document.documentElement.dataset.accent, 'fox-dream');
-  assert.equal(foxDreamButton.getAttribute('aria-pressed'), 'true');
-  assert.equal(blueButton.getAttribute('aria-pressed'), 'false');
+  fireEvent.click(accentButtons['aurora-pulse']);
+  assertAccentState('aurora-pulse');
+
+  fireEvent.click(accentButtons['fox-dream']);
+  assertAccentState('fox-dream');
 });
