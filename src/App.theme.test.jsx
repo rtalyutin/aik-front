@@ -45,9 +45,9 @@ test('переключение цветового акцента меняет д
   );
   const appShell = await findByTestId('app-shell');
   const accentButtons = {
-    'fox-dream': getByRole('button', { name: 'Лисий сон' }),
-    blue: getByRole('button', { name: 'Синий' }),
-    'aurora-pulse': getByRole('button', { name: 'Пульс Авроры' }),
+    'crimson-sonata': getByRole('button', { name: 'Багровая соната' }),
+    'glacier-mist': getByRole('button', { name: 'Ледяная дымка' }),
+    'neon-nocturne': getByRole('button', { name: 'Неоновая ноктюрн' }),
   };
 
   const assertAccentState = (expectedAccent) => {
@@ -60,14 +60,14 @@ test('переключение цветового акцента меняет д
     });
   };
 
-  assertAccentState('fox-dream');
+  assertAccentState('crimson-sonata');
 
-  fireEvent.click(accentButtons.blue);
-  assertAccentState('blue');
+  fireEvent.click(accentButtons['glacier-mist']);
+  assertAccentState('glacier-mist');
 
-  fireEvent.click(accentButtons['aurora-pulse']);
-  assertAccentState('aurora-pulse');
+  fireEvent.click(accentButtons['neon-nocturne']);
+  assertAccentState('neon-nocturne');
 
-  fireEvent.click(accentButtons['fox-dream']);
-  assertAccentState('fox-dream');
+  fireEvent.click(accentButtons['crimson-sonata']);
+  assertAccentState('crimson-sonata');
 });

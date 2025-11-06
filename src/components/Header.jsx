@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom';
 import Button from './Button';
 
 const accentOptions = [
-  { id: 'fox-dream', label: 'Лисий сон', icon: '🦊' },
-  { id: 'blue', label: 'Синий', icon: '🎵' },
-  { id: 'aurora-pulse', label: 'Пульс Авроры', icon: '🌌' },
+  { id: 'crimson-sonata', label: 'Багровая соната', icon: '🎻' },
+  { id: 'glacier-mist', label: 'Ледяная дымка', icon: '🧊' },
+  { id: 'neon-nocturne', label: 'Неоновая ноктюрн', icon: '🌃' },
 ];
 
 const themeModes = {
