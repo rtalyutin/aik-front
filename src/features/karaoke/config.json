@@ -11,12 +11,12 @@
   "tracksSource": "/karaoke-tracks.json",
   "pagination": {
     "pageSize": 20,
-    "maxVisiblePages": 3,
+    "maxVisiblePages": 5,
     "labels": {
-      "previous": "<-",
-      "next": "->",
-      "page": "Стр",
-      "navigation": ""
+      "previous": "<",
+      "next": ">",
+      "page": "",
+      "navigation": "Стр"
     }
   }
 }
