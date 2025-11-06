@@ -10,12 +10,12 @@
   "defaultCaptions": "/karaoke-subtitles.vtt",
   "tracksSource": "/karaoke-tracks.json",
   "pagination": {
-    "pageSize": 2,
+    "pageSize": 50,
     "labels": {
-      "previous": "Назад",
-      "next": "Вперёд",
-      "page": "Страница",
-      "navigation": "Навигация по страницам плейлиста"
+      "previous": "<-",
+      "next": "->",
+      "page": "Стр",
+      "navigation": ""
     }
   }
 }
