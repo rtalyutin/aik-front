@@ -45,13 +45,23 @@ afterEach(() => {
 });
 
 test('загружает и отображает список треков', async () => {
-  render(<KaraokePage />);
+  const { container } = render(<KaraokePage />);
 
   const playlistHeading = await screen.findByRole('heading', { name: 'Плейлист' });
   assert.ok(playlistHeading);
 
   const trackButtons = await screen.findAllByRole('button', { name: /Cherry RAiT$/ });
   assert.equal(trackButtons.length, sampleTracks.length);
+
+  const searchLabel = await screen.findByLabelText('Поиск по трекам');
+  assert.ok(searchLabel);
+
+  const searchField = container.querySelector('.karaoke-page__search-field');
+  assert.ok(searchField);
+
+  const searchIcon = searchField.querySelector('.karaoke-page__search-icon');
+  assert.ok(searchIcon);
+  assert.equal(searchIcon.getAttribute('aria-hidden'), 'true');
 
   assert.deepEqual(fetchCalls, ['/karaoke-tracks.json']);
 });

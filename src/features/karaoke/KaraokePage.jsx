@@ -131,14 +131,31 @@ const KaraokePage = () => {
               <label className="karaoke-page__search-label" htmlFor="karaoke-search-input">
                 Поиск по трекам
               </label>
-              <input
-                id="karaoke-search-input"
-                type="search"
-                className="karaoke-page__search-input"
-                value={searchQuery}
-                onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder="Введите название или исполнителя"
-              />
+              <div className="karaoke-page__search-field">
+                <span className="karaoke-page__search-icon" aria-hidden="true">
+                  <svg
+                    className="karaoke-page__search-icon-graphic"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    role="presentation"
+                    focusable="false"
+                  >
+                    <path
+                      d="M10.5 3.75a6.75 6.75 0 0 1 5.404 10.862l4.992 4.992a.75.75 0 0 1-1.06 1.061l-4.992-4.992A6.75 6.75 0 1 1 10.5 3.75Zm0 1.5a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <input
+                  id="karaoke-search-input"
+                  type="search"
+                  className="karaoke-page__search-input"
+                  value={searchQuery}
+                  onChange={(event) => setSearchQuery(event.target.value)}
+                  placeholder="Введите название или исполнителя"
+                />
+              </div>
             </div>
           ) : null}
           {tracks && tracks.length > 0 && filteredTracks.length === 0 ? (
