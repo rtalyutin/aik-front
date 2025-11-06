@@ -11,6 +11,7 @@
   "tracksSource": "/karaoke-tracks.json",
   "pagination": {
     "pageSize": 50,
+    "maxVisiblePages": 7,
     "labels": {
       "previous": "<-",
       "next": "->",
