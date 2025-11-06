@@ -22,7 +22,7 @@ test('переключение темы обновляет дата-атрибу
 
   assert.equal(document.documentElement.dataset.theme, 'light');
 
-  const toggle = getByRole('button', { name: 'Переключить тему' });
+  const toggle = getByRole('button', { name: /Переключить тему/ });
   fireEvent.click(toggle);
   assert.equal(document.documentElement.dataset.theme, 'dark');
 
