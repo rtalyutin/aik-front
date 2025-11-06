@@ -6,9 +6,13 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import karaokeConfig from './config.json';
 import KaraokePage from './KaraokePage.jsx';
 
-const PAGE_SIZE = karaokeConfig.pagination?.pageSize ?? 6;
+const TEST_PAGE_SIZE = 2;
+const TEST_MAX_VISIBLE_PAGES = 5;
+const PREVIOUS_PAGE_LABEL = karaokeConfig.pagination?.labels?.previous ?? 'Назад';
+const NEXT_PAGE_LABEL = karaokeConfig.pagination?.labels?.next ?? 'Вперёд';
+const PAGE_ARIA_LABEL = karaokeConfig.pagination?.labels?.page ?? 'Страница';
 
-const sampleTracks = [
+const baseTracks = [
   {
     id: 'neon-dreams',
     title: 'Неоновые сны',
@@ -46,12 +50,101 @@ const sampleTracks = [
   },
 ];
 
+const extraTracks = Array.from({ length: 40 }, (_, index) => {
+  const number = index + 1;
+
+  return {
+    id: `extra-track-${number}`,
+    title: `Экстра трек ${number}`,
+    artist: 'Cherry RAiT',
+    src: `https://example.com/extra-track-${number}.mp4`,
+    captions: '/karaoke-subtitles.vtt',
+  };
+});
+
+const sampleTracks = [...baseTracks, ...extraTracks];
+const TOTAL_PAGES = Math.ceil(sampleTracks.length / TEST_PAGE_SIZE);
+
 let originalFetch;
 let fetchCalls;
+let originalPageSize;
+let originalMaxVisiblePages;
+let hadOriginalMaxVisiblePages;
+
+const queryNumericPaginationButtons = () =>
+  Array.from(
+    document.querySelectorAll('.karaoke-page__pagination-button--number'),
+  );
+
+const queryVisiblePageNumbers = () =>
+  queryNumericPaginationButtons()
+    .map((button) => Number.parseInt(button.textContent ?? '', 10))
+    .filter((value) => Number.isFinite(value));
+
+const getCurrentPageNumber = () => {
+  const activeButton = document.querySelector(
+    '.karaoke-page__pagination-button--number[aria-current="page"]',
+  );
+
+  if (!activeButton) {
+    return 1;
+  }
+
+  const value = Number.parseInt(activeButton.textContent ?? '', 10);
+
+  return Number.isFinite(value) ? value : 1;
+};
+
+const goToPage = async (targetPage) => {
+  await screen.findByRole('button', { name: `${PAGE_ARIA_LABEL} 1` });
+  let safety = 0;
+
+  while (getCurrentPageNumber() !== targetPage && safety < TOTAL_PAGES * 2) {
+    const currentPage = getCurrentPageNumber();
+    const directButton = screen.queryByRole('button', {
+      name: `${PAGE_ARIA_LABEL} ${targetPage}`,
+    });
+
+    if (directButton) {
+      fireEvent.click(directButton);
+    } else if (currentPage < targetPage) {
+      const nextButton = screen.getByRole('button', { name: NEXT_PAGE_LABEL });
+      fireEvent.click(nextButton);
+    } else {
+      const previousButton = screen.getByRole('button', { name: PREVIOUS_PAGE_LABEL });
+      fireEvent.click(previousButton);
+    }
+
+    await waitFor(() => {
+      const updatedPage = getCurrentPageNumber();
+      assert.notEqual(updatedPage, currentPage);
+    });
+
+    safety += 1;
+  }
+
+  await waitFor(() => {
+    const targetButton = screen.getByRole('button', {
+      name: `${PAGE_ARIA_LABEL} ${targetPage}`,
+    });
+    assert.equal(targetButton.getAttribute('aria-current'), 'page');
+  });
+};
 
 beforeEach(() => {
   originalFetch = globalThis.fetch;
   fetchCalls = [];
+
+  const pagination = karaokeConfig.pagination ?? (karaokeConfig.pagination = {});
+  originalPageSize = pagination.pageSize;
+  hadOriginalMaxVisiblePages = Object.prototype.hasOwnProperty.call(
+    pagination,
+    'maxVisiblePages',
+  );
+  originalMaxVisiblePages = pagination.maxVisiblePages;
+  pagination.pageSize = TEST_PAGE_SIZE;
+  pagination.maxVisiblePages = TEST_MAX_VISIBLE_PAGES;
+
   globalThis.fetch = async (input) => {
     fetchCalls.push(String(input));
 
@@ -66,6 +159,15 @@ beforeEach(() => {
 afterEach(() => {
   cleanup();
   globalThis.fetch = originalFetch;
+
+  const pagination = karaokeConfig.pagination ?? (karaokeConfig.pagination = {});
+  pagination.pageSize = originalPageSize;
+
+  if (hadOriginalMaxVisiblePages) {
+    pagination.maxVisiblePages = originalMaxVisiblePages;
+  } else {
+    delete pagination.maxVisiblePages;
+  }
 });
 
 test('загружает и отображает список треков', async () => {
@@ -74,8 +176,14 @@ test('загружает и отображает список треков', asy
   const playlistHeading = await screen.findByRole('heading', { name: 'Плейлист' });
   assert.ok(playlistHeading);
 
+  await waitFor(() => {
+    const pageNumbers = queryVisiblePageNumbers();
+    assert.equal(pageNumbers.length, TEST_MAX_VISIBLE_PAGES);
+    assert.deepEqual(pageNumbers, [1, 2, 3, 4, TOTAL_PAGES]);
+  });
+
   const trackButtons = await screen.findAllByRole('button', { name: /Cherry RAiT$/ });
-  assert.equal(trackButtons.length, PAGE_SIZE);
+  assert.equal(trackButtons.length, TEST_PAGE_SIZE);
 
   const searchLabel = await screen.findByLabelText('Поиск по трекам');
   assert.ok(searchLabel);
@@ -119,8 +227,13 @@ test('фильтрует треки по исполнителю и показы�
 
   await waitFor(() => {
     const visibleButtons = screen.getAllByRole('button', { name: /Cherry RAiT$/ });
-    assert.equal(visibleButtons.length, Math.min(sampleTracks.length, PAGE_SIZE));
-    assert.ok(screen.getByRole('button', { name: 'Страница 3' }));
+    assert.equal(visibleButtons.length, TEST_PAGE_SIZE);
+
+    const pageNumbers = queryVisiblePageNumbers();
+    assert.equal(pageNumbers.length, TEST_MAX_VISIBLE_PAGES);
+    assert.ok(
+      screen.getByRole('button', { name: `${PAGE_ARIA_LABEL} 3` }),
+    );
   });
 
   fireEvent.change(searchInput, { target: { value: 'несуществующий артист' } });
@@ -153,7 +266,7 @@ test('переключает активный трек и обновляет и�
 
     assert.equal(video.getAttribute('src'), sampleTracks[1].src);
 
-    fireEvent(video, new Event('loadeddata'));
+    fireEvent(video, new window.Event('loadeddata'));
 
     await waitFor(() => {
       assert.ok(playCalls.includes(sampleTracks[1].src));
@@ -163,60 +276,75 @@ test('переключает активный трек и обновляет и�
   }
 });
 
-test('переходит между страницами плейлиста', async () => {
+test('управляет пагинацией в соответствии с конфигурацией', async () => {
   render(<KaraokePage />);
 
-  const nextButton = await screen.findByRole('button', { name: 'Вперёд' });
+  const previousButton = await screen.findByRole('button', { name: PREVIOUS_PAGE_LABEL });
+  const nextButton = screen.getByRole('button', { name: NEXT_PAGE_LABEL });
+
+  assert.equal(previousButton.hasAttribute('disabled'), true);
   assert.equal(nextButton.hasAttribute('disabled'), false);
 
-  fireEvent.click(nextButton);
-
   await waitFor(() => {
-    assert.ok(
-      screen.getByRole('button', { name: 'Ночной драйв — Cherry RAiT' }),
-    );
-    assert.equal(
-      screen.queryByRole('button', { name: 'Неоновые сны — Cherry RAiT' }),
-      null,
-    );
+    const pageNumbers = queryVisiblePageNumbers();
+    assert.deepEqual(pageNumbers, [1, 2, 3, 4, TOTAL_PAGES]);
   });
 
-  const secondPageButton = screen.getByRole('button', { name: 'Страница 2' });
-  assert.equal(secondPageButton.getAttribute('aria-current'), 'page');
-
-  const thirdPageButton = screen.getByRole('button', { name: 'Страница 3' });
-  fireEvent.click(thirdPageButton);
-
+  await goToPage(2);
   await waitFor(() => {
-    assert.ok(
-      screen.getByRole('button', { name: 'Звёздная пыль — Cherry RAiT' }),
-    );
-    assert.equal(
-      screen.queryByRole('button', { name: 'Эхо мегаполиса — Cherry RAiT' }),
-      null,
-    );
+    assert.deepEqual(queryVisiblePageNumbers(), [1, 2, 3, 4, TOTAL_PAGES]);
   });
 
-  const previousButton = screen.getByRole('button', { name: 'Назад' });
-  assert.equal(previousButton.hasAttribute('disabled'), false);
+  await goToPage(4);
+  await waitFor(() => {
+    assert.deepEqual(queryVisiblePageNumbers(), [1, 3, 4, 5, TOTAL_PAGES]);
+  });
+
+  for (const targetPage of [5, 6, 7, 8, 9, 10, 11, 12]) {
+    await goToPage(targetPage);
+  }
+
+  await waitFor(() => {
+    assert.deepEqual(queryVisiblePageNumbers(), [1, 11, 12, 13, TOTAL_PAGES]);
+  });
+
+  await goToPage(TOTAL_PAGES);
+
+  await waitFor(() => {
+    assert.deepEqual(queryVisiblePageNumbers(), [
+      1,
+      TOTAL_PAGES - 3,
+      TOTAL_PAGES - 2,
+      TOTAL_PAGES - 1,
+      TOTAL_PAGES,
+    ]);
+  });
+
+  const updatedNextButton = screen.getByRole('button', { name: NEXT_PAGE_LABEL });
+  assert.equal(updatedNextButton.hasAttribute('disabled'), true);
+
+  const lastTrackButton = screen.getByRole('button', {
+    name: 'Экстра трек 40 — Cherry RAiT',
+  });
+  assert.ok(lastTrackButton);
+
+  fireEvent.click(screen.getByRole('button', { name: PREVIOUS_PAGE_LABEL }));
+
+  await waitFor(() => {
+    const pageButton = screen.getByRole('button', {
+      name: `${PAGE_ARIA_LABEL} ${TOTAL_PAGES - 1}`,
+    });
+    assert.equal(pageButton.getAttribute('aria-current'), 'page');
+  });
 });
 
 test('сбрасывает страницу после изменения поискового запроса', async () => {
   render(<KaraokePage />);
 
-  const nextButton = await screen.findByRole('button', { name: 'Вперёд' });
-  fireEvent.click(nextButton);
+  await goToPage(6);
 
-  const thirdPageButton = await screen.findByRole('button', { name: 'Страница 3' });
-  fireEvent.click(thirdPageButton);
+  const searchInput = await screen.findByLabelText('Поиск по трекам');
 
-  await waitFor(() => {
-    assert.ok(
-      screen.getByRole('button', { name: 'Звёздная пыль — Cherry RAiT' }),
-    );
-  });
-
-  const searchInput = screen.getByLabelText('Поиск по трекам');
   fireEvent.change(searchInput, { target: { value: 'город' } });
 
   await waitFor(() => {
@@ -229,15 +357,23 @@ test('сбрасывает страницу после изменения пои
     );
   });
 
+  assert.equal(queryNumericPaginationButtons().length, 0);
+
   fireEvent.change(searchInput, { target: { value: '' } });
 
   await waitFor(() => {
-    assert.ok(
-      screen.getByRole('button', { name: 'Неоновые сны — Cherry RAiT' }),
-    );
-    assert.equal(
-      screen.queryByRole('button', { name: 'Звёздная пыль — Cherry RAiT' }),
-      null,
-    );
+    const firstPageButton = screen.getByRole('button', {
+      name: `${PAGE_ARIA_LABEL} 1`,
+    });
+    assert.equal(firstPageButton.getAttribute('aria-current'), 'page');
   });
+
+  await waitFor(() => {
+    assert.ok(screen.getByRole('button', { name: 'Неоновые сны — Cherry RAiT' }));
+  });
+
+  assert.equal(
+    screen.queryByRole('button', { name: 'Звёздная пыль — Cherry RAiT' }),
+    null,
+  );
 });

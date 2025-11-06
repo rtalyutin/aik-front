@@ -17,6 +17,12 @@ const KaraokePage = () => {
   const paginationConfig = karaokeConfig.pagination || {};
   const paginationLabels = paginationConfig.labels || {};
   const pageSize = paginationConfig.pageSize || 6;
+  const defaultMaxVisiblePages = 7;
+  const parsedMaxVisiblePages = Number(paginationConfig.maxVisiblePages);
+  const normalizedMaxVisiblePages = Number.isFinite(parsedMaxVisiblePages)
+    ? Math.floor(parsedMaxVisiblePages)
+    : defaultMaxVisiblePages;
+  const maxVisiblePages = Math.max(normalizedMaxVisiblePages > 0 ? normalizedMaxVisiblePages : defaultMaxVisiblePages, 3);
   const previousPageLabel = paginationLabels.previous || 'Назад';
   const nextPageLabel = paginationLabels.next || 'Вперёд';
   const pageAriaLabel = paginationLabels.page || 'Страница';
@@ -77,6 +83,47 @@ const KaraokePage = () => {
   }, [tracks, searchQuery]);
 
   const totalPages = filteredTracks.length > 0 ? Math.ceil(filteredTracks.length / pageSize) : 0;
+
+  const visiblePageNumbers = useMemo(() => {
+    if (totalPages === 0) {
+      return [];
+    }
+
+    if (totalPages <= maxVisiblePages) {
+      return Array.from({ length: totalPages }, (_, index) => index + 1);
+    }
+
+    const lastPage = totalPages;
+    const pages = [];
+    const middleSlots = maxVisiblePages - 2;
+    const leftSlots = Math.floor(middleSlots / 2);
+    const rightSlots = middleSlots - leftSlots;
+
+    let start = currentPage - leftSlots;
+    let end = currentPage + rightSlots - 1;
+
+    if (start < 2) {
+      start = 2;
+      end = start + middleSlots - 1;
+    }
+
+    if (end > lastPage - 1) {
+      end = lastPage - 1;
+      start = end - middleSlots + 1;
+    }
+
+    pages.push(1);
+
+    for (let pageNumber = start; pageNumber <= end; pageNumber += 1) {
+      if (pageNumber > 1 && pageNumber < lastPage) {
+        pages.push(pageNumber);
+      }
+    }
+
+    pages.push(lastPage);
+
+    return [...new Set(pages)].sort((a, b) => a - b).slice(0, maxVisiblePages);
+  }, [currentPage, maxVisiblePages, totalPages]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -231,8 +278,7 @@ const KaraokePage = () => {
                     {previousPageLabel}
                   </button>
                   <ul className="karaoke-page__pagination-pages">
-                    {Array.from({ length: totalPages }, (_, index) => {
-                      const pageNumber = index + 1;
+                    {visiblePageNumbers.map((pageNumber) => {
                       const isActivePage = currentPage === pageNumber;
 
                       return (
