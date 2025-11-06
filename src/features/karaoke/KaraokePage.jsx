@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import karaokeConfig from './config.json';
 import { useKaraokeTracks } from './useKaraokeTracks.js';
 
@@ -12,6 +12,8 @@ const KaraokePage = () => {
     selectedTrackId,
     selectTrack,
   } = useKaraokeTracks({ source: karaokeConfig.tracksSource });
+
+  const [searchQuery, setSearchQuery] = useState('');
 
   const playlistHeading = karaokeConfig.tracksHeading || 'Плейлист';
   const playerHeading = karaokeConfig.playerHeading || 'Караоке-плеер';
@@ -46,12 +48,31 @@ const KaraokePage = () => {
     }
   }, [selectedTrack]);
 
-  const trackButtons = useMemo(() => {
+  const filteredTracks = useMemo(() => {
     if (!tracks || tracks.length === 0) {
+      return [];
+    }
+
+    const normalizedQuery = searchQuery.trim().toLowerCase();
+
+    if (!normalizedQuery) {
+      return tracks;
+    }
+
+    return tracks.filter((track) => {
+      const title = String(track.title || '').toLowerCase();
+      const artist = String(track.artist || '').toLowerCase();
+
+      return title.includes(normalizedQuery) || artist.includes(normalizedQuery);
+    });
+  }, [tracks, searchQuery]);
+
+  const trackButtons = useMemo(() => {
+    if (!filteredTracks || filteredTracks.length === 0) {
       return null;
     }
 
-    return tracks.map((track) => {
+    return filteredTracks.map((track) => {
       const isActive = selectedTrackId === track.id;
       const buttonClasses = ['karaoke-page__track-button'];
 
@@ -75,7 +96,7 @@ const KaraokePage = () => {
         </li>
       );
     });
-  }, [tracks, selectedTrackId, handleTrackSelect]);
+  }, [filteredTracks, selectedTrackId, handleTrackSelect]);
 
   return (
     <section
@@ -106,6 +127,24 @@ const KaraokePage = () => {
             <p className="karaoke-page__status">{emptyState}</p>
           ) : null}
           {tracks && tracks.length > 0 ? (
+            <div className="karaoke-page__search">
+              <label className="karaoke-page__search-label" htmlFor="karaoke-search-input">
+                Поиск по трекам
+              </label>
+              <input
+                id="karaoke-search-input"
+                type="search"
+                className="karaoke-page__search-input"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="Введите название или исполнителя"
+              />
+            </div>
+          ) : null}
+          {tracks && tracks.length > 0 && filteredTracks.length === 0 ? (
+            <p className="karaoke-page__status">Ничего не найдено</p>
+          ) : null}
+          {tracks && tracks.length > 0 && filteredTracks.length > 0 ? (
             <ul className="karaoke-page__track-list">
               {trackButtons}
             </ul>
