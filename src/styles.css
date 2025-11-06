@@ -1225,6 +1225,7 @@ html[data-theme="dark"] .app-header {
 .karaoke-page__content {
   display: grid;
   grid-template-columns: minmax(240px, 320px) 1fr;
+  grid-template-areas: "playlist player";
   gap: 1.5rem;
   align-items: stretch;
   min-height: 100%;
@@ -1243,6 +1244,10 @@ html[data-theme="dark"] .app-header {
   color: var(--color-text);
   box-shadow: 0 16px 36px rgba(46, 22, 9, 0.1);
   min-height: 0;
+}
+
+.karaoke-page__playlist {
+  grid-area: playlist;
 }
 
 .karaoke-page__search {
@@ -1316,6 +1321,7 @@ html[data-theme="dark"] .app-header {
   gap: 1rem;
   flex: 1;
   min-height: 0;
+  grid-area: player;
 }
 
 .karaoke-page__section-title {
@@ -1504,6 +1510,9 @@ html[data-theme="dark"] .app-header {
 @media (max-width: 960px) {
   .karaoke-page__content {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "player"
+      "playlist";
   }
 
   .split-pane {
