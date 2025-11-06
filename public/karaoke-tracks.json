@@ -2637,5 +2637,2835 @@
     "artist": "Юрий Антонов",
     "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%AE%D1%80%D0%B8%D0%B9%20%D0%90%D0%BD%D1%82%D0%BE%D0%BD%D0%BE%D0%B2%20-%20%D0%9D%D0%B5%20%D0%B7%D0%B0%D0%B1%D1%8B%D0%B2%D0%B0%D0%B9%20rmx.mp4",
     "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Dessa - Fire-A",
+    "title": "Dessa - Fire",
+    "artist": "A",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/A-Dessa%20-%20Fire.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Dessa - Всё ровно-A",
+    "title": "Dessa - Всё ровно",
+    "artist": "A",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/A-Dessa%20-%20%D0%92%D1%81%D1%91%20%D1%80%D0%BE%D0%B2%D0%BD%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Dessa - Женщина, я не танцую-A",
+    "title": "Dessa - Женщина, я не танцую",
+    "artist": "A",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/A-Dessa%20-%20%D0%96%D0%B5%D0%BD%D1%89%D0%B8%D0%BD%D0%B0%2C%20%D1%8F%20%D0%BD%D0%B5%20%D1%82%D0%B0%D0%BD%D1%86%D1%83%D1%8E.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Dessa - Опа Анапа-A",
+    "title": "Dessa - Опа Анапа",
+    "artist": "A",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/A-Dessa%20-%20%D0%9E%D0%BF%D0%B0%20%D0%90%D0%BD%D0%B0%D0%BF%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Dessa - Раненая птица-A",
+    "title": "Dessa - Раненая птица",
+    "artist": "A",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/A-Dessa%20-%20%D0%A0%D0%B0%D0%BD%D0%B5%D0%BD%D0%B0%D1%8F%20%D0%BF%D1%82%D0%B8%D1%86%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Моя душа-Andro",
+    "title": "Моя душа",
+    "artist": "Andro",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Andro%20-%20%D0%9C%D0%BE%D1%8F%20%D0%B4%D1%83%D1%88%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Любимый человек-ANIVAR",
+    "title": "Любимый человек",
+    "artist": "ANIVAR",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/ANIVAR%20-%20%D0%9B%D1%8E%D0%B1%D0%B8%D0%BC%D1%8B%D0%B9%20%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Все мимо-ARTIK & ASTI",
+    "title": "Все мимо",
+    "artist": "ARTIK & ASTI",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/ARTIK%20%26%20ASTI%20-%20%D0%92%D1%81%D0%B5%20%D0%BC%D0%B8%D0%BC%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Чувства-ARTIK & ASTI",
+    "title": "Чувства",
+    "artist": "ARTIK & ASTI",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/ARTIK%20%26%20ASTI%20-%20%D0%A7%D1%83%D0%B2%D1%81%D1%82%D0%B2%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Зови меня-EMIN, Ани Лорак",
+    "title": "Зови меня",
+    "artist": "EMIN, Ани Лорак",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/EMIN%2C%20%D0%90%D0%BD%D0%B8%20%D0%9B%D0%BE%D1%80%D0%B0%D0%BA%20-%20%D0%97%D0%BE%D0%B2%D0%B8%20%D0%BC%D0%B5%D0%BD%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Если чё, я Баха-Jah Khalib",
+    "title": "Если чё, я Баха",
+    "artist": "Jah Khalib",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Jah%20Khalib%20-%20%D0%95%D1%81%D0%BB%D0%B8%20%D1%87%D1%91%2C%20%D1%8F%20%D0%91%D0%B0%D1%85%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Лейла-Jah Khalib",
+    "title": "Лейла",
+    "artist": "Jah Khalib",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Jah%20Khalib%20-%20%D0%9B%D0%B5%D0%B9%D0%BB%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Мамасита-Jah Khalib",
+    "title": "Мамасита",
+    "artist": "Jah Khalib",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Jah%20Khalib%20-%20%D0%9C%D0%B0%D0%BC%D0%B0%D1%81%D0%B8%D1%82%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Созвездие ангела-Jah Khalib",
+    "title": "Созвездие ангела",
+    "artist": "Jah Khalib",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Jah%20Khalib%20-%20%D0%A1%D0%BE%D0%B7%D0%B2%D0%B5%D0%B7%D0%B4%D0%B8%D0%B5%20%D0%B0%D0%BD%D0%B3%D0%B5%D0%BB%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ты беспощадна-JONY",
+    "title": "Ты беспощадна",
+    "artist": "JONY",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/JONY%20-%20%D0%A2%D1%8B%20%D0%B1%D0%B5%D1%81%D0%BF%D0%BE%D1%89%D0%B0%D0%B4%D0%BD%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Космос-Kristina Si",
+    "title": "Космос",
+    "artist": "Kristina Si",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Kristina%20Si%20-%20%D0%9A%D0%BE%D1%81%D0%BC%D0%BE%D1%81.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Все танцуют локтями-L_ONE",
+    "title": "Все танцуют локтями",
+    "artist": "L_ONE",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/L_ONE%20-%20%D0%92%D1%81%D0%B5%20%D1%82%D0%B0%D0%BD%D1%86%D1%83%D1%8E%D1%82%20%D0%BB%D0%BE%D0%BA%D1%82%D1%8F%D0%BC%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Якутяночка-L_ONE, Варвара Визбор",
+    "title": "Якутяночка",
+    "artist": "L_ONE, Варвара Визбор",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/L_ONE%2C%20%D0%92%D0%B0%D1%80%D0%B2%D0%B0%D1%80%D0%B0%20%D0%92%D0%B8%D0%B7%D0%B1%D0%BE%D1%80%20-%20%D0%AF%D0%BA%D1%83%D1%82%D1%8F%D0%BD%D0%BE%D1%87%D0%BA%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "No cry-Luxor, Люся Чеботина",
+    "title": "No cry",
+    "artist": "Luxor, Люся Чеботина",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Luxor%2C%20%D0%9B%D1%8E%D1%81%D1%8F%20%D0%A7%D0%B5%D0%B1%D0%BE%D1%82%D0%B8%D0%BD%D0%B0%20-%20No%20cry.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Russian woman-Manizha",
+    "title": "Russian woman",
+    "artist": "Manizha",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Manizha%20-%20Russian%20woman.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Люстра-Manizha",
+    "title": "Люстра",
+    "artist": "Manizha",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Manizha%20-%20%D0%9B%D1%8E%D1%81%D1%82%D1%80%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "На путь воина встаю-Manizha",
+    "title": "На путь воина встаю",
+    "artist": "Manizha",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Manizha%20-%20%D0%9D%D0%B0%20%D0%BF%D1%83%D1%82%D1%8C%20%D0%B2%D0%BE%D0%B8%D0%BD%D0%B0%20%D0%B2%D1%81%D1%82%D0%B0%D1%8E.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Drunk groove-MARUV, BOOSIN",
+    "title": "Drunk groove",
+    "artist": "MARUV, BOOSIN",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/MARUV%2C%20BOOSIN%20-%20Drunk%20groove.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "от Луны до Марса-MATRANG",
+    "title": "от Луны до Марса",
+    "artist": "MATRANG",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/MATRANG%20-%20%D0%BE%D1%82%20%D0%9B%D1%83%D0%BD%D1%8B%20%D0%B4%D0%BE%20%D0%9C%D0%B0%D1%80%D1%81%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Люби меня-MiyaGi & Эндшпиль",
+    "title": "Люби меня",
+    "artist": "MiyaGi & Эндшпиль",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/MiyaGi%20%26%20%D0%AD%D0%BD%D0%B4%D1%88%D0%BF%D0%B8%D0%BB%D1%8C%20-%20%D0%9B%D1%8E%D0%B1%D0%B8%20%D0%BC%D0%B5%D0%BD%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "ФАЯ-Miyagi & Эндшпиль",
+    "title": "ФАЯ",
+    "artist": "Miyagi & Эндшпиль",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Miyagi%20%26%20%D0%AD%D0%BD%D0%B4%D1%88%D0%BF%D0%B8%D0%BB%D1%8C%20-%20%D0%A4%D0%90%D0%AF.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Подойди-NILETTO",
+    "title": "Подойди",
+    "artist": "NILETTO",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/NILETTO%20-%20%D0%9F%D0%BE%D0%B4%D0%BE%D0%B9%D0%B4%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "I AM-OBLADAET",
+    "title": "I AM",
+    "artist": "OBLADAET",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/OBLADAET%20-%20I%20AM.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Kenny-OBLADAET",
+    "title": "Kenny",
+    "artist": "OBLADAET",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/OBLADAET%20-%20Kenny.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Listen to your heart-Roxette",
+    "title": "Listen to your heart",
+    "artist": "Roxette",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Roxette%20-%20Listen%20to%20your%20heart.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Выпуская дым-Slavik Pogosov",
+    "title": "Выпуская дым",
+    "artist": "Slavik Pogosov",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Slavik%20Pogosov%20-%20%D0%92%D1%8B%D0%BF%D1%83%D1%81%D0%BA%D0%B0%D1%8F%20%D0%B4%D1%8B%D0%BC.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ты беда моя-Slavik Pogosov",
+    "title": "Ты беда моя",
+    "artist": "Slavik Pogosov",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Slavik%20Pogosov%20-%20%D0%A2%D1%8B%20%D0%B1%D0%B5%D0%B4%D0%B0%20%D0%BC%D0%BE%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "killah - Барабан-T",
+    "title": "killah - Барабан",
+    "artist": "T",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/T-killah%20-%20%D0%91%D0%B0%D1%80%D0%B0%D0%B1%D0%B0%D0%BD.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "killah - Невидимая rmx-T",
+    "title": "killah - Невидимая rmx",
+    "artist": "T",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/T-killah%20-%20%D0%9D%D0%B5%D0%B2%D0%B8%D0%B4%D0%B8%D0%BC%D0%B0%D1%8F%20rmx.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "XO-The Limba, Andro",
+    "title": "XO",
+    "artist": "The Limba, Andro",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/The%20Limba%2C%20Andro%20-%20XO.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Позови меня с собой-TSOY",
+    "title": "Позови меня с собой",
+    "artist": "TSOY",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/TSOY%20-%20%D0%9F%D0%BE%D0%B7%D0%BE%D0%B2%D0%B8%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D1%81%20%D1%81%D0%BE%D0%B1%D0%BE%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Видели ночь-Zdob și Zdub",
+    "title": "Видели ночь",
+    "artist": "Zdob și Zdub",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Zdob%20%C8%99i%20Zdub%20-%20%D0%92%D0%B8%D0%B4%D0%B5%D0%BB%D0%B8%20%D0%BD%D0%BE%D1%87%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Fly 2-Zivert, NILETTO",
+    "title": "Fly 2",
+    "artist": "Zivert, NILETTO",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Zivert%2C%20NILETTO%20-%20Fly%202.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Студио - Улетаю-А",
+    "title": "Студио - Улетаю",
+    "artist": "А",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90-%D0%A1%D1%82%D1%83%D0%B4%D0%B8%D0%BE%20-%20%D0%A3%D0%BB%D0%B5%D1%82%D0%B0%D1%8E.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я просто хочу приехать-Алексей Воробьёв",
+    "title": "Я просто хочу приехать",
+    "artist": "Алексей Воробьёв",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9%20%D0%92%D0%BE%D1%80%D0%BE%D0%B1%D1%8C%D1%91%D0%B2%20-%20%D0%AF%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BF%D1%80%D0%B8%D0%B5%D1%85%D0%B0%D1%82%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Мал-помалу-Алла Пугачёва",
+    "title": "Мал-помалу",
+    "artist": "Алла Пугачёва",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BB%D0%BB%D0%B0%20%D0%9F%D1%83%D0%B3%D0%B0%D1%87%D1%91%D0%B2%D0%B0%20-%20%D0%9C%D0%B0%D0%BB-%D0%BF%D0%BE%D0%BC%D0%B0%D0%BB%D1%83.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Монолог-Алла Пугачёва",
+    "title": "Монолог",
+    "artist": "Алла Пугачёва",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BB%D0%BB%D0%B0%20%D0%9F%D1%83%D0%B3%D0%B0%D1%87%D1%91%D0%B2%D0%B0%20-%20%D0%9C%D0%BE%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Опять метель-Алла Пугачёва, Кристина Орбакайте",
+    "title": "Опять метель",
+    "artist": "Алла Пугачёва, Кристина Орбакайте",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BB%D0%BB%D0%B0%20%D0%9F%D1%83%D0%B3%D0%B0%D1%87%D1%91%D0%B2%D0%B0%2C%20%D0%9A%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%BD%D0%B0%20%D0%9E%D1%80%D0%B1%D0%B0%D0%BA%D0%B0%D0%B9%D1%82%D0%B5%20-%20%D0%9E%D0%BF%D1%8F%D1%82%D1%8C%20%D0%BC%D0%B5%D1%82%D0%B5%D0%BB%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Электричка-Алёна Апина",
+    "title": "Электричка",
+    "artist": "Алёна Апина",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BB%D1%91%D0%BD%D0%B0%20%D0%90%D0%BF%D0%B8%D0%BD%D0%B0%20-%20%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%B8%D1%87%D0%BA%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Вижу тебя-Алёна Высоцкая",
+    "title": "Вижу тебя",
+    "artist": "Алёна Высоцкая",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BB%D1%91%D0%BD%D0%B0%20%D0%92%D1%8B%D1%81%D0%BE%D1%86%D0%BA%D0%B0%D1%8F%20-%20%D0%92%D0%B8%D0%B6%D1%83%20%D1%82%D0%B5%D0%B1%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Некрасивые глаза-Алёна Швец",
+    "title": "Некрасивые глаза",
+    "artist": "Алёна Швец",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BB%D1%91%D0%BD%D0%B0%20%D0%A8%D0%B2%D0%B5%D1%86%20-%20%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%B8%D0%B2%D1%8B%D0%B5%20%D0%B3%D0%BB%D0%B0%D0%B7%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Бала-Амарян Ваче",
+    "title": "Бала",
+    "artist": "Амарян Ваче",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BC%D0%B0%D1%80%D1%8F%D0%BD%20%D0%92%D0%B0%D1%87%D0%B5%20-%20%D0%91%D0%B0%D0%BB%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Девушка Армянка-Анастасия Брухтий",
+    "title": "Девушка Армянка",
+    "artist": "Анастасия Брухтий",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BD%D0%B0%D1%81%D1%82%D0%B0%D1%81%D0%B8%D1%8F%20%D0%91%D1%80%D1%83%D1%85%D1%82%D0%B8%D0%B9%20-%20%D0%94%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B0%20%D0%90%D1%80%D0%BC%D1%8F%D0%BD%D0%BA%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "С тобой-Анастасия Карпова",
+    "title": "С тобой",
+    "artist": "Анастасия Карпова",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BD%D0%B0%D1%81%D1%82%D0%B0%D1%81%D0%B8%D1%8F%20%D0%9A%D0%B0%D1%80%D0%BF%D0%BE%D0%B2%D0%B0%20-%20%D0%A1%20%D1%82%D0%BE%D0%B1%D0%BE%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Папа-Анастасия Чешегорова",
+    "title": "Папа",
+    "artist": "Анастасия Чешегорова",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BD%D0%B0%D1%81%D1%82%D0%B0%D1%81%D0%B8%D1%8F%20%D0%A7%D0%B5%D1%88%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B2%D0%B0%20-%20%D0%9F%D0%B0%D0%BF%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Наш сосед-Анжелика Варум",
+    "title": "Наш сосед",
+    "artist": "Анжелика Варум",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BD%D0%B6%D0%B5%D0%BB%D0%B8%D0%BA%D0%B0%20%D0%92%D0%B0%D1%80%D1%83%D0%BC%20-%20%D0%9D%D0%B0%D1%88%20%D1%81%D0%BE%D1%81%D0%B5%D0%B4.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Зови меня-Ани Лорак",
+    "title": "Зови меня",
+    "artist": "Ани Лорак",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BD%D0%B8%20%D0%9B%D0%BE%D1%80%D0%B0%D0%BA%20-%20%D0%97%D0%BE%D0%B2%D0%B8%20%D0%BC%D0%B5%D0%BD%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Хочу быть с тобой-Анна Семенович",
+    "title": "Хочу быть с тобой",
+    "artist": "Анна Семенович",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BD%D0%BD%D0%B0%20%D0%A1%D0%B5%D0%BC%D0%B5%D0%BD%D0%BE%D0%B2%D0%B8%D1%87%20-%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B1%D1%8B%D1%82%D1%8C%20%D1%81%20%D1%82%D0%BE%D0%B1%D0%BE%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Точка невозврата-Ария",
+    "title": "Точка невозврата",
+    "artist": "Ария",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D1%80%D0%B8%D1%8F%20-%20%D0%A2%D0%BE%D1%87%D0%BA%D0%B0%20%D0%BD%D0%B5%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Улица роз-Ария",
+    "title": "Улица роз",
+    "artist": "Ария",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D1%80%D0%B8%D1%8F%20-%20%D0%A3%D0%BB%D0%B8%D1%86%D0%B0%20%D1%80%D0%BE%D0%B7.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "ТусаОк-Артем Кей",
+    "title": "ТусаОк",
+    "artist": "Артем Кей",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D1%80%D1%82%D0%B5%D0%BC%20%D0%9A%D0%B5%D0%B9%20-%20%D0%A2%D1%83%D1%81%D0%B0%D0%9E%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Обними меня-Артур Бэст",
+    "title": "Обними меня",
+    "artist": "Артур Бэст",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D1%80%D1%82%D1%83%D1%80%20%D0%91%D1%8D%D1%81%D1%82%20-%20%D0%9E%D0%B1%D0%BD%D0%B8%D0%BC%D0%B8%20%D0%BC%D0%B5%D0%BD%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Догони меня-Ассорти",
+    "title": "Догони меня",
+    "artist": "Ассорти",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%20-%20%D0%94%D0%BE%D0%B3%D0%BE%D0%BD%D0%B8%20%D0%BC%D0%B5%D0%BD%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Красивая любовь-Ассорти",
+    "title": "Красивая любовь",
+    "artist": "Ассорти",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%20-%20%D0%9A%D1%80%D0%B0%D1%81%D0%B8%D0%B2%D0%B0%D1%8F%20%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Дорога-АукцЫон",
+    "title": "Дорога",
+    "artist": "АукцЫон",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D1%83%D0%BA%D1%86%D0%AB%D0%BE%D0%BD%20-%20%D0%94%D0%BE%D1%80%D0%BE%D0%B3%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Гуляй толпа-Балаган Лимитед",
+    "title": "Гуляй толпа",
+    "artist": "Балаган Лимитед",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D0%B0%D0%BB%D0%B0%D0%B3%D0%B0%D0%BD%20%D0%9B%D0%B8%D0%BC%D0%B8%D1%82%D0%B5%D0%B4%20-%20%D0%93%D1%83%D0%BB%D1%8F%D0%B9%20%D1%82%D0%BE%D0%BB%D0%BF%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Коламбия Пикчерз-БандЭрос",
+    "title": "Коламбия Пикчерз",
+    "artist": "БандЭрос",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D0%B0%D0%BD%D0%B4%D0%AD%D1%80%D0%BE%D1%81%20-%20%D0%9A%D0%BE%D0%BB%D0%B0%D0%BC%D0%B1%D0%B8%D1%8F%20%D0%9F%D0%B8%D0%BA%D1%87%D0%B5%D1%80%D0%B7.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Про красивую жизнь-БандЭрос",
+    "title": "Про красивую жизнь",
+    "artist": "БандЭрос",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D0%B0%D0%BD%D0%B4%D0%AD%D1%80%D0%BE%D1%81%20-%20%D0%9F%D1%80%D0%BE%20%D0%BA%D1%80%D0%B0%D1%81%D0%B8%D0%B2%D1%83%D1%8E%20%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Твои шаги-Батырхан Шукенов",
+    "title": "Твои шаги",
+    "artist": "Батырхан Шукенов",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D0%B0%D1%82%D1%8B%D1%80%D1%85%D0%B0%D0%BD%20%D0%A8%D1%83%D0%BA%D0%B5%D0%BD%D0%BE%D0%B2%20-%20%D0%A2%D0%B2%D0%BE%D0%B8%20%D1%88%D0%B0%D0%B3%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Пампушечка-Валерий Курас",
+    "title": "Пампушечка",
+    "artist": "Валерий Курас",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9A%D1%83%D1%80%D0%B0%D1%81%20-%20%D0%9F%D0%B0%D0%BC%D0%BF%D1%83%D1%88%D0%B5%D1%87%D0%BA%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Порох-Валерий Курас",
+    "title": "Порох",
+    "artist": "Валерий Курас",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9A%D1%83%D1%80%D0%B0%D1%81%20-%20%D0%9F%D0%BE%D1%80%D0%BE%D1%85.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Самая любимая-Валерий Курас",
+    "title": "Самая любимая",
+    "artist": "Валерий Курас",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9A%D1%83%D1%80%D0%B0%D1%81%20-%20%D0%A1%D0%B0%D0%BC%D0%B0%D1%8F%20%D0%BB%D1%8E%D0%B1%D0%B8%D0%BC%D0%B0%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Шорох-Валерий Курас",
+    "title": "Шорох",
+    "artist": "Валерий Курас",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9A%D1%83%D1%80%D0%B0%D1%81%20-%20%D0%A8%D0%BE%D1%80%D0%BE%D1%85.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Девять хризантем-Валерий Леонтьев",
+    "title": "Девять хризантем",
+    "artist": "Валерий Леонтьев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9B%D0%B5%D0%BE%D0%BD%D1%82%D1%8C%D0%B5%D0%B2%20-%20%D0%94%D0%B5%D0%B2%D1%8F%D1%82%D1%8C%20%D1%85%D1%80%D0%B8%D0%B7%D0%B0%D0%BD%D1%82%D0%B5%D0%BC.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Каждый хочет любить-Валерий Леонтьев",
+    "title": "Каждый хочет любить",
+    "artist": "Валерий Леонтьев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9B%D0%B5%D0%BE%D0%BD%D1%82%D1%8C%D0%B5%D0%B2%20-%20%D0%9A%D0%B0%D0%B6%D0%B4%D1%8B%D0%B9%20%D1%85%D0%BE%D1%87%D0%B5%D1%82%20%D0%BB%D1%8E%D0%B1%D0%B8%D1%82%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Вернисаж-Валерий Леонтьев, Лайма Вайкуле",
+    "title": "Вернисаж",
+    "artist": "Валерий Леонтьев, Лайма Вайкуле",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9B%D0%B5%D0%BE%D0%BD%D1%82%D1%8C%D0%B5%D0%B2%2C%20%D0%9B%D0%B0%D0%B9%D0%BC%D0%B0%20%D0%92%D0%B0%D0%B9%D0%BA%D1%83%D0%BB%D0%B5%20-%20%D0%92%D0%B5%D1%80%D0%BD%D0%B8%D1%81%D0%B0%D0%B6.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ночь накануне Рождества-Валерий Меладзе",
+    "title": "Ночь накануне Рождества",
+    "artist": "Валерий Меладзе",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9C%D0%B5%D0%BB%D0%B0%D0%B4%D0%B7%D0%B5%20-%20%D0%9D%D0%BE%D1%87%D1%8C%20%D0%BD%D0%B0%D0%BA%D0%B0%D0%BD%D1%83%D0%BD%D0%B5%20%D0%A0%D0%BE%D0%B6%D0%B4%D0%B5%D1%81%D1%82%D0%B2%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Восточная песня-Валерий Ободзинский",
+    "title": "Восточная песня",
+    "artist": "Валерий Ободзинский",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9E%D0%B1%D0%BE%D0%B4%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20-%20%D0%92%D0%BE%D1%81%D1%82%D0%BE%D1%87%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%B5%D1%81%D0%BD%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Неотправленное письмо-Валерий Ободзинский",
+    "title": "Неотправленное письмо",
+    "artist": "Валерий Ободзинский",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9E%D0%B1%D0%BE%D0%B4%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20-%20%D0%9D%D0%B5%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5%20%D0%BF%D0%B8%D1%81%D1%8C%D0%BC%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Эти глаза напротив-Валерий Ободзинский",
+    "title": "Эти глаза напротив",
+    "artist": "Валерий Ободзинский",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9E%D0%B1%D0%BE%D0%B4%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20-%20%D0%AD%D1%82%D0%B8%20%D0%B3%D0%BB%D0%B0%D0%B7%D0%B0%20%D0%BD%D0%B0%D0%BF%D1%80%D0%BE%D1%82%D0%B8%D0%B2.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Красавчик-Валерий Сюткин",
+    "title": "Красавчик",
+    "artist": "Валерий Сюткин",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%A1%D1%8E%D1%82%D0%BA%D0%B8%D0%BD%20-%20%D0%9A%D1%80%D0%B0%D1%81%D0%B0%D0%B2%D1%87%D0%B8%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Мои года-Вахтанг Кикабидзе",
+    "title": "Мои года",
+    "artist": "Вахтанг Кикабидзе",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D1%85%D1%82%D0%B0%D0%BD%D0%B3%20%D0%9A%D0%B8%D0%BA%D0%B0%D0%B1%D0%B8%D0%B4%D0%B7%D0%B5%20-%20%D0%9C%D0%BE%D0%B8%20%D0%B3%D0%BE%D0%B4%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Проводы любви-Вахтанг Кикабидзе",
+    "title": "Проводы любви",
+    "artist": "Вахтанг Кикабидзе",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D1%85%D1%82%D0%B0%D0%BD%D0%B3%20%D0%9A%D0%B8%D0%BA%D0%B0%D0%B1%D0%B8%D0%B4%D0%B7%D0%B5%20-%20%D0%9F%D1%80%D0%BE%D0%B2%D0%BE%D0%B4%D1%8B%20%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Она-Вахтанг, Brandon Stone",
+    "title": "Она",
+    "artist": "Вахтанг, Brandon Stone",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D1%85%D1%82%D0%B0%D0%BD%D0%B3%2C%20Brandon%20Stone%20-%20%D0%9E%D0%BD%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Dancing Lasha Tumbai-Верка Сердючка",
+    "title": "Dancing Lasha Tumbai",
+    "artist": "Верка Сердючка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%80%D0%BA%D0%B0%20%D0%A1%D0%B5%D1%80%D0%B4%D1%8E%D1%87%D0%BA%D0%B0%20-%20Dancing%20Lasha%20Tumbai.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Горилка-Верка Сердючка",
+    "title": "Горилка",
+    "artist": "Верка Сердючка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%80%D0%BA%D0%B0%20%D0%A1%D0%B5%D1%80%D0%B4%D1%8E%D1%87%D0%BA%D0%B0%20-%20%D0%93%D0%BE%D1%80%D0%B8%D0%BB%D0%BA%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Смайлик-Верка Сердючка",
+    "title": "Смайлик",
+    "artist": "Верка Сердючка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%80%D0%BA%D0%B0%20%D0%A1%D0%B5%D1%80%D0%B4%D1%8E%D1%87%D0%BA%D0%B0%20-%20%D0%A1%D0%BC%D0%B0%D0%B9%D0%BB%D0%B8%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Не волнуйтесь, тетя-Веселые ребята",
+    "title": "Не волнуйтесь, тетя",
+    "artist": "Веселые ребята",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%81%D0%B5%D0%BB%D1%8B%D0%B5%20%D1%80%D0%B5%D0%B1%D1%8F%D1%82%D0%B0%20-%20%D0%9D%D0%B5%20%D0%B2%D0%BE%D0%BB%D0%BD%D1%83%D0%B9%D1%82%D0%B5%D1%81%D1%8C%2C%20%D1%82%D0%B5%D1%82%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Бродячие артисты-Весёлые ребята",
+    "title": "Бродячие артисты",
+    "artist": "Весёлые ребята",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%81%D1%91%D0%BB%D1%8B%D0%B5%20%D1%80%D0%B5%D0%B1%D1%8F%D1%82%D0%B0%20-%20%D0%91%D1%80%D0%BE%D0%B4%D1%8F%D1%87%D0%B8%D0%B5%20%D0%B0%D1%80%D1%82%D0%B8%D1%81%D1%82%D1%8B.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Как прекрасен этот мир-Весёлые ребята",
+    "title": "Как прекрасен этот мир",
+    "artist": "Весёлые ребята",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%81%D1%91%D0%BB%D1%8B%D0%B5%20%D1%80%D0%B5%D0%B1%D1%8F%D1%82%D0%B0%20-%20%D0%9A%D0%B0%D0%BA%20%D0%BF%D1%80%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%B5%D0%BD%20%D1%8D%D1%82%D0%BE%D1%82%20%D0%BC%D0%B8%D1%80.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Папа подари мне куклу-Весёлые ребята",
+    "title": "Папа подари мне куклу",
+    "artist": "Весёлые ребята",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%81%D1%91%D0%BB%D1%8B%D0%B5%20%D1%80%D0%B5%D0%B1%D1%8F%D1%82%D0%B0%20-%20%D0%9F%D0%B0%D0%BF%D0%B0%20%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D0%B8%20%D0%BC%D0%BD%D0%B5%20%D0%BA%D1%83%D0%BA%D0%BB%D1%83.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Розовые розы-Весёлые ребята",
+    "title": "Розовые розы",
+    "artist": "Весёлые ребята",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%81%D1%91%D0%BB%D1%8B%D0%B5%20%D1%80%D0%B5%D0%B1%D1%8F%D1%82%D0%B0%20-%20%D0%A0%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B5%20%D1%80%D0%BE%D0%B7%D1%8B.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "My emancipation-ВИА Гра",
+    "title": "My emancipation",
+    "artist": "ВИА Гра",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%98%D0%90%20%D0%93%D1%80%D0%B0%20-%20My%20emancipation.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Алло, мам-ВИА Гра",
+    "title": "Алло, мам",
+    "artist": "ВИА Гра",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%98%D0%90%20%D0%93%D1%80%D0%B0%20-%20%D0%90%D0%BB%D0%BB%D0%BE%2C%20%D0%BC%D0%B0%D0%BC.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Анти гейша-ВИА Гра",
+    "title": "Анти гейша",
+    "artist": "ВИА Гра",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%98%D0%90%20%D0%93%D1%80%D0%B0%20-%20%D0%90%D0%BD%D1%82%D0%B8%20%D0%B3%D0%B5%D0%B9%D1%88%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Перемирие-ВИА Гра",
+    "title": "Перемирие",
+    "artist": "ВИА Гра",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%98%D0%90%20%D0%93%D1%80%D0%B0%20-%20%D0%9F%D0%B5%D1%80%D0%B5%D0%BC%D0%B8%D1%80%D0%B8%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Попытка номер 5-ВИА Гра",
+    "title": "Попытка номер 5",
+    "artist": "ВИА Гра",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%98%D0%90%20%D0%93%D1%80%D0%B0%20-%20%D0%9F%D0%BE%D0%BF%D1%8B%D1%82%D0%BA%D0%B0%20%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%205.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ах Одесса-Виктор Королёв",
+    "title": "Ах Одесса",
+    "artist": "Виктор Королёв",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80%20%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D1%91%D0%B2%20-%20%D0%90%D1%85%20%D0%9E%D0%B4%D0%B5%D1%81%D1%81%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Базар вокзал-Виктор Королёв",
+    "title": "Базар вокзал",
+    "artist": "Виктор Королёв",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80%20%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D1%91%D0%B2%20-%20%D0%91%D0%B0%D0%B7%D0%B0%D1%80%20%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Лимончики-Виктор Королёв",
+    "title": "Лимончики",
+    "artist": "Виктор Королёв",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80%20%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D1%91%D0%B2%20-%20%D0%9B%D0%B8%D0%BC%D0%BE%D0%BD%D1%87%D0%B8%D0%BA%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Мурка-Виктор Королёв",
+    "title": "Мурка",
+    "artist": "Виктор Королёв",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80%20%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D1%91%D0%B2%20-%20%D0%9C%D1%83%D1%80%D0%BA%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Чубчик-Виктор Королёв",
+    "title": "Чубчик",
+    "artist": "Виктор Королёв",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80%20%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D1%91%D0%B2%20-%20%D0%A7%D1%83%D0%B1%D1%87%D0%B8%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Город зелёного цвета-Виктор Павлик",
+    "title": "Город зелёного цвета",
+    "artist": "Виктор Павлик",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80%20%D0%9F%D0%B0%D0%B2%D0%BB%D0%B8%D0%BA%20-%20%D0%93%D0%BE%D1%80%D0%BE%D0%B4%20%D0%B7%D0%B5%D0%BB%D1%91%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%86%D0%B2%D0%B5%D1%82%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Следи за собой-Виктор Цой",
+    "title": "Следи за собой",
+    "artist": "Виктор Цой",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80%20%D0%A6%D0%BE%D0%B9%20-%20%D0%A1%D0%BB%D0%B5%D0%B4%D0%B8%20%D0%B7%D0%B0%20%D1%81%D0%BE%D0%B1%D0%BE%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Спокойная ночь-Виктор Цой",
+    "title": "Спокойная ночь",
+    "artist": "Виктор Цой",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80%20%D0%A6%D0%BE%D0%B9%20-%20%D0%A1%D0%BF%D0%BE%D0%BA%D0%BE%D0%B9%D0%BD%D0%B0%D1%8F%20%D0%BD%D0%BE%D1%87%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Небоскрёбы-Вилли Токарев",
+    "title": "Небоскрёбы",
+    "artist": "Вилли Токарев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B8%D0%BB%D0%BB%D0%B8%20%D0%A2%D0%BE%D0%BA%D0%B0%D1%80%D0%B5%D0%B2%20-%20%D0%9D%D0%B5%D0%B1%D0%BE%D1%81%D0%BA%D1%80%D1%91%D0%B1%D1%8B.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Тихий огонек-Високосный год",
+    "title": "Тихий огонек",
+    "artist": "Високосный год",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B8%D1%81%D0%BE%D0%BA%D0%BE%D1%81%D0%BD%D1%8B%D0%B9%20%D0%B3%D0%BE%D0%B4%20-%20%D0%A2%D0%B8%D1%85%D0%B8%D0%B9%20%D0%BE%D0%B3%D0%BE%D0%BD%D0%B5%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Срыв-Гансэлло, Кристина Ра",
+    "title": "Срыв",
+    "artist": "Гансэлло, Кристина Ра",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%93%D0%B0%D0%BD%D1%81%D1%8D%D0%BB%D0%BB%D0%BE%2C%20%D0%9A%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%BD%D0%B0%20%D0%A0%D0%B0%20-%20%D0%A1%D1%80%D1%8B%D0%B2.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "За окошком месяц май-Гарик Сукачёв",
+    "title": "За окошком месяц май",
+    "artist": "Гарик Сукачёв",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%93%D0%B0%D1%80%D0%B8%D0%BA%20%D0%A1%D1%83%D0%BA%D0%B0%D1%87%D1%91%D0%B2%20-%20%D0%97%D0%B0%20%D0%BE%D0%BA%D0%BE%D1%88%D0%BA%D0%BE%D0%BC%20%D0%BC%D0%B5%D1%81%D1%8F%D1%86%20%D0%BC%D0%B0%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Новогодняя-Григорий Лепс",
+    "title": "Новогодняя",
+    "artist": "Григорий Лепс",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%93%D1%80%D0%B8%D0%B3%D0%BE%D1%80%D0%B8%D0%B9%20%D0%9B%D0%B5%D0%BF%D1%81%20-%20%D0%9D%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%D0%B4%D0%BD%D1%8F%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Четко-Даня Милохин, Артур Бабич",
+    "title": "Четко",
+    "artist": "Даня Милохин, Артур Бабич",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%94%D0%B0%D0%BD%D1%8F%20%D0%9C%D0%B8%D0%BB%D0%BE%D1%85%D0%B8%D0%BD%2C%20%D0%90%D1%80%D1%82%D1%83%D1%80%20%D0%91%D0%B0%D0%B1%D0%B8%D1%87%20-%20%D0%A7%D0%B5%D1%82%D0%BA%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я и ты-Джиган",
+    "title": "Я и ты",
+    "artist": "Джиган",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%94%D0%B6%D0%B8%D0%B3%D0%B0%D0%BD%20-%20%D0%AF%20%D0%B8%20%D1%82%D1%8B.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Летний дождь-Игорь Тальков",
+    "title": "Летний дождь",
+    "artist": "Игорь Тальков",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%98%D0%B3%D0%BE%D1%80%D1%8C%20%D0%A2%D0%B0%D0%BB%D1%8C%D0%BA%D0%BE%D0%B2%20-%20%D0%9B%D0%B5%D1%82%D0%BD%D0%B8%D0%B9%20%D0%B4%D0%BE%D0%B6%D0%B4%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я вернусь-Игорь Тальков",
+    "title": "Я вернусь",
+    "artist": "Игорь Тальков",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%98%D0%B3%D0%BE%D1%80%D1%8C%20%D0%A2%D0%B0%D0%BB%D1%8C%D0%BA%D0%BE%D0%B2%20-%20%D0%AF%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%81%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Забери Меня-Клава Кока",
+    "title": "Забери Меня",
+    "artist": "Клава Кока",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%9A%D0%BE%D0%BA%D0%B0%20-%20%D0%97%D0%B0%D0%B1%D0%B5%D1%80%D0%B8%20%D0%9C%D0%B5%D0%BD%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Бумажный змей-Леонид Агутин",
+    "title": "Бумажный змей",
+    "artist": "Леонид Агутин",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4%20%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%20-%20%D0%91%D1%83%D0%BC%D0%B0%D0%B6%D0%BD%D1%8B%D0%B9%20%D0%B7%D0%BC%D0%B5%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Оле-оле-Леонид Агутин",
+    "title": "Оле-оле",
+    "artist": "Леонид Агутин",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4%20%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%20-%20%D0%9E%D0%BB%D0%B5-%D0%BE%D0%BB%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Песенка шофера-Леонид Агутин",
+    "title": "Песенка шофера",
+    "artist": "Леонид Агутин",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4%20%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%20-%20%D0%9F%D0%B5%D1%81%D0%B5%D0%BD%D0%BA%D0%B0%20%D1%88%D0%BE%D1%84%D0%B5%D1%80%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Шаланды-Леонид Агутин",
+    "title": "Шаланды",
+    "artist": "Леонид Агутин",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4%20%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%20-%20%D0%A8%D0%B0%D0%BB%D0%B0%D0%BD%D0%B4%D1%8B.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Королева-Леонид Агутин, Анжелика Варум",
+    "title": "Королева",
+    "artist": "Леонид Агутин, Анжелика Варум",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4%20%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%2C%20%D0%90%D0%BD%D0%B6%D0%B5%D0%BB%D0%B8%D0%BA%D0%B0%20%D0%92%D0%B0%D1%80%D1%83%D0%BC%20-%20%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "А река течёт-ЛЮБЭ, Сергей Бурунов",
+    "title": "А река течёт",
+    "artist": "ЛЮБЭ, Сергей Бурунов",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%AE%D0%91%D0%AD%2C%20%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B9%20%D0%91%D1%83%D1%80%D1%83%D0%BD%D0%BE%D0%B2%20-%20%D0%90%20%D1%80%D0%B5%D0%BA%D0%B0%20%D1%82%D0%B5%D1%87%D1%91%D1%82.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Земля-Маша и Медведи",
+    "title": "Земля",
+    "artist": "Маша и Медведи",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B0%D1%88%D0%B0%20%D0%B8%20%D0%9C%D0%B5%D0%B4%D0%B2%D0%B5%D0%B4%D0%B8%20-%20%D0%97%D0%B5%D0%BC%D0%BB%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "За тех кто в море-Машина времени",
+    "title": "За тех кто в море",
+    "artist": "Машина времени",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D0%B0%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8%20-%20%D0%97%D0%B0%20%D1%82%D0%B5%D1%85%20%D0%BA%D1%82%D0%BE%20%D0%B2%20%D0%BC%D0%BE%D1%80%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Марионетки-Машина времени",
+    "title": "Марионетки",
+    "artist": "Машина времени",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D0%B0%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8%20-%20%D0%9C%D0%B0%D1%80%D0%B8%D0%BE%D0%BD%D0%B5%D1%82%D0%BA%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Мой друг-Машина времени",
+    "title": "Мой друг",
+    "artist": "Машина времени",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D0%B0%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8%20-%20%D0%9C%D0%BE%D0%B9%20%D0%B4%D1%80%D1%83%D0%B3.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Однажды мир прогнётся под нас-Машина времени",
+    "title": "Однажды мир прогнётся под нас",
+    "artist": "Машина времени",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D0%B0%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8%20-%20%D0%9E%D0%B4%D0%BD%D0%B0%D0%B6%D0%B4%D1%8B%20%D0%BC%D0%B8%D1%80%20%D0%BF%D1%80%D0%BE%D0%B3%D0%BD%D1%91%D1%82%D1%81%D1%8F%20%D0%BF%D0%BE%D0%B4%20%D0%BD%D0%B0%D1%81.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Он был старше её-Машина времени",
+    "title": "Он был старше её",
+    "artist": "Машина времени",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D0%B0%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8%20-%20%D0%9E%D0%BD%20%D0%B1%D1%8B%D0%BB%20%D1%81%D1%82%D0%B0%D1%80%D1%88%D0%B5%20%D0%B5%D1%91.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Перекрёсток семи дорог-Машина времени",
+    "title": "Перекрёсток семи дорог",
+    "artist": "Машина времени",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D0%B0%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8%20-%20%D0%9F%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%91%D1%81%D1%82%D0%BE%D0%BA%20%D1%81%D0%B5%D0%BC%D0%B8%20%D0%B4%D0%BE%D1%80%D0%BE%D0%B3.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Пока горит свеча-Машина времени",
+    "title": "Пока горит свеча",
+    "artist": "Машина времени",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D0%B0%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8%20-%20%D0%9F%D0%BE%D0%BA%D0%B0%20%D0%B3%D0%BE%D1%80%D0%B8%D1%82%20%D1%81%D0%B2%D0%B5%D1%87%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Проводница-Машина времени",
+    "title": "Проводница",
+    "artist": "Машина времени",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D0%B0%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8%20-%20%D0%9F%D1%80%D0%BE%D0%B2%D0%BE%D0%B4%D0%BD%D0%B8%D1%86%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Синяя птица-Машина времени",
+    "title": "Синяя птица",
+    "artist": "Машина времени",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D0%B0%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8%20-%20%D0%A1%D0%B8%D0%BD%D1%8F%D1%8F%20%D0%BF%D1%82%D0%B8%D1%86%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ланфрен ланфра-Михаил Боярский",
+    "title": "Ланфрен ланфра",
+    "artist": "Михаил Боярский",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B8%D1%85%D0%B0%D0%B8%D0%BB%20%D0%91%D0%BE%D1%8F%D1%80%D1%81%D0%BA%D0%B8%D0%B9%20-%20%D0%9B%D0%B0%D0%BD%D1%84%D1%80%D0%B5%D0%BD%20%D0%BB%D0%B0%D0%BD%D1%84%D1%80%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Листья жгут-Михаил Боярский",
+    "title": "Листья жгут",
+    "artist": "Михаил Боярский",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B8%D1%85%D0%B0%D0%B8%D0%BB%20%D0%91%D0%BE%D1%8F%D1%80%D1%81%D0%BA%D0%B8%D0%B9%20-%20%D0%9B%D0%B8%D1%81%D1%82%D1%8C%D1%8F%20%D0%B6%D0%B3%D1%83%D1%82.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Молчишь-Миша Марвин",
+    "title": "Молчишь",
+    "artist": "Миша Марвин",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9C%D0%B0%D1%80%D0%B2%D0%B8%D0%BD%20-%20%D0%9C%D0%BE%D0%BB%D1%87%D0%B8%D1%88%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "С ней-Миша Марвин",
+    "title": "С ней",
+    "artist": "Миша Марвин",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9C%D0%B0%D1%80%D0%B2%D0%B8%D0%BD%20-%20%D0%A1%20%D0%BD%D0%B5%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "4 утра-Миша Марвин, Тимати",
+    "title": "4 утра",
+    "artist": "Миша Марвин, Тимати",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B8%D1%88%D0%B0%20%D0%9C%D0%B0%D1%80%D0%B2%D0%B8%D0%BD%2C%20%D0%A2%D0%B8%D0%BC%D0%B0%D1%82%D0%B8%20-%204%20%D1%83%D1%82%D1%80%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Общество модных поэтов-Мот",
+    "title": "Общество модных поэтов",
+    "artist": "Мот",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%BE%D1%82%20-%20%D0%9E%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D0%BE%20%D0%BC%D0%BE%D0%B4%D0%BD%D1%8B%D1%85%20%D0%BF%D0%BE%D1%8D%D1%82%D0%BE%D0%B2.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Соло-Мот",
+    "title": "Соло",
+    "artist": "Мот",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%BE%D1%82%20-%20%D0%A1%D0%BE%D0%BB%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ча-Ча Ленд-Мот",
+    "title": "Ча-Ча Ленд",
+    "artist": "Мот",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%BE%D1%82%20-%20%D0%A7%D0%B0-%D0%A7%D0%B0%20%D0%9B%D0%B5%D0%BD%D0%B4.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Благодарю тебя-Муслим Магомаев",
+    "title": "Благодарю тебя",
+    "artist": "Муслим Магомаев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D1%83%D1%81%D0%BB%D0%B8%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BE%D0%BC%D0%B0%D0%B5%D0%B2%20-%20%D0%91%D0%BB%D0%B0%D0%B3%D0%BE%D0%B4%D0%B0%D1%80%D1%8E%20%D1%82%D0%B5%D0%B1%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Будь со мной-Муслим Магомаев",
+    "title": "Будь со мной",
+    "artist": "Муслим Магомаев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D1%83%D1%81%D0%BB%D0%B8%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BE%D0%BC%D0%B0%D0%B5%D0%B2%20-%20%D0%91%D1%83%D0%B4%D1%8C%20%D1%81%D0%BE%20%D0%BC%D0%BD%D0%BE%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Бухенвальдский набат-Муслим Магомаев",
+    "title": "Бухенвальдский набат",
+    "artist": "Муслим Магомаев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D1%83%D1%81%D0%BB%D0%B8%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BE%D0%BC%D0%B0%D0%B5%D0%B2%20-%20%D0%91%D1%83%D1%85%D0%B5%D0%BD%D0%B2%D0%B0%D0%BB%D1%8C%D0%B4%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BD%D0%B0%D0%B1%D0%B0%D1%82.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Верни мне музыку-Муслим Магомаев",
+    "title": "Верни мне музыку",
+    "artist": "Муслим Магомаев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D1%83%D1%81%D0%BB%D0%B8%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BE%D0%BC%D0%B0%D0%B5%D0%B2%20-%20%D0%92%D0%B5%D1%80%D0%BD%D0%B8%20%D0%BC%D0%BD%D0%B5%20%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D1%83.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Герои спорта-Муслим Магомаев",
+    "title": "Герои спорта",
+    "artist": "Муслим Магомаев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D1%83%D1%81%D0%BB%D0%B8%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BE%D0%BC%D0%B0%D0%B5%D0%B2%20-%20%D0%93%D0%B5%D1%80%D0%BE%D0%B8%20%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Королева красоты-Муслим Магомаев",
+    "title": "Королева красоты",
+    "artist": "Муслим Магомаев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D1%83%D1%81%D0%BB%D0%B8%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BE%D0%BC%D0%B0%D0%B5%D0%B2%20-%20%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D0%B0%20%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D1%82%D1%8B.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Лучший город земли-Муслим Магомаев",
+    "title": "Лучший город земли",
+    "artist": "Муслим Магомаев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D1%83%D1%81%D0%BB%D0%B8%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BE%D0%BC%D0%B0%D0%B5%D0%B2%20-%20%D0%9B%D1%83%D1%87%D1%88%D0%B8%D0%B9%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%20%D0%B7%D0%B5%D0%BC%D0%BB%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Мелодия-Муслим Магомаев",
+    "title": "Мелодия",
+    "artist": "Муслим Магомаев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D1%83%D1%81%D0%BB%D0%B8%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BE%D0%BC%D0%B0%D0%B5%D0%B2%20-%20%D0%9C%D0%B5%D0%BB%D0%BE%D0%B4%D0%B8%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ноктюрн-Муслим Магомаев",
+    "title": "Ноктюрн",
+    "artist": "Муслим Магомаев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D1%83%D1%81%D0%BB%D0%B8%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BE%D0%BC%D0%B0%D0%B5%D0%B2%20-%20%D0%9D%D0%BE%D0%BA%D1%82%D1%8E%D1%80%D0%BD.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Свадьба-Муслим Магомаев",
+    "title": "Свадьба",
+    "artist": "Муслим Магомаев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D1%83%D1%81%D0%BB%D0%B8%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BE%D0%BC%D0%B0%D0%B5%D0%B2%20-%20%D0%A1%D0%B2%D0%B0%D0%B4%D1%8C%D0%B1%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Синяя вечность-Муслим Магомаев",
+    "title": "Синяя вечность",
+    "artist": "Муслим Магомаев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D1%83%D1%81%D0%BB%D0%B8%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BE%D0%BC%D0%B0%D0%B5%D0%B2%20-%20%D0%A1%D0%B8%D0%BD%D1%8F%D1%8F%20%D0%B2%D0%B5%D1%87%D0%BD%D0%BE%D1%81%D1%82%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Улыбнись-Муслим Магомаев",
+    "title": "Улыбнись",
+    "artist": "Муслим Магомаев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D1%83%D1%81%D0%BB%D0%B8%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BE%D0%BC%D0%B0%D0%B5%D0%B2%20-%20%D0%A3%D0%BB%D1%8B%D0%B1%D0%BD%D0%B8%D1%81%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Лучший город земли-Муслим Магомаев, Валерий Сюткин",
+    "title": "Лучший город земли",
+    "artist": "Муслим Магомаев, Валерий Сюткин",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D1%83%D1%81%D0%BB%D0%B8%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BE%D0%BC%D0%B0%D0%B5%D0%B2%2C%20%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%A1%D1%8E%D1%82%D0%BA%D0%B8%D0%BD%20-%20%D0%9B%D1%83%D1%87%D1%88%D0%B8%D0%B9%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%20%D0%B7%D0%B5%D0%BC%D0%BB%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Беги-НАZИМА",
+    "title": "Беги",
+    "artist": "НАZИМА",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%90Z%D0%98%D0%9C%D0%90%20-%20%D0%91%D0%B5%D0%B3%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Чувства-НАZИМА",
+    "title": "Чувства",
+    "artist": "НАZИМА",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%90Z%D0%98%D0%9C%D0%90%20-%20%D0%A7%D1%83%D0%B2%D1%81%D1%82%D0%B2%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Виновата ли я-Народные песни",
+    "title": "Виновата ли я",
+    "artist": "Народные песни",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%81%D0%BD%D0%B8%20-%20%D0%92%D0%B8%D0%BD%D0%BE%D0%B2%D0%B0%D1%82%D0%B0%20%D0%BB%D0%B8%20%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Маруся 1 2 3-Народные песни",
+    "title": "Маруся 1 2 3",
+    "artist": "Народные песни",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%81%D0%BD%D0%B8%20-%20%D0%9C%D0%B0%D1%80%D1%83%D1%81%D1%8F%201%202%203.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ой мороз мороз-Народные песни",
+    "title": "Ой мороз мороз",
+    "artist": "Народные песни",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%81%D0%BD%D0%B8%20-%20%D0%9E%D0%B9%20%D0%BC%D0%BE%D1%80%D0%BE%D0%B7%20%D0%BC%D0%BE%D1%80%D0%BE%D0%B7.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Подмосковные вечера-Народные песни",
+    "title": "Подмосковные вечера",
+    "artist": "Народные песни",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%81%D0%BD%D0%B8%20-%20%D0%9F%D0%BE%D0%B4%D0%BC%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5%20%D0%B2%D0%B5%D1%87%D0%B5%D1%80%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Чёрный ворон-Народные песни",
+    "title": "Чёрный ворон",
+    "artist": "Народные песни",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%81%D0%BD%D0%B8%20-%20%D0%A7%D1%91%D1%80%D0%BD%D1%8B%D0%B9%20%D0%B2%D0%BE%D1%80%D0%BE%D0%BD.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Жертва френдзоны-Настя Герц",
+    "title": "Жертва френдзоны",
+    "artist": "Настя Герц",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D1%81%D1%82%D1%8F%20%D0%93%D0%B5%D1%80%D1%86%20-%20%D0%96%D0%B5%D1%80%D1%82%D0%B2%D0%B0%20%D1%84%D1%80%D0%B5%D0%BD%D0%B4%D0%B7%D0%BE%D0%BD%D1%8B.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Это моя ночь-Настя Каменских",
+    "title": "Это моя ночь",
+    "artist": "Настя Каменских",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D1%81%D1%82%D1%8F%20%D0%9A%D0%B0%D0%BC%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D1%85%20-%20%D0%AD%D1%82%D0%BE%20%D0%BC%D0%BE%D1%8F%20%D0%BD%D0%BE%D1%87%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Marshmallow-Настя Кудри",
+    "title": "Marshmallow",
+    "artist": "Настя Кудри",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D1%81%D1%82%D1%8F%20%D0%9A%D1%83%D0%B4%D1%80%D0%B8%20-%20Marshmallow.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Лунный кот-Наталья Ветлицкая",
+    "title": "Лунный кот",
+    "artist": "Наталья Ветлицкая",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20%D0%92%D0%B5%D1%82%D0%BB%D0%B8%D1%86%D0%BA%D0%B0%D1%8F%20-%20%D0%9B%D1%83%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BA%D0%BE%D1%82.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Школьный роман-Наталья Штурм",
+    "title": "Школьный роман",
+    "artist": "Наталья Штурм",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D1%82%D0%B0%D0%BB%D1%8C%D1%8F%20%D0%A8%D1%82%D1%83%D1%80%D0%BC%20-%20%D0%A8%D0%BA%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%80%D0%BE%D0%BC%D0%B0%D0%BD.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Жёлтые тюльпаны-Наташа Королёва",
+    "title": "Жёлтые тюльпаны",
+    "artist": "Наташа Королёва",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D1%82%D0%B0%D1%88%D0%B0%20%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D1%91%D0%B2%D0%B0%20-%20%D0%96%D1%91%D0%BB%D1%82%D1%8B%D0%B5%20%D1%82%D1%8E%D0%BB%D1%8C%D0%BF%D0%B0%D0%BD%D1%8B.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Лето кастаньет-Наташа Королёва",
+    "title": "Лето кастаньет",
+    "artist": "Наташа Королёва",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D1%82%D0%B0%D1%88%D0%B0%20%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D1%91%D0%B2%D0%B0%20-%20%D0%9B%D0%B5%D1%82%D0%BE%20%D0%BA%D0%B0%D1%81%D1%82%D0%B0%D0%BD%D1%8C%D0%B5%D1%82.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Палочка выручалочка-Наташа Королёва",
+    "title": "Палочка выручалочка",
+    "artist": "Наташа Королёва",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D1%82%D0%B0%D1%88%D0%B0%20%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D1%91%D0%B2%D0%B0%20-%20%D0%9F%D0%B0%D0%BB%D0%BE%D1%87%D0%BA%D0%B0%20%D0%B2%D1%8B%D1%80%D1%83%D1%87%D0%B0%D0%BB%D0%BE%D1%87%D0%BA%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Синие лебеди-Наташа Королёва",
+    "title": "Синие лебеди",
+    "artist": "Наташа Королёва",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D1%82%D0%B0%D1%88%D0%B0%20%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D1%91%D0%B2%D0%B0%20-%20%D0%A1%D0%B8%D0%BD%D0%B8%D0%B5%20%D0%BB%D0%B5%D0%B1%D0%B5%D0%B4%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Знаешь-НЕАНГЕЛЫ",
+    "title": "Знаешь",
+    "artist": "НЕАНГЕЛЫ",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%95%D0%90%D0%9D%D0%93%D0%95%D0%9B%D0%AB%20-%20%D0%97%D0%BD%D0%B0%D0%B5%D1%88%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Сердце-НЕАНГЕЛЫ",
+    "title": "Сердце",
+    "artist": "НЕАНГЕЛЫ",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%95%D0%90%D0%9D%D0%93%D0%95%D0%9B%D0%AB%20-%20%D0%A1%D0%B5%D1%80%D0%B4%D1%86%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Твоя-НЕАНГЕЛЫ",
+    "title": "Твоя",
+    "artist": "НЕАНГЕЛЫ",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%95%D0%90%D0%9D%D0%93%D0%95%D0%9B%D0%AB%20-%20%D0%A2%D0%B2%D0%BE%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ты из тех самых-НЕАНГЕЛЫ",
+    "title": "Ты из тех самых",
+    "artist": "НЕАНГЕЛЫ",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%95%D0%90%D0%9D%D0%93%D0%95%D0%9B%D0%AB%20-%20%D0%A2%D1%8B%20%D0%B8%D0%B7%20%D1%82%D0%B5%D1%85%20%D1%81%D0%B0%D0%BC%D1%8B%D1%85.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Это любовь-НЕАНГЕЛЫ",
+    "title": "Это любовь",
+    "artist": "НЕАНГЕЛЫ",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%95%D0%90%D0%9D%D0%93%D0%95%D0%9B%D0%AB%20-%20%D0%AD%D1%82%D0%BE%20%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Бог тебя выдумал-Непара",
+    "title": "Бог тебя выдумал",
+    "artist": "Непара",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B5%D0%BF%D0%B0%D1%80%D0%B0%20-%20%D0%91%D0%BE%D0%B3%20%D1%82%D0%B5%D0%B1%D1%8F%20%D0%B2%D1%8B%D0%B4%D1%83%D0%BC%D0%B0%D0%BB.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Другая причина-Непара",
+    "title": "Другая причина",
+    "artist": "Непара",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B5%D0%BF%D0%B0%D1%80%D0%B0%20-%20%D0%94%D1%80%D1%83%D0%B3%D0%B0%D1%8F%20%D0%BF%D1%80%D0%B8%D1%87%D0%B8%D0%BD%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Плачь и смотри-Непара",
+    "title": "Плачь и смотри",
+    "artist": "Непара",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B5%D0%BF%D0%B0%D1%80%D0%B0%20-%20%D0%9F%D0%BB%D0%B0%D1%87%D1%8C%20%D0%B8%20%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Слишком влюблен-Нервы",
+    "title": "Слишком влюблен",
+    "artist": "Нервы",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B5%D1%80%D0%B2%D1%8B%20-%20%D0%A1%D0%BB%D0%B8%D1%88%D0%BA%D0%BE%D0%BC%20%D0%B2%D0%BB%D1%8E%D0%B1%D0%BB%D0%B5%D0%BD.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Снег-Николай Носков",
+    "title": "Снег",
+    "artist": "Николай Носков",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9%20%D0%9D%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%20-%20%D0%A1%D0%BD%D0%B5%D0%B3.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Есть только миг-Олег Анофриев",
+    "title": "Есть только миг",
+    "artist": "Олег Анофриев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9E%D0%BB%D0%B5%D0%B3%20%D0%90%D0%BD%D0%BE%D1%84%D1%80%D0%B8%D0%B5%D0%B2%20-%20%D0%95%D1%81%D1%82%D1%8C%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%BC%D0%B8%D0%B3.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "На теплоходе музыка играет-Ольга Зарубина",
+    "title": "На теплоходе музыка играет",
+    "artist": "Ольга Зарубина",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9E%D0%BB%D1%8C%D0%B3%D0%B0%20%D0%97%D0%B0%D1%80%D1%83%D0%B1%D0%B8%D0%BD%D0%B0%20-%20%D0%9D%D0%B0%20%D1%82%D0%B5%D0%BF%D0%BB%D0%BE%D1%85%D0%BE%D0%B4%D0%B5%20%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0%20%D0%B8%D0%B3%D1%80%D0%B0%D0%B5%D1%82.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "А у реки-Отпетые мошенники",
+    "title": "А у реки",
+    "artist": "Отпетые мошенники",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9E%D1%82%D0%BF%D0%B5%D1%82%D1%8B%D0%B5%20%D0%BC%D0%BE%D1%88%D0%B5%D0%BD%D0%BD%D0%B8%D0%BA%D0%B8%20-%20%D0%90%20%D1%83%20%D1%80%D0%B5%D0%BA%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Люби меня люби-Отпетые Мошенники",
+    "title": "Люби меня люби",
+    "artist": "Отпетые Мошенники",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9E%D1%82%D0%BF%D0%B5%D1%82%D1%8B%D0%B5%20%D0%9C%D0%BE%D1%88%D0%B5%D0%BD%D0%BD%D0%B8%D0%BA%D0%B8%20-%20%D0%9B%D1%8E%D0%B1%D0%B8%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%BB%D1%8E%D0%B1%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Женщина любимая-Павел Зибров",
+    "title": "Женщина любимая",
+    "artist": "Павел Зибров",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%20%D0%97%D0%B8%D0%B1%D1%80%D0%BE%D0%B2%20-%20%D0%96%D0%B5%D0%BD%D1%89%D0%B8%D0%BD%D0%B0%20%D0%BB%D1%8E%D0%B1%D0%B8%D0%BC%D0%B0%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Happy end-Пара нормальных",
+    "title": "Happy end",
+    "artist": "Пара нормальных",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%B0%D1%80%D0%B0%20%D0%BD%D0%BE%D1%80%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85%20-%20Happy%20end.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Думы окаянные-Пелагея",
+    "title": "Думы окаянные",
+    "artist": "Пелагея",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%B5%D0%BB%D0%B0%D0%B3%D0%B5%D1%8F%20-%20%D0%94%D1%83%D0%BC%D1%8B%20%D0%BE%D0%BA%D0%B0%D1%8F%D0%BD%D0%BD%D1%8B%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Казак-Пелагея",
+    "title": "Казак",
+    "artist": "Пелагея",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%B5%D0%BB%D0%B0%D0%B3%D0%B5%D1%8F%20-%20%D0%9A%D0%B0%D0%B7%D0%B0%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Любо, братцы любо-Пелагея",
+    "title": "Любо, братцы любо",
+    "artist": "Пелагея",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%B5%D0%BB%D0%B0%D0%B3%D0%B5%D1%8F%20-%20%D0%9B%D1%8E%D0%B1%D0%BE%2C%20%D0%B1%D1%80%D0%B0%D1%82%D1%86%D1%8B%20%D0%BB%D1%8E%D0%B1%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ой да не вечер-Пелагея",
+    "title": "Ой да не вечер",
+    "artist": "Пелагея",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%B5%D0%BB%D0%B0%D0%B3%D0%B5%D1%8F%20-%20%D0%9E%D0%B9%20%D0%B4%D0%B0%20%D0%BD%D0%B5%20%D0%B2%D0%B5%D1%87%D0%B5%D1%80.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Платье белое-Петлюра",
+    "title": "Платье белое",
+    "artist": "Петлюра",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%B5%D1%82%D0%BB%D1%8E%D1%80%D0%B0%20-%20%D0%9F%D0%BB%D0%B0%D1%82%D1%8C%D0%B5%20%D0%B1%D0%B5%D0%BB%D0%BE%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Идёт солдат по городу-Пламя",
+    "title": "Идёт солдат по городу",
+    "artist": "Пламя",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%BB%D0%B0%D0%BC%D1%8F%20-%20%D0%98%D0%B4%D1%91%D1%82%20%D1%81%D0%BE%D0%BB%D0%B4%D0%B0%D1%82%20%D0%BF%D0%BE%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D1%83.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Поп культура-Поперечный",
+    "title": "Поп культура",
+    "artist": "Поперечный",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%BE%D0%BF%D0%B5%D1%80%D0%B5%D1%87%D0%BD%D1%8B%D0%B9%20-%20%D0%9F%D0%BE%D0%BF%20%D0%BA%D1%83%D0%BB%D1%8C%D1%82%D1%83%D1%80%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ай-яй-Премьер министр",
+    "title": "Ай-яй",
+    "artist": "Премьер министр",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%80%D0%B5%D0%BC%D1%8C%D0%B5%D1%80%20%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%20-%20%D0%90%D0%B9-%D1%8F%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Восточная песня-Премьер министр",
+    "title": "Восточная песня",
+    "artist": "Премьер министр",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%80%D0%B5%D0%BC%D1%8C%D0%B5%D1%80%20%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%20-%20%D0%92%D0%BE%D1%81%D1%82%D0%BE%D1%87%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%B5%D1%81%D0%BD%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Горе не беда-Премьер министр",
+    "title": "Горе не беда",
+    "artist": "Премьер министр",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%80%D0%B5%D0%BC%D1%8C%D0%B5%D1%80%20%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%20-%20%D0%93%D0%BE%D1%80%D0%B5%20%D0%BD%D0%B5%20%D0%B1%D0%B5%D0%B4%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Лодочник-Профессор Лебединский",
+    "title": "Лодочник",
+    "artist": "Профессор Лебединский",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%BE%D1%80%20%D0%9B%D0%B5%D0%B1%D0%B5%D0%B4%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20-%20%D0%9B%D0%BE%D0%B4%D0%BE%D1%87%D0%BD%D0%B8%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Целуй целуй-Пьер Нарцисс",
+    "title": "Целуй целуй",
+    "artist": "Пьер Нарцисс",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%8C%D0%B5%D1%80%20%D0%9D%D0%B0%D1%80%D1%86%D0%B8%D1%81%D1%81%20-%20%D0%A6%D0%B5%D0%BB%D1%83%D0%B9%20%D1%86%D0%B5%D0%BB%D1%83%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Шоколадный заяц-Пьер Нарцисс",
+    "title": "Шоколадный заяц",
+    "artist": "Пьер Нарцисс",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%8C%D0%B5%D1%80%20%D0%9D%D0%B0%D1%80%D1%86%D0%B8%D1%81%D1%81%20-%20%D0%A8%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B7%D0%B0%D1%8F%D1%86.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Батя-Пятилетка",
+    "title": "Батя",
+    "artist": "Пятилетка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%8F%D1%82%D0%B8%D0%BB%D0%B5%D1%82%D0%BA%D0%B0%20-%20%D0%91%D0%B0%D1%82%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Районная шпана-Пятилетка",
+    "title": "Районная шпана",
+    "artist": "Пятилетка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%8F%D1%82%D0%B8%D0%BB%D0%B5%D1%82%D0%BA%D0%B0%20-%20%D0%A0%D0%B0%D0%B9%D0%BE%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%88%D0%BF%D0%B0%D0%BD%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Мы ранетки-Ранетки",
+    "title": "Мы ранетки",
+    "artist": "Ранетки",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D0%B0%D0%BD%D0%B5%D1%82%D0%BA%D0%B8%20-%20%D0%9C%D1%8B%20%D1%80%D0%B0%D0%BD%D0%B5%D1%82%D0%BA%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "О тебе-Ранетки",
+    "title": "О тебе",
+    "artist": "Ранетки",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D0%B0%D0%BD%D0%B5%D1%82%D0%BA%D0%B8%20-%20%D0%9E%20%D1%82%D0%B5%D0%B1%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Шмарина-Рем Дигга",
+    "title": "Шмарина",
+    "artist": "Рем Дигга",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D0%B5%D0%BC%20%D0%94%D0%B8%D0%B3%D0%B3%D0%B0%20-%20%D0%A8%D0%BC%D0%B0%D1%80%D0%B8%D0%BD%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "А я кайфую-Ренат Джамилов",
+    "title": "А я кайфую",
+    "artist": "Ренат Джамилов",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D0%B5%D0%BD%D0%B0%D1%82%20%D0%94%D0%B6%D0%B0%D0%BC%D0%B8%D0%BB%D0%BE%D0%B2%20-%20%D0%90%20%D1%8F%20%D0%BA%D0%B0%D0%B9%D1%84%D1%83%D1%8E.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Всё не так-Ринат Каримов",
+    "title": "Всё не так",
+    "artist": "Ринат Каримов",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D0%B8%D0%BD%D0%B0%D1%82%20%D0%9A%D0%B0%D1%80%D0%B8%D0%BC%D0%BE%D0%B2%20-%20%D0%92%D1%81%D1%91%20%D0%BD%D0%B5%20%D1%82%D0%B0%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Мама-Ринат Каримов",
+    "title": "Мама",
+    "artist": "Ринат Каримов",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D0%B8%D0%BD%D0%B0%D1%82%20%D0%9A%D0%B0%D1%80%D0%B8%D0%BC%D0%BE%D0%B2%20-%20%D0%9C%D0%B0%D0%BC%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Чистый-Скриптонит",
+    "title": "Чистый",
+    "artist": "Скриптонит",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%BD%D0%B8%D1%82%20-%20%D0%A7%D0%B8%D1%81%D1%82%D1%8B%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Рукалицо-Скруджи",
+    "title": "Рукалицо",
+    "artist": "Скруджи",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%BA%D1%80%D1%83%D0%B4%D0%B6%D0%B8%20-%20%D0%A0%D1%83%D0%BA%D0%B0%D0%BB%D0%B8%D1%86%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Зад-Скруджи, Pabl.A",
+    "title": "Зад",
+    "artist": "Скруджи, Pabl.A",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%BA%D1%80%D1%83%D0%B4%D0%B6%D0%B8%2C%20Pabl.A%20-%20%D0%97%D0%B0%D0%B4.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Real One-Скруджи, НАZИМА",
+    "title": "Real One",
+    "artist": "Скруджи, НАZИМА",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%BA%D1%80%D1%83%D0%B4%D0%B6%D0%B8%2C%20%D0%9D%D0%90Z%D0%98%D0%9C%D0%90%20-%20Real%20One.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Белая зима-София Ротару",
+    "title": "Белая зима",
+    "artist": "София Ротару",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%BE%D1%84%D0%B8%D1%8F%20%D0%A0%D0%BE%D1%82%D0%B0%D1%80%D1%83%20-%20%D0%91%D0%B5%D0%BB%D0%B0%D1%8F%20%D0%B7%D0%B8%D0%BC%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Белый танец-София Ротару",
+    "title": "Белый танец",
+    "artist": "София Ротару",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%BE%D1%84%D0%B8%D1%8F%20%D0%A0%D0%BE%D1%82%D0%B0%D1%80%D1%83%20-%20%D0%91%D0%B5%D0%BB%D1%8B%D0%B9%20%D1%82%D0%B0%D0%BD%D0%B5%D1%86.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Лаванда-София Ротару",
+    "title": "Лаванда",
+    "artist": "София Ротару",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%BE%D1%84%D0%B8%D1%8F%20%D0%A0%D0%BE%D1%82%D0%B0%D1%80%D1%83%20-%20%D0%9B%D0%B0%D0%B2%D0%B0%D0%BD%D0%B4%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Луна луна-София Ротару",
+    "title": "Луна луна",
+    "artist": "София Ротару",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%BE%D1%84%D0%B8%D1%8F%20%D0%A0%D0%BE%D1%82%D0%B0%D1%80%D1%83%20-%20%D0%9B%D1%83%D0%BD%D0%B0%20%D0%BB%D1%83%D0%BD%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Небо это я-София Ротару",
+    "title": "Небо это я",
+    "artist": "София Ротару",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%BE%D1%84%D0%B8%D1%8F%20%D0%A0%D0%BE%D1%82%D0%B0%D1%80%D1%83%20-%20%D0%9D%D0%B5%D0%B1%D0%BE%20%D1%8D%D1%82%D0%BE%20%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Одна калина-София Ротару",
+    "title": "Одна калина",
+    "artist": "София Ротару",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%BE%D1%84%D0%B8%D1%8F%20%D0%A0%D0%BE%D1%82%D0%B0%D1%80%D1%83%20-%20%D0%9E%D0%B4%D0%BD%D0%B0%20%D0%BA%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Только этого мало-София Ротару",
+    "title": "Только этого мало",
+    "artist": "София Ротару",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%BE%D1%84%D0%B8%D1%8F%20%D0%A0%D0%BE%D1%82%D0%B0%D1%80%D1%83%20-%20%D0%A2%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%8D%D1%82%D0%BE%D0%B3%D0%BE%20%D0%BC%D0%B0%D0%BB%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Хуторянка-София Ротару",
+    "title": "Хуторянка",
+    "artist": "София Ротару",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%BE%D1%84%D0%B8%D1%8F%20%D0%A0%D0%BE%D1%82%D0%B0%D1%80%D1%83%20-%20%D0%A5%D1%83%D1%82%D0%BE%D1%80%D1%8F%D0%BD%D0%BA%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Червона рута-София Ротару",
+    "title": "Червона рута",
+    "artist": "София Ротару",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%BE%D1%84%D0%B8%D1%8F%20%D0%A0%D0%BE%D1%82%D0%B0%D1%80%D1%83%20-%20%D0%A7%D0%B5%D1%80%D0%B2%D0%BE%D0%BD%D0%B0%20%D1%80%D1%83%D1%82%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я назову планету-София Ротару",
+    "title": "Я назову планету",
+    "artist": "София Ротару",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%BE%D1%84%D0%B8%D1%8F%20%D0%A0%D0%BE%D1%82%D0%B0%D1%80%D1%83%20-%20%D0%AF%20%D0%BD%D0%B0%D0%B7%D0%BE%D0%B2%D1%83%20%D0%BF%D0%BB%D0%B0%D0%BD%D0%B5%D1%82%D1%83.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Гучи-Тимати, Егор Крид",
+    "title": "Гучи",
+    "artist": "Тимати, Егор Крид",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A2%D0%B8%D0%BC%D0%B0%D1%82%D0%B8%2C%20%D0%95%D0%B3%D0%BE%D1%80%20%D0%9A%D1%80%D0%B8%D0%B4%20-%20%D0%93%D1%83%D1%87%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "2000-Тимати, НАZИМА",
+    "title": "2000",
+    "artist": "Тимати, НАZИМА",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A2%D0%B8%D0%BC%D0%B0%D1%82%D0%B8%2C%20%D0%9D%D0%90Z%D0%98%D0%9C%D0%90%20-%202000.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Разрывная-ХАБИБ",
+    "title": "Разрывная",
+    "artist": "ХАБИБ",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A5%D0%90%D0%91%D0%98%D0%91%20-%20%D0%A0%D0%B0%D0%B7%D1%80%D1%8B%D0%B2%D0%BD%D0%B0%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Опять одна я-Ханна",
+    "title": "Опять одна я",
+    "artist": "Ханна",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A5%D0%B0%D0%BD%D0%BD%D0%B0%20-%20%D0%9E%D0%BF%D1%8F%D1%82%D1%8C%20%D0%BE%D0%B4%D0%BD%D0%B0%20%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Черным черно-Хаски",
+    "title": "Черным черно",
+    "artist": "Хаски",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A5%D0%B0%D1%81%D0%BA%D0%B8%20-%20%D0%A7%D0%B5%D1%80%D0%BD%D1%8B%D0%BC%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Эба-ХЛЕБ",
+    "title": "Эба",
+    "artist": "ХЛЕБ",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A5%D0%9B%D0%95%D0%91%20-%20%D0%AD%D0%B1%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Батька атаман-Чиж & Co",
+    "title": "Батька атаман",
+    "artist": "Чиж & Co",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A7%D0%B8%D0%B6%20%26%20Co%20-%20%D0%91%D0%B0%D1%82%D1%8C%D0%BA%D0%B0%20%D0%B0%D1%82%D0%B0%D0%BC%D0%B0%D0%BD.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "На поле танки грохотали-Чиж & Co",
+    "title": "На поле танки грохотали",
+    "artist": "Чиж & Co",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A7%D0%B8%D0%B6%20%26%20Co%20-%20%D0%9D%D0%B0%20%D0%BF%D0%BE%D0%BB%D0%B5%20%D1%82%D0%B0%D0%BD%D0%BA%D0%B8%20%D0%B3%D1%80%D0%BE%D1%85%D0%BE%D1%82%D0%B0%D0%BB%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Не верь слезам-Шура",
+    "title": "Не верь слезам",
+    "artist": "Шура",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A8%D1%83%D1%80%D0%B0%20-%20%D0%9D%D0%B5%20%D0%B2%D0%B5%D1%80%D1%8C%20%D1%81%D0%BB%D0%B5%D0%B7%D0%B0%D0%BC.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Твори добро-Шура",
+    "title": "Твори добро",
+    "artist": "Шура",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A8%D1%83%D1%80%D0%B0%20-%20%D0%A2%D0%B2%D0%BE%D1%80%D0%B8%20%D0%B4%D0%BE%D0%B1%D1%80%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Яд-Эрика Лундмоен",
+    "title": "Яд",
+    "artist": "Эрика Лундмоен",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%AD%D1%80%D0%B8%D0%BA%D0%B0%20%D0%9B%D1%83%D0%BD%D0%B4%D0%BC%D0%BE%D0%B5%D0%BD%20-%20%D0%AF%D0%B4.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Почему-Юлия Пушман",
+    "title": "Почему",
+    "artist": "Юлия Пушман",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%AE%D0%BB%D0%B8%D1%8F%20%D0%9F%D1%83%D1%88%D0%BC%D0%B0%D0%BD%20-%20%D0%9F%D0%BE%D1%87%D0%B5%D0%BC%D1%83.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+   {
+    "id": "Я знаю какая ты-104, Truwer, Скриптонит, Maqlao",
+    "title": "Я знаю какая ты",
+    "artist": "104, Truwer, Скриптонит, Maqlao",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/104%2C%20Truwer%2C%20%D0%A1%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%BD%D0%B8%D1%82%2C%20Maqlao%20-%20%D0%AF%20%D0%B7%D0%BD%D0%B0%D1%8E%20%D0%BA%D0%B0%D0%BA%D0%B0%D1%8F%20%D1%82%D1%8B.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Украду-ANIVAR",
+    "title": "Украду",
+    "artist": "ANIVAR",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/ANIVAR%20-%20%D0%A3%D0%BA%D1%80%D0%B0%D0%B4%D1%83.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Кащенко-Boulevard Depo, PowerPuff Luv",
+    "title": "Кащенко",
+    "artist": "Boulevard Depo, PowerPuff Luv",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Boulevard%20Depo%2C%20PowerPuff%20Luv%20-%20%D0%9A%D0%B0%D1%89%D0%B5%D0%BD%D0%BA%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Кто ты-Danymuse",
+    "title": "Кто ты",
+    "artist": "Danymuse",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Danymuse%20-%20%D0%9A%D1%82%D0%BE%20%D1%82%D1%8B.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Тону-Danymuse",
+    "title": "Тону",
+    "artist": "Danymuse",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Danymuse%20-%20%D0%A2%D0%BE%D0%BD%D1%83.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Хочу-Kristina Si",
+    "title": "Хочу",
+    "artist": "Kristina Si",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Kristina%20Si%20-%20%D0%A5%D0%BE%D1%87%D1%83.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Океан-L_ONE, Фидель",
+    "title": "Океан",
+    "artist": "L_ONE, Фидель",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/L_ONE%2C%20%D0%A4%D0%B8%D0%B4%D0%B5%D0%BB%D1%8C%20-%20%D0%9E%D0%BA%D0%B5%D0%B0%D0%BD.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Yes future-Noize MC",
+    "title": "Yes future",
+    "artist": "Noize MC",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Noize%20MC%20-%20Yes%20future.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Feel good Inc-RADIO TAPOK",
+    "title": "Feel good Inc",
+    "artist": "RADIO TAPOK",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/RADIO%20TAPOK%20-%20Feel%20good%20Inc.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Двигаться-Raim",
+    "title": "Двигаться",
+    "artist": "Raim",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Raim%20-%20%D0%94%D0%B2%D0%B8%D0%B3%D0%B0%D1%82%D1%8C%D1%81%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Многоточия-Zivert",
+    "title": "Многоточия",
+    "artist": "Zivert",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/Zivert%20-%20%D0%9C%D0%BD%D0%BE%D0%B3%D0%BE%D1%82%D0%BE%D1%87%D0%B8%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ковыляй потихонечку-Адреналин",
+    "title": "Ковыляй потихонечку",
+    "artist": "Адреналин",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%B4%D1%80%D0%B5%D0%BD%D0%B0%D0%BB%D0%B8%D0%BD%20-%20%D0%9A%D0%BE%D0%B2%D1%8B%D0%BB%D1%8F%D0%B9%20%D0%BF%D0%BE%D1%82%D0%B8%D1%85%D0%BE%D0%BD%D0%B5%D1%87%D0%BA%D1%83.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Как молоды мы были-Александр Градский",
+    "title": "Как молоды мы были",
+    "artist": "Александр Градский",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%20%D0%93%D1%80%D0%B0%D0%B4%D1%81%D0%BA%D0%B8%D0%B9%20-%20%D0%9A%D0%B0%D0%BA%20%D0%BC%D0%BE%D0%BB%D0%BE%D0%B4%D1%8B%20%D0%BC%D1%8B%20%D0%B1%D1%8B%D0%BB%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Необыкновенная-Александр Панайотов, Алексей Чумаков, Руслан Алехно",
+    "title": "Необыкновенная",
+    "artist": "Александр Панайотов, Алексей Чумаков, Руслан Алехно",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%20%D0%9F%D0%B0%D0%BD%D0%B0%D0%B9%D0%BE%D1%82%D0%BE%D0%B2%2C%20%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9%20%D0%A7%D1%83%D0%BC%D0%B0%D0%BA%D0%BE%D0%B2%2C%20%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%20%D0%90%D0%BB%D0%B5%D1%85%D0%BD%D0%BE%20-%20%D0%9D%D0%B5%D0%BE%D0%B1%D1%8B%D0%BA%D0%BD%D0%BE%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Русский парень-Алексей Гоман",
+    "title": "Русский парень",
+    "artist": "Алексей Гоман",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9%20%D0%93%D0%BE%D0%BC%D0%B0%D0%BD%20-%20%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D0%B0%D1%80%D0%B5%D0%BD%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Голос-Баста, Полина Гагарина",
+    "title": "Голос",
+    "artist": "Баста, Полина Гагарина",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D0%B0%D1%81%D1%82%D0%B0%2C%20%D0%9F%D0%BE%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%93%D0%B0%D0%B3%D0%B0%D1%80%D0%B8%D0%BD%D0%B0%20-%20%D0%93%D0%BE%D0%BB%D0%BE%D1%81.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "2 - Девушки-Би",
+    "title": "2 - Девушки",
+    "artist": "Би",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D0%B8-2%20-%20%D0%94%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "2 - Скандал-Би",
+    "title": "2 - Скандал",
+    "artist": "Би",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D0%B8-2%20-%20%D0%A1%D0%BA%D0%B0%D0%BD%D0%B4%D0%B0%D0%BB.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "А я всё летала-Блестящие",
+    "title": "А я всё летала",
+    "artist": "Блестящие",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D0%BB%D0%B5%D1%81%D1%82%D1%8F%D1%89%D0%B8%D0%B5%20-%20%D0%90%20%D1%8F%20%D0%B2%D1%81%D1%91%20%D0%BB%D0%B5%D1%82%D0%B0%D0%BB%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Апельсиновая-Блестящие",
+    "title": "Апельсиновая",
+    "artist": "Блестящие",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D0%BB%D0%B5%D1%81%D1%82%D1%8F%D1%89%D0%B8%D0%B5%20-%20%D0%90%D0%BF%D0%B5%D0%BB%D1%8C%D1%81%D0%B8%D0%BD%D0%BE%D0%B2%D0%B0%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Милый мой-Блестящие",
+    "title": "Милый мой",
+    "artist": "Блестящие",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D0%BB%D0%B5%D1%81%D1%82%D1%8F%D1%89%D0%B8%D0%B5%20-%20%D0%9C%D0%B8%D0%BB%D1%8B%D0%B9%20%D0%BC%D0%BE%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Голубая луна-Борис Моисеев, Николай Трубач",
+    "title": "Голубая луна",
+    "artist": "Борис Моисеев, Николай Трубач",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D0%BE%D1%80%D0%B8%D1%81%20%D0%9C%D0%BE%D0%B8%D1%81%D0%B5%D0%B5%D0%B2%2C%20%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9%20%D0%A2%D1%80%D1%83%D0%B1%D0%B0%D1%87%20-%20%D0%93%D0%BE%D0%BB%D1%83%D0%B1%D0%B0%D1%8F%20%D0%BB%D1%83%D0%BD%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Вуй-вуй-вуй-Борис Тохтахунов",
+    "title": "Вуй-вуй-вуй",
+    "artist": "Борис Тохтахунов",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D0%BE%D1%80%D0%B8%D1%81%20%D0%A2%D0%BE%D1%85%D1%82%D0%B0%D1%85%D1%83%D0%BD%D0%BE%D0%B2%20-%20%D0%92%D1%83%D0%B9-%D0%B2%D1%83%D0%B9-%D0%B2%D1%83%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Головушка седая-Борис Тохтахунов",
+    "title": "Головушка седая",
+    "artist": "Борис Тохтахунов",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D0%BE%D1%80%D0%B8%D1%81%20%D0%A2%D0%BE%D1%85%D1%82%D0%B0%D1%85%D1%83%D0%BD%D0%BE%D0%B2%20-%20%D0%93%D0%BE%D0%BB%D0%BE%D0%B2%D1%83%D1%88%D0%BA%D0%B0%20%D1%81%D0%B5%D0%B4%D0%B0%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Горит свеча-Борис Тохтахунов",
+    "title": "Горит свеча",
+    "artist": "Борис Тохтахунов",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D0%BE%D1%80%D0%B8%D1%81%20%D0%A2%D0%BE%D1%85%D1%82%D0%B0%D1%85%D1%83%D0%BD%D0%BE%D0%B2%20-%20%D0%93%D0%BE%D1%80%D0%B8%D1%82%20%D1%81%D0%B2%D0%B5%D1%87%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Вася-Браво",
+    "title": "Вася",
+    "artist": "Браво",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D1%80%D0%B0%D0%B2%D0%BE%20-%20%D0%92%D0%B0%D1%81%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Дорога в облака-Браво",
+    "title": "Дорога в облака",
+    "artist": "Браво",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D1%80%D0%B0%D0%B2%D0%BE%20-%20%D0%94%D0%BE%D1%80%D0%BE%D0%B3%D0%B0%20%D0%B2%20%D0%BE%D0%B1%D0%BB%D0%B0%D0%BA%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Как жаль-Браво",
+    "title": "Как жаль",
+    "artist": "Браво",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D1%80%D0%B0%D0%B2%D0%BE%20-%20%D0%9A%D0%B0%D0%BA%20%D0%B6%D0%B0%D0%BB%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Оранжевый галстук-Браво",
+    "title": "Оранжевый галстук",
+    "artist": "Браво",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D1%80%D0%B0%D0%B2%D0%BE%20-%20%D0%9E%D1%80%D0%B0%D0%BD%D0%B6%D0%B5%D0%B2%D1%8B%D0%B9%20%D0%B3%D0%B0%D0%BB%D1%81%D1%82%D1%83%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я то что надо-Браво",
+    "title": "Я то что надо",
+    "artist": "Браво",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D1%80%D0%B0%D0%B2%D0%BE%20-%20%D0%AF%20%D1%82%D0%BE%20%D1%87%D1%82%D0%BE%20%D0%BD%D0%B0%D0%B4%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Два сердца-Братья Шахунц",
+    "title": "Два сердца",
+    "artist": "Братья Шахунц",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D1%80%D0%B0%D1%82%D1%8C%D1%8F%20%D0%A8%D0%B0%D1%85%D1%83%D0%BD%D1%86%20-%20%D0%94%D0%B2%D0%B0%20%D1%81%D0%B5%D1%80%D0%B4%D1%86%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Жених и невеста-Братья Шахунц",
+    "title": "Жених и невеста",
+    "artist": "Братья Шахунц",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D1%80%D0%B0%D1%82%D1%8C%D1%8F%20%D0%A8%D0%B0%D1%85%D1%83%D0%BD%D1%86%20-%20%D0%96%D0%B5%D0%BD%D0%B8%D1%85%20%D0%B8%20%D0%BD%D0%B5%D0%B2%D0%B5%D1%81%D1%82%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Лодочка любви-Братья Шахунц",
+    "title": "Лодочка любви",
+    "artist": "Братья Шахунц",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D1%80%D0%B0%D1%82%D1%8C%D1%8F%20%D0%A8%D0%B0%D1%85%D1%83%D0%BD%D1%86%20-%20%D0%9B%D0%BE%D0%B4%D0%BE%D1%87%D0%BA%D0%B0%20%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Половинка-Братья Шахунц",
+    "title": "Половинка",
+    "artist": "Братья Шахунц",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D1%80%D0%B0%D1%82%D1%8C%D1%8F%20%D0%A8%D0%B0%D1%85%D1%83%D0%BD%D1%86%20-%20%D0%9F%D0%BE%D0%BB%D0%BE%D0%B2%D0%B8%D0%BD%D0%BA%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ты самая-Братья Шахунц",
+    "title": "Ты самая",
+    "artist": "Братья Шахунц",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D1%80%D0%B0%D1%82%D1%8C%D1%8F%20%D0%A8%D0%B0%D1%85%D1%83%D0%BD%D1%86%20-%20%D0%A2%D1%8B%20%D1%81%D0%B0%D0%BC%D0%B0%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Вдова-Бутырка",
+    "title": "Вдова",
+    "artist": "Бутырка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D1%83%D1%82%D1%8B%D1%80%D0%BA%D0%B0%20-%20%D0%92%D0%B4%D0%BE%D0%B2%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Кольщик-Бутырка",
+    "title": "Кольщик",
+    "artist": "Бутырка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D1%83%D1%82%D1%8B%D1%80%D0%BA%D0%B0%20-%20%D0%9A%D0%BE%D0%BB%D1%8C%D1%89%D0%B8%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Малец-Бутырка",
+    "title": "Малец",
+    "artist": "Бутырка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D1%83%D1%82%D1%8B%D1%80%D0%BA%D0%B0%20-%20%D0%9C%D0%B0%D0%BB%D0%B5%D1%86.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "По этапу-Бутырка",
+    "title": "По этапу",
+    "artist": "Бутырка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D1%83%D1%82%D1%8B%D1%80%D0%BA%D0%B0%20-%20%D0%9F%D0%BE%20%D1%8D%D1%82%D0%B0%D0%BF%D1%83.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Полетела душа-Бутырка",
+    "title": "Полетела душа",
+    "artist": "Бутырка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%91%D1%83%D1%82%D1%8B%D1%80%D0%BA%D0%B0%20-%20%D0%9F%D0%BE%D0%BB%D0%B5%D1%82%D0%B5%D0%BB%D0%B0%20%D0%B4%D1%83%D1%88%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Хотеть не вредно-Валдай",
+    "title": "Хотеть не вредно",
+    "artist": "Валдай",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B4%D0%B0%D0%B9%20-%20%D0%A5%D0%BE%D1%82%D0%B5%D1%82%D1%8C%20%D0%BD%D0%B5%20%D0%B2%D1%80%D0%B5%D0%B4%D0%BD%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Чай, кофе, потанцуем-Валдай",
+    "title": "Чай, кофе, потанцуем",
+    "artist": "Валдай",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B4%D0%B0%D0%B9%20-%20%D0%A7%D0%B0%D0%B9%2C%20%D0%BA%D0%BE%D1%84%D0%B5%2C%20%D0%BF%D0%BE%D1%82%D0%B0%D0%BD%D1%86%D1%83%D0%B5%D0%BC.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Гори-Валентин Стрыкало",
+    "title": "Гори",
+    "artist": "Валентин Стрыкало",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D0%BD%D1%82%D0%B8%D0%BD%20%D0%A1%D1%82%D1%80%D1%8B%D0%BA%D0%B0%D0%BB%D0%BE%20-%20%D0%93%D0%BE%D1%80%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я не могу иначе-Валентина Толкунова",
+    "title": "Я не могу иначе",
+    "artist": "Валентина Толкунова",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D0%BD%D1%82%D0%B8%D0%BD%D0%B0%20%D0%A2%D0%BE%D0%BB%D0%BA%D1%83%D0%BD%D0%BE%D0%B2%D0%B0%20-%20%D0%AF%20%D0%BD%D0%B5%20%D0%BC%D0%BE%D0%B3%D1%83%20%D0%B8%D0%BD%D0%B0%D1%87%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Девушка с глазами цвета неба-Валерий Курас",
+    "title": "Девушка с глазами цвета неба",
+    "artist": "Валерий Курас",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9A%D1%83%D1%80%D0%B0%D1%81%20-%20%D0%94%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B0%20%D1%81%20%D0%B3%D0%BB%D0%B0%D0%B7%D0%B0%D0%BC%D0%B8%20%D1%86%D0%B2%D0%B5%D1%82%D0%B0%20%D0%BD%D0%B5%D0%B1%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Не отпускайте женщину на юг-Валерий Курас",
+    "title": "Не отпускайте женщину на юг",
+    "artist": "Валерий Курас",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9A%D1%83%D1%80%D0%B0%D1%81%20-%20%D0%9D%D0%B5%20%D0%BE%D1%82%D0%BF%D1%83%D1%81%D0%BA%D0%B0%D0%B9%D1%82%D0%B5%20%D0%B6%D0%B5%D0%BD%D1%89%D0%B8%D0%BD%D1%83%20%D0%BD%D0%B0%20%D1%8E%D0%B3.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Дельтаплан-Валерий Леонтьев",
+    "title": "Дельтаплан",
+    "artist": "Валерий Леонтьев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9B%D0%B5%D0%BE%D0%BD%D1%82%D1%8C%D0%B5%D0%B2%20-%20%D0%94%D0%B5%D0%BB%D1%8C%D1%82%D0%B0%D0%BF%D0%BB%D0%B0%D0%BD.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Казанова-Валерий Леонтьев",
+    "title": "Казанова",
+    "artist": "Валерий Леонтьев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9B%D0%B5%D0%BE%D0%BD%D1%82%D1%8C%D0%B5%D0%B2%20-%20%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Милый друг-Валерий Леонтьев",
+    "title": "Милый друг",
+    "artist": "Валерий Леонтьев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9B%D0%B5%D0%BE%D0%BD%D1%82%D1%8C%D0%B5%D0%B2%20-%20%D0%9C%D0%B8%D0%BB%D1%8B%D0%B9%20%D0%B4%D1%80%D1%83%D0%B3.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Сокровища чёрного моря-Валерий Леонтьев",
+    "title": "Сокровища чёрного моря",
+    "artist": "Валерий Леонтьев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9B%D0%B5%D0%BE%D0%BD%D1%82%D1%8C%D0%B5%D0%B2%20-%20%D0%A1%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D0%B8%D1%89%D0%B0%20%D1%87%D1%91%D1%80%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BC%D0%BE%D1%80%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Белые крылья-Валерий Ободзинский",
+    "title": "Белые крылья",
+    "artist": "Валерий Ободзинский",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9E%D0%B1%D0%BE%D0%B4%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20-%20%D0%91%D0%B5%D0%BB%D1%8B%D0%B5%20%D0%BA%D1%80%D1%8B%D0%BB%D1%8C%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Олеандр-Валерий Ободзинский",
+    "title": "Олеандр",
+    "artist": "Валерий Ободзинский",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9E%D0%B1%D0%BE%D0%B4%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20-%20%D0%9E%D0%BB%D0%B5%D0%B0%D0%BD%D0%B4%D1%80.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ты меня забыла-Валерий Ободзинский",
+    "title": "Ты меня забыла",
+    "artist": "Валерий Ободзинский",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%9E%D0%B1%D0%BE%D0%B4%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20-%20%D0%A2%D1%8B%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B1%D1%8B%D0%BB%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Семь тысяч над землёй-Валерий Сюткин",
+    "title": "Семь тысяч над землёй",
+    "artist": "Валерий Сюткин",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B9%20%D0%A1%D1%8E%D1%82%D0%BA%D0%B8%D0%BD%20-%20%D0%A1%D0%B5%D0%BC%D1%8C%20%D1%82%D1%8B%D1%81%D1%8F%D1%87%20%D0%BD%D0%B0%D0%B4%20%D0%B7%D0%B5%D0%BC%D0%BB%D1%91%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Малиновка-Верасы",
+    "title": "Малиновка",
+    "artist": "Верасы",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%80%D0%B0%D1%81%D1%8B%20-%20%D0%9C%D0%B0%D0%BB%D0%B8%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Всё будет хорошо-Верка Сердючка",
+    "title": "Всё будет хорошо",
+    "artist": "Верка Сердючка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%80%D0%BA%D0%B0%20%D0%A1%D0%B5%D1%80%D0%B4%D1%8E%D1%87%D0%BA%D0%B0%20-%20%D0%92%D1%81%D1%91%20%D0%B1%D1%83%D0%B4%D0%B5%D1%82%20%D1%85%D0%BE%D1%80%D0%BE%D1%88%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Дольче Габбана-Верка Сердючка",
+    "title": "Дольче Габбана",
+    "artist": "Верка Сердючка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%80%D0%BA%D0%B0%20%D0%A1%D0%B5%D1%80%D0%B4%D1%8E%D1%87%D0%BA%D0%B0%20-%20%D0%94%D0%BE%D0%BB%D1%8C%D1%87%D0%B5%20%D0%93%D0%B0%D0%B1%D0%B1%D0%B0%D0%BD%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Тук тук тук-Верка Сердючка",
+    "title": "Тук тук тук",
+    "artist": "Верка Сердючка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%80%D0%BA%D0%B0%20%D0%A1%D0%B5%D1%80%D0%B4%D1%8E%D1%87%D0%BA%D0%B0%20-%20%D0%A2%D1%83%D0%BA%20%D1%82%D1%83%D0%BA%20%D1%82%D1%83%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я не поняла-Верка Сердючка",
+    "title": "Я не поняла",
+    "artist": "Верка Сердючка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%80%D0%BA%D0%B0%20%D0%A1%D0%B5%D1%80%D0%B4%D1%8E%D1%87%D0%BA%D0%B0%20-%20%D0%AF%20%D0%BD%D0%B5%20%D0%BF%D0%BE%D0%BD%D1%8F%D0%BB%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ёлки-Верка Сердючка",
+    "title": "Ёлки",
+    "artist": "Верка Сердючка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%80%D0%BA%D0%B0%20%D0%A1%D0%B5%D1%80%D0%B4%D1%8E%D1%87%D0%BA%D0%B0%20-%20%D0%81%D0%BB%D0%BA%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Алёшкина любовь-Весёлые ребята",
+    "title": "Алёшкина любовь",
+    "artist": "Весёлые ребята",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%81%D1%91%D0%BB%D1%8B%D0%B5%20%D1%80%D0%B5%D0%B1%D1%8F%D1%82%D0%B0%20-%20%D0%90%D0%BB%D1%91%D1%88%D0%BA%D0%B8%D0%BD%D0%B0%20%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я к тебе не подойду-Весёлые ребята",
+    "title": "Я к тебе не подойду",
+    "artist": "Весёлые ребята",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B5%D1%81%D1%91%D0%BB%D1%8B%D0%B5%20%D1%80%D0%B5%D0%B1%D1%8F%D1%82%D0%B0%20-%20%D0%AF%20%D0%BA%20%D1%82%D0%B5%D0%B1%D0%B5%20%D0%BD%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B9%D0%B4%D1%83.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Самое красивое имя-Виктор Петлюра",
+    "title": "Самое красивое имя",
+    "artist": "Виктор Петлюра",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80%20%D0%9F%D0%B5%D1%82%D0%BB%D1%8E%D1%80%D0%B0%20-%20%D0%A1%D0%B0%D0%BC%D0%BE%D0%B5%20%D0%BA%D1%80%D0%B0%D1%81%D0%B8%D0%B2%D0%BE%D0%B5%20%D0%B8%D0%BC%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Белые дороги-Гарик Сукачёв",
+    "title": "Белые дороги",
+    "artist": "Гарик Сукачёв",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%93%D0%B0%D1%80%D0%B8%D0%BA%20%D0%A1%D1%83%D0%BA%D0%B0%D1%87%D1%91%D0%B2%20-%20%D0%91%D0%B5%D0%BB%D1%8B%D0%B5%20%D0%B4%D0%BE%D1%80%D0%BE%D0%B3%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я милого узнаю по походке-Гарик Сукачёв",
+    "title": "Я милого узнаю по походке",
+    "artist": "Гарик Сукачёв",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%93%D0%B0%D1%80%D0%B8%D0%BA%20%D0%A1%D1%83%D0%BA%D0%B0%D1%87%D1%91%D0%B2%20-%20%D0%AF%20%D0%BC%D0%B8%D0%BB%D0%BE%D0%B3%D0%BE%20%D1%83%D0%B7%D0%BD%D0%B0%D1%8E%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D1%85%D0%BE%D0%B4%D0%BA%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Синева-Голубые береты",
+    "title": "Синева",
+    "artist": "Голубые береты",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%93%D0%BE%D0%BB%D1%83%D0%B1%D1%8B%D0%B5%20%D0%B1%D0%B5%D1%80%D0%B5%D1%82%D1%8B%20-%20%D0%A1%D0%B8%D0%BD%D0%B5%D0%B2%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Босая осень-Джанго",
+    "title": "Босая осень",
+    "artist": "Джанго",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%94%D0%B6%D0%B0%D0%BD%D0%B3%D0%BE%20-%20%D0%91%D0%BE%D1%81%D0%B0%D1%8F%20%D0%BE%D1%81%D0%B5%D0%BD%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Покебол-Джарахов",
+    "title": "Покебол",
+    "artist": "Джарахов",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%94%D0%B6%D0%B0%D1%80%D0%B0%D1%85%D0%BE%D0%B2%20-%20%D0%9F%D0%BE%D0%BA%D0%B5%D0%B1%D0%BE%D0%BB.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Пей пиво-Дискотека Авария",
+    "title": "Пей пиво",
+    "artist": "Дискотека Авария",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%94%D0%B8%D1%81%D0%BA%D0%BE%D1%82%D0%B5%D0%BA%D0%B0%20%D0%90%D0%B2%D0%B0%D1%80%D0%B8%D1%8F%20-%20%D0%9F%D0%B5%D0%B9%20%D0%BF%D0%B8%D0%B2%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Мама-Индиго",
+    "title": "Мама",
+    "artist": "Индиго",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%98%D0%BD%D0%B4%D0%B8%D0%B3%D0%BE%20-%20%D0%9C%D0%B0%D0%BC%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Родная-Калинов мост",
+    "title": "Родная",
+    "artist": "Калинов мост",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%BE%D0%B2%20%D0%BC%D0%BE%D1%81%D1%82%20-%20%D0%A0%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Прошёл через-Каста",
+    "title": "Прошёл через",
+    "artist": "Каста",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%B0%D1%81%D1%82%D0%B0%20-%20%D0%9F%D1%80%D0%BE%D1%88%D1%91%D0%BB%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Shape of you-Клава Кока",
+    "title": "Shape of you",
+    "artist": "Клава Кока",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%9A%D0%BE%D0%BA%D0%B0%20-%20Shape%20of%20you.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Влюблена в МДК-Клава Кока",
+    "title": "Влюблена в МДК",
+    "artist": "Клава Кока",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%9A%D0%BE%D0%BA%D0%B0%20-%20%D0%92%D0%BB%D1%8E%D0%B1%D0%BB%D0%B5%D0%BD%D0%B0%20%D0%B2%20%D0%9C%D0%94%D0%9A.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Воспоминание-Клава Кока",
+    "title": "Воспоминание",
+    "artist": "Клава Кока",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%9A%D0%BE%D0%BA%D0%B0%20-%20%D0%92%D0%BE%D1%81%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Крутишь-Клава Кока",
+    "title": "Крутишь",
+    "artist": "Клава Кока",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%9A%D0%BE%D0%BA%D0%B0%20-%20%D0%9A%D1%80%D1%83%D1%82%D0%B8%D1%88%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Май-Клава Кока",
+    "title": "Май",
+    "artist": "Клава Кока",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%9A%D0%BE%D0%BA%D0%B0%20-%20%D0%9C%D0%B0%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Мурашки-Клава Кока",
+    "title": "Мурашки",
+    "artist": "Клава Кока",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%9A%D0%BE%D0%BA%D0%B0%20-%20%D0%9C%D1%83%D1%80%D0%B0%D1%88%D0%BA%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Нету времени-Клава Кока",
+    "title": "Нету времени",
+    "artist": "Клава Кока",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%9A%D0%BE%D0%BA%D0%B0%20-%20%D0%9D%D0%B5%D1%82%D1%83%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Прости-Клава Кока",
+    "title": "Прости",
+    "artist": "Клава Кока",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%9A%D0%BE%D0%BA%D0%B0%20-%20%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Стала сильнее-Клава Кока",
+    "title": "Стала сильнее",
+    "artist": "Клава Кока",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%9A%D0%BE%D0%BA%D0%B0%20-%20%D0%A1%D1%82%D0%B0%D0%BB%D0%B0%20%D1%81%D0%B8%D0%BB%D1%8C%D0%BD%D0%B5%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Тише-Клава Кока",
+    "title": "Тише",
+    "artist": "Клава Кока",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%9A%D0%BE%D0%BA%D0%B0%20-%20%D0%A2%D0%B8%D1%88%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я полюбила-Клава Кока",
+    "title": "Я полюбила",
+    "artist": "Клава Кока",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%9A%D0%BE%D0%BA%D0%B0%20-%20%D0%AF%20%D0%BF%D0%BE%D0%BB%D1%8E%D0%B1%D0%B8%D0%BB%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я устала-Клава Кока",
+    "title": "Я устала",
+    "artist": "Клава Кока",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BB%D0%B0%D0%B2%D0%B0%20%D0%9A%D0%BE%D0%BA%D0%B0%20-%20%D0%AF%20%D1%83%D1%81%D1%82%D0%B0%D0%BB%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Человек загадка-КняzZ",
+    "title": "Человек загадка",
+    "artist": "КняzZ",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BD%D1%8FzZ%20-%20%D0%A7%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA%20%D0%B7%D0%B0%D0%B3%D0%B0%D0%B4%D0%BA%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Элис-Конец фильма",
+    "title": "Элис",
+    "artist": "Конец фильма",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BE%D0%BD%D0%B5%D1%86%20%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%D0%B0%20-%20%D0%AD%D0%BB%D0%B8%D1%81.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Юность в сапогах-Конец фильма",
+    "title": "Юность в сапогах",
+    "artist": "Конец фильма",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D0%BE%D0%BD%D0%B5%D1%86%20%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%D0%B0%20-%20%D0%AE%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20%D0%B2%20%D1%81%D0%B0%D0%BF%D0%BE%D0%B3%D0%B0%D1%85.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Старший брат-Краски",
+    "title": "Старший брат",
+    "artist": "Краски",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D1%80%D0%B0%D1%81%D0%BA%D0%B8%20-%20%D0%A1%D1%82%D0%B0%D1%80%D1%88%D0%B8%D0%B9%20%D0%B1%D1%80%D0%B0%D1%82.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я буду ждать-Краски",
+    "title": "Я буду ждать",
+    "artist": "Краски",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D1%80%D0%B0%D1%81%D0%BA%D0%B8%20-%20%D0%AF%20%D0%B1%D1%83%D0%B4%D1%83%20%D0%B6%D0%B4%D0%B0%D1%82%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я люблю тебя Сергей-Краски",
+    "title": "Я люблю тебя Сергей",
+    "artist": "Краски",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D1%80%D0%B0%D1%81%D0%BA%D0%B8%20-%20%D0%AF%20%D0%BB%D1%8E%D0%B1%D0%BB%D1%8E%20%D1%82%D0%B5%D0%B1%D1%8F%20%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Акварели-Кукрыниксы",
+    "title": "Акварели",
+    "artist": "Кукрыниксы",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D1%83%D0%BA%D1%80%D1%8B%D0%BD%D0%B8%D0%BA%D1%81%D1%8B%20-%20%D0%90%D0%BA%D0%B2%D0%B0%D1%80%D0%B5%D0%BB%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Звезда-Кукрыниксы",
+    "title": "Звезда",
+    "artist": "Кукрыниксы",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D1%83%D0%BA%D1%80%D1%8B%D0%BD%D0%B8%D0%BA%D1%81%D1%8B%20-%20%D0%97%D0%B2%D0%B5%D0%B7%D0%B4%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "По раскрашенной душе-Кукрыниксы",
+    "title": "По раскрашенной душе",
+    "artist": "Кукрыниксы",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9A%D1%83%D0%BA%D1%80%D1%8B%D0%BD%D0%B8%D0%BA%D1%81%D1%8B%20-%20%D0%9F%D0%BE%20%D1%80%D0%B0%D1%81%D0%BA%D1%80%D0%B0%D1%88%D0%B5%D0%BD%D0%BD%D0%BE%D0%B9%20%D0%B4%D1%83%D1%88%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ай яй яй-Леонид Агутин",
+    "title": "Ай яй яй",
+    "artist": "Леонид Агутин",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4%20%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%20-%20%D0%90%D0%B9%20%D1%8F%D0%B9%20%D1%8F%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "На сиреневой луне-Леонид Агутин",
+    "title": "На сиреневой луне",
+    "artist": "Леонид Агутин",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4%20%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%20-%20%D0%9D%D0%B0%20%D1%81%D0%B8%D1%80%D0%B5%D0%BD%D0%B5%D0%B2%D0%BE%D0%B9%20%D0%BB%D1%83%D0%BD%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "У синего моря-Леонид Агутин",
+    "title": "У синего моря",
+    "artist": "Леонид Агутин",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4%20%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%20-%20%D0%A3%20%D1%81%D0%B8%D0%BD%D0%B5%D0%B3%D0%BE%20%D0%BC%D0%BE%D1%80%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Граница-Леонид Агутин, Отпетые Мошенники",
+    "title": "Граница",
+    "artist": "Леонид Агутин, Отпетые Мошенники",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%B5%D0%BE%D0%BD%D0%B8%D0%B4%20%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%2C%20%D0%9E%D1%82%D0%BF%D0%B5%D1%82%D1%8B%D0%B5%20%D0%9C%D0%BE%D1%88%D0%B5%D0%BD%D0%BD%D0%B8%D0%BA%D0%B8%20-%20%D0%93%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Говорящие головы-Лиззка",
+    "title": "Говорящие головы",
+    "artist": "Лиззка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%B8%D0%B7%D0%B7%D0%BA%D0%B0%20-%20%D0%93%D0%BE%D0%B2%D0%BE%D1%80%D1%8F%D1%89%D0%B8%D0%B5%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D1%8B.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Дисс на Атеву-Лиззка",
+    "title": "Дисс на Атеву",
+    "artist": "Лиззка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%B8%D0%B7%D0%B7%D0%BA%D0%B0%20-%20%D0%94%D0%B8%D1%81%D1%81%20%D0%BD%D0%B0%20%D0%90%D1%82%D0%B5%D0%B2%D1%83.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Дисс на Фейса-Лиззка",
+    "title": "Дисс на Фейса",
+    "artist": "Лиззка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%B8%D0%B7%D0%B7%D0%BA%D0%B0%20-%20%D0%94%D0%B8%D1%81%D1%81%20%D0%BD%D0%B0%20%D0%A4%D0%B5%D0%B9%D1%81%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Интроверт-Лиззка",
+    "title": "Интроверт",
+    "artist": "Лиззка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%B8%D0%B7%D0%B7%D0%BA%D0%B0%20-%20%D0%98%D0%BD%D1%82%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D1%82.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Бейби-ЛСП",
+    "title": "Бейби",
+    "artist": "ЛСП",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%A1%D0%9F%20-%20%D0%91%D0%B5%D0%B9%D0%B1%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Коктейль-ЛСП",
+    "title": "Коктейль",
+    "artist": "ЛСП",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%A1%D0%9F%20-%20%D0%9A%D0%BE%D0%BA%D1%82%D0%B5%D0%B9%D0%BB%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Лабиринт отражений-ЛСП",
+    "title": "Лабиринт отражений",
+    "artist": "ЛСП",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%A1%D0%9F%20-%20%D0%9B%D0%B0%D0%B1%D0%B8%D1%80%D0%B8%D0%BD%D1%82%20%D0%BE%D1%82%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Лучше чем интернет-ЛСП",
+    "title": "Лучше чем интернет",
+    "artist": "ЛСП",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%A1%D0%9F%20-%20%D0%9B%D1%83%D1%87%D1%88%D0%B5%20%D1%87%D0%B5%D0%BC%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Маленький принц-ЛСП",
+    "title": "Маленький принц",
+    "artist": "ЛСП",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%A1%D0%9F%20-%20%D0%9C%D0%B0%D0%BB%D0%B5%D0%BD%D1%8C%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%B8%D0%BD%D1%86.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "ОК-ЛСП",
+    "title": "ОК",
+    "artist": "ЛСП",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%A1%D0%9F%20-%20%D0%9E%D0%9A.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Тело-ЛСП",
+    "title": "Тело",
+    "artist": "ЛСП",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%A1%D0%9F%20-%20%D0%A2%D0%B5%D0%BB%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Холостяк-ЛСП",
+    "title": "Холостяк",
+    "artist": "ЛСП",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%A1%D0%9F%20-%20%D0%A5%D0%BE%D0%BB%D0%BE%D1%81%D1%82%D1%8F%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Холостяк-ЛСП, Feduk, Егор Крид",
+    "title": "Холостяк",
+    "artist": "ЛСП, Feduk, Егор Крид",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D0%A1%D0%9F%2C%20Feduk%2C%20%D0%95%D0%B3%D0%BE%D1%80%20%D0%9A%D1%80%D0%B8%D0%B4%20-%20%D0%A5%D0%BE%D0%BB%D0%BE%D1%81%D1%82%D1%8F%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Солнце Монако-Люся Чеботина",
+    "title": "Солнце Монако",
+    "artist": "Люся Чеботина",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D1%8E%D1%81%D1%8F%20%D0%A7%D0%B5%D0%B1%D0%BE%D1%82%D0%B8%D0%BD%D0%B0%20-%20%D0%A1%D0%BE%D0%BB%D0%BD%D1%86%D0%B5%20%D0%9C%D0%BE%D0%BD%D0%B0%D0%BA%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Дым-Лёша Свик",
+    "title": "Дым",
+    "artist": "Лёша Свик",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D1%91%D1%88%D0%B0%20%D0%A1%D0%B2%D0%B8%D0%BA%20-%20%D0%94%D1%8B%D0%BC.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Малиновый свет-Лёша Свик",
+    "title": "Малиновый свет",
+    "artist": "Лёша Свик",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D1%91%D1%88%D0%B0%20%D0%A1%D0%B2%D0%B8%D0%BA%20-%20%D0%9C%D0%B0%D0%BB%D0%B8%D0%BD%D0%BE%D0%B2%D1%8B%D0%B9%20%D1%81%D0%B2%D0%B5%D1%82.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Не одета-Лёша Свик",
+    "title": "Не одета",
+    "artist": "Лёша Свик",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D1%91%D1%88%D0%B0%20%D0%A1%D0%B2%D0%B8%D0%BA%20-%20%D0%9D%D0%B5%20%D0%BE%D0%B4%D0%B5%D1%82%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Самолеты-Лёша Свик",
+    "title": "Самолеты",
+    "artist": "Лёша Свик",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D1%91%D1%88%D0%B0%20%D0%A1%D0%B2%D0%B8%D0%BA%20-%20%D0%A1%D0%B0%D0%BC%D0%BE%D0%BB%D0%B5%D1%82%D1%8B.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Стерва-Лёша Свик",
+    "title": "Стерва",
+    "artist": "Лёша Свик",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D1%91%D1%88%D0%B0%20%D0%A1%D0%B2%D0%B8%D0%BA%20-%20%D0%A1%D1%82%D0%B5%D1%80%D0%B2%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я хочу танцевать-Лёша Свик",
+    "title": "Я хочу танцевать",
+    "artist": "Лёша Свик",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9B%D1%91%D1%88%D0%B0%20%D0%A1%D0%B2%D0%B8%D0%BA%20-%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D1%82%D0%B0%D0%BD%D1%86%D0%B5%D0%B2%D0%B0%D1%82%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "С чего начинается Родина-Марк Бернес",
+    "title": "С чего начинается Родина",
+    "artist": "Марк Бернес",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B0%D1%80%D0%BA%20%D0%91%D0%B5%D1%80%D0%BD%D0%B5%D1%81%20-%20%D0%A1%20%D1%87%D0%B5%D0%B3%D0%BE%20%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%D0%A0%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Поворот-Машина времени",
+    "title": "Поворот",
+    "artist": "Машина времени",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D0%B0%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8%20-%20%D0%9F%D0%BE%D0%B2%D0%BE%D1%80%D0%BE%D1%82.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Верхом на звезде-Найк Борзов",
+    "title": "Верхом на звезде",
+    "artist": "Найк Борзов",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D0%B9%D0%BA%20%D0%91%D0%BE%D1%80%D0%B7%D0%BE%D0%B2%20-%20%D0%92%D0%B5%D1%80%D1%85%D0%BE%D0%BC%20%D0%BD%D0%B0%20%D0%B7%D0%B2%D0%B5%D0%B7%D0%B4%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Поезд жизни-Наутилус",
+    "title": "Поезд жизни",
+    "artist": "Наутилус",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B0%D1%83%D1%82%D0%B8%D0%BB%D1%83%D1%81%20-%20%D0%9F%D0%BE%D0%B5%D0%B7%D0%B4%20%D0%B6%D0%B8%D0%B7%D0%BD%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Серёжа-НЕАНГЕЛЫ",
+    "title": "Серёжа",
+    "artist": "НЕАНГЕЛЫ",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%95%D0%90%D0%9D%D0%93%D0%95%D0%9B%D0%AB%20-%20%D0%A1%D0%B5%D1%80%D1%91%D0%B6%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Никитосик-Никита Златоуст",
+    "title": "Никитосик",
+    "artist": "Никита Златоуст",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B8%D0%BA%D0%B8%D1%82%D0%B0%20%D0%97%D0%BB%D0%B0%D1%82%D0%BE%D1%83%D1%81%D1%82%20-%20%D0%9D%D0%B8%D0%BA%D0%B8%D1%82%D0%BE%D1%81%D0%B8%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Жить красиво-Николай Басков",
+    "title": "Жить красиво",
+    "artist": "Николай Басков",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9%20%D0%91%D0%B0%D1%81%D0%BA%D0%BE%D0%B2%20-%20%D0%96%D0%B8%D1%82%D1%8C%20%D0%BA%D1%80%D0%B0%D1%81%D0%B8%D0%B2%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Натуральный блондин-Николай Басков",
+    "title": "Натуральный блондин",
+    "artist": "Николай Басков",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9%20%D0%91%D0%B0%D1%81%D0%BA%D0%BE%D0%B2%20-%20%D0%9D%D0%B0%D1%82%D1%83%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%B1%D0%BB%D0%BE%D0%BD%D0%B4%D0%B8%D0%BD.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Шарманка-Николай Басков",
+    "title": "Шарманка",
+    "artist": "Николай Басков",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9%20%D0%91%D0%B0%D1%81%D0%BA%D0%BE%D0%B2%20-%20%D0%A8%D0%B0%D1%80%D0%BC%D0%B0%D0%BD%D0%BA%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я буду руки твои целовать-Николай Басков",
+    "title": "Я буду руки твои целовать",
+    "artist": "Николай Басков",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9%20%D0%91%D0%B0%D1%81%D0%BA%D0%BE%D0%B2%20-%20%D0%AF%20%D0%B1%D1%83%D0%B4%D1%83%20%D1%80%D1%83%D0%BA%D0%B8%20%D1%82%D0%B2%D0%BE%D0%B8%20%D1%86%D0%B5%D0%BB%D0%BE%D0%B2%D0%B0%D1%82%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Пропавший без вести-Николай Носков",
+    "title": "Пропавший без вести",
+    "artist": "Николай Носков",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9%20%D0%9D%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%20-%20%D0%9F%D1%80%D0%BE%D0%BF%D0%B0%D0%B2%D1%88%D0%B8%D0%B9%20%D0%B1%D0%B5%D0%B7%20%D0%B2%D0%B5%D1%81%D1%82%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я тебя люблю-Николай Носков",
+    "title": "Я тебя люблю",
+    "artist": "Николай Носков",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9%20%D0%9D%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%20-%20%D0%AF%20%D1%82%D0%B5%D0%B1%D1%8F%20%D0%BB%D1%8E%D0%B1%D0%BB%D1%8E.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Воспоминание-Нюша",
+    "title": "Воспоминание",
+    "artist": "Нюша",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D1%8E%D1%88%D0%B0%20-%20%D0%92%D0%BE%D1%81%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Выше-Нюша",
+    "title": "Выше",
+    "artist": "Нюша",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D1%8E%D1%88%D0%B0%20-%20%D0%92%D1%8B%D1%88%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Только не беги-Нюша",
+    "title": "Только не беги",
+    "artist": "Нюша",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D1%8E%D1%88%D0%B0%20-%20%D0%A2%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%BD%D0%B5%20%D0%B1%D0%B5%D0%B3%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Цунами-Нюша",
+    "title": "Цунами",
+    "artist": "Нюша",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D1%8E%D1%88%D0%B0%20-%20%D0%A6%D1%83%D0%BD%D0%B0%D0%BC%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Это новый год-Нюша",
+    "title": "Это новый год",
+    "artist": "Нюша",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9D%D1%8E%D1%88%D0%B0%20-%20%D0%AD%D1%82%D0%BE%20%D0%BD%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B3%D0%BE%D0%B4.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Як жити без тебе-Олег Винник",
+    "title": "Як жити без тебе",
+    "artist": "Олег Винник",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9E%D0%BB%D0%B5%D0%B3%20%D0%92%D0%B8%D0%BD%D0%BD%D0%B8%D0%BA%20-%20%D0%AF%D0%BA%20%D0%B6%D0%B8%D1%82%D0%B8%20%D0%B1%D0%B5%D0%B7%20%D1%82%D0%B5%D0%B1%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "А я девушек люблю-Олег Газманов",
+    "title": "А я девушек люблю",
+    "artist": "Олег Газманов",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9E%D0%BB%D0%B5%D0%B3%20%D0%93%D0%B0%D0%B7%D0%BC%D0%B0%D0%BD%D0%BE%D0%B2%20-%20%D0%90%20%D1%8F%20%D0%B4%D0%B5%D0%B2%D1%83%D1%88%D0%B5%D0%BA%20%D0%BB%D1%8E%D0%B1%D0%BB%D1%8E.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Морячка-Олег Газманов",
+    "title": "Морячка",
+    "artist": "Олег Газманов",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9E%D0%BB%D0%B5%D0%B3%20%D0%93%D0%B0%D0%B7%D0%BC%D0%B0%D0%BD%D0%BE%D0%B2%20-%20%D0%9C%D0%BE%D1%80%D1%8F%D1%87%D0%BA%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Как здорово-Олег Митяев",
+    "title": "Как здорово",
+    "artist": "Олег Митяев",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9E%D0%BB%D0%B5%D0%B3%20%D0%9C%D0%B8%D1%82%D1%8F%D0%B5%D0%B2%20-%20%D0%9A%D0%B0%D0%BA%20%D0%B7%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ты приехал-Ольга Зарубина",
+    "title": "Ты приехал",
+    "artist": "Ольга Зарубина",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9E%D0%BB%D1%8C%D0%B3%D0%B0%20%D0%97%D0%B0%D1%80%D1%83%D0%B1%D0%B8%D0%BD%D0%B0%20-%20%D0%A2%D1%8B%20%D0%BF%D1%80%D0%B8%D0%B5%D1%85%D0%B0%D0%BB.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Мой первый день-Ольга Кормухина",
+    "title": "Мой первый день",
+    "artist": "Ольга Кормухина",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9E%D0%BB%D1%8C%D0%B3%D0%B0%20%D0%9A%D0%BE%D1%80%D0%BC%D1%83%D1%85%D0%B8%D0%BD%D0%B0%20-%20%D0%9C%D0%BE%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Люли-Оля Полякова",
+    "title": "Люли",
+    "artist": "Оля Полякова",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9E%D0%BB%D1%8F%20%D0%9F%D0%BE%D0%BB%D1%8F%D0%BA%D0%BE%D0%B2%D0%B0%20-%20%D0%9B%D1%8E%D0%BB%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Номер один-Оля Полякова",
+    "title": "Номер один",
+    "artist": "Оля Полякова",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9E%D0%BB%D1%8F%20%D0%9F%D0%BE%D0%BB%D1%8F%D0%BA%D0%BE%D0%B2%D0%B0%20-%20%D0%9D%D0%BE%D0%BC%D0%B5%D1%80%20%D0%BE%D0%B4%D0%B8%D0%BD.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Между мной и тобой-Оскар",
+    "title": "Между мной и тобой",
+    "artist": "Оскар",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9E%D1%81%D0%BA%D0%B0%D1%80%20-%20%D0%9C%D0%B5%D0%B6%D0%B4%D1%83%20%D0%BC%D0%BD%D0%BE%D0%B9%20%D0%B8%20%D1%82%D0%BE%D0%B1%D0%BE%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Девушки бывают разные-Отпетые Мошенники",
+    "title": "Девушки бывают разные",
+    "artist": "Отпетые Мошенники",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9E%D1%82%D0%BF%D0%B5%D1%82%D1%8B%D0%B5%20%D0%9C%D0%BE%D1%88%D0%B5%D0%BD%D0%BD%D0%B8%D0%BA%D0%B8%20-%20%D0%94%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B8%20%D0%B1%D1%8B%D0%B2%D0%B0%D1%8E%D1%82%20%D1%80%D0%B0%D0%B7%D0%BD%D1%8B%D0%B5.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Десь по світу-Павло і Марійка",
+    "title": "Десь по світу",
+    "artist": "Павло і Марійка",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%B0%D0%B2%D0%BB%D0%BE%20%D1%96%20%D0%9C%D0%B0%D1%80%D1%96%D0%B9%D0%BA%D0%B0%20-%20%D0%94%D0%B5%D1%81%D1%8C%20%D0%BF%D0%BE%20%D1%81%D0%B2%D1%96%D1%82%D1%83.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Вставай-Пара нормальных",
+    "title": "Вставай",
+    "artist": "Пара нормальных",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%B0%D1%80%D0%B0%20%D0%BD%D0%BE%D1%80%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85%20-%20%D0%92%D1%81%D1%82%D0%B0%D0%B2%D0%B0%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Невеста-Пара нормальных",
+    "title": "Невеста",
+    "artist": "Пара нормальных",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%B0%D1%80%D0%B0%20%D0%BD%D0%BE%D1%80%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85%20-%20%D0%9D%D0%B5%D0%B2%D0%B5%D1%81%D1%82%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Не для тебя-Пелагея",
+    "title": "Не для тебя",
+    "artist": "Пелагея",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%B5%D0%BB%D0%B0%D0%B3%D0%B5%D1%8F%20-%20%D0%9D%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D1%82%D0%B5%D0%B1%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Патимейкер-Пика",
+    "title": "Патимейкер",
+    "artist": "Пика",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%B8%D0%BA%D0%B0%20-%20%D0%9F%D0%B0%D1%82%D0%B8%D0%BC%D0%B5%D0%B9%D0%BA%D0%B5%D1%80.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Снег кружится-Пламя",
+    "title": "Снег кружится",
+    "artist": "Пламя",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%BB%D0%B0%D0%BC%D1%8F%20-%20%D0%A1%D0%BD%D0%B5%D0%B3%20%D0%BA%D1%80%D1%83%D0%B6%D0%B8%D1%82%D1%81%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Танцуй пока молодая-Подиум",
+    "title": "Танцуй пока молодая",
+    "artist": "Подиум",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%BE%D0%B4%D0%B8%D1%83%D0%BC%20-%20%D0%A2%D0%B0%D0%BD%D1%86%D1%83%D0%B9%20%D0%BF%D0%BE%D0%BA%D0%B0%20%D0%BC%D0%BE%D0%BB%D0%BE%D0%B4%D0%B0%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Какао белого цвета-Полиграф ШарикOFF",
+    "title": "Какао белого цвета",
+    "artist": "Полиграф ШарикOFF",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D0%BE%D0%BB%D0%B8%D0%B3%D1%80%D0%B0%D1%84%20%D0%A8%D0%B0%D1%80%D0%B8%D0%BAOFF%20-%20%D0%9A%D0%B0%D0%BA%D0%B0%D0%BE%20%D0%B1%D0%B5%D0%BB%D0%BE%D0%B3%D0%BE%20%D1%86%D0%B2%D0%B5%D1%82%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Два билета в лето-Премьер министр",
+    "title": "Два билета в лето",
+    "artist": "Премьер министр",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%80%D0%B5%D0%BC%D1%8C%D0%B5%D1%80%20%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%20-%20%D0%94%D0%B2%D0%B0%20%D0%B1%D0%B8%D0%BB%D0%B5%D1%82%D0%B0%20%D0%B2%20%D0%BB%D0%B5%D1%82%D0%BE.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Два бриллианта-Премьер министр",
+    "title": "Два бриллианта",
+    "artist": "Премьер министр",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%80%D0%B5%D0%BC%D1%8C%D0%B5%D1%80%20%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%20-%20%D0%94%D0%B2%D0%B0%20%D0%B1%D1%80%D0%B8%D0%BB%D0%BB%D0%B8%D0%B0%D0%BD%D1%82%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Девочка с севера-Премьер министр",
+    "title": "Девочка с севера",
+    "artist": "Премьер министр",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%80%D0%B5%D0%BC%D1%8C%D0%B5%D1%80%20%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%20-%20%D0%94%D0%B5%D0%B2%D0%BE%D1%87%D0%BA%D0%B0%20%D1%81%20%D1%81%D0%B5%D0%B2%D0%B5%D1%80%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Искорки-Премьер министр",
+    "title": "Искорки",
+    "artist": "Премьер министр",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%80%D0%B5%D0%BC%D1%8C%D0%B5%D1%80%20%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%20-%20%D0%98%D1%81%D0%BA%D0%BE%D1%80%D0%BA%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ну зачем-Премьер министр",
+    "title": "Ну зачем",
+    "artist": "Премьер министр",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%80%D0%B5%D0%BC%D1%8C%D0%B5%D1%80%20%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%20-%20%D0%9D%D1%83%20%D0%B7%D0%B0%D1%87%D0%B5%D0%BC.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Синий иней-Премьер министр",
+    "title": "Синий иней",
+    "artist": "Премьер министр",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%80%D0%B5%D0%BC%D1%8C%D0%B5%D1%80%20%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%20-%20%D0%A1%D0%B8%D0%BD%D0%B8%D0%B9%20%D0%B8%D0%BD%D0%B5%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Мелом-Пропаганда",
+    "title": "Мелом",
+    "artist": "Пропаганда",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%80%D0%BE%D0%BF%D0%B0%D0%B3%D0%B0%D0%BD%D0%B4%D0%B0%20-%20%D0%9C%D0%B5%D0%BB%D0%BE%D0%BC.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я такая-Пропаганда",
+    "title": "Я такая",
+    "artist": "Пропаганда",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%80%D0%BE%D0%BF%D0%B0%D0%B3%D0%B0%D0%BD%D0%B4%D0%B0%20-%20%D0%AF%20%D1%82%D0%B0%D0%BA%D0%B0%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Яблоки ела-Пропаганда",
+    "title": "Яблоки ела",
+    "artist": "Пропаганда",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%80%D0%BE%D0%BF%D0%B0%D0%B3%D0%B0%D0%BD%D0%B4%D0%B0%20-%20%D0%AF%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8%20%D0%B5%D0%BB%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Бегут года-Профессор Лебединский",
+    "title": "Бегут года",
+    "artist": "Профессор Лебединский",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%9F%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%BE%D1%80%20%D0%9B%D0%B5%D0%B1%D0%B5%D0%B4%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20-%20%D0%91%D0%B5%D0%B3%D1%83%D1%82%20%D0%B3%D0%BE%D0%B4%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Мужики-Раиса Отрадная",
+    "title": "Мужики",
+    "artist": "Раиса Отрадная",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D0%B0%D0%B8%D1%81%D0%B0%20%D0%9E%D1%82%D1%80%D0%B0%D0%B4%D0%BD%D0%B0%D1%8F%20-%20%D0%9C%D1%83%D0%B6%D0%B8%D0%BA%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Зима-Ранетки",
+    "title": "Зима",
+    "artist": "Ранетки",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D0%B0%D0%BD%D0%B5%D1%82%D0%BA%D0%B8%20-%20%D0%97%D0%B8%D0%BC%D0%B0.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Он вернётся-Ранетки",
+    "title": "Он вернётся",
+    "artist": "Ранетки",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D0%B0%D0%BD%D0%B5%D1%82%D0%BA%D0%B8%20-%20%D0%9E%D0%BD%20%D0%B2%D0%B5%D1%80%D0%BD%D1%91%D1%82%D1%81%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Лада седан-Рекорд Оркестр",
+    "title": "Лада седан",
+    "artist": "Рекорд Оркестр",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D0%B5%D0%BA%D0%BE%D1%80%D0%B4%20%D0%9E%D1%80%D0%BA%D0%B5%D1%81%D1%82%D1%80%20-%20%D0%9B%D0%B0%D0%B4%D0%B0%20%D1%81%D0%B5%D0%B4%D0%B0%D0%BD.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Блондиночка моя-Ренат Джамилов",
+    "title": "Блондиночка моя",
+    "artist": "Ренат Джамилов",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D0%B5%D0%BD%D0%B0%D1%82%20%D0%94%D0%B6%D0%B0%D0%BC%D0%B8%D0%BB%D0%BE%D0%B2%20-%20%D0%91%D0%BB%D0%BE%D0%BD%D0%B4%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0%20%D0%BC%D0%BE%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Боль-Ринат Каримов",
+    "title": "Боль",
+    "artist": "Ринат Каримов",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D0%B8%D0%BD%D0%B0%D1%82%20%D0%9A%D0%B0%D1%80%D0%B8%D0%BC%D0%BE%D0%B2%20-%20%D0%91%D0%BE%D0%BB%D1%8C.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Ты танцуй-Ринат Каримов",
+    "title": "Ты танцуй",
+    "artist": "Ринат Каримов",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D0%B8%D0%BD%D0%B0%D1%82%20%D0%9A%D0%B0%D1%80%D0%B8%D0%BC%D0%BE%D0%B2%20-%20%D0%A2%D1%8B%20%D1%82%D0%B0%D0%BD%D1%86%D1%83%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "острова - Ничего не говори-Рок",
+    "title": "острова - Ничего не говори",
+    "artist": "Рок",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D0%BE%D0%BA-%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2%D0%B0%20-%20%D0%9D%D0%B8%D1%87%D0%B5%D0%B3%D0%BE%20%D0%BD%D0%B5%20%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Когда мы были молодыми-Руки Вверх",
+    "title": "Когда мы были молодыми",
+    "artist": "Руки Вверх",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D1%83%D0%BA%D0%B8%20%D0%92%D0%B2%D0%B5%D1%80%D1%85%20-%20%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0%20%D0%BC%D1%8B%20%D0%B1%D1%8B%D0%BB%D0%B8%20%D0%BC%D0%BE%D0%BB%D0%BE%D0%B4%D1%8B%D0%BC%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Be mine-Руслан Кримлидис, Soufee",
+    "title": "Be mine",
+    "artist": "Руслан Кримлидис, Soufee",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%20%D0%9A%D1%80%D0%B8%D0%BC%D0%BB%D0%B8%D0%B4%D0%B8%D1%81%2C%20Soufee%20-%20Be%20mine.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Поднимая знамя-Северный флот",
+    "title": "Поднимая знамя",
+    "artist": "Северный флот",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D0%BD%D1%8B%D0%B9%20%D1%84%D0%BB%D0%BE%D1%82%20-%20%D0%9F%D0%BE%D0%B4%D0%BD%D0%B8%D0%BC%D0%B0%D1%8F%20%D0%B7%D0%BD%D0%B0%D0%BC%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Вечно молодой-Смысловые галлюцинации",
+    "title": "Вечно молодой",
+    "artist": "Смысловые галлюцинации",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A1%D0%BC%D1%8B%D1%81%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5%20%D0%B3%D0%B0%D0%BB%D0%BB%D1%8E%D1%86%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D0%B8%20-%20%D0%92%D0%B5%D1%87%D0%BD%D0%BE%20%D0%BC%D0%BE%D0%BB%D0%BE%D0%B4%D0%BE%D0%B9.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Мальчик-Фогель",
+    "title": "Мальчик",
+    "artist": "Фогель",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A4%D0%BE%D0%B3%D0%B5%D0%BB%D1%8C%20-%20%D0%9C%D0%B0%D0%BB%D1%8C%D1%87%D0%B8%D0%BA.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Я просто твоя-Ханна",
+    "title": "Я просто твоя",
+    "artist": "Ханна",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A5%D0%B0%D0%BD%D0%BD%D0%B0%20-%20%D0%AF%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%20%D1%82%D0%B2%D0%BE%D1%8F.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "О любви-Чиж & Co",
+    "title": "О любви",
+    "artist": "Чиж & Co",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%A7%D0%B8%D0%B6%20%26%20Co%20-%20%D0%9E%20%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "Мой Babylon-Эндшпиль",
+    "title": "Мой Babylon",
+    "artist": "Эндшпиль",
+    "src": "https://s3.twcstorage.ru/e9dc5ea4-6dc9267d-85ca-4ae9-a41f-2895e9542a04/video/%D0%AD%D0%BD%D0%B4%D1%88%D0%BF%D0%B8%D0%BB%D1%8C%20-%20%D0%9C%D0%BE%D0%B9%20Babylon.mp4",
+    "captions": "/karaoke-subtitles.vtt"
   }
-]
+]  
+
+
