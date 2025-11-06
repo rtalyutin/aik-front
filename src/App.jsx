@@ -170,7 +170,7 @@ const formatTimestamp = (value) => {
 
 function App({ initialTracks = [] } = {}) {
   const [theme, setTheme] = useState('light');
-  const [accentPreset, setAccentPreset] = useState('fox-dream');
+  const [accentPreset, setAccentPreset] = useState('crimson-sonata');
   const [tracks, setTracks] = useState(() => initialTracks);
   const [selectedTrackId, setSelectedTrackId] = useState('');
   const [globalNotice, setGlobalNotice] = useState('');
