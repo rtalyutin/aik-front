@@ -1,5 +1,12 @@
 {
   "title": "Караоке-сцена",
   "description": "Выбирайте любимые треки и пойте вместе с Cherry RAiT.",
-  "comingSoon": "Раздел находится в разработке. Скоро мы добавим список треков и живые очереди." 
+  "tracksHeading": "Плейлист",
+  "playerHeading": "Караоке-плеер",
+  "loadingMessage": "Загружаем плейлист…",
+  "emptyState": "Нет доступных треков. Попробуйте обновить чуть позже.",
+  "errorFallback": "Не удалось загрузить список треков. Попробуйте обновить страницу.",
+  "playerPlaceholder": "Выберите трек, чтобы начать петь.",
+  "defaultCaptions": "/karaoke-subtitles.vtt",
+  "tracksSource": "/karaoke-tracks.json"
 }
