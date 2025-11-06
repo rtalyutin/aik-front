@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Modal from './components/Modal';
 import SplitPane from './components/SplitPane.jsx';
@@ -23,6 +24,7 @@ import { PlaybackProvider } from './features/player/PlaybackProvider.jsx';
 import Player from './features/player/Player.jsx';
 import Lyrics from './features/lyrics/Lyrics.jsx';
 import Playlist from './features/playlist/Playlist.jsx';
+import KaraokePage from './features/karaoke/KaraokePage.jsx';
 
 const uploaderMessages = uploaderConfig.messages ?? {};
 const createJobEndpoint =
@@ -785,6 +787,49 @@ function App({ initialTracks = [] } = {}) {
     [tracks, getStatusLabel, getStatusIcon, getStatusVariant],
   );
 
+  const location = useLocation();
+  const isProcessingRoute = location.pathname === '/';
+
+  const workspaceView = (
+    <div
+      className="workspace workspace--processing"
+      aria-label="Список треков и управление загрузками"
+    >
+      <SplitPane
+        leftWidth="30%"
+        rightWidth="70%"
+        ariaLabel="Плейлист и управление воспроизведением"
+        left={
+          <Playlist
+            tracks={playlistTracks}
+            selectedTrackId={selectedTrackId}
+            notice={globalNotice}
+            error={globalError}
+            onSelect={setSelectedTrackId}
+            onAddClick={() => setIsUploaderOpen(true)}
+            onRefresh={handleManualRefresh}
+            onRetry={handleRestart}
+            isAddDisabled={isCreatingJob}
+            isRetryDisabled={isCreatingJob}
+          />
+        }
+        right={
+          <div className="workspace__details">
+            <PlaybackProvider>
+              <div
+                className="workspace__playback"
+                aria-label="Прослушивание и синхронизация текста"
+              >
+                <Player />
+                <Lyrics />
+              </div>
+            </PlaybackProvider>
+          </div>
+        }
+      />
+    </div>
+  );
+
   return (
     <div
       className="app"
@@ -792,7 +837,7 @@ function App({ initialTracks = [] } = {}) {
       data-accent={accentPreset}
       data-testid="app-shell"
       aria-live="polite"
-      aria-label="Рабочее пространство загрузок и плеера"
+      aria-label="Приложение Cherry RAiT"
     >
       <Header
         theme={theme}
@@ -800,41 +845,13 @@ function App({ initialTracks = [] } = {}) {
         onToggleTheme={() => setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))}
         onSelectAccent={setAccentPreset}
       />
-      <main className="workspace" aria-label="Список треков и управление загрузками">
-        <SplitPane
-          leftWidth="30%"
-          rightWidth="70%"
-          ariaLabel="Плейлист и управление воспроизведением"
-          left={
-            <Playlist
-              tracks={playlistTracks}
-              selectedTrackId={selectedTrackId}
-              notice={globalNotice}
-              error={globalError}
-              onSelect={setSelectedTrackId}
-              onAddClick={() => setIsUploaderOpen(true)}
-              onRefresh={handleManualRefresh}
-              onRetry={handleRestart}
-              isAddDisabled={isCreatingJob}
-              isRetryDisabled={isCreatingJob}
-            />
-          }
-          right={
-            <div className="workspace__details">
-              <PlaybackProvider>
-                <div
-                  className="workspace__playback"
-                  aria-label="Прослушивание и синхронизация текста"
-                >
-                  <Player />
-                  <Lyrics />
-                </div>
-              </PlaybackProvider>
-            </div>
-          }
-        />
+      <main className="app__content">
+        <Routes>
+          <Route path="/" element={workspaceView} />
+          <Route path="/karaoke" element={<KaraokePage />} />
+        </Routes>
       </main>
-      {isUploaderOpen && (
+      {isProcessingRoute && isUploaderOpen && (
         <Modal onClose={() => setIsUploaderOpen(false)} labelledBy="uploader-title">
           <Uploader
             onCreateJob={handleUploaderSubmit}

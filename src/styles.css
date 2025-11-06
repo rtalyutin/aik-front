@@ -577,6 +577,12 @@ body {
   flex-direction: column;
 }
 
+.app__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .app-header {
   display: flex;
   align-items: center;
@@ -592,6 +598,50 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.app-header__controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.app-header__nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(6px);
+}
+
+html[data-theme='dark'] .app-header__nav {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.app-header__nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-radius: 999px;
+  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-header__nav-link:hover,
+.app-header__nav-link:focus-visible {
+  color: var(--color-text);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.app-header__nav-link--active {
+  color: var(--accent-solid-active);
+  background-color: var(--accent-surface-strong);
+  box-shadow: 0 6px 20px var(--accent-shadow);
 }
 
 .app-header__logo {
@@ -716,6 +766,38 @@ html[data-theme='dark'] .app-header {
   gap: 1.75rem;
   align-items: stretch;
   min-height: 0;
+}
+
+.karaoke-page {
+  gap: 2rem;
+}
+
+.karaoke-page__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.karaoke-page__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin: 0;
+}
+
+.karaoke-page__description {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+.karaoke-page__body {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  background: var(--accent-surface);
+  border: 1px solid var(--accent-notice-border);
+  color: var(--color-text);
+  box-shadow: 0 16px 36px rgba(46, 22, 9, 0.1);
 }
 
 .split-pane__pane {
