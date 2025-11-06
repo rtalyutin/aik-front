@@ -3,7 +3,10 @@ import assert from 'node:assert/strict';
 import test, { afterEach, beforeEach } from 'node:test';
 import React from 'react';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import karaokeConfig from './config.json';
 import KaraokePage from './KaraokePage.jsx';
+
+const PAGE_SIZE = karaokeConfig.pagination?.pageSize ?? 6;
 
 const sampleTracks = [
   {
@@ -18,6 +21,27 @@ const sampleTracks = [
     title: 'Огни большого города',
     artist: 'Cherry RAiT',
     src: 'https://example.com/city-lights.mp4',
+    captions: '/karaoke-subtitles.vtt',
+  },
+  {
+    id: 'midnight-drive',
+    title: 'Ночной драйв',
+    artist: 'Cherry RAiT',
+    src: 'https://example.com/midnight-drive.mp4',
+    captions: '/karaoke-subtitles.vtt',
+  },
+  {
+    id: 'city-echoes',
+    title: 'Эхо мегаполиса',
+    artist: 'Cherry RAiT',
+    src: 'https://example.com/city-echoes.mp4',
+    captions: '/karaoke-subtitles.vtt',
+  },
+  {
+    id: 'starlight-dust',
+    title: 'Звёздная пыль',
+    artist: 'Cherry RAiT',
+    src: 'https://example.com/starlight-dust.mp4',
     captions: '/karaoke-subtitles.vtt',
   },
 ];
@@ -51,7 +75,7 @@ test('загружает и отображает список треков', asy
   assert.ok(playlistHeading);
 
   const trackButtons = await screen.findAllByRole('button', { name: /Cherry RAiT$/ });
-  assert.equal(trackButtons.length, sampleTracks.length);
+  assert.equal(trackButtons.length, PAGE_SIZE);
 
   const searchLabel = await screen.findByLabelText('Поиск по трекам');
   assert.ok(searchLabel);
@@ -95,7 +119,8 @@ test('фильтрует треки по исполнителю и показы�
 
   await waitFor(() => {
     const visibleButtons = screen.getAllByRole('button', { name: /Cherry RAiT$/ });
-    assert.equal(visibleButtons.length, sampleTracks.length);
+    assert.equal(visibleButtons.length, Math.min(sampleTracks.length, PAGE_SIZE));
+    assert.ok(screen.getByRole('button', { name: 'Страница 3' }));
   });
 
   fireEvent.change(searchInput, { target: { value: 'несуществующий артист' } });
@@ -136,4 +161,83 @@ test('переключает активный трек и обновляет и�
   } finally {
     window.HTMLMediaElement.prototype.play = originalPlay;
   }
+});
+
+test('переходит между страницами плейлиста', async () => {
+  render(<KaraokePage />);
+
+  const nextButton = await screen.findByRole('button', { name: 'Вперёд' });
+  assert.equal(nextButton.hasAttribute('disabled'), false);
+
+  fireEvent.click(nextButton);
+
+  await waitFor(() => {
+    assert.ok(
+      screen.getByRole('button', { name: 'Ночной драйв — Cherry RAiT' }),
+    );
+    assert.equal(
+      screen.queryByRole('button', { name: 'Неоновые сны — Cherry RAiT' }),
+      null,
+    );
+  });
+
+  const secondPageButton = screen.getByRole('button', { name: 'Страница 2' });
+  assert.equal(secondPageButton.getAttribute('aria-current'), 'page');
+
+  const thirdPageButton = screen.getByRole('button', { name: 'Страница 3' });
+  fireEvent.click(thirdPageButton);
+
+  await waitFor(() => {
+    assert.ok(
+      screen.getByRole('button', { name: 'Звёздная пыль — Cherry RAiT' }),
+    );
+    assert.equal(
+      screen.queryByRole('button', { name: 'Эхо мегаполиса — Cherry RAiT' }),
+      null,
+    );
+  });
+
+  const previousButton = screen.getByRole('button', { name: 'Назад' });
+  assert.equal(previousButton.hasAttribute('disabled'), false);
+});
+
+test('сбрасывает страницу после изменения поискового запроса', async () => {
+  render(<KaraokePage />);
+
+  const nextButton = await screen.findByRole('button', { name: 'Вперёд' });
+  fireEvent.click(nextButton);
+
+  const thirdPageButton = await screen.findByRole('button', { name: 'Страница 3' });
+  fireEvent.click(thirdPageButton);
+
+  await waitFor(() => {
+    assert.ok(
+      screen.getByRole('button', { name: 'Звёздная пыль — Cherry RAiT' }),
+    );
+  });
+
+  const searchInput = screen.getByLabelText('Поиск по трекам');
+  fireEvent.change(searchInput, { target: { value: 'город' } });
+
+  await waitFor(() => {
+    assert.ok(
+      screen.getByRole('button', { name: 'Огни большого города — Cherry RAiT' }),
+    );
+    assert.equal(
+      screen.queryByRole('button', { name: 'Звёздная пыль — Cherry RAiT' }),
+      null,
+    );
+  });
+
+  fireEvent.change(searchInput, { target: { value: '' } });
+
+  await waitFor(() => {
+    assert.ok(
+      screen.getByRole('button', { name: 'Неоновые сны — Cherry RAiT' }),
+    );
+    assert.equal(
+      screen.queryByRole('button', { name: 'Звёздная пыль — Cherry RAiT' }),
+      null,
+    );
+  });
 });
