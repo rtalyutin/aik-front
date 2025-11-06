@@ -8,5 +8,14 @@
   "errorFallback": "Не удалось загрузить список треков. Попробуйте обновить страницу.",
   "playerPlaceholder": "Выберите трек, чтобы начать петь.",
   "defaultCaptions": "/karaoke-subtitles.vtt",
-  "tracksSource": "/karaoke-tracks.json"
+  "tracksSource": "/karaoke-tracks.json",
+  "pagination": {
+    "pageSize": 2,
+    "labels": {
+      "previous": "Назад",
+      "next": "Вперёд",
+      "page": "Страница",
+      "navigation": "Навигация по страницам плейлиста"
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import karaokeConfig from './config.json';
 import { useKaraokeTracks } from './useKaraokeTracks.js';
 
@@ -14,6 +14,15 @@ const KaraokePage = () => {
   } = useKaraokeTracks({ source: karaokeConfig.tracksSource });
 
   const [searchQuery, setSearchQuery] = useState('');
+  const paginationConfig = karaokeConfig.pagination || {};
+  const paginationLabels = paginationConfig.labels || {};
+  const pageSize = paginationConfig.pageSize || 6;
+  const previousPageLabel = paginationLabels.previous || 'Назад';
+  const nextPageLabel = paginationLabels.next || 'Вперёд';
+  const pageAriaLabel = paginationLabels.page || 'Страница';
+  const paginationAriaLabel =
+    paginationLabels.navigation || 'Навигация по страницам плейлиста';
+  const [currentPage, setCurrentPage] = useState(1);
 
   const playlistHeading = karaokeConfig.tracksHeading || 'Плейлист';
   const playerHeading = karaokeConfig.playerHeading || 'Караоке-плеер';
@@ -67,12 +76,56 @@ const KaraokePage = () => {
     });
   }, [tracks, searchQuery]);
 
-  const trackButtons = useMemo(() => {
+  const totalPages = filteredTracks.length > 0 ? Math.ceil(filteredTracks.length / pageSize) : 0;
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, filteredTracks]);
+
+  const goToPage = useCallback(
+    (pageNumber) => {
+      if (totalPages === 0) {
+        return;
+      }
+
+      setCurrentPage((prevPage) => {
+        const nextPage = Math.min(Math.max(pageNumber, 1), totalPages);
+
+        if (nextPage === prevPage) {
+          return prevPage;
+        }
+
+        return nextPage;
+      });
+    },
+    [totalPages],
+  );
+
+  const handlePreviousPage = useCallback(() => {
+    goToPage(currentPage - 1);
+  }, [currentPage, goToPage]);
+
+  const handleNextPage = useCallback(() => {
+    goToPage(currentPage + 1);
+  }, [currentPage, goToPage]);
+
+  const paginatedTracks = useMemo(() => {
     if (!filteredTracks || filteredTracks.length === 0) {
+      return [];
+    }
+
+    const startIndex = (currentPage - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+
+    return filteredTracks.slice(startIndex, endIndex);
+  }, [filteredTracks, currentPage, pageSize]);
+
+  const trackButtons = useMemo(() => {
+    if (!paginatedTracks || paginatedTracks.length === 0) {
       return null;
     }
 
-    return filteredTracks.map((track) => {
+    return paginatedTracks.map((track) => {
       const isActive = selectedTrackId === track.id;
       const buttonClasses = ['karaoke-page__track-button'];
 
@@ -96,7 +149,7 @@ const KaraokePage = () => {
         </li>
       );
     });
-  }, [filteredTracks, selectedTrackId, handleTrackSelect]);
+  }, [paginatedTracks, selectedTrackId, handleTrackSelect]);
 
   return (
     <section
@@ -162,9 +215,60 @@ const KaraokePage = () => {
             <p className="karaoke-page__status">Ничего не найдено</p>
           ) : null}
           {tracks && tracks.length > 0 && filteredTracks.length > 0 ? (
-            <ul className="karaoke-page__track-list">
-              {trackButtons}
-            </ul>
+            <>
+              <ul className="karaoke-page__track-list">{trackButtons}</ul>
+              {totalPages > 1 ? (
+                <nav
+                  className="karaoke-page__pagination"
+                  aria-label={paginationAriaLabel}
+                >
+                  <button
+                    type="button"
+                    className="karaoke-page__pagination-button karaoke-page__pagination-button--control"
+                    onClick={handlePreviousPage}
+                    disabled={currentPage === 1}
+                  >
+                    {previousPageLabel}
+                  </button>
+                  <ul className="karaoke-page__pagination-pages">
+                    {Array.from({ length: totalPages }, (_, index) => {
+                      const pageNumber = index + 1;
+                      const isActivePage = currentPage === pageNumber;
+
+                      return (
+                        <li key={pageNumber} className="karaoke-page__pagination-page-item">
+                          <button
+                            type="button"
+                            className={[
+                              'karaoke-page__pagination-button',
+                              'karaoke-page__pagination-button--number',
+                              isActivePage
+                                ? 'karaoke-page__pagination-button--active'
+                                : null,
+                            ]
+                              .filter(Boolean)
+                              .join(' ')}
+                            onClick={() => goToPage(pageNumber)}
+                            aria-label={`${pageAriaLabel} ${pageNumber}`}
+                            aria-current={isActivePage ? 'page' : undefined}
+                          >
+                            {pageNumber}
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <button
+                    type="button"
+                    className="karaoke-page__pagination-button karaoke-page__pagination-button--control"
+                    onClick={handleNextPage}
+                    disabled={currentPage === totalPages}
+                  >
+                    {nextPageLabel}
+                  </button>
+                </nav>
+              ) : null}
+            </>
           ) : null}
         </aside>
         <div className="karaoke-page__player">
