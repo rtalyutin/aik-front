@@ -1,0 +1,23 @@
+[
+  {
+    "id": "neon-dreams",
+    "title": "Неоновые сны",
+    "artist": "Cherry RAiT",
+    "src": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "city-lights",
+    "title": "Огни большого города",
+    "artist": "Cherry RAiT",
+    "src": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  },
+  {
+    "id": "dawn-chorus",
+    "title": "Рассветный хор",
+    "artist": "Cherry RAiT",
+    "src": "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/t-rex-roar.mp4",
+    "captions": "/karaoke-subtitles.vtt"
+  }
+]

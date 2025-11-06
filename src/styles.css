@@ -789,8 +789,17 @@ html[data-theme='dark'] .app-header {
   color: var(--color-text-muted);
 }
 
-.karaoke-page__body {
+.karaoke-page__content {
   display: grid;
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.karaoke-page__playlist,
+.karaoke-page__player {
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
   padding: 1.5rem;
   border-radius: var(--radius-lg);
@@ -798,6 +807,94 @@ html[data-theme='dark'] .app-header {
   border: 1px solid var(--accent-notice-border);
   color: var(--color-text);
   box-shadow: 0 16px 36px rgba(46, 22, 9, 0.1);
+  min-height: 0;
+}
+
+.karaoke-page__section-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.karaoke-page__status {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.karaoke-page__status--error {
+  color: var(--color-danger);
+}
+
+.karaoke-page__track-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.karaoke-page__track-item {
+  margin: 0;
+}
+
+.karaoke-page__track-button {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  background: var(--color-surface-muted);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.karaoke-page__track-button:hover,
+.karaoke-page__track-button:focus-visible {
+  border-color: var(--accent-stroke);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+  outline: none;
+}
+
+.karaoke-page__track-button--active {
+  border-color: var(--accent-solid);
+  background: var(--accent-surface-strong);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.karaoke-page__track-title {
+  font-weight: 600;
+}
+
+.karaoke-page__track-artist {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.karaoke-page__video {
+  width: 100%;
+  max-height: 420px;
+  background: #000;
+  border-radius: var(--radius-md);
+  outline: none;
+}
+
+.karaoke-page__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--accent-notice-border);
+  color: var(--color-text-muted);
+  background: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  padding: 1.5rem;
 }
 
 .split-pane__pane {
@@ -814,6 +911,10 @@ html[data-theme='dark'] .app-header {
 }
 
 @media (max-width: 960px) {
+  .karaoke-page__content {
+    grid-template-columns: 1fr;
+  }
+
   .split-pane {
     flex-direction: column;
     gap: 1.5rem;
