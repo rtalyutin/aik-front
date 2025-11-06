@@ -10,8 +10,8 @@
   "defaultCaptions": "/karaoke-subtitles.vtt",
   "tracksSource": "/karaoke-tracks.json",
   "pagination": {
-    "pageSize": 50,
-    "maxVisiblePages": 7,
+    "pageSize": 20,
+    "maxVisiblePages": 3,
     "labels": {
       "previous": "<-",
       "next": "->",
