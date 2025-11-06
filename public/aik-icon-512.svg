@@ -1,15 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
-  <title id="title">AIK Front Emblem</title>
-  <desc id="desc">Stylised AF monogram on gradient shield</desc>
+  <title id="title">AIK Neon R Emblem</title>
+  <desc id="desc">Neon letter R with a mouse and cherry silhouette</desc>
   <defs>
-    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#0f172a" />
-      <stop offset="100%" stop-color="#38bdf8" />
+    <linearGradient id="bgGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#210044" />
+      <stop offset="100%" stop-color="#1d9be0" />
     </linearGradient>
+    <linearGradient id="rGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9f6bff" />
+      <stop offset="100%" stop-color="#41e0ff" />
+    </linearGradient>
+    <radialGradient id="cherryGradient" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#fecdd3" />
+      <stop offset="45%" stop-color="#fb7185" />
+      <stop offset="100%" stop-color="#e11d48" />
+    </radialGradient>
   </defs>
-  <rect width="128" height="128" rx="24" fill="url(#bg)" />
+  <rect width="128" height="128" rx="28" fill="url(#bgGradient)" />
   <path
-    d="M36 96L64 32l28 64h-12l-5.2-12H53.2L48 96H36Zm24-24h16L64 48l-4 24Z"
-    fill="#f8fafc"
+    d="M40 20H68C90 20 100 32 100 50C100 66 89 76 75 79.4L100 100H78L60.4 72H56V100H40ZM56 36V56H70C78 56 84 52 84 45C84 38 78 36 70 36Z"
+    fill="url(#rGradient)"
+    stroke="#a5f3fc"
+    stroke-width="2.4"
+    stroke-linejoin="round"
+    fill-rule="evenodd"
+  />
+  <g fill="#f1f5f9">
+    <ellipse cx="69" cy="73.6" rx="13" ry="9" fill="#e2e8f0" />
+    <circle cx="63" cy="60" r="6.8" />
+    <circle cx="58" cy="54" r="4" fill="#cbd5f5" />
+  </g>
+  <path
+    d="M73 78.4C76.6 84 82.8 86.8 87.2 87.8"
+    fill="none"
+    stroke="#f8fafc"
+    stroke-width="2.2"
+    stroke-linecap="round"
+  />
+  <circle cx="76.4" cy="49" r="4.8" fill="url(#cherryGradient)" />
+  <path
+    d="M76.4 44.2C79.2 39.6 83.4 36.6 89.2 35.4"
+    fill="none"
+    stroke="#bbf7d0"
+    stroke-width="1.8"
+    stroke-linecap="round"
   />
 </svg>
