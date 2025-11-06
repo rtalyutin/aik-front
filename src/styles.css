@@ -1457,10 +1457,25 @@ html[data-theme="dark"] .app-header {
   flex-shrink: 0;
 }
 
-.karaoke-page__player > .karaoke-page__video,
 .karaoke-page__player > .karaoke-page__placeholder {
   width: 100%;
   aspect-ratio: 4 / 3;
+}
+
+.karaoke-page__player-frame {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #000;
+}
+
+.karaoke-page__player-frame .karaoke-page__video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: transparent;
+  border-radius: 0;
+  overflow: hidden;
 }
 
 .karaoke-page__video {

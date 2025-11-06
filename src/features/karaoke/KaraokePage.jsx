@@ -274,24 +274,26 @@ const KaraokePage = () => {
         <div className="karaoke-page__player">
           <h2 className="karaoke-page__section-title">{playerHeading}</h2>
           {selectedTrack ? (
-            <video
-              key={selectedTrack.id}
-              ref={videoRef}
-              className="karaoke-page__video"
-              controls
-              src={selectedTrack.src}
-              onLoadedData={handleVideoLoaded}
-              aria-label={`Воспроизведение: ${selectedTrack.title}`}
-            >
-              <track
-                kind="captions"
-                srcLang="ru"
-                label="Русские субтитры"
-                src={selectedTrack.captions || defaultCaptions}
-                default
-              />
-              Ваш браузер не поддерживает воспроизведение видео.
-            </video>
+            <div className="karaoke-page__player-frame">
+              <video
+                key={selectedTrack.id}
+                ref={videoRef}
+                className="karaoke-page__video"
+                controls
+                src={selectedTrack.src}
+                onLoadedData={handleVideoLoaded}
+                aria-label={`Воспроизведение: ${selectedTrack.title}`}
+              >
+                <track
+                  kind="captions"
+                  srcLang="ru"
+                  label="Русские субтитры"
+                  src={selectedTrack.captions || defaultCaptions}
+                  default
+                />
+                Ваш браузер не поддерживает воспроизведение видео.
+              </video>
+            </div>
           ) : (
             <div className="karaoke-page__placeholder" aria-live="polite">
               {playerPlaceholder}
