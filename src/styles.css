@@ -1316,6 +1316,7 @@ html[data-theme="dark"] .app-header {
   gap: 1rem;
   flex: 1;
   min-height: 0;
+  max-height: 1024px;
 }
 
 .karaoke-page__section-title {
