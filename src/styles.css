@@ -1457,10 +1457,13 @@ html[data-theme="dark"] .app-header {
   flex-shrink: 0;
 }
 
-.karaoke-page__player > .karaoke-page__video,
 .karaoke-page__player > .karaoke-page__placeholder {
   width: 100%;
   aspect-ratio: 4 / 3;
+}
+
+.karaoke-page__player > .karaoke-page__video {
+  width: 100%;
 }
 
 .karaoke-page__video {
