@@ -56,6 +56,46 @@ test('загружает и отображает список треков', asy
   assert.deepEqual(fetchCalls, ['/karaoke-tracks.json']);
 });
 
+test('фильтрует треки по названию', async () => {
+  render(<KaraokePage />);
+
+  const searchInput = await screen.findByLabelText('Поиск по трекам');
+
+  fireEvent.change(searchInput, { target: { value: 'город' } });
+
+  await waitFor(() => {
+    const remainingButton = screen.getByRole('button', {
+      name: 'Огни большого города — Cherry RAiT',
+    });
+
+    assert.ok(remainingButton);
+    assert.equal(
+      screen.queryByRole('button', { name: 'Неоновые сны — Cherry RAiT' }),
+      null,
+    );
+  });
+});
+
+test('фильтрует треки по исполнителю и показывает пустой результат', async () => {
+  render(<KaraokePage />);
+
+  const searchInput = await screen.findByLabelText('Поиск по трекам');
+
+  fireEvent.change(searchInput, { target: { value: 'Cherry' } });
+
+  await waitFor(() => {
+    const visibleButtons = screen.getAllByRole('button', { name: /Cherry RAiT$/ });
+    assert.equal(visibleButtons.length, sampleTracks.length);
+  });
+
+  fireEvent.change(searchInput, { target: { value: 'несуществующий артист' } });
+
+  await waitFor(() => {
+    assert.equal(screen.queryAllByRole('button', { name: /Cherry RAiT$/ }).length, 0);
+    assert.ok(screen.getByText('Ничего не найдено'));
+  });
+});
+
 test('переключает активный трек и обновляет источник видео', async () => {
   const playCalls = [];
   const originalPlay = window.HTMLMediaElement.prototype.play;
