@@ -8,6 +8,11 @@ const accentOptions = [
   { id: 'aurora-pulse', label: 'Пульс Авроры', icon: '🌌' },
 ];
 
+const themeModes = {
+  light: { label: 'Сияние рассвета', icon: '🌞' },
+  dark: { label: 'Полярная ночь', icon: '🌙' },
+};
+
 const navigationItems = [
   { id: 'processing', to: '/', label: 'Обработка' },
   { id: 'karaoke', to: '/karaoke', label: 'Караоке' },
@@ -15,6 +20,8 @@ const navigationItems = [
 
 const Header = ({ theme, accentPreset, onToggleTheme, onSelectAccent }) => {
   const isDark = theme === 'dark';
+  const activeMode = isDark ? themeModes.dark : themeModes.light;
+  const nextMode = isDark ? themeModes.light : themeModes.dark;
 
   return (
     <header className="app-header" role="banner">
@@ -122,10 +129,11 @@ const Header = ({ theme, accentPreset, onToggleTheme, onSelectAccent }) => {
             variant="ghost"
             className="app-header__theme-toggle"
             aria-pressed={isDark}
-            aria-label="Переключить тему"
+            aria-label={`Переключить тему: сейчас «${activeMode.label}», перейти на «${nextMode.label}»`}
             onClick={onToggleTheme}
+            icon={activeMode.icon}
           >
-            {isDark ? 'Тёмная тема' : 'Светлая тема'}
+            {activeMode.label}
           </Button>
         </div>
       </div>
