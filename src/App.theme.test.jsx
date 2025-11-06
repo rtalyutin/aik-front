@@ -2,6 +2,7 @@ import '../test/setup.js';
 import assert from 'node:assert/strict';
 import test, { afterEach } from 'node:test';
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import App from './App.jsx';
 
@@ -12,7 +13,11 @@ afterEach(() => {
 test('переключение темы обновляет дата-атрибут документа', async () => {
   document.documentElement.dataset.theme = '';
 
-  const { findByTestId, getByRole } = render(<App />);
+  const { findByTestId, getByRole } = render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>,
+  );
   await findByTestId('app-shell');
 
   assert.equal(document.documentElement.dataset.theme, 'light');
@@ -33,7 +38,11 @@ test('переключение цветового акцента меняет д
     rootNode.dataset.accent = '';
   }
 
-  const { findByTestId, getByRole } = render(<App />);
+  const { findByTestId, getByRole } = render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>,
+  );
   const appShell = await findByTestId('app-shell');
   const accentButtons = {
     'fox-dream': getByRole('button', { name: 'Лисий сон' }),

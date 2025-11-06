@@ -1,10 +1,16 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import Button from './Button';
 
 const accentOptions = [
   { id: 'fox-dream', label: 'Лисий сон', icon: '🦊' },
   { id: 'blue', label: 'Синий', icon: '🎵' },
   { id: 'aurora-pulse', label: 'Пульс Авроры', icon: '🌌' },
+];
+
+const navigationItems = [
+  { id: 'processing', to: '/', label: 'Обработка' },
+  { id: 'karaoke', to: '/karaoke', label: 'Караоке' },
 ];
 
 const Header = ({ theme, accentPreset, onToggleTheme, onSelectAccent }) => {
@@ -57,46 +63,72 @@ const Header = ({ theme, accentPreset, onToggleTheme, onSelectAccent }) => {
           <span className="app-header__subtitle">Пой со мной</span>
         </div>
       </div>
-      <nav className="app-header__actions" aria-label="Настройки интерфейса">
+      <div className="app-header__controls">
+        <nav className="app-header__nav" aria-label="Основная навигация">
+          {navigationItems.map((item) => (
+            <NavLink
+              key={item.id}
+              to={item.to}
+              end={item.to === '/'}
+              className={({ isActive }) => {
+                const classes = ['app-header__nav-link'];
+
+                if (isActive) {
+                  classes.push('app-header__nav-link--active');
+                }
+
+                return classes.join(' ');
+              }}
+            >
+              {item.label}
+            </NavLink>
+          ))}
+        </nav>
         <div
-          className="app-header__accent"
+          className="app-header__actions"
+          aria-label="Настройки интерфейса"
           role="group"
-          aria-label="Выбор цветового акцента"
         >
-          {accentOptions.map((option) => {
-            const isActive = accentPreset === option.id;
-            const buttonClasses = ['app-header__accent-button'];
+          <div
+            className="app-header__accent"
+            role="group"
+            aria-label="Выбор цветового акцента"
+          >
+            {accentOptions.map((option) => {
+              const isActive = accentPreset === option.id;
+              const buttonClasses = ['app-header__accent-button'];
 
-            if (isActive) {
-              buttonClasses.push('app-header__accent-button--active');
-            }
+              if (isActive) {
+                buttonClasses.push('app-header__accent-button--active');
+              }
 
-            return (
-              <Button
-                key={option.id}
-                type="button"
-                variant="ghost"
-                className={buttonClasses.join(' ')}
-                aria-pressed={isActive}
-                onClick={() => onSelectAccent && onSelectAccent(option.id)}
-              >
-                <span aria-hidden="true">{option.icon}</span>
-                {option.label}
-              </Button>
-            );
-          })}
+              return (
+                <Button
+                  key={option.id}
+                  type="button"
+                  variant="ghost"
+                  className={buttonClasses.join(' ')}
+                  aria-pressed={isActive}
+                  onClick={() => onSelectAccent && onSelectAccent(option.id)}
+                >
+                  <span aria-hidden="true">{option.icon}</span>
+                  {option.label}
+                </Button>
+              );
+            })}
+          </div>
+          <Button
+            type="button"
+            variant="ghost"
+            className="app-header__theme-toggle"
+            aria-pressed={isDark}
+            aria-label="Переключить тему"
+            onClick={onToggleTheme}
+          >
+            {isDark ? 'Тёмная тема' : 'Светлая тема'}
+          </Button>
         </div>
-        <Button
-          type="button"
-          variant="ghost"
-          className="app-header__theme-toggle"
-          aria-pressed={isDark}
-          aria-label="Переключить тему"
-          onClick={onToggleTheme}
-        >
-          {isDark ? 'Тёмная тема' : 'Светлая тема'}
-        </Button>
-      </nav>
+      </div>
     </header>
   );
 };

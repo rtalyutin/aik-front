@@ -2,6 +2,7 @@ import '../test/setup.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import App from './App.jsx';
 
@@ -64,7 +65,11 @@ test('создание задачи по новой схеме API', async () =>
   };
 
   try {
-    render(<App />);
+    render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>,
+    );
 
     await flushPromises();
 
@@ -140,7 +145,11 @@ test('обновление статуса обрабатывает вложен�
   };
 
   try {
-    render(<App initialTracks={[initialTrack]} />);
+    render(
+      <MemoryRouter>
+        <App initialTracks={[initialTrack]} />
+      </MemoryRouter>,
+    );
 
     await flushPromises();
 
