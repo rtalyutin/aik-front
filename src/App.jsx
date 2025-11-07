@@ -48,6 +48,8 @@ const defaultStatusIcons = {
   unknown: '❔',
 };
 
+const QUEUE_LIMIT = 5;
+
 const getStatusEndpoint = (uuid) => {
   const safeUuid = encodeURIComponent(uuid);
   return `${statusEndpointBase.replace(/\/$/, '')}/${safeUuid}`;
@@ -173,6 +175,7 @@ function App({ initialTracks = [] } = {}) {
   const [accentPreset, setAccentPreset] = useState('crimson-sonata');
   const [tracks, setTracks] = useState(() => initialTracks);
   const [selectedTrackId, setSelectedTrackId] = useState('');
+  const [queueTrackIds, setQueueTrackIds] = useState([]);
   const [globalNotice, setGlobalNotice] = useState('');
   const [globalError, setGlobalError] = useState('');
   const [isCreatingJob, setIsCreatingJob] = useState(false);
@@ -787,6 +790,53 @@ function App({ initialTracks = [] } = {}) {
     [tracks, getStatusLabel, getStatusIcon, getStatusVariant],
   );
 
+  const playlistTrackMap = useMemo(() => {
+    const map = new Map();
+    playlistTracks.forEach((track) => {
+      if (track?.id) {
+        map.set(track.id, track);
+      }
+    });
+    return map;
+  }, [playlistTracks]);
+
+  const queueTracks = useMemo(
+    () => queueTrackIds.map((trackId) => playlistTrackMap.get(trackId)).filter(Boolean),
+    [queueTrackIds, playlistTrackMap],
+  );
+
+  const isQueueAtLimit = queueTrackIds.length >= QUEUE_LIMIT;
+
+  const handleQueueAdd = useCallback((trackId) => {
+    if (!trackId) {
+      return;
+    }
+
+    setQueueTrackIds((current) => {
+      if (current.includes(trackId)) {
+        return current;
+      }
+
+      if (current.length >= QUEUE_LIMIT) {
+        return current;
+      }
+
+      return [...current, trackId];
+    });
+  }, []);
+
+  const handleQueueRemove = useCallback((trackId) => {
+    if (!trackId) {
+      return;
+    }
+
+    setQueueTrackIds((current) => current.filter((id) => id !== trackId));
+  }, []);
+
+  useEffect(() => {
+    setQueueTrackIds((current) => current.filter((id) => playlistTrackMap.has(id)));
+  }, [playlistTrackMap]);
+
   const location = useLocation();
   const isProcessingRoute = location.pathname === '/';
 
@@ -811,6 +861,11 @@ function App({ initialTracks = [] } = {}) {
             onRetry={handleRestart}
             isAddDisabled={isCreatingJob}
             isRetryDisabled={isCreatingJob}
+            queue={queueTracks}
+            queueLimit={QUEUE_LIMIT}
+            onQueueDrop={handleQueueAdd}
+            onQueueRemove={handleQueueRemove}
+            isQueueAtLimit={isQueueAtLimit}
           />
         }
         right={
