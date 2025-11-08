@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import cherryLogo from '../assets/cherry-logo.svg?raw';
+import cherryLogoUrl from '../assets/cherry-logo.svg';
 import Button from './Button';
 
 const accentOptions = [
@@ -30,11 +30,14 @@ const Header = ({ theme, accentPreset, onToggleTheme, onSelectAccent }) => {
         className="app-header__branding"
         aria-label="Cherry RAiT — Пой со мной"
       >
-        <div
-          className="app-header__logo"
-          aria-hidden="true"
-          dangerouslySetInnerHTML={{ __html: cherryLogo }}
-        />
+        <div className="app-header__logo" aria-hidden="true">
+          <img
+            src={cherryLogoUrl}
+            alt=""
+            role="presentation"
+            className="app-header__logo-icon"
+          />
+        </div>
         <div className="app-header__text">
           <span className="app-header__title">Cherry RAiT</span>
           <span className="app-header__subtitle">Пой со мной</span>
