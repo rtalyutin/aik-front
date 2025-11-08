@@ -10,7 +10,7 @@ afterEach(() => {
   cleanup();
 });
 
-test('навигация отображает три пункта меню и переключает активное состояние', async () => {
+test('навигация отображает два пункта меню и переключает активное состояние', async () => {
   render(
     <MemoryRouter initialEntries={['/']}>
       <App />
@@ -22,12 +22,12 @@ test('навигация отображает три пункта меню и п
 
   const processingLink = await screen.findByRole('link', { name: 'Обработка' });
   const karaokeLink = screen.getByRole('link', { name: 'Караоке' });
-  const authLink = screen.getByRole('link', { name: 'Авторизация' });
+  const authLink = screen.queryByRole('link', { name: 'Авторизация' });
+  assert.equal(authLink, null, 'пункт "Авторизация" не должен отображаться в навигации');
 
   assert.equal(processingLink.getAttribute('aria-current'), 'page');
   assert.ok(processingLink.className.includes('app-header__nav-link--active'));
   assert.ok(!karaokeLink.className.includes('app-header__nav-link--active'));
-  assert.ok(!authLink.className.includes('app-header__nav-link--active'));
 
   fireEvent.click(karaokeLink);
   await screen.findByRole('heading', { name: 'Караоке-сцена' });
@@ -38,19 +38,9 @@ test('навигация отображает три пункта меню и п
   assert.equal(karaokeAfterClick.getAttribute('aria-current'), 'page');
   assert.ok(karaokeAfterClick.className.includes('app-header__nav-link--active'));
   assert.ok(!processingAfterKaraoke.className.includes('app-header__nav-link--active'));
-
-  fireEvent.click(authLink);
-  await screen.findByRole('heading', { name: 'Авторизация Cherry RAiT' });
-
-  const authAfterClick = screen.getByRole('link', { name: 'Авторизация' });
-  const karaokeAfterAuth = screen.getByRole('link', { name: 'Караоке' });
-
-  assert.equal(authAfterClick.getAttribute('aria-current'), 'page');
-  assert.ok(authAfterClick.className.includes('app-header__nav-link--active'));
-  assert.ok(!karaokeAfterAuth.className.includes('app-header__nav-link--active'));
 });
 
-test('активный пункт соответствует маршруту при прямом переходе на страницу авторизации', async () => {
+test('страница авторизации доступна по прямому маршруту без пункта меню', async () => {
   render(
     <MemoryRouter initialEntries={['/auth']}>
       <App />
@@ -60,14 +50,13 @@ test('активный пункт соответствует маршруту п
   const navigation = screen.getByRole('navigation', { name: 'Основная навигация' });
   assert.ok(navigation, 'навигация должна быть доступна по aria-label');
 
-  const authLink = await screen.findByRole('link', { name: 'Авторизация' });
   const processingLink = screen.getByRole('link', { name: 'Обработка' });
   const karaokeLink = screen.getByRole('link', { name: 'Караоке' });
+  const authLink = screen.queryByRole('link', { name: 'Авторизация' });
 
   await screen.findByRole('heading', { name: 'Авторизация Cherry RAiT' });
 
-  assert.equal(authLink.getAttribute('aria-current'), 'page');
-  assert.ok(authLink.className.includes('app-header__nav-link--active'));
+  assert.equal(authLink, null, 'страница авторизации не должна отображаться в меню даже при переходе по маршруту');
   assert.ok(!processingLink.className.includes('app-header__nav-link--active'));
   assert.ok(!karaokeLink.className.includes('app-header__nav-link--active'));
 });
