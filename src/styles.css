@@ -1347,7 +1347,10 @@ html[data-theme="dark"] .app-header {
 .karaoke-page__content {
   display: grid;
   grid-template-columns: minmax(240px, 320px) 1fr;
-  grid-template-areas: "playlist player";
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "playlist queue"
+    "playlist player";
   gap: 1.5rem;
   align-items: stretch;
   min-height: 100%;
@@ -1355,6 +1358,7 @@ html[data-theme="dark"] .app-header {
 }
 
 .karaoke-page__playlist,
+.karaoke-page__queue,
 .karaoke-page__player {
   display: flex;
   flex-direction: column;
@@ -1370,6 +1374,98 @@ html[data-theme="dark"] .app-header {
 
 .karaoke-page__playlist {
   grid-area: playlist;
+}
+
+.karaoke-page__queue {
+  grid-area: queue;
+}
+
+.karaoke-page__queue-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.karaoke-page__queue-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  background: var(--color-surface-muted);
+  box-shadow: 0 12px 28px rgba(46, 22, 9, 0.12);
+  transition: border-color 0.2s ease, background-color 0.2s ease,
+    box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.karaoke-page__queue-item--active {
+  border-color: var(--accent-solid);
+  background: var(--accent-surface-strong);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.karaoke-page__queue-item--dragging {
+  border-color: var(--accent-stroke);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-elevated);
+  transform: translateY(-2px);
+}
+
+.karaoke-page__queue-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.karaoke-page__queue-track strong {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.karaoke-page__queue-track span {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.karaoke-page__queue-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--button-primary-background);
+  color: var(--color-primary-contrast);
+  font-weight: 600;
+  font-size: 0.85rem;
+  box-shadow: var(--button-primary-shadow);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.karaoke-page__queue-remove:hover,
+.karaoke-page__queue-remove:focus-visible {
+  outline: none;
+  background: var(--button-primary-hover-background);
+  transform: translateY(-1px);
+  box-shadow: 0 22px 46px rgba(186, 42, 88, 0.32);
+}
+
+.karaoke-page__queue-remove:active {
+  background: var(--button-primary-active-background);
+  transform: translateY(0);
 }
 
 .karaoke-page__search {
@@ -1632,9 +1728,11 @@ html[data-theme="dark"] .app-header {
 @media (max-width: 960px) {
   .karaoke-page__content {
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
     grid-template-areas:
-      "player"
-      "playlist";
+      "playlist"
+      "queue"
+      "player";
   }
 
   .split-pane {
