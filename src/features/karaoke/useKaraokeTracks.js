@@ -30,16 +30,20 @@ export const useKaraokeTracks = ({ source } = {}) => {
 
   const selectTrack = useCallback(
     (trackId) => {
-      if (!isNonEmptyString(trackId)) {
-        return;
-      }
+      const normalizedId = isNonEmptyString(trackId) ? String(trackId) : '';
 
       setSelectedTrackId((currentId) => {
-        if (currentId === trackId) {
+        if (normalizedId === '') {
+          return '';
+        }
+
+        if (currentId === normalizedId) {
           return currentId;
         }
 
-        return (tracks ?? []).some((track) => track.id === trackId) ? trackId : currentId;
+        return (tracks ?? []).some((track) => track.id === normalizedId)
+          ? normalizedId
+          : currentId;
       });
     },
     [tracks],
