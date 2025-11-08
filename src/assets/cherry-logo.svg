@@ -1,0 +1,23 @@
+<svg
+  class="app-header__logo-icon"
+  viewBox="0 0 48 48"
+  focusable="false"
+  aria-hidden="true"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <linearGradient id="cherryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--accent-solid)" />
+      <stop offset="100%" stop-color="var(--accent-solid-strong)" />
+    </linearGradient>
+  </defs>
+  <circle cx="17" cy="28" r="9" fill="url(#cherryGradient)" />
+  <circle cx="31" cy="26" r="10" fill="url(#cherryGradient)" opacity="0.85" />
+  <path
+    d="M16 18c3-6 6-10 14-11 2-.2 4 .6 5.5 1.8"
+    fill="none"
+    stroke="var(--accent-stroke)"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+</svg>
