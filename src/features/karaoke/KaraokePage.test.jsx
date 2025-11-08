@@ -11,6 +11,7 @@ const TEST_MAX_VISIBLE_PAGES = 5;
 const PREVIOUS_PAGE_LABEL = karaokeConfig.pagination?.labels?.previous ?? 'Назад';
 const NEXT_PAGE_LABEL = karaokeConfig.pagination?.labels?.next ?? 'Вперёд';
 const PAGE_ARIA_LABEL = karaokeConfig.pagination?.labels?.page ?? 'Страница';
+const PLAY_BUTTON_LABEL = karaokeConfig.playerPlayLabel ?? 'Воспроизвести';
 
 const baseTracks = [
   {
@@ -244,37 +245,54 @@ test('фильтрует треки по исполнителю и показы�
   });
 });
 
-test('переключает активный трек и обновляет источник видео', async () => {
-  const playCalls = [];
-  const originalPlay = window.HTMLMediaElement.prototype.play;
+test(
+  'переключает активный трек и запускает воспроизведение только по запросу пользователя',
+  async () => {
+    const playCalls = [];
+    const originalPlay = window.HTMLMediaElement.prototype.play;
 
-  window.HTMLMediaElement.prototype.play = function play() {
-    playCalls.push(this.getAttribute('src'));
-    return Promise.resolve();
-  };
+    window.HTMLMediaElement.prototype.play = function play() {
+      playCalls.push(this.getAttribute('src'));
+      return Promise.resolve();
+    };
 
-  try {
-    render(<KaraokePage />);
+    try {
+      render(<KaraokePage />);
 
-    const secondTrackButton = await screen.findByRole('button', {
-      name: 'Огни большого города — Cherry RAiT',
-    });
+      const secondTrackButton = await screen.findByRole('button', {
+        name: 'Огни большого города — Cherry RAiT',
+      });
 
-    fireEvent.click(secondTrackButton);
+      fireEvent.click(secondTrackButton);
 
-    const video = await screen.findByLabelText('Воспроизведение: Огни большого города');
+      const video = await screen.findByLabelText('Воспроизведение: Огни большого города');
 
-    assert.equal(video.getAttribute('src'), sampleTracks[1].src);
+      assert.equal(video.getAttribute('src'), sampleTracks[1].src);
 
-    fireEvent(video, new window.Event('loadeddata'));
+      const playButton = await screen.findByRole('button', {
+        name: PLAY_BUTTON_LABEL,
+      });
 
-    await waitFor(() => {
-      assert.ok(playCalls.includes(sampleTracks[1].src));
-    });
-  } finally {
-    window.HTMLMediaElement.prototype.play = originalPlay;
-  }
-});
+      assert.equal(playButton.hasAttribute('disabled'), true);
+
+      fireEvent(video, new window.Event('loadeddata'));
+
+      await waitFor(() => {
+        assert.equal(playButton.hasAttribute('disabled'), false);
+      });
+
+      assert.equal(playCalls.length, 0);
+
+      fireEvent.click(playButton);
+
+      await waitFor(() => {
+        assert.ok(playCalls.includes(sampleTracks[1].src));
+      });
+    } finally {
+      window.HTMLMediaElement.prototype.play = originalPlay;
+    }
+  },
+);
 
 test('управляет пагинацией в соответствии с конфигурацией', async () => {
   render(<KaraokePage />);

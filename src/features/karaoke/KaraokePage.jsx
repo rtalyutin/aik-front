@@ -37,6 +37,9 @@ const KaraokePage = () => {
   const errorFallback = karaokeConfig.errorFallback || 'Не удалось загрузить треки.';
   const playerPlaceholder = karaokeConfig.playerPlaceholder || 'Выберите трек, чтобы начать.';
   const defaultCaptions = karaokeConfig.defaultCaptions || '';
+  const playButtonLabel = karaokeConfig.playerPlayLabel || 'Воспроизвести';
+
+  const [isVideoReady, setIsVideoReady] = useState(false);
 
   const handleTrackSelect = useCallback(
     (trackId) => {
@@ -45,11 +48,15 @@ const KaraokePage = () => {
     [selectTrack],
   );
 
-  const handleVideoLoaded = useCallback(() => {
-    if (!selectedTrack) {
-      return;
-    }
+  useEffect(() => {
+    setIsVideoReady(false);
+  }, [selectedTrackId]);
 
+  const handleVideoReady = useCallback(() => {
+    setIsVideoReady(true);
+  }, []);
+
+  const handlePlayClick = useCallback(() => {
     const element = videoRef.current;
 
     if (!element) {
@@ -61,7 +68,7 @@ const KaraokePage = () => {
     if (playPromise && typeof playPromise.catch === 'function') {
       playPromise.catch(() => {});
     }
-  }, [selectedTrack]);
+  }, []);
 
   const filteredTracks = useMemo(() => {
     if (!tracks || tracks.length === 0) {
@@ -320,24 +327,36 @@ const KaraokePage = () => {
         <div className="karaoke-page__player">
           <h2 className="karaoke-page__section-title">{playerHeading}</h2>
           {selectedTrack ? (
-            <video
-              key={selectedTrack.id}
-              ref={videoRef}
-              className="karaoke-page__video"
-              controls
-              src={selectedTrack.src}
-              onLoadedData={handleVideoLoaded}
-              aria-label={`Воспроизведение: ${selectedTrack.title}`}
-            >
-              <track
-                kind="captions"
-                srcLang="ru"
-                label="Русские субтитры"
-                src={selectedTrack.captions || defaultCaptions}
-                default
-              />
-              Ваш браузер не поддерживает воспроизведение видео.
-            </video>
+            <>
+              <video
+                key={selectedTrack.id}
+                ref={videoRef}
+                className="karaoke-page__video"
+                controls
+                src={selectedTrack.src}
+                onLoadedData={handleVideoReady}
+                aria-label={`Воспроизведение: ${selectedTrack.title}`}
+              >
+                <track
+                  kind="captions"
+                  srcLang="ru"
+                  label="Русские субтитры"
+                  src={selectedTrack.captions || defaultCaptions}
+                  default
+                />
+                Ваш браузер не поддерживает воспроизведение видео.
+              </video>
+              <div className="karaoke-page__controls">
+                <button
+                  type="button"
+                  className="karaoke-page__play-button"
+                  onClick={handlePlayClick}
+                  disabled={!isVideoReady}
+                >
+                  {playButtonLabel}
+                </button>
+              </div>
+            </>
           ) : (
             <div className="karaoke-page__placeholder" aria-live="polite">
               {playerPlaceholder}
