@@ -42,6 +42,26 @@ const KaraokePage = () => {
   const queueHeading = karaokeConfig.queueHeading || 'Очередь воспроизведения';
   const queueEmptyState =
     karaokeConfig.queueEmptyState || 'Очередь пуста. Добавьте трек из плейлиста.';
+  const queueInstructions = useMemo(() => {
+    const rawInstructions = karaokeConfig.queueInstructions;
+
+    if (!rawInstructions) {
+      return [];
+    }
+
+    if (Array.isArray(rawInstructions)) {
+      return rawInstructions
+        .map((item) => (typeof item === 'string' ? item.trim() : String(item).trim()))
+        .filter(Boolean);
+    }
+
+    const normalizedInstruction =
+      typeof rawInstructions === 'string'
+        ? rawInstructions.trim()
+        : String(rawInstructions).trim();
+
+    return normalizedInstruction ? [normalizedInstruction] : [];
+  }, []);
   const removeFromQueueLabel = karaokeConfig.queueRemoveLabel || 'Убрать из очереди';
   const loadingMessage = karaokeConfig.loadingMessage || 'Загрузка…';
   const emptyState = karaokeConfig.emptyState || 'Плейлист пока пуст.';
@@ -468,6 +488,18 @@ const KaraokePage = () => {
         </aside>
         <aside className="karaoke-page__queue" aria-live="polite">
           <h2 className="karaoke-page__section-title">{queueHeading}</h2>
+          {queueInstructions.length > 0 ? (
+            <ul className="karaoke-page__queue-instructions">
+              {queueInstructions.map((instruction, index) => (
+                <li
+                  key={`queue-instruction-${index}`}
+                  className="karaoke-page__queue-instructions-item"
+                >
+                  {instruction}
+                </li>
+              ))}
+            </ul>
+          ) : null}
           {queueItems.length === 0 ? (
             <p className="karaoke-page__status">{queueEmptyState}</p>
           ) : (

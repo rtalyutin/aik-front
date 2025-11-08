@@ -12,6 +12,12 @@ const PREVIOUS_PAGE_LABEL = karaokeConfig.pagination?.labels?.previous ?? 'На�
 const NEXT_PAGE_LABEL = karaokeConfig.pagination?.labels?.next ?? 'Вперёд';
 const PAGE_ARIA_LABEL = karaokeConfig.pagination?.labels?.page || 'Страница';
 const PLAY_BUTTON_LABEL = karaokeConfig.playerPlayLabel ?? 'Воспроизвести';
+const QUEUE_HEADING = karaokeConfig.queueHeading ?? 'Очередь воспроизведения';
+const QUEUE_INSTRUCTIONS = Array.isArray(karaokeConfig.queueInstructions)
+  ? karaokeConfig.queueInstructions
+  : karaokeConfig.queueInstructions
+    ? [String(karaokeConfig.queueInstructions)]
+    : [];
 
 const baseTracks = [
   {
@@ -224,6 +230,21 @@ test('загружает и отображает список треков', asy
   assert.equal(searchIcon.getAttribute('aria-hidden'), 'true');
 
   assert.deepEqual(fetchCalls, ['/karaoke-tracks.json']);
+});
+
+test('отображает инструкцию по управлению очередью', async () => {
+  render(<KaraokePage />);
+
+  await screen.findByRole('heading', { name: QUEUE_HEADING });
+
+  assert.ok(QUEUE_INSTRUCTIONS.length > 0, 'ожидается хотя бы один шаг инструкции');
+
+  for (const instruction of QUEUE_INSTRUCTIONS) {
+    assert.ok(
+      screen.getByText(instruction),
+      `текст инструкции «${instruction}» должен отображаться`,
+    );
+  }
 });
 
 test('фильтрует треки по названию', async () => {
