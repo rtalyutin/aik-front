@@ -514,8 +514,34 @@ test('позволяет менять порядок очереди перета
     ]);
   });
 
-  const video = await screen.findByLabelText('Воспроизведение: Огни большого города');
-  assert.equal(video.getAttribute('src'), sampleTracks[1].src);
+  const videoAfterFirstReorder = await screen.findByLabelText(
+    'Воспроизведение: Огни большого города',
+  );
+  assert.equal(videoAfterFirstReorder.getAttribute('src'), sampleTracks[1].src);
+
+  const updatedQueueElements = within(queueList).getAllByRole('listitem');
+  const firstQueueElementAfterReorder = updatedQueueElements[0];
+  const listDropDataTransfer = createDataTransfer();
+
+  fireEvent.dragStart(firstQueueElementAfterReorder, { dataTransfer: listDropDataTransfer });
+  fireEvent.dragOver(queueList, { dataTransfer: listDropDataTransfer });
+  fireEvent.drop(queueList, { dataTransfer: listDropDataTransfer });
+  fireEvent.dragEnd(firstQueueElementAfterReorder, { dataTransfer: listDropDataTransfer });
+
+  await waitFor(() => {
+    const queueTitles = Array.from(
+      queueList.querySelectorAll('.karaoke-page__queue-track-title'),
+    ).map((node) => node.textContent?.trim());
+
+    assert.deepEqual(queueTitles, [
+      'Неоновые сны',
+      'Ночной драйв',
+      'Огни большого города',
+    ]);
+  });
+
+  const videoAfterListDrop = await screen.findByLabelText('Воспроизведение: Неоновые сны');
+  assert.equal(videoAfterListDrop.getAttribute('src'), sampleTracks[0].src);
 });
 
 test('переходит к следующему треку после завершения воспроизведения текущего', async () => {

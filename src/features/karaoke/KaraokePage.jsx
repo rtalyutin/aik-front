@@ -77,19 +77,35 @@ const KaraokePage = () => {
 
   const handleReorderQueue = useCallback((fromIndex, toIndex) => {
     setQueue((previousQueue) => {
+      const queueLength = previousQueue.length;
+
+      if (queueLength <= 1) {
+        return previousQueue;
+      }
+
+      const normalizedFromIndex = Number.isInteger(fromIndex) ? fromIndex : -1;
+      const normalizedToIndex = Number.isInteger(toIndex) ? toIndex : Number.NaN;
+
       if (
-        fromIndex === toIndex ||
-        fromIndex < 0 ||
-        toIndex < 0 ||
-        fromIndex >= previousQueue.length ||
-        toIndex >= previousQueue.length
+        normalizedFromIndex < 0 ||
+        normalizedFromIndex >= queueLength ||
+        Number.isNaN(normalizedToIndex)
       ) {
         return previousQueue;
       }
 
+      const clampedToIndex = Math.max(0, Math.min(normalizedToIndex, queueLength));
+
+      if (normalizedFromIndex === clampedToIndex) {
+        return previousQueue;
+      }
+
       const nextQueue = [...previousQueue];
-      const [movedItem] = nextQueue.splice(fromIndex, 1);
-      nextQueue.splice(toIndex, 0, movedItem);
+      const [movedItem] = nextQueue.splice(normalizedFromIndex, 1);
+      const insertionIndex =
+        clampedToIndex >= queueLength ? nextQueue.length : clampedToIndex;
+
+      nextQueue.splice(insertionIndex, 0, movedItem);
 
       return nextQueue;
     });
@@ -115,6 +131,7 @@ const KaraokePage = () => {
 
   const handleQueueItemDrop = useCallback(
     (event, index) => {
+      event.stopPropagation();
       event.preventDefault();
 
       const storedIndex = dragSourceIndexRef.current;
@@ -138,6 +155,13 @@ const KaraokePage = () => {
       setDraggingIndex(null);
     },
     [handleReorderQueue],
+  );
+
+  const handleQueueListDrop = useCallback(
+    (event) => {
+      handleQueueItemDrop(event, queue.length);
+    },
+    [handleQueueItemDrop, queue.length],
   );
 
   const handleQueueItemDragEnd = useCallback(() => {
@@ -471,7 +495,11 @@ const KaraokePage = () => {
           {queueItems.length === 0 ? (
             <p className="karaoke-page__status">{queueEmptyState}</p>
           ) : (
-            <ul className="karaoke-page__queue-list">
+            <ul
+              className="karaoke-page__queue-list"
+              onDragOver={handleQueueItemDragOver}
+              onDrop={handleQueueListDrop}
+            >
               {queueItems.map((track) => {
                 const isActive = queue[0] === track.id;
                 const itemClasses = ['karaoke-page__queue-item'];
