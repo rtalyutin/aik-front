@@ -173,7 +173,7 @@ const formatTimestamp = (value) => {
 
 function App({ initialTracks = [] } = {}) {
   const [theme, setTheme] = useState('light');
-  const [accentPreset, setAccentPreset] = useState('crimson-sonata');
+  const [accentPreset, setAccentPreset] = useState('glacier-mist');
   const [tracks, setTracks] = useState(() => initialTracks);
   const [selectedTrackId, setSelectedTrackId] = useState('');
   const [queueTrackIds, setQueueTrackIds] = useState([]);
