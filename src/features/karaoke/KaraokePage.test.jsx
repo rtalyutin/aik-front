@@ -222,10 +222,32 @@ test('загружает и отображает список треков', asy
   const trackButtons = await screen.findAllByRole('button', { name: /Cherry RAiT$/ });
   assert.equal(trackButtons.length, TEST_PAGE_SIZE);
 
-  const combinedLists = container.querySelectorAll('.karaoke-page__list');
-  assert.equal(combinedLists.length, 1);
-  assert.equal(container.querySelectorAll('.karaoke-page__track-list').length, 0);
-  assert.equal(container.querySelectorAll('.karaoke-page__queue-list').length, 0);
+  const playlistList = container.querySelector('.karaoke-page__playlist-list');
+  assert.ok(playlistList);
+
+  const player = container.querySelector('.karaoke-page__player');
+  assert.ok(player);
+
+  const queueContainer = player.querySelector('.karaoke-page__queue');
+  assert.ok(queueContainer);
+
+  const queueTitle = queueContainer.querySelector('.karaoke-page__queue-title');
+  assert.ok(queueTitle);
+  assert.equal(queueTitle.textContent?.trim(), QUEUE_HEADING);
+
+  const queueList = queueContainer.querySelector('.karaoke-page__queue-list');
+  assert.ok(queueList);
+  assert.equal(queueList.querySelectorAll('.karaoke-page__queue-item').length, 0);
+
+  const placeholder = player.querySelector('.karaoke-page__placeholder');
+  assert.ok(placeholder);
+
+  const playerChildren = Array.from(player.children);
+  const queueIndex = playerChildren.indexOf(queueContainer);
+  const placeholderIndex = playerChildren.indexOf(placeholder);
+  assert(queueIndex >= 0);
+  assert(placeholderIndex >= 0);
+  assert(queueIndex < placeholderIndex);
 
   const searchLabel = await screen.findByLabelText('Поиск по трекам');
   assert.ok(searchLabel);
@@ -484,7 +506,7 @@ test('отображает очередь и добавляет треки в п
     assert.equal(queueItems.length, 2);
   });
 
-  const queueList = document.querySelector('.karaoke-page__list');
+  const queueList = document.querySelector('.karaoke-page__queue-list');
   assert.ok(queueList);
 
   const queueTitles = Array.from(
@@ -547,7 +569,9 @@ test('добавляет трек из плейлиста в очередь пр
 
   await waitFor(() => {
     assert.equal(document.querySelectorAll('.karaoke-page__queue-item').length, 1);
-    assert.ok(document.querySelector('.karaoke-page__list-drop-zone'));
+    assert.ok(
+      document.querySelector('.karaoke-page__queue-list .karaoke-page__list-drop-zone'),
+    );
   });
 
   const playlistTrackButton = await screen.findByRole('button', {
@@ -556,7 +580,7 @@ test('добавляет трек из плейлиста в очередь пр
   const playlistTrackItem = playlistTrackButton.closest('.karaoke-page__track-item');
   assert.ok(playlistTrackItem);
 
-  const dropZone = document.querySelector('.karaoke-page__list-drop-zone');
+  const dropZone = document.querySelector('.karaoke-page__queue-list .karaoke-page__list-drop-zone');
   assert.ok(dropZone);
 
   const dataTransfer = createDataTransfer();
@@ -606,7 +630,7 @@ test('позволяет менять порядок очереди перета
     assert.equal(queueItems.length, 3);
   });
 
-  const queueList = document.querySelector('.karaoke-page__list');
+  const queueList = document.querySelector('.karaoke-page__queue-list');
   assert.ok(queueList);
 
   const queueElements = queueList.querySelectorAll('.karaoke-page__queue-item');
