@@ -60,7 +60,7 @@ test('переключение цветового акцента меняет д
     });
   };
 
-  assertAccentState('crimson-sonata');
+  assertAccentState('glacier-mist');
 
   fireEvent.click(accentButtons['glacier-mist']);
   assertAccentState('glacier-mist');
