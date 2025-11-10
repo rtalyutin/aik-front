@@ -371,12 +371,14 @@ const KaraokePage = () => {
     queueInstructions,
   ]);
 
-  const shouldRenderCombinedList = useMemo(() => {
-    const hasTracks = (tracks ?? []).length > 0;
-    const hasQueueItems = queueEntries.length > 0;
-
-    return hasTracks || hasQueueItems;
-  }, [queueEntries.length, tracks]);
+  const renderItemsWithIndex = useMemo(
+    () =>
+      renderItems.map((item, index) => ({
+        ...item,
+        renderIndex: index,
+      })),
+    [renderItems],
+  );
 
   const handleListItemDragStart = useCallback((event, index) => {
     dragSourceIndexRef.current = index;
@@ -541,147 +543,53 @@ const KaraokePage = () => {
           {tracks && tracks.length > 0 && filteredTracks.length === 0 ? (
             <p className="karaoke-page__status">Ничего не найдено</p>
           ) : null}
-          {shouldRenderCombinedList ? (
-            <ul className="karaoke-page__list">
-              {renderItems.map((item, index) => {
-                if (item.type === 'heading') {
-                  return (
-                    <li
-                      key={item.key}
-                      className="karaoke-page__list-heading"
-                      role="presentation"
-                    >
-                      <header className="karaoke-page__list-section">{item.label}</header>
-                    </li>
-                  );
+          {paginatedTracks.length > 0 ? (
+            <ul className="karaoke-page__list karaoke-page__playlist-list">
+              {renderItemsWithIndex.map((item) => {
+                if (item.type !== 'track' || item.source !== 'playlist') {
+                  return null;
                 }
 
-                if (item.type === 'instructions') {
-                  return (
-                    <li
-                      key={item.key}
-                      className="karaoke-page__queue-instructions"
-                      role="presentation"
-                    >
-                      <ol className="karaoke-page__queue-instructions-list">
-                        {item.instructions.map((instruction, instructionIndex) => (
-                          <li
-                            key={`queue-instruction-${instructionIndex}`}
-                            className="karaoke-page__queue-instructions-item"
-                          >
-                            {instruction}
-                          </li>
-                        ))}
-                      </ol>
-                    </li>
-                  );
-                }
-
-                if (item.type === 'empty') {
-                  return (
-                    <li
-                      key={item.key}
-                      className="karaoke-page__list-empty"
-                      role="presentation"
-                    >
-                      {item.message}
-                    </li>
-                  );
-                }
-
-                const { track, isQueued, queueIndex, source } = item;
+                const { track, isQueued, queueIndex, renderIndex } = item;
                 const isActiveQueueItem = isQueued && queueIndex === 0;
-                const itemKey = item.key || track.id;
-
-                if (source === 'playlist') {
-                  const buttonClasses = ['karaoke-page__track-button'];
-
-                  if (isActiveQueueItem) {
-                    buttonClasses.push('karaoke-page__track-button--active');
-                  }
-
-                  const handleClick = () => {
-                    if (isQueued && Number.isInteger(queueIndex)) {
-                      handleRemoveFromQueue(queueIndex);
-                    } else {
-                      handleAddToQueue(track.id);
-                    }
-                  };
-
-                  return (
-                    <li
-                      key={itemKey}
-                      className="karaoke-page__list-item karaoke-page__track-item"
-                      draggable
-                      onDragStart={(event) => handleListItemDragStart(event, index)}
-                      onDragOver={handleQueueItemDragOver}
-                      onDrop={(event) => handleQueueItemDrop(event, index)}
-                      onDragEnd={handleQueueItemDragEnd}
-                    >
-                      <button
-                        type="button"
-                        className={buttonClasses.join(' ')}
-                        onClick={handleClick}
-                        aria-pressed={isQueued}
-                      >
-                        <span className="karaoke-page__track-title">{track.title}</span>
-                        {track.artist ? (
-                          <span className="karaoke-page__track-artist">— {track.artist}</span>
-                        ) : null}
-                      </button>
-                    </li>
-                  );
-                }
-
-                const queueItemClasses = ['karaoke-page__list-item', 'karaoke-page__queue-item'];
+                const buttonClasses = ['karaoke-page__track-button'];
 
                 if (isActiveQueueItem) {
-                  queueItemClasses.push('karaoke-page__queue-item--active');
+                  buttonClasses.push('karaoke-page__track-button--active');
                 }
 
-                if (draggingIndex === index) {
-                  queueItemClasses.push('karaoke-page__queue-item--dragging');
-                }
+                const handleClick = () => {
+                  if (isQueued && Number.isInteger(queueIndex)) {
+                    handleRemoveFromQueue(queueIndex);
+                  } else {
+                    handleAddToQueue(track.id);
+                  }
+                };
 
                 return (
                   <li
-                    key={itemKey}
-                    className={queueItemClasses.join(' ')}
+                    key={item.key || track.id}
+                    className="karaoke-page__list-item karaoke-page__track-item"
                     draggable
-                    onDragStart={(event) => handleListItemDragStart(event, index)}
+                    onDragStart={(event) => handleListItemDragStart(event, renderIndex)}
                     onDragOver={handleQueueItemDragOver}
-                    onDrop={(event) => handleQueueItemDrop(event, index)}
+                    onDrop={(event) => handleQueueItemDrop(event, renderIndex)}
                     onDragEnd={handleQueueItemDragEnd}
-                    aria-current={isActiveQueueItem ? 'true' : undefined}
                   >
-                    <span className="karaoke-page__queue-track">
-                      <span className="karaoke-page__queue-track-title">{track.title}</span>
-                      {track.artist ? (
-                        <span className="karaoke-page__queue-track-artist">— {track.artist}</span>
-                      ) : null}
-                    </span>
                     <button
                       type="button"
-                      className="karaoke-page__queue-remove"
-                      onClick={() =>
-                        Number.isInteger(queueIndex) ? handleRemoveFromQueue(queueIndex) : null
-                      }
+                      className={buttonClasses.join(' ')}
+                      onClick={handleClick}
+                      aria-pressed={isQueued}
                     >
-                      {removeFromQueueLabel}
+                      <span className="karaoke-page__track-title">{track.title}</span>
+                      {track.artist ? (
+                        <span className="karaoke-page__track-artist">— {track.artist}</span>
+                      ) : null}
                     </button>
                   </li>
                 );
               })}
-              {queueEntries.length > 0 ? (
-                <li
-                  key="queue-drop-zone"
-                  className="karaoke-page__list-drop-zone"
-                  role="presentation"
-                  onDragOver={handleQueueItemDragOver}
-                  onDrop={(event) => handleQueueItemDrop(event, 'end')}
-                  aria-hidden="true"
-                />
-              ) : null}
             </ul>
           ) : null}
           {tracks && tracks.length > 0 && filteredTracks.length > 0 ? (
@@ -741,6 +649,102 @@ const KaraokePage = () => {
         </aside>
         <div className="karaoke-page__player">
           <h2 className="karaoke-page__section-title">{playerHeading}</h2>
+          <div className="karaoke-page__queue" aria-live="polite">
+            <div className="karaoke-page__queue-header">
+              <h3 className="karaoke-page__queue-title">{queueHeading}</h3>
+              {queueInstructions.length > 0 ? (
+                <div className="karaoke-page__queue-instructions" role="presentation">
+                  <ol className="karaoke-page__queue-instructions-list">
+                    {queueInstructions.map((instruction, instructionIndex) => (
+                      <li
+                        key={`queue-instruction-${instructionIndex}`}
+                        className="karaoke-page__queue-instructions-item"
+                      >
+                        {instruction}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              ) : null}
+            </div>
+            <ul
+              className="karaoke-page__queue-list"
+              onDragOver={queueEntries.length === 0 ? handleQueueItemDragOver : undefined}
+              onDrop={
+                queueEntries.length === 0
+                  ? (event) => handleQueueItemDrop(event, 'end')
+                  : undefined
+              }
+            >
+              {renderItemsWithIndex.map((item) => {
+                if (item.type !== 'track' || item.source !== 'queue') {
+                  return null;
+                }
+
+                const { track, queueIndex, renderIndex, isQueued } = item;
+                const isActiveQueueItem = isQueued && queueIndex === 0;
+                const queueItemClasses = [
+                  'karaoke-page__list-item',
+                  'karaoke-page__queue-item',
+                ];
+
+                if (isActiveQueueItem) {
+                  queueItemClasses.push('karaoke-page__queue-item--active');
+                }
+
+                if (draggingIndex === renderIndex) {
+                  queueItemClasses.push('karaoke-page__queue-item--dragging');
+                }
+
+                return (
+                  <li
+                    key={item.key || track.id}
+                    className={queueItemClasses.join(' ')}
+                    draggable
+                    onDragStart={(event) => handleListItemDragStart(event, renderIndex)}
+                    onDragOver={handleQueueItemDragOver}
+                    onDrop={(event) => handleQueueItemDrop(event, renderIndex)}
+                    onDragEnd={handleQueueItemDragEnd}
+                    aria-current={isActiveQueueItem ? 'true' : undefined}
+                  >
+                    <span className="karaoke-page__queue-track">
+                      <span className="karaoke-page__queue-track-title">{track.title}</span>
+                      {track.artist ? (
+                        <span className="karaoke-page__queue-track-artist">— {track.artist}</span>
+                      ) : null}
+                    </span>
+                    <button
+                      type="button"
+                      className="karaoke-page__queue-remove"
+                      onClick={() =>
+                        Number.isInteger(queueIndex) ? handleRemoveFromQueue(queueIndex) : null
+                      }
+                    >
+                      {removeFromQueueLabel}
+                    </button>
+                  </li>
+                );
+              })}
+              {queueEntries.length > 0 ? (
+                <li
+                  key="queue-drop-zone"
+                  className="karaoke-page__list-drop-zone"
+                  role="presentation"
+                  onDragOver={handleQueueItemDragOver}
+                  onDrop={(event) => handleQueueItemDrop(event, 'end')}
+                  aria-hidden="true"
+                />
+              ) : (
+                <li
+                  key="queue-empty"
+                  className="karaoke-page__list-item karaoke-page__queue-empty karaoke-page__list-empty"
+                  role="presentation"
+                >
+                  {queueEmptyState}
+                </li>
+              )}
+            </ul>
+          </div>
           {selectedTrack ? (
             <>
               <video
