@@ -2,7 +2,7 @@ import '../../../test/setup.js';
 import assert from 'node:assert/strict';
 import test, { afterEach, beforeEach } from 'node:test';
 import React from 'react';
-import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import karaokeConfig from './config.json';
 import KaraokePage from './KaraokePage.jsx';
 
@@ -212,6 +212,11 @@ test('загружает и отображает список треков', asy
 
   const trackButtons = await screen.findAllByRole('button', { name: /Cherry RAiT$/ });
   assert.equal(trackButtons.length, TEST_PAGE_SIZE);
+
+  const combinedLists = container.querySelectorAll('.karaoke-page__list');
+  assert.equal(combinedLists.length, 1);
+  assert.equal(container.querySelectorAll('.karaoke-page__track-list').length, 0);
+  assert.equal(container.querySelectorAll('.karaoke-page__queue-list').length, 0);
 
   const searchLabel = await screen.findByLabelText('Поиск по трекам');
   assert.ok(searchLabel);
@@ -451,7 +456,7 @@ test('отображает очередь и добавляет треки в п
     assert.equal(queueItems.length, 2);
   });
 
-  const queueList = document.querySelector('.karaoke-page__queue-list');
+  const queueList = document.querySelector('.karaoke-page__list');
   assert.ok(queueList);
 
   const queueTitles = Array.from(
@@ -462,6 +467,46 @@ test('отображает очередь и добавляет треки в п
 
   const video = await screen.findByLabelText('Воспроизведение: Неоновые сны');
   assert.equal(video.getAttribute('src'), sampleTracks[0].src);
+});
+
+test('добавляет трек в очередь при дропе на элемент плейлиста', async () => {
+  render(<KaraokePage />);
+
+  const firstTrackButton = await screen.findByRole('button', {
+    name: 'Неоновые сны — Cherry RAiT',
+  });
+  fireEvent.click(firstTrackButton);
+
+  await waitFor(() => {
+    assert.equal(document.querySelectorAll('.karaoke-page__queue-item').length, 1);
+  });
+
+  const queueItem = document.querySelector('.karaoke-page__queue-item');
+  assert.ok(queueItem);
+
+  const targetTrackButton = screen.getByRole('button', {
+    name: 'Огни большого города — Cherry RAiT',
+  });
+  const targetTrackItem = targetTrackButton.closest('.karaoke-page__track-item');
+  assert.ok(targetTrackItem);
+
+  const dataTransfer = createDataTransfer();
+
+  fireEvent.dragStart(queueItem, { dataTransfer });
+  fireEvent.dragOver(targetTrackItem, { dataTransfer });
+  fireEvent.drop(targetTrackItem, { dataTransfer });
+  fireEvent.dragEnd(queueItem, { dataTransfer });
+
+  await waitFor(() => {
+    const queueItems = document.querySelectorAll('.karaoke-page__queue-item');
+    assert.equal(queueItems.length, 2);
+  });
+
+  const queueTitles = Array.from(
+    document.querySelectorAll('.karaoke-page__queue-track-title'),
+  ).map((node) => node.textContent?.trim());
+
+  assert.deepEqual(queueTitles, ['Неоновые сны', 'Огни большого города']);
 });
 
 test('позволяет менять порядок очереди перетаскиванием', async () => {
@@ -489,10 +534,10 @@ test('позволяет менять порядок очереди перета
     assert.equal(queueItems.length, 3);
   });
 
-  const queueList = document.querySelector('.karaoke-page__queue-list');
+  const queueList = document.querySelector('.karaoke-page__list');
   assert.ok(queueList);
 
-  const queueElements = within(queueList).getAllByRole('listitem');
+  const queueElements = queueList.querySelectorAll('.karaoke-page__queue-item');
   const secondQueueElement = queueElements[1];
   const firstQueueElement = queueElements[0];
   const dataTransfer = createDataTransfer();
@@ -519,13 +564,15 @@ test('позволяет менять порядок очереди перета
   );
   assert.equal(videoAfterFirstReorder.getAttribute('src'), sampleTracks[1].src);
 
-  const updatedQueueElements = within(queueList).getAllByRole('listitem');
+  const updatedQueueElements = queueList.querySelectorAll('.karaoke-page__queue-item');
   const firstQueueElementAfterReorder = updatedQueueElements[0];
   const listDropDataTransfer = createDataTransfer();
+  const dropZone = queueList.querySelector('.karaoke-page__list-drop-zone');
+  assert.ok(dropZone);
 
   fireEvent.dragStart(firstQueueElementAfterReorder, { dataTransfer: listDropDataTransfer });
-  fireEvent.dragOver(queueList, { dataTransfer: listDropDataTransfer });
-  fireEvent.drop(queueList, { dataTransfer: listDropDataTransfer });
+  fireEvent.dragOver(dropZone, { dataTransfer: listDropDataTransfer });
+  fireEvent.drop(dropZone, { dataTransfer: listDropDataTransfer });
   fireEvent.dragEnd(firstQueueElementAfterReorder, { dataTransfer: listDropDataTransfer });
 
   await waitFor(() => {
