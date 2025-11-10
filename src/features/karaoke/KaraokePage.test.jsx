@@ -12,6 +12,15 @@ const PREVIOUS_PAGE_LABEL = karaokeConfig.pagination?.labels?.previous ?? 'На�
 const NEXT_PAGE_LABEL = karaokeConfig.pagination?.labels?.next ?? 'Вперёд';
 const PAGE_ARIA_LABEL = karaokeConfig.pagination?.labels?.page || 'Страница';
 const PLAY_BUTTON_LABEL = karaokeConfig.playerPlayLabel ?? 'Воспроизвести';
+const QUEUE_HEADING = karaokeConfig.queueHeading ?? 'Очередь воспроизведения';
+const QUEUE_INSTRUCTIONS = (Array.isArray(karaokeConfig.queueInstructions)
+  ? karaokeConfig.queueInstructions
+  : karaokeConfig.queueInstructions
+    ? [karaokeConfig.queueInstructions]
+    : []
+)
+  .map((instruction) => String(instruction ?? '').trim())
+  .filter((instruction) => instruction.length > 0);
 
 const baseTracks = [
   {
@@ -229,6 +238,25 @@ test('загружает и отображает список треков', asy
   assert.equal(searchIcon.getAttribute('aria-hidden'), 'true');
 
   assert.deepEqual(fetchCalls, ['/karaoke-tracks.json']);
+});
+
+test('отображает инструкцию по управлению очередью', async () => {
+  render(<KaraokePage />);
+
+  const heading = await screen.findByText(QUEUE_HEADING);
+  assert.ok(heading);
+
+  await waitFor(() => {
+    const instructionItems = document.querySelectorAll(
+      '.karaoke-page__queue-instructions-item',
+    );
+    assert.equal(instructionItems.length, QUEUE_INSTRUCTIONS.length);
+  });
+
+  for (const instruction of QUEUE_INSTRUCTIONS) {
+    const instructionElement = await screen.findByText(instruction);
+    assert.ok(instructionElement);
+  }
 });
 
 test('фильтрует треки по названию', async () => {

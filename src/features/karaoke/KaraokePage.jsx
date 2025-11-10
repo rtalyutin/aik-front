@@ -42,6 +42,23 @@ const KaraokePage = () => {
   const queueHeading = karaokeConfig.queueHeading || 'Очередь воспроизведения';
   const queueEmptyState =
     karaokeConfig.queueEmptyState || 'Очередь пуста. Добавьте трек из плейлиста.';
+  const queueInstructions = useMemo(() => {
+    const instructions = karaokeConfig.queueInstructions;
+
+    if (Array.isArray(instructions)) {
+      return instructions
+        .map((instruction) => String(instruction ?? '').trim())
+        .filter((instruction) => instruction.length > 0);
+    }
+
+    if (typeof instructions === 'string') {
+      const normalized = instructions.trim();
+
+      return normalized ? [normalized] : [];
+    }
+
+    return [];
+  }, []);
   const removeFromQueueLabel = karaokeConfig.queueRemoveLabel || 'Убрать из очереди';
   const loadingMessage = karaokeConfig.loadingMessage || 'Загрузка…';
   const emptyState = karaokeConfig.emptyState || 'Плейлист пока пуст.';
@@ -326,6 +343,14 @@ const KaraokePage = () => {
       section: 'queue',
     });
 
+    if (queueInstructions.length > 0) {
+      items.push({
+        type: 'instructions',
+        key: 'queue-instructions',
+        instructions: queueInstructions,
+      });
+    }
+
     if (queueEntries.length > 0) {
       items.push(...queueEntries);
     } else {
@@ -337,7 +362,14 @@ const KaraokePage = () => {
     }
 
     return items;
-  }, [playlistEntries, queueEntries, playlistHeading, queueHeading, queueEmptyState]);
+  }, [
+    playlistEntries,
+    queueEntries,
+    playlistHeading,
+    queueHeading,
+    queueEmptyState,
+    queueInstructions,
+  ]);
 
   const shouldRenderCombinedList = useMemo(() => {
     const hasTracks = (tracks ?? []).length > 0;
@@ -511,6 +543,27 @@ const KaraokePage = () => {
                       role="presentation"
                     >
                       <header className="karaoke-page__list-section">{item.label}</header>
+                    </li>
+                  );
+                }
+
+                if (item.type === 'instructions') {
+                  return (
+                    <li
+                      key={item.key}
+                      className="karaoke-page__queue-instructions"
+                      role="presentation"
+                    >
+                      <ol className="karaoke-page__queue-instructions-list">
+                        {item.instructions.map((instruction, instructionIndex) => (
+                          <li
+                            key={`queue-instruction-${instructionIndex}`}
+                            className="karaoke-page__queue-instructions-item"
+                          >
+                            {instruction}
+                          </li>
+                        ))}
+                      </ol>
                     </li>
                   );
                 }
