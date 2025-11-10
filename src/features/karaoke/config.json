@@ -9,6 +9,11 @@
   "playerPlaceholder": "Выберите трек, чтобы начать петь.",
   "defaultCaptions": "/karaoke-subtitles.vtt",
   "tracksSource": "/karaoke-tracks.json",
+  "queueInstructions": [
+    "Добавьте песню из плейлиста кнопкой «Добавить в очередь» или нажатием по треку.",
+    "Перетащите элементы очереди, чтобы настроить порядок исполнения.",
+    "Удалите композицию из очереди кнопкой «Убрать из очереди», когда она больше не нужна."
+  ],
   "pagination": {
     "pageSize": 20,
     "maxVisiblePages": 5,
