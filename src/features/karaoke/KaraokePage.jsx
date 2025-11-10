@@ -378,7 +378,7 @@ const KaraokePage = () => {
     return hasTracks || hasQueueItems;
   }, [queueEntries.length, tracks]);
 
-  const handleQueueItemDragStart = useCallback((event, index) => {
+  const handleListItemDragStart = useCallback((event, index) => {
     dragSourceIndexRef.current = index;
     setDraggingIndex(index);
 
@@ -414,12 +414,21 @@ const KaraokePage = () => {
       }
 
       if (fromIndex === null) {
+        dragSourceIndexRef.current = null;
+        setDraggingIndex(null);
         return;
       }
 
       const sourceItem = renderItems[fromIndex];
 
-      if (!sourceItem || sourceItem.type !== 'track' || !sourceItem.isQueued) {
+      if (!sourceItem || sourceItem.type !== 'track') {
+        dragSourceIndexRef.current = null;
+        setDraggingIndex(null);
+        return;
+      }
+
+      if (!sourceItem.isQueued) {
+        handleAddToQueue(sourceItem.track.id);
         dragSourceIndexRef.current = null;
         setDraggingIndex(null);
         return;
@@ -603,8 +612,11 @@ const KaraokePage = () => {
                     <li
                       key={itemKey}
                       className="karaoke-page__list-item karaoke-page__track-item"
+                      draggable
+                      onDragStart={(event) => handleListItemDragStart(event, index)}
                       onDragOver={handleQueueItemDragOver}
                       onDrop={(event) => handleQueueItemDrop(event, index)}
+                      onDragEnd={handleQueueItemDragEnd}
                     >
                       <button
                         type="button"
@@ -636,7 +648,7 @@ const KaraokePage = () => {
                     key={itemKey}
                     className={queueItemClasses.join(' ')}
                     draggable
-                    onDragStart={(event) => handleQueueItemDragStart(event, index)}
+                    onDragStart={(event) => handleListItemDragStart(event, index)}
                     onDragOver={handleQueueItemDragOver}
                     onDrop={(event) => handleQueueItemDrop(event, index)}
                     onDragEnd={handleQueueItemDragEnd}
