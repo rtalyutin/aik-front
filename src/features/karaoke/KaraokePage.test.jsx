@@ -537,6 +537,50 @@ test('добавляет трек в очередь при дропе на эл�
   assert.deepEqual(queueTitles, ['Неоновые сны', 'Огни большого города']);
 });
 
+test('добавляет трек из плейлиста в очередь при дропе на зону очереди', async () => {
+  render(<KaraokePage />);
+
+  const firstTrackButton = await screen.findByRole('button', {
+    name: 'Неоновые сны — Cherry RAiT',
+  });
+  fireEvent.click(firstTrackButton);
+
+  await waitFor(() => {
+    assert.equal(document.querySelectorAll('.karaoke-page__queue-item').length, 1);
+    assert.ok(document.querySelector('.karaoke-page__list-drop-zone'));
+  });
+
+  const playlistTrackButton = await screen.findByRole('button', {
+    name: 'Огни большого города — Cherry RAiT',
+  });
+  const playlistTrackItem = playlistTrackButton.closest('.karaoke-page__track-item');
+  assert.ok(playlistTrackItem);
+
+  const dropZone = document.querySelector('.karaoke-page__list-drop-zone');
+  assert.ok(dropZone);
+
+  const dataTransfer = createDataTransfer();
+
+  fireEvent.dragStart(playlistTrackItem, { dataTransfer });
+  fireEvent.dragOver(dropZone, { dataTransfer });
+  fireEvent.drop(dropZone, { dataTransfer });
+  fireEvent.dragEnd(playlistTrackItem, { dataTransfer });
+
+  await waitFor(() => {
+    const queueItems = document.querySelectorAll('.karaoke-page__queue-item');
+    assert.equal(queueItems.length, 2);
+  });
+
+  const queueTitles = Array.from(
+    document.querySelectorAll('.karaoke-page__queue-track-title'),
+  ).map((node) => node.textContent?.trim());
+
+  assert.equal(
+    queueTitles.filter((title) => title === 'Огни большого города').length,
+    1,
+  );
+});
+
 test('позволяет менять порядок очереди перетаскиванием', async () => {
   render(<KaraokePage />);
 
