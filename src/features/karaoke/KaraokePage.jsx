@@ -111,64 +111,6 @@ const KaraokePage = () => {
     });
   }, []);
 
-  const handleQueueItemDragStart = useCallback((event, index) => {
-    dragSourceIndexRef.current = index;
-    setDraggingIndex(index);
-
-    if (event.dataTransfer) {
-      event.dataTransfer.effectAllowed = 'move';
-      event.dataTransfer.setData('text/plain', String(index));
-    }
-  }, []);
-
-  const handleQueueItemDragOver = useCallback((event) => {
-    event.preventDefault();
-
-    if (event.dataTransfer) {
-      event.dataTransfer.dropEffect = 'move';
-    }
-  }, []);
-
-  const handleQueueItemDrop = useCallback(
-    (event, index) => {
-      event.stopPropagation();
-      event.preventDefault();
-
-      const storedIndex = dragSourceIndexRef.current;
-      let fromIndex = Number.isFinite(storedIndex) ? storedIndex : null;
-
-      if (fromIndex === null && event.dataTransfer) {
-        const rawValue = event.dataTransfer.getData('text/plain');
-        const parsedValue = Number.parseInt(rawValue, 10);
-
-        if (Number.isFinite(parsedValue)) {
-          fromIndex = parsedValue;
-        }
-      }
-
-      if (fromIndex === null) {
-        return;
-      }
-
-      handleReorderQueue(fromIndex, index);
-      dragSourceIndexRef.current = null;
-      setDraggingIndex(null);
-    },
-    [handleReorderQueue],
-  );
-
-  const handleQueueListDrop = useCallback(
-    (event) => {
-      handleQueueItemDrop(event, queue.length);
-    },
-    [handleQueueItemDrop, queue.length],
-  );
-
-  const handleQueueItemDragEnd = useCallback(() => {
-    dragSourceIndexRef.current = null;
-    setDraggingIndex(null);
-  }, []);
-
   const handleVideoReady = useCallback(() => {
     setIsVideoReady(true);
   }, []);
@@ -326,7 +268,7 @@ const KaraokePage = () => {
     return filteredTracks.slice(startIndex, endIndex);
   }, [filteredTracks, currentPage, pageSize]);
 
-  const queueItems = useMemo(() => {
+  const queueEntries = useMemo(() => {
     return queue
       .map((trackId, position) => {
         const track = (tracks ?? []).find((item) => item.id === trackId);
@@ -335,41 +277,165 @@ const KaraokePage = () => {
           return null;
         }
 
-        return { ...track, position };
+        return {
+          type: 'track',
+          key: `queue-${track.id}-${position}`,
+          track,
+          isQueued: true,
+          queueIndex: position,
+          source: 'queue',
+        };
       })
       .filter(Boolean);
   }, [queue, tracks]);
 
-  const trackButtons = useMemo(() => {
+  const playlistEntries = useMemo(() => {
     if (!paginatedTracks || paginatedTracks.length === 0) {
-      return null;
+      return [];
     }
 
     return paginatedTracks.map((track) => {
-      const isActive = queue[0] === track.id;
-      const buttonClasses = ['karaoke-page__track-button'];
+      const queueIndex = queue.findIndex((queueId) => queueId === track.id);
 
-      if (isActive) {
-        buttonClasses.push('karaoke-page__track-button--active');
+      return {
+        type: 'track',
+        key: `playlist-${track.id}`,
+        track,
+        isQueued: queueIndex !== -1,
+        queueIndex: queueIndex !== -1 ? queueIndex : null,
+        source: 'playlist',
+      };
+    });
+  }, [paginatedTracks, queue]);
+
+  const renderItems = useMemo(() => {
+    const items = [];
+
+    items.push({
+      type: 'heading',
+      key: 'playlist-heading',
+      label: playlistHeading,
+      section: 'playlist',
+    });
+    items.push(...playlistEntries);
+
+    items.push({
+      type: 'heading',
+      key: 'queue-heading',
+      label: queueHeading,
+      section: 'queue',
+    });
+
+    if (queueEntries.length > 0) {
+      items.push(...queueEntries);
+    } else {
+      items.push({
+        type: 'empty',
+        key: 'queue-empty',
+        message: queueEmptyState,
+      });
+    }
+
+    return items;
+  }, [playlistEntries, queueEntries, playlistHeading, queueHeading, queueEmptyState]);
+
+  const shouldRenderCombinedList = useMemo(() => {
+    const hasTracks = (tracks ?? []).length > 0;
+    const hasQueueItems = queueEntries.length > 0;
+
+    return hasTracks || hasQueueItems;
+  }, [queueEntries.length, tracks]);
+
+  const handleQueueItemDragStart = useCallback((event, index) => {
+    dragSourceIndexRef.current = index;
+    setDraggingIndex(index);
+
+    if (event.dataTransfer) {
+      event.dataTransfer.effectAllowed = 'move';
+      event.dataTransfer.setData('text/plain', String(index));
+    }
+  }, []);
+
+  const handleQueueItemDragOver = useCallback((event) => {
+    event.preventDefault();
+
+    if (event.dataTransfer) {
+      event.dataTransfer.dropEffect = 'move';
+    }
+  }, []);
+
+  const handleQueueItemDrop = useCallback(
+    (event, targetIndex) => {
+      event.stopPropagation();
+      event.preventDefault();
+
+      const storedIndex = dragSourceIndexRef.current;
+      let fromIndex = Number.isFinite(storedIndex) ? storedIndex : null;
+
+      if (fromIndex === null && event.dataTransfer) {
+        const rawValue = event.dataTransfer.getData('text/plain');
+        const parsedValue = Number.parseInt(rawValue, 10);
+
+        if (Number.isFinite(parsedValue)) {
+          fromIndex = parsedValue;
+        }
       }
 
-      return (
-        <li key={track.id} className="karaoke-page__track-item">
-          <button
-            type="button"
-            className={buttonClasses.join(' ')}
-            onClick={() => handleAddToQueue(track.id)}
-            aria-pressed={isActive}
-          >
-            <span className="karaoke-page__track-title">{track.title}</span>
-            {track.artist ? (
-              <span className="karaoke-page__track-artist">— {track.artist}</span>
-            ) : null}
-          </button>
-        </li>
-      );
-    });
-  }, [paginatedTracks, handleAddToQueue, queue]);
+      if (fromIndex === null) {
+        return;
+      }
+
+      const sourceItem = renderItems[fromIndex];
+
+      if (!sourceItem || sourceItem.type !== 'track' || !sourceItem.isQueued) {
+        dragSourceIndexRef.current = null;
+        setDraggingIndex(null);
+        return;
+      }
+
+      const sourceQueueIndex = sourceItem.queueIndex ?? -1;
+
+      if (sourceQueueIndex < 0) {
+        dragSourceIndexRef.current = null;
+        setDraggingIndex(null);
+        return;
+      }
+
+      if (targetIndex === 'end') {
+        handleReorderQueue(sourceQueueIndex, queue.length);
+        dragSourceIndexRef.current = null;
+        setDraggingIndex(null);
+        return;
+      }
+
+      const targetItem = renderItems[targetIndex];
+
+      if (!targetItem) {
+        dragSourceIndexRef.current = null;
+        setDraggingIndex(null);
+        return;
+      }
+
+      if (targetItem.type === 'track' && targetItem.isQueued) {
+        const targetQueueIndex = targetItem.queueIndex ?? -1;
+
+        if (targetQueueIndex >= 0) {
+          handleReorderQueue(sourceQueueIndex, targetQueueIndex);
+        }
+      } else if (targetItem.type === 'track' && !targetItem.isQueued) {
+        handleAddToQueue(targetItem.track.id);
+      }
+
+      dragSourceIndexRef.current = null;
+      setDraggingIndex(null);
+    },
+    [handleAddToQueue, handleReorderQueue, queue.length, renderItems],
+  );
+
+  const handleQueueItemDragEnd = useCallback(() => {
+    dragSourceIndexRef.current = null;
+    setDraggingIndex(null);
+  }, []);
 
   return (
     <section
@@ -434,9 +500,127 @@ const KaraokePage = () => {
           {tracks && tracks.length > 0 && filteredTracks.length === 0 ? (
             <p className="karaoke-page__status">Ничего не найдено</p>
           ) : null}
+          {shouldRenderCombinedList ? (
+            <ul className="karaoke-page__list">
+              {renderItems.map((item, index) => {
+                if (item.type === 'heading') {
+                  return (
+                    <li
+                      key={item.key}
+                      className="karaoke-page__list-heading"
+                      role="presentation"
+                    >
+                      <header className="karaoke-page__list-section">{item.label}</header>
+                    </li>
+                  );
+                }
+
+                if (item.type === 'empty') {
+                  return (
+                    <li
+                      key={item.key}
+                      className="karaoke-page__list-empty"
+                      role="presentation"
+                    >
+                      {item.message}
+                    </li>
+                  );
+                }
+
+                const { track, isQueued, queueIndex, source } = item;
+                const isActiveQueueItem = isQueued && queueIndex === 0;
+                const itemKey = item.key || track.id;
+
+                if (source === 'playlist') {
+                  const buttonClasses = ['karaoke-page__track-button'];
+
+                  if (isActiveQueueItem) {
+                    buttonClasses.push('karaoke-page__track-button--active');
+                  }
+
+                  const handleClick = () => {
+                    if (isQueued && Number.isInteger(queueIndex)) {
+                      handleRemoveFromQueue(queueIndex);
+                    } else {
+                      handleAddToQueue(track.id);
+                    }
+                  };
+
+                  return (
+                    <li
+                      key={itemKey}
+                      className="karaoke-page__list-item karaoke-page__track-item"
+                      onDragOver={handleQueueItemDragOver}
+                      onDrop={(event) => handleQueueItemDrop(event, index)}
+                    >
+                      <button
+                        type="button"
+                        className={buttonClasses.join(' ')}
+                        onClick={handleClick}
+                        aria-pressed={isQueued}
+                      >
+                        <span className="karaoke-page__track-title">{track.title}</span>
+                        {track.artist ? (
+                          <span className="karaoke-page__track-artist">— {track.artist}</span>
+                        ) : null}
+                      </button>
+                    </li>
+                  );
+                }
+
+                const queueItemClasses = ['karaoke-page__list-item', 'karaoke-page__queue-item'];
+
+                if (isActiveQueueItem) {
+                  queueItemClasses.push('karaoke-page__queue-item--active');
+                }
+
+                if (draggingIndex === index) {
+                  queueItemClasses.push('karaoke-page__queue-item--dragging');
+                }
+
+                return (
+                  <li
+                    key={itemKey}
+                    className={queueItemClasses.join(' ')}
+                    draggable
+                    onDragStart={(event) => handleQueueItemDragStart(event, index)}
+                    onDragOver={handleQueueItemDragOver}
+                    onDrop={(event) => handleQueueItemDrop(event, index)}
+                    onDragEnd={handleQueueItemDragEnd}
+                    aria-current={isActiveQueueItem ? 'true' : undefined}
+                  >
+                    <span className="karaoke-page__queue-track">
+                      <span className="karaoke-page__queue-track-title">{track.title}</span>
+                      {track.artist ? (
+                        <span className="karaoke-page__queue-track-artist">— {track.artist}</span>
+                      ) : null}
+                    </span>
+                    <button
+                      type="button"
+                      className="karaoke-page__queue-remove"
+                      onClick={() =>
+                        Number.isInteger(queueIndex) ? handleRemoveFromQueue(queueIndex) : null
+                      }
+                    >
+                      {removeFromQueueLabel}
+                    </button>
+                  </li>
+                );
+              })}
+              {queueEntries.length > 0 ? (
+                <li
+                  key="queue-drop-zone"
+                  className="karaoke-page__list-drop-zone"
+                  role="presentation"
+                  onDragOver={handleQueueItemDragOver}
+                  onDrop={(event) => handleQueueItemDrop(event, 'end')}
+                  aria-hidden="true"
+                />
+              ) : null}
+            </ul>
+          ) : null}
           {tracks && tracks.length > 0 && filteredTracks.length > 0 ? (
             <>
-              <ul className="karaoke-page__track-list">{trackButtons}</ul>
               {totalPages > 1 ? (
                 <nav
                   className="karaoke-page__pagination"
@@ -489,58 +673,6 @@ const KaraokePage = () => {
               ) : null}
             </>
           ) : null}
-        </aside>
-        <aside className="karaoke-page__queue" aria-live="polite">
-          <h2 className="karaoke-page__section-title">{queueHeading}</h2>
-          {queueItems.length === 0 ? (
-            <p className="karaoke-page__status">{queueEmptyState}</p>
-          ) : (
-            <ul
-              className="karaoke-page__queue-list"
-              onDragOver={handleQueueItemDragOver}
-              onDrop={handleQueueListDrop}
-            >
-              {queueItems.map((track) => {
-                const isActive = queue[0] === track.id;
-                const itemClasses = ['karaoke-page__queue-item'];
-
-                if (isActive) {
-                  itemClasses.push('karaoke-page__queue-item--active');
-                }
-
-                if (draggingIndex === track.position) {
-                  itemClasses.push('karaoke-page__queue-item--dragging');
-                }
-
-                return (
-                  <li
-                    key={`${track.id}-${track.position}`}
-                    className={itemClasses.join(' ')}
-                    draggable
-                    onDragStart={(event) => handleQueueItemDragStart(event, track.position)}
-                    onDragOver={handleQueueItemDragOver}
-                    onDrop={(event) => handleQueueItemDrop(event, track.position)}
-                    onDragEnd={handleQueueItemDragEnd}
-                    aria-current={isActive ? 'true' : undefined}
-                  >
-                    <span className="karaoke-page__queue-track">
-                      <span className="karaoke-page__queue-track-title">{track.title}</span>
-                      {track.artist ? (
-                        <span className="karaoke-page__queue-track-artist">— {track.artist}</span>
-                      ) : null}
-                    </span>
-                    <button
-                      type="button"
-                      className="karaoke-page__queue-remove"
-                      onClick={() => handleRemoveFromQueue(track.position)}
-                    >
-                      {removeFromQueueLabel}
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
         </aside>
         <div className="karaoke-page__player">
           <h2 className="karaoke-page__section-title">{playerHeading}</h2>

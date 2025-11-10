@@ -1346,11 +1346,8 @@ html[data-theme="dark"] .app-header {
 
 .karaoke-page__content {
   display: grid;
-  grid-template-columns: minmax(240px, 320px) 1fr;
-  grid-template-rows: auto 1fr;
-  grid-template-areas:
-    "playlist queue"
-    "playlist player";
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  grid-template-areas: "playlist player";
   gap: 1.5rem;
   align-items: stretch;
   min-height: 100%;
@@ -1358,7 +1355,6 @@ html[data-theme="dark"] .app-header {
 }
 
 .karaoke-page__playlist,
-.karaoke-page__queue,
 .karaoke-page__player {
   display: flex;
   flex-direction: column;
@@ -1374,21 +1370,6 @@ html[data-theme="dark"] .app-header {
 
 .karaoke-page__playlist {
   grid-area: playlist;
-}
-
-.karaoke-page__queue {
-  grid-area: queue;
-}
-
-.karaoke-page__queue-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  flex: 1;
-  overflow-y: auto;
 }
 
 .karaoke-page__queue-item {
@@ -1427,12 +1408,12 @@ html[data-theme="dark"] .app-header {
   font-size: 0.95rem;
 }
 
-.karaoke-page__queue-track strong {
+.karaoke-page__queue-track-title {
   font-weight: 600;
   color: var(--color-text);
 }
 
-.karaoke-page__queue-track span {
+.karaoke-page__queue-track-artist {
   color: var(--color-text-muted);
   font-size: 0.85rem;
 }
@@ -1558,12 +1539,52 @@ html[data-theme="dark"] .app-header {
   color: var(--color-danger);
 }
 
-.karaoke-page__track-list {
+
+.karaoke-page__list {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 0.75rem;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.karaoke-page__list-item {
+  margin: 0;
+}
+
+.karaoke-page__list-heading {
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.karaoke-page__list-section {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.karaoke-page__list-empty {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.karaoke-page__list-drop-zone {
+  height: 1.5rem;
+  border: 2px dashed var(--accent-stroke);
+  border-radius: var(--radius-md);
+  margin-top: 0.25rem;
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
 }
 
 .karaoke-page__track-item {
