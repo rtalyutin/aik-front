@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="28" fill="#2a2241" />
+  <path d="M30 90c10-30 20-42 30-42s20 12 30 42" fill="none" stroke="#9f86ff" stroke-width="8" stroke-linecap="round" />
+  <circle cx="60" cy="40" r="12" fill="#ffe9ff" opacity="0.85" />
+  <text x="60" y="106" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18" fill="#d9d0ff" text-anchor="middle" font-weight="700">
+    GIKI
+  </text>
+</svg>

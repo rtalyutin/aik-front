@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="28" fill="#2b1a2e" />
+  <path d="M30 90c12-28 24-40 30-40s18 12 30 40" fill="none" stroke="#ff6fb7" stroke-width="8" stroke-linecap="round" />
+  <circle cx="60" cy="44" r="12" fill="#ffb9e0" opacity="0.85" />
+  <text x="60" y="106" font-family="'Inter', 'Segoe UI', sans-serif" font-size="16" fill="#ffe6f3" text-anchor="middle" font-weight="700">
+    MNP
+  </text>
+</svg>

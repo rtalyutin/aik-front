@@ -26,6 +26,7 @@ import Lyrics from './features/lyrics/Lyrics.jsx';
 import Playlist from './features/playlist/Playlist.jsx';
 import KaraokePage from './features/karaoke/KaraokePage.jsx';
 import AuthPage from './features/auth/AuthPage.jsx';
+import TeamShowcase from './features/team-showcase/TeamShowcase.jsx';
 
 const uploaderMessages = uploaderConfig.messages ?? {};
 const createJobEndpoint =
@@ -842,48 +843,51 @@ function App({ initialTracks = [] } = {}) {
   const isProcessingRoute = location.pathname === '/';
 
   const workspaceView = (
-    <div
-      className="workspace workspace--processing"
-      aria-label="Список треков и управление загрузками"
-    >
-      <SplitPane
-        leftWidth="30%"
-        rightWidth="70%"
-        ariaLabel="Плейлист и управление воспроизведением"
-        left={
-          <Playlist
-            tracks={playlistTracks}
-            selectedTrackId={selectedTrackId}
-            notice={globalNotice}
-            error={globalError}
-            onSelect={setSelectedTrackId}
-            onAddClick={() => setIsUploaderOpen(true)}
-            onRefresh={handleManualRefresh}
-            onRetry={handleRestart}
-            isAddDisabled={isCreatingJob}
-            isRetryDisabled={isCreatingJob}
-            queue={queueTracks}
-            queueLimit={QUEUE_LIMIT}
-            onQueueDrop={handleQueueAdd}
-            onQueueRemove={handleQueueRemove}
-            isQueueAtLimit={isQueueAtLimit}
-          />
-        }
-        right={
-          <div className="workspace__details">
-            <PlaybackProvider>
-              <div
-                className="workspace__playback"
-                aria-label="Прослушивание и синхронизация текста"
-              >
-                <Player />
-                <Lyrics />
-              </div>
-            </PlaybackProvider>
-          </div>
-        }
-      />
-    </div>
+    <>
+      <div
+        className="workspace workspace--processing"
+        aria-label="Список треков и управление загрузками"
+      >
+        <SplitPane
+          leftWidth="30%"
+          rightWidth="70%"
+          ariaLabel="Плейлист и управление воспроизведением"
+          left={
+            <Playlist
+              tracks={playlistTracks}
+              selectedTrackId={selectedTrackId}
+              notice={globalNotice}
+              error={globalError}
+              onSelect={setSelectedTrackId}
+              onAddClick={() => setIsUploaderOpen(true)}
+              onRefresh={handleManualRefresh}
+              onRetry={handleRestart}
+              isAddDisabled={isCreatingJob}
+              isRetryDisabled={isCreatingJob}
+              queue={queueTracks}
+              queueLimit={QUEUE_LIMIT}
+              onQueueDrop={handleQueueAdd}
+              onQueueRemove={handleQueueRemove}
+              isQueueAtLimit={isQueueAtLimit}
+            />
+          }
+          right={
+            <div className="workspace__details">
+              <PlaybackProvider>
+                <div
+                  className="workspace__playback"
+                  aria-label="Прослушивание и синхронизация текста"
+                >
+                  <Player />
+                  <Lyrics />
+                </div>
+              </PlaybackProvider>
+            </div>
+          }
+        />
+      </div>
+      <TeamShowcase />
+    </>
   );
 
   return (
