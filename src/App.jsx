@@ -26,7 +26,6 @@ import Lyrics from './features/lyrics/Lyrics.jsx';
 import Playlist from './features/playlist/Playlist.jsx';
 import KaraokePage from './features/karaoke/KaraokePage.jsx';
 import AuthPage from './features/auth/AuthPage.jsx';
-import TeamShowcase from './features/team-showcase/TeamShowcase.jsx';
 
 const uploaderMessages = uploaderConfig.messages ?? {};
 const createJobEndpoint =
@@ -886,7 +885,6 @@ function App({ initialTracks = [] } = {}) {
           }
         />
       </div>
-      <TeamShowcase />
     </>
   );
 
