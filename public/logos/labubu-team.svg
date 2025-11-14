@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="gradLabubu" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff7ba7" />
+      <stop offset="100%" stop-color="#f04278" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="url(#gradLabubu)" />
+  <path d="M60 30c14 0 24 9 24 22 0 15-12 26-24 40-12-14-24-25-24-40 0-13 10-22 24-22z" fill="#fff7fb" opacity="0.9" />
+  <text x="60" y="68" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18" fill="#38121f" text-anchor="middle" font-weight="700">
+    Labubu
+  </text>
+</svg>

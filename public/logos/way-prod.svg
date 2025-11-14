@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="gradWay" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5bc0f8" />
+      <stop offset="100%" stop-color="#4a9fff" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="26" fill="url(#gradWay)" />
+  <path d="M30 80c10-18 24-30 30-30s20 12 30 30" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" />
+  <circle cx="60" cy="44" r="10" fill="#ffffff" opacity="0.9" />
+  <text x="60" y="104" font-family="'Inter', 'Segoe UI', sans-serif" font-size="17" fill="#0d1d3b" text-anchor="middle" font-weight="700">
+    Way
+  </text>
+</svg>

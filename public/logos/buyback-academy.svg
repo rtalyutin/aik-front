@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="24" fill="#222124" />
+  <path d="M30 88h60L60 28 30 88z" fill="#ff5c7a" opacity="0.85" />
+  <path d="M60 52l16 28H44l16-28z" fill="#ffd5de" opacity="0.8" />
+  <text x="60" y="104" font-family="'Inter', 'Segoe UI', sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" font-weight="700">
+    BBA
+  </text>
+</svg>

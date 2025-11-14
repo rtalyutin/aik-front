@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="26" fill="#183b3a" />
+  <path d="M36 84c8-18 20-28 24-28s16 10 24 28" fill="none" stroke="#7bf2c8" stroke-width="8" stroke-linecap="round" />
+  <circle cx="60" cy="42" r="12" fill="#7bf2c8" opacity="0.85" />
+  <text x="60" y="104" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18" fill="#eafff7" text-anchor="middle" font-weight="700">
+    YGK
+  </text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="26" fill="#24324a" />
+  <path d="M40 34h40v12H40z" fill="#ffd76d" opacity="0.9" />
+  <path d="M34 56h52v12H34z" fill="#ffb347" opacity="0.9" />
+  <path d="M40 78h40v12H40z" fill="#ff8a3d" opacity="0.9" />
+  <text x="60" y="104" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18" fill="#fef6dd" text-anchor="middle" font-weight="700">
+    T.B.
+  </text>
+</svg>

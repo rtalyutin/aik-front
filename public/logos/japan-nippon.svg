@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="28" fill="#f9f4f1" />
+  <circle cx="60" cy="60" r="32" fill="#e93c4c" opacity="0.9" />
+  <text x="60" y="106" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18" fill="#2b1a1a" text-anchor="middle" font-weight="700">
+    日本
+  </text>
+</svg>

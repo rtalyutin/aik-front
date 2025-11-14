@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="24" fill="#1f2a44" />
+  <path d="M30 86l30-52 30 52H30z" fill="#ffcf5c" opacity="0.8" />
+  <path d="M60 38l20 34H40L60 38z" fill="#ff8a3d" opacity="0.9" />
+  <text x="60" y="102" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18" fill="#f8f9ff" text-anchor="middle" font-weight="700">
+    ARB
+  </text>
+</svg>

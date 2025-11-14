@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="24" fill="#1a1d29" />
+  <path d="M30 88h60" stroke="#a0b5ff" stroke-width="10" stroke-linecap="round" />
+  <path d="M60 30l22 46H38L60 30z" fill="#576bff" opacity="0.85" />
+  <text x="60" y="106" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18" fill="#dbe4ff" text-anchor="middle" font-weight="700">
+    STEEL
+  </text>
+</svg>

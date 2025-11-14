@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="gradSub" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fff16d" />
+      <stop offset="100%" stop-color="#ffb347" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="url(#gradSub)" />
+  <path d="M32 72c12-16 44-16 56 0v12H32V72z" fill="#2b2566" opacity="0.85" />
+  <circle cx="44" cy="60" r="10" fill="#2b2566" opacity="0.9" />
+  <circle cx="76" cy="60" r="10" fill="#2b2566" opacity="0.9" />
+  <text x="60" y="40" font-family="'Inter', 'Segoe UI', sans-serif" font-size="16" fill="#2b2566" text-anchor="middle" font-weight="700">
+    YS
+  </text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="24" fill="#12131f" />
+  <circle cx="60" cy="60" r="42" fill="#1f2750" />
+  <path d="M60 26l18 34-18 34-18-34 18-34z" fill="#37d0ff" opacity="0.8" />
+  <text x="60" y="68" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18" fill="#e9fcff" text-anchor="middle" font-weight="700">
+    TITANS
+  </text>
+</svg>
