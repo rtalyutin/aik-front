@@ -10,7 +10,7 @@ afterEach(() => {
   cleanup();
 });
 
-test('навигация отображает два пункта меню и переключает активное состояние', async () => {
+test('навигация отображает три пункта меню и переключает активное состояние', async () => {
   render(
     <MemoryRouter initialEntries={['/']}>
       <App />
@@ -22,22 +22,38 @@ test('навигация отображает два пункта меню и п
 
   const processingLink = await screen.findByRole('link', { name: 'Обработка' });
   const karaokeLink = screen.getByRole('link', { name: 'Караоке' });
+  const readyTracksLink = screen.getByRole('link', { name: 'Готовые треки' });
   const authLink = screen.queryByRole('link', { name: 'Авторизация' });
   assert.equal(authLink, null, 'пункт "Авторизация" не должен отображаться в навигации');
 
   assert.equal(processingLink.getAttribute('aria-current'), 'page');
   assert.ok(processingLink.className.includes('app-header__nav-link--active'));
   assert.ok(!karaokeLink.className.includes('app-header__nav-link--active'));
+  assert.ok(!readyTracksLink.className.includes('app-header__nav-link--active'));
 
   fireEvent.click(karaokeLink);
   await screen.findByRole('heading', { name: 'Караоке-сцена' });
 
   const processingAfterKaraoke = screen.getByRole('link', { name: 'Обработка' });
   const karaokeAfterClick = screen.getByRole('link', { name: 'Караоке' });
+  const readyTracksAfterKaraoke = screen.getByRole('link', { name: 'Готовые треки' });
 
   assert.equal(karaokeAfterClick.getAttribute('aria-current'), 'page');
   assert.ok(karaokeAfterClick.className.includes('app-header__nav-link--active'));
   assert.ok(!processingAfterKaraoke.className.includes('app-header__nav-link--active'));
+  assert.ok(!readyTracksAfterKaraoke.className.includes('app-header__nav-link--active'));
+
+  fireEvent.click(readyTracksAfterKaraoke);
+  await screen.findByRole('heading', { name: 'Готовые треки' });
+
+  const readyTracksAfterClick = screen.getByRole('link', { name: 'Готовые треки' });
+  const processingAfterReady = screen.getByRole('link', { name: 'Обработка' });
+  const karaokeAfterReady = screen.getByRole('link', { name: 'Караоке' });
+
+  assert.equal(readyTracksAfterClick.getAttribute('aria-current'), 'page');
+  assert.ok(readyTracksAfterClick.className.includes('app-header__nav-link--active'));
+  assert.ok(!processingAfterReady.className.includes('app-header__nav-link--active'));
+  assert.ok(!karaokeAfterReady.className.includes('app-header__nav-link--active'));
 });
 
 test('страница авторизации доступна по прямому маршруту без пункта меню', async () => {
@@ -52,6 +68,7 @@ test('страница авторизации доступна по прямом
 
   const processingLink = screen.getByRole('link', { name: 'Обработка' });
   const karaokeLink = screen.getByRole('link', { name: 'Караоке' });
+  const readyTracksLink = screen.getByRole('link', { name: 'Готовые треки' });
   const authLink = screen.queryByRole('link', { name: 'Авторизация' });
 
   await screen.findByRole('heading', { name: 'Авторизация Cherry RAiT' });
@@ -59,4 +76,5 @@ test('страница авторизации доступна по прямом
   assert.equal(authLink, null, 'страница авторизации не должна отображаться в меню даже при переходе по маршруту');
   assert.ok(!processingLink.className.includes('app-header__nav-link--active'));
   assert.ok(!karaokeLink.className.includes('app-header__nav-link--active'));
+  assert.ok(!readyTracksLink.className.includes('app-header__nav-link--active'));
 });
