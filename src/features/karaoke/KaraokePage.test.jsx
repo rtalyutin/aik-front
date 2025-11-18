@@ -4,6 +4,7 @@ import test, { afterEach, beforeEach } from 'node:test';
 import React from 'react';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import karaokeConfig from './config.js';
+import localTextTracks from './text.json';
 import KaraokePage from './KaraokePage.jsx';
 
 const TEST_PAGE_SIZE = 2;
@@ -80,6 +81,7 @@ let fetchCalls;
 let originalPageSize;
 let originalMaxVisiblePages;
 let hadOriginalMaxVisiblePages;
+let originalLocalTracks;
 
 const queryNumericPaginationButtons = () =>
   Array.from(
@@ -181,6 +183,8 @@ beforeEach(() => {
   originalMaxVisiblePages = pagination.maxVisiblePages;
   pagination.pageSize = TEST_PAGE_SIZE;
   pagination.maxVisiblePages = TEST_MAX_VISIBLE_PAGES;
+  originalLocalTracks = karaokeConfig.localTracks;
+  karaokeConfig.localTracks = sampleTracks;
 
   globalThis.fetch = async (input) => {
     fetchCalls.push(String(input));
@@ -205,9 +209,11 @@ afterEach(() => {
   } else {
     delete pagination.maxVisiblePages;
   }
+
+  karaokeConfig.localTracks = originalLocalTracks;
 });
 
-test('загружает и отображает список треков', async () => {
+test('загружает и отображает список треков из локального плейлиста', async () => {
   const { container } = render(<KaraokePage />);
 
   const playlistHeading = await screen.findByRole('heading', { name: 'Плейлист' });
@@ -259,7 +265,33 @@ test('загружает и отображает список треков', asy
   assert.ok(searchIcon);
   assert.equal(searchIcon.getAttribute('aria-hidden'), 'true');
 
-  assert.deepEqual(fetchCalls, ['/karaoke-tracks.json']);
+  assert.deepEqual(fetchCalls, []);
+});
+
+test('рендерит локальный JSON без HTTP-запросов', async () => {
+  const subset = (localTextTracks ?? []).slice(0, 4);
+  karaokeConfig.localTracks = subset;
+
+  const pagination = karaokeConfig.pagination ?? (karaokeConfig.pagination = {});
+  pagination.pageSize = subset.length;
+
+  render(<KaraokePage />);
+
+  await waitFor(() => {
+    const buttons = document.querySelectorAll('.karaoke-page__track-button');
+    assert.equal(buttons.length, subset.length);
+  });
+
+  const trackButtons = Array.from(
+    document.querySelectorAll('.karaoke-page__track-button'),
+  );
+  const renderedLabels = trackButtons.map((button) => button.textContent?.trim());
+  const expectedLabels = subset.map((track) => {
+    return track.artist ? `${track.title} — ${track.artist}` : track.title;
+  });
+
+  assert.deepEqual(renderedLabels, expectedLabels);
+  assert.deepEqual(fetchCalls, []);
 });
 
 test('отображает инструкцию по управлению очередью', async () => {

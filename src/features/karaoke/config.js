@@ -1,7 +1,11 @@
+import tracksData from './text.json';
+
 const tracksSource =
   import.meta.env?.VITE_READY_TRACKS_ENDPOINT ||
   process.env.VITE_READY_TRACKS_ENDPOINT ||
   '/api/karaoke-tracks';
+
+const localTracks = Array.isArray(tracksData) ? tracksData : [];
 
 export default {
   title: 'Караоке-сцена',
@@ -14,6 +18,7 @@ export default {
   playerPlaceholder: 'Выберите трек, чтобы начать петь.',
   defaultCaptions: '/karaoke-subtitles.vtt',
   tracksSource, // Используется реальный API для списка готовых треков; если сервер недоступен, fallback — статичный json
+  localTracks, // Локальный плейлист из text.json — основной источник для публичной страницы
   queueInstructions: [
     'Добавьте треки в очередь, нажимая на понравившиеся композиции в плейлисте.',
     'Перетащите трек в списке очереди, чтобы поменять порядок выступлений.',

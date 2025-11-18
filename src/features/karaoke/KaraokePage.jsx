@@ -12,7 +12,10 @@ const KaraokePage = () => {
     selectedTrack,
     selectedTrackId,
     selectTrack,
-  } = useKaraokeTracks({ source: karaokeConfig.tracksSource });
+  } = useKaraokeTracks({
+    source: karaokeConfig.tracksSource,
+    staticTracks: karaokeConfig.localTracks,
+  });
 
   const [searchQuery, setSearchQuery] = useState('');
   const [queue, setQueue] = useState([]);
