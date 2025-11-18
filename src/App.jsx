@@ -26,6 +26,7 @@ import Lyrics from './features/lyrics/Lyrics.jsx';
 import Playlist from './features/playlist/Playlist.jsx';
 import KaraokePage from './features/karaoke/KaraokePage.jsx';
 import AuthPage from './features/auth/AuthPage.jsx';
+import ReadyTracksPage from './features/readyTracks/ReadyTracksPage.jsx';
 
 const uploaderMessages = uploaderConfig.messages ?? {};
 const createJobEndpoint =
@@ -907,6 +908,7 @@ function App({ initialTracks = [] } = {}) {
         <Routes>
           <Route path="/" element={workspaceView} />
           <Route path="/karaoke" element={<KaraokePage />} />
+          <Route path="/ready-tracks" element={<ReadyTracksPage />} />
           <Route path="/auth" element={<AuthPage />} />
         </Routes>
       </main>
