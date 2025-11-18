@@ -1,7 +1,15 @@
-const CSS_EXTENSION = '.css';
+const STUB_SOURCES = {
+  '.css': 'export default new Proxy({}, { get: () => "" });',
+  '.svg': 'export default "";',
+};
+
+const getStubExtension = (value = '') =>
+  Object.keys(STUB_SOURCES).find((extension) => value.endsWith(extension));
 
 export async function resolve(specifier, context, defaultResolve) {
-  if (specifier.endsWith(CSS_EXTENSION)) {
+  const matchedExtension = getStubExtension(specifier);
+
+  if (matchedExtension) {
     const url = new URL(specifier, context.parentURL).href;
     return {
       shortCircuit: true,
@@ -13,11 +21,13 @@ export async function resolve(specifier, context, defaultResolve) {
 }
 
 export async function load(url, context, defaultLoad) {
-  if (url.endsWith(CSS_EXTENSION)) {
+  const matchedExtension = getStubExtension(url);
+
+  if (matchedExtension) {
     return {
       format: 'module',
       shortCircuit: true,
-      source: 'export default new Proxy({}, { get: () => "" });',
+      source: STUB_SOURCES[matchedExtension] ?? 'export default "";',
     };
   }
 

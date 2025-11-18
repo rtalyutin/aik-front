@@ -17,6 +17,7 @@ const themeModes = {
 const navigationItems = [
   { id: 'processing', to: '/', label: 'Обработка' },
   { id: 'karaoke', to: '/karaoke', label: 'Караоке' },
+  { id: 'ready-tracks', to: '/ready-tracks', label: 'Готовые треки' },
 ];
 
 const Header = ({ theme, accentPreset, onToggleTheme, onSelectAccent }) => {
