@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import karaokeConfig from './config.json';
+import karaokeConfig from './config.js';
 import { useKaraokeTracks } from './useKaraokeTracks.js';
 
 const KaraokePage = () => {
