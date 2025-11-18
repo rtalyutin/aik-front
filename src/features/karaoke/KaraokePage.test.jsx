@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import test, { afterEach, beforeEach } from 'node:test';
 import React from 'react';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import karaokeConfig from './config.json';
+import karaokeConfig from './config.js';
 import KaraokePage from './KaraokePage.jsx';
 
 const TEST_PAGE_SIZE = 2;
