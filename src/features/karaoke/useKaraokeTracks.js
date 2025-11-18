@@ -22,11 +22,27 @@ const normalizeTracks = (tracksLike) => {
     .filter((track) => isNonEmptyString(track.src));
 };
 
-export const useKaraokeTracks = ({ source } = {}) => {
+const getPreferredTrackId = (currentId, nextTracks) => {
+  if (currentId && (nextTracks ?? []).some((track) => track.id === currentId)) {
+    return currentId;
+  }
+
+  return nextTracks.length > 0 ? nextTracks[0].id : '';
+};
+
+export const useKaraokeTracks = ({ source, staticTracks } = {}) => {
   const [tracks, setTracks] = useState([]);
   const [selectedTrackId, setSelectedTrackId] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+
+  const normalizedStaticTracks = useMemo(() => normalizeTracks(staticTracks), [staticTracks]);
+  const hasStaticTracks = normalizedStaticTracks.length > 0;
+
+  const applyTracksState = useCallback((nextTracks) => {
+    setTracks(nextTracks);
+    setSelectedTrackId((currentId) => getPreferredTrackId(currentId, nextTracks));
+  }, []);
 
   const selectTrack = useCallback(
     (trackId) => {
@@ -78,14 +94,7 @@ export const useKaraokeTracks = ({ source } = {}) => {
           return;
         }
 
-        setTracks(normalizedTracks);
-        setSelectedTrackId((currentId) => {
-          if (currentId && normalizedTracks.some((track) => track.id === currentId)) {
-            return currentId;
-          }
-
-          return normalizedTracks.length > 0 ? normalizedTracks[0].id : '';
-        });
+        applyTracksState(normalizedTracks);
       } catch (fetchError) {
         if (fetchError?.name === 'AbortError' || signal?.aborted) {
           return;
@@ -100,10 +109,17 @@ export const useKaraokeTracks = ({ source } = {}) => {
         }
       }
     },
-    [source],
+    [source, applyTracksState],
   );
 
   useEffect(() => {
+    if (hasStaticTracks) {
+      setError('');
+      setIsLoading(false);
+      applyTracksState(normalizedStaticTracks);
+      return undefined;
+    }
+
     const controller = new AbortController();
 
     loadTracks(controller.signal);
@@ -111,17 +127,24 @@ export const useKaraokeTracks = ({ source } = {}) => {
     return () => {
       controller.abort();
     };
-  }, [loadTracks]);
+  }, [applyTracksState, hasStaticTracks, loadTracks, normalizedStaticTracks]);
 
   const selectedTrack = useMemo(() => {
     return tracks.find((track) => track.id === selectedTrackId) ?? null;
   }, [tracks, selectedTrackId]);
 
   const reload = useCallback(() => {
+    if (hasStaticTracks) {
+      applyTracksState(normalizedStaticTracks);
+      setError('');
+      setIsLoading(false);
+      return () => {};
+    }
+
     const controller = new AbortController();
     loadTracks(controller.signal);
     return () => controller.abort();
-  }, [loadTracks]);
+  }, [applyTracksState, hasStaticTracks, loadTracks, normalizedStaticTracks]);
 
   return {
     tracks,

@@ -9,6 +9,7 @@ This project uses Vite with React 18, ESLint, Prettier, and Node's built-in test
 - [Available Commands](#available-commands)
 - [Deployment](#deployment)
 - [Quality Gates](#quality-gates)
+- [Karaoke Playlist Data](#karaoke-playlist-data)
 - [API сценарии караоке-треков](#api-сценарии-караоке-треков)
 
 ## Available Commands
@@ -37,6 +38,10 @@ For Nginx/CDN setups, ensure client-side routing falls back to the built index. 
 ## Quality Gates
 
 All pull requests should pass the lint, format, and test commands before merging. Run the commands above locally or in CI to ensure compliance with the project's quality standards.
+
+## Karaoke Playlist Data
+
+The `/karaoke` page now ships with a bundled playlist located at `src/features/karaoke/text.json`. The feature configuration (`src/features/karaoke/config.js`) exposes this array through the `localTracks` field, and the `useKaraokeTracks` hook consumes it via the `staticTracks` option to avoid HTTP calls when the JSON is present. A remote endpoint can still be configured through `VITE_READY_TRACKS_ENDPOINT`, which acts as a fallback if the local data is empty.
 
 ## API сценарии караоке-треков
 
