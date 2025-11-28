@@ -1,9 +1,6 @@
 import tracksData from './text.json';
 
-const tracksSource =
-  import.meta.env?.VITE_READY_TRACKS_ENDPOINT ||
-  process.env.VITE_READY_TRACKS_ENDPOINT ||
-  '/api/karaoke-tracks';
+const tracksSource = import.meta.env?.VITE_READY_TRACKS_ENDPOINT || '/api/karaoke-tracks';
 
 const localTracks = Array.isArray(tracksData) ? tracksData : [];
 
