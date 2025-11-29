@@ -2,21 +2,21 @@
   color-scheme: light;
   font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.5;
-  background-color: #fdf3f6;
-  --color-bg: #fdf3f6;
-  --color-surface: #fff7f9;
-  --color-surface-muted: rgba(226, 59, 113, 0.05);
-  --color-surface-disabled: #f0d6df;
-  --color-border: #f0d6df;
-  --color-text: #2b1019;
-  --color-text-muted: #6c3b4f;
-  --accent-solid: #e23b71;
-  --accent-stroke: #c53060;
-  --accent-ring: rgba(226, 59, 113, 0.28);
-  --accent-surface: rgba(226, 59, 113, 0.08);
-  --accent-surface-strong: rgba(226, 59, 113, 0.16);
-  --accent-notice-border: rgba(226, 59, 113, 0.2);
-  --color-on-accent: #fff7fb;
+  background-color: #f4f6f8;
+  --color-bg: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-surface-muted: #eef2f6;
+  --color-surface-disabled: #e3e8ef;
+  --color-border: #d7dde5;
+  --color-text: #1f2937;
+  --color-text-muted: #4b5563;
+  --accent-solid: #4f7cac;
+  --accent-stroke: #3e658d;
+  --accent-ring: rgba(79, 124, 172, 0.2);
+  --accent-surface: rgba(79, 124, 172, 0.08);
+  --accent-surface-strong: rgba(79, 124, 172, 0.16);
+  --accent-notice-border: rgba(79, 124, 172, 0.2);
+  --color-on-accent: #f8fbff;
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 18px;
@@ -36,7 +36,7 @@ body {
 
 #root {
   min-height: 100vh;
-  background: linear-gradient(180deg, rgba(255, 244, 249, 0.96) 0%, rgba(252, 224, 235, 0.92) 100%);
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.96) 0%, rgba(236, 240, 244, 0.92) 100%);
   padding: 1.5rem;
 }
 
@@ -95,7 +95,7 @@ input {
   background: var(--accent-surface);
   border: 1px solid var(--accent-notice-border);
   color: var(--color-text);
-  box-shadow: 0 16px 36px rgba(46, 22, 9, 0.1);
+  box-shadow: 0 16px 36px rgba(17, 24, 39, 0.08);
   min-height: 0;
 }
 
@@ -111,7 +111,7 @@ input {
   border-radius: var(--radius-md);
   border: 1px solid var(--accent-notice-border);
   background: var(--color-surface-muted);
-  box-shadow: 0 12px 28px rgba(46, 22, 9, 0.12);
+  box-shadow: 0 12px 28px rgba(17, 24, 39, 0.1);
 }
 
 .karaoke-page__queue-header {
@@ -170,7 +170,7 @@ input {
   border-radius: var(--radius-md);
   border: 1px solid transparent;
   background: var(--color-surface-muted);
-  box-shadow: 0 12px 28px rgba(46, 22, 9, 0.12);
+  box-shadow: 0 12px 28px rgba(17, 24, 39, 0.1);
   transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -348,7 +348,7 @@ input {
   border-radius: var(--radius-md);
   border: 1px solid var(--accent-notice-border);
   background: var(--color-surface);
-  box-shadow: 0 12px 28px rgba(46, 22, 9, 0.12);
+  box-shadow: 0 12px 28px rgba(17, 24, 39, 0.1);
   overflow: hidden;
 }
 
