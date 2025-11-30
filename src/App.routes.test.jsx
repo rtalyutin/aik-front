@@ -21,7 +21,7 @@ test('корневой маршрут перенаправляет на стра
   assert.ok(heading);
 });
 
-test('любые маршруты отображают страницу караоке', async () => {
+test('маршрут караоке доступен и активен в меню', async () => {
   render(
     <MemoryRouter initialEntries={['/karaoke']}>
       <App />
@@ -30,6 +30,9 @@ test('любые маршруты отображают страницу кара
 
   const heading = await screen.findByRole('heading', { name: 'Караоке-сцена' });
   assert.ok(heading);
+
+  const karaokeLink = await screen.findByRole('link', { name: 'Караоке' });
+  assert.equal(karaokeLink.getAttribute('aria-current'), 'page');
 
   cleanup();
 
@@ -41,4 +44,23 @@ test('любые маршруты отображают страницу кара
 
   const fallbackHeading = await screen.findByRole('heading', { name: 'Караоке-сцена' });
   assert.ok(fallbackHeading);
+});
+
+test('маршрут aik2 отображает заглушку и подсвечивает ссылку входа', async () => {
+  render(
+    <MemoryRouter initialEntries={['/aik2']}>
+      <App />
+    </MemoryRouter>,
+  );
+
+  const heading = await screen.findByRole('heading', { name: 'AIK 2' });
+  assert.ok(heading);
+
+  const description = await screen.findByText(
+    'Страница в разработке. Скоро появится больше возможностей.',
+  );
+  assert.ok(description);
+
+  const loginLink = await screen.findByRole('link', { name: 'Вход' });
+  assert.equal(loginLink.getAttribute('aria-current'), 'page');
 });
