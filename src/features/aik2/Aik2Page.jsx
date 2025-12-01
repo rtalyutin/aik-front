@@ -43,7 +43,7 @@ const Aik2Page = () => {
     return newErrors;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const validationErrors = validate();
 
@@ -53,8 +53,44 @@ const Aik2Page = () => {
       return;
     }
 
-    setErrors({});
-    setStatus({ type: 'success', message: config.form?.successMessage || 'Форма отправлена.' });
+    try {
+      setStatus({ type: 'idle', message: '' });
+
+      const response = await fetch('/api/auth/sign-in', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ login: formData.login, password: formData.password }),
+      });
+
+      const contentType = response.headers?.get?.('content-type') ?? '';
+      const isJson = contentType.includes('application/json');
+      const responseBody = isJson ? await response.json() : await response.text();
+
+      if (!response.ok) {
+        const errorMessage =
+          (isJson && (responseBody?.message || responseBody?.error)) ||
+          (typeof responseBody === 'string' ? responseBody : '') ||
+          `Ошибка ${response.status}`;
+
+        throw new Error(errorMessage);
+      }
+
+      const token = responseBody?.token;
+
+      if (token) {
+        window.localStorage.setItem('token', token);
+      }
+
+      setErrors({});
+      setStatus({ type: 'success', message: config.form?.successMessage || 'Форма отправлена.' });
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: error?.message || 'Не удалось выполнить вход. Попробуйте ещё раз.',
+      });
+    }
   };
 
   return (
