@@ -33,6 +33,21 @@ DEPLOY_PATH=/var/www/aik-front \
 npm run deploy
 ```
 
+### API endpoints via deployment variables
+
+Frontend API URLs are read **only** from deployment-time environment variables. Configure them in `.env` files or via CI/CD so that the built bundle has the correct addresses baked in:
+
+| Variable | Purpose | Required |
+| --- | --- | --- |
+| `VITE_API_BASE_URL` | Optional base URL that prefixes all relative endpoints. Trailing slashes are trimmed. | No |
+| `VITE_AUTH_SIGN_IN_ENDPOINT` | Auth sign-in endpoint. | Yes |
+| `VITE_READY_TRACKS_ENDPOINT` | Catalog of ready karaoke tracks. | Yes |
+| `VITE_JOB_STATUS_ENDPOINT` | Task status polling endpoint. | Yes |
+| `VITE_CREATE_TASK_URL` | Create karaoke task from URL. | Yes |
+| `VITE_CREATE_TASK_FILE` | Create karaoke task from file upload. | Yes |
+
+If `VITE_API_BASE_URL` is set (for example, `https://api.aik.bar`), it is automatically prepended to all relative endpoints above. Missing required variables will stop the app from starting, making misconfigured deploys immediately visible.
+
 For Nginx/CDN setups, ensure client-side routing falls back to the built index. The `deploy/nginx.conf` template configures `try_files` so that any unknown route resolves to `dist/index.html` while assets continue to be served directly from the `dist` folder.
 
 ## Quality Gates
