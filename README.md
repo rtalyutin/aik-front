@@ -33,6 +33,8 @@ DEPLOY_PATH=/var/www/aik-front \
 npm run deploy
 ```
 
+When serving the UI on the same domain as the API (for example, `aik.bar`), configure the Nginx template in `deploy/nginx.conf` to proxy `/api` requests to `https://api.aik.bar`. This keeps the browser on a single origin and removes the need for CORS settings while preserving the SPA `try_files` routing.
+
 ### API endpoints via deployment variables
 
 Frontend API URLs are read **only** from deployment-time environment variables. Configure them in `.env` files or via CI/CD so that the built bundle has the correct addresses baked in:
@@ -47,6 +49,8 @@ Frontend API URLs are read **only** from deployment-time environment variables. 
 | `VITE_CREATE_TASK_FILE` | Create karaoke task from file upload. | Yes |
 
 If `VITE_API_BASE_URL` is set (for example, `https://api.aik.bar`), it is automatically prepended to all relative endpoints above. Missing required variables will stop the app from starting, making misconfigured deploys immediately visible.
+
+Keep individual endpoint values relative (for example, `/api/karaoke-tracks`) when relying on the Nginx proxy so that requests are routed through the same origin. Only set full URLs if you intentionally need cross-origin calls.
 
 For Nginx/CDN setups, ensure client-side routing falls back to the built index. The `deploy/nginx.conf` template configures `try_files` so that any unknown route resolves to `dist/index.html` while assets continue to be served directly from the `dist` folder.
 
