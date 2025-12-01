@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext.jsx';
+import apiEndpoints from '../../config/apiEndpoints.js';
 import config from './config.js';
 import styles from './Aik2Page.module.css';
 
@@ -60,7 +61,7 @@ const Aik2Page = () => {
     try {
       setStatus({ type: 'idle', message: '' });
 
-      const response = await fetch('/api/auth/sign-in', {
+      const response = await fetch(apiEndpoints.authSignIn, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

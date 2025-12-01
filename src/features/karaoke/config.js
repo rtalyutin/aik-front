@@ -1,6 +1,7 @@
+import apiEndpoints from '../../config/apiEndpoints.js';
 import tracksData from './text.json';
 
-const tracksSource = import.meta.env?.VITE_READY_TRACKS_ENDPOINT || '/api/karaoke-tracks';
+const tracksSource = apiEndpoints.readyTracks;
 
 const localTracks = Array.isArray(tracksData) ? tracksData : [];
 
