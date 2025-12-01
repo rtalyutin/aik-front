@@ -8,22 +8,56 @@ import App from './App.jsx';
 
 afterEach(() => {
   cleanup();
+  window.localStorage.clear();
 });
 
-test('корневой маршрут перенаправляет на страницу караоке', async () => {
+test('неавторизованный пользователь перенаправляется на страницу входа для приватного корня', async () => {
   render(
     <MemoryRouter initialEntries={['/']}>
       <App />
     </MemoryRouter>,
   );
 
-  const heading = await screen.findByRole('heading', { name: 'Караоке-сцена' });
+  const heading = await screen.findByRole('heading', { name: 'AIK 2' });
   assert.ok(heading);
+
+  const loginLink = await screen.findByRole('link', { name: 'Вход' });
+  assert.equal(loginLink.getAttribute('aria-current'), 'page');
 });
 
-test('маршрут караоке доступен и активен в меню', async () => {
+test('маршрут караоке остаётся публичным без токена', async () => {
   render(
     <MemoryRouter initialEntries={['/karaoke']}>
+      <App />
+    </MemoryRouter>,
+  );
+
+  const karaokeHeading = await screen.findByRole('heading', { name: 'Караоке-сцена' });
+  assert.ok(karaokeHeading);
+
+  const karaokeLink = await screen.findByRole('link', { name: 'Караоке' });
+  assert.equal(karaokeLink.getAttribute('aria-current'), 'page');
+});
+
+test('другие маршруты без токена остаются приватными и отправляют на aik2', async () => {
+  render(
+    <MemoryRouter initialEntries={['/profile']}>
+      <App />
+    </MemoryRouter>,
+  );
+
+  const heading = await screen.findByRole('heading', { name: 'AIK 2' });
+  assert.ok(heading);
+
+  const loginLink = await screen.findByRole('link', { name: 'Вход' });
+  assert.equal(loginLink.getAttribute('aria-current'), 'page');
+});
+
+test('при наличии токена приватный маршрут перенаправляет к караоке', async () => {
+  window.localStorage.setItem('token', 'valid-token');
+
+  render(
+    <MemoryRouter initialEntries={['/']}>
       <App />
     </MemoryRouter>,
   );
@@ -33,20 +67,9 @@ test('маршрут караоке доступен и активен в мен
 
   const karaokeLink = await screen.findByRole('link', { name: 'Караоке' });
   assert.equal(karaokeLink.getAttribute('aria-current'), 'page');
-
-  cleanup();
-
-  render(
-    <MemoryRouter initialEntries={['/unknown']}>
-      <App />
-    </MemoryRouter>,
-  );
-
-  const fallbackHeading = await screen.findByRole('heading', { name: 'Караоке-сцена' });
-  assert.ok(fallbackHeading);
 });
 
-test('маршрут aik2 отображает заглушку и подсвечивает ссылку входа', async () => {
+test('маршрут aik2 остаётся публичным и подсвечивает ссылку входа', async () => {
   render(
     <MemoryRouter initialEntries={['/aik2']}>
       <App />

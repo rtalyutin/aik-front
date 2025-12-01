@@ -1,4 +1,6 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext.jsx';
 import config from './config.js';
 import styles from './Aik2Page.module.css';
 
@@ -6,6 +8,8 @@ const Aik2Page = () => {
   const [formData, setFormData] = useState({ login: '', password: '' });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ type: 'idle', message: '' });
+  const { isAuthenticated, login } = useAuth();
+  const navigate = useNavigate();
 
   const validationMessages = useMemo(() => {
     const messages = config.form?.validationMessages ?? {};
@@ -79,12 +83,15 @@ const Aik2Page = () => {
 
       const token = responseBody?.token;
 
-      if (token) {
-        window.localStorage.setItem('token', token);
+      if (!token) {
+        throw new Error('Не удалось получить токен. Попробуйте ещё раз.');
       }
+
+      login(token);
 
       setErrors({});
       setStatus({ type: 'success', message: config.form?.successMessage || 'Форма отправлена.' });
+      navigate('/karaoke', { replace: true });
     } catch (error) {
       setStatus({
         type: 'error',
@@ -92,6 +99,12 @@ const Aik2Page = () => {
       });
     }
   };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/karaoke', { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
 
   return (
     <section className={styles.page}>
