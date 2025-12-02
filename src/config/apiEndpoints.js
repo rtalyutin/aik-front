@@ -6,8 +6,10 @@ const normalizeBaseUrl = (value) => {
   return String(value).replace(/\/+$/, '');
 };
 
+const runtimeEnv = import.meta?.env ?? globalThis?.import_meta_env ?? {};
+
 const readEnv = (key) => {
-  const value = import.meta.env?.[key];
+  const value = runtimeEnv?.[key];
 
   if (value === undefined || value === null) {
     throw new Error(`Отсутствует переменная окружения ${key}. Проверьте настройки деплоя.`);

@@ -82,9 +82,13 @@ const Aik2Page = () => {
         throw new Error(errorMessage);
       }
 
-      const token = responseBody?.token;
+      const token =
+        typeof responseBody === 'object' && responseBody !== null
+          ? responseBody?.token ?? responseBody?.data?.token
+          : undefined;
 
       if (!token) {
+        console.warn?.('Unexpected auth response shape during login', responseBody);
         throw new Error('Не удалось получить токен. Попробуйте ещё раз.');
       }
 
