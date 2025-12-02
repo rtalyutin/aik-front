@@ -1,8 +1,10 @@
 import React, { useMemo, useState } from 'react';
+import { useAuth } from '../../context/AuthContext.jsx';
 import config from './config.js';
 import styles from './AiKaraokePage.module.css';
 
 const AiKaraokePage = () => {
+  const { token } = useAuth();
   const [file, setFile] = useState(null);
   const [langCode, setLangCode] = useState('');
   const [validationErrors, setValidationErrors] = useState([]);
@@ -54,6 +56,7 @@ const AiKaraokePage = () => {
 
       const response = await fetch('/api/karaoke-tracks/create-task-from-file', {
         method: 'POST',
+        headers: { Authorization: `Bearer ${token}` },
         body: formData,
       });
 

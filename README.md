@@ -80,7 +80,7 @@ The `/karaoke` page now ships with a bundled playlist located at `src/features/k
 
 ### Создание задачи по файлу
 
-1. Отправьте `POST /api/karaoke-tracks/create-task-from-file` с `multipart/form-data`, где поле `file` содержит аудио или видео. Допустимые типы: `audio/*`, `video/*`, максимальный размер — 512 МБ.
+1. Отправьте `POST /api/karaoke-tracks/create-task-from-file` с заголовком `Authorization: Bearer <access_token>` и `multipart/form-data`, где поле `file` содержит аудио или видео. Допустимые типы: `audio/*`, `video/*`, максимальный размер — 512 МБ.
 2. На успешный ответ `2xx` приложение извлекает ID задачи из JSON так же, как и при создании по ссылке, и начинает поллинг `GET /api/karaoke-tracks/tasks/{task_id}`.
 3. Если сервер не поддерживает загрузку файлов или возвращает ошибку, пользователь видит сообщение «Не удалось создать задачу из файла», а задача не добавляется.
 

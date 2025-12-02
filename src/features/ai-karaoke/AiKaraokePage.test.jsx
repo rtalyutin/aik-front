@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import test, { afterEach, beforeEach } from 'node:test';
 import React from 'react';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { AuthProvider } from '../../context/AuthContext.jsx';
 import AiKaraokePage from './AiKaraokePage.jsx';
 import config from './config.js';
 
@@ -33,18 +34,23 @@ const sampleTask = {
 };
 
 let originalFetch;
+const defaultToken = 'test-token';
+
+const renderWithAuth = (ui) => render(<AuthProvider>{ui}</AuthProvider>);
 
 beforeEach(() => {
   originalFetch = globalThis.fetch;
+  window.localStorage.setItem('token', defaultToken);
 });
 
 afterEach(() => {
   cleanup();
   globalThis.fetch = originalFetch;
+  window.localStorage.clear();
 });
 
 test('shows validation errors when required inputs are missing', () => {
-  render(<AiKaraokePage />);
+  renderWithAuth(<AiKaraokePage />);
 
   fireEvent.click(screen.getByRole('button', { name: config.form.submitLabel }));
 
@@ -66,7 +72,7 @@ test('submits multipart request and renders returned task data', async () => {
     });
   };
 
-  render(<AiKaraokePage />);
+  renderWithAuth(<AiKaraokePage />);
 
   const file = new File(['demo'], 'song.mp3', { type: 'audio/mpeg' });
 
@@ -87,6 +93,7 @@ test('submits multipart request and renders returned task data', async () => {
   assert.equal(fetchCalls.length, 1);
   assert.equal(fetchCalls[0].input, '/api/karaoke-tracks/create-task-from-file');
   assert.equal(fetchCalls[0].init.method, 'POST');
+  assert.equal(fetchCalls[0].init.headers.Authorization, `Bearer ${defaultToken}`);
 
   const bodyEntries = Array.from(fetchCalls[0].init.body.entries());
   const fileEntry = bodyEntries.find(([key]) => key === 'file');
@@ -116,7 +123,7 @@ test('renders API error payload when request fails', async () => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-  render(<AiKaraokePage />);
+  renderWithAuth(<AiKaraokePage />);
 
   const file = new File(['demo'], 'song.mp3', { type: 'audio/mpeg' });
 
@@ -146,7 +153,7 @@ test('shows loading state while request is pending', async () => {
       resolveRequest = resolve;
     });
 
-  render(<AiKaraokePage />);
+  renderWithAuth(<AiKaraokePage />);
 
   const file = new File(['demo'], 'song.mp3', { type: 'audio/mpeg' });
 
