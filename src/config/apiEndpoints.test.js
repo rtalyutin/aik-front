@@ -32,3 +32,27 @@ test('builds endpoints when all required variables are provided', async () => {
   assert.equal(endpoints.authSignIn, 'https://api.example.com/auth/sign-in');
   assert.equal(getApiEndpoints().readyTracks, 'https://api.example.com/tracks');
 });
+
+test('keeps relative endpoints when API base matches current origin', async () => {
+  const appOrigin = 'https://app.example.com';
+  const env = {
+    VITE_API_BASE_URL: appOrigin,
+    VITE_AUTH_SIGN_IN_ENDPOINT: '/auth/sign-in',
+    VITE_READY_TRACKS_ENDPOINT: '/tracks',
+    VITE_JOB_STATUS_ENDPOINT: '/jobs/status',
+    VITE_CREATE_TASK_URL: '/tasks/from-url',
+    VITE_CREATE_TASK_FILE: '/tasks/from-file',
+  };
+
+  const originalWindow = globalThis.window;
+  globalThis.window = { ...originalWindow, location: { origin: appOrigin } };
+
+  try {
+    const { default: endpoints, withApiBase } = await loadApiEndpoints(env);
+
+    assert.equal(endpoints.createTaskFromFile, '/tasks/from-file');
+    assert.equal(withApiBase('/api/status'), '/api/status');
+  } finally {
+    globalThis.window = originalWindow;
+  }
+});

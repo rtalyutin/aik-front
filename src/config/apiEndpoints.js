@@ -63,6 +63,34 @@ const validateRequiredEnv = () => {
 
 const API_BASE_URL = normalizeBaseUrl(runtimeEnv?.VITE_API_BASE_URL);
 
+const getCurrentOrigin = () => {
+  if (typeof window !== 'undefined' && window?.location?.origin) {
+    return window.location.origin;
+  }
+
+  if (globalThis?.location?.origin) {
+    return globalThis.location.origin;
+  }
+
+  if (runtimeEnv?.ORIGIN) {
+    try {
+      return new URL(String(runtimeEnv.ORIGIN)).origin;
+    } catch (error) {
+      // fall through and treat origin as unavailable
+    }
+  }
+
+  return null;
+};
+
+const getOriginFromUrl = (value) => {
+  try {
+    return new URL(String(value)).origin;
+  } catch (error) {
+    return null;
+  }
+};
+
 const withApiBase = (pathLike) => {
   const normalizedPath = String(pathLike || '').trim();
 
@@ -79,6 +107,13 @@ const withApiBase = (pathLike) => {
     : `/${normalizedPath}`;
 
   if (!API_BASE_URL) {
+    return sanitizedPath;
+  }
+
+  const baseOrigin = getOriginFromUrl(API_BASE_URL);
+  const currentOrigin = getCurrentOrigin();
+
+  if (baseOrigin && currentOrigin && baseOrigin === currentOrigin) {
     return sanitizedPath;
   }
 
