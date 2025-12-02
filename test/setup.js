@@ -6,6 +6,14 @@ const dom = new JSDOM('<!doctype html><html><body></body></html>', {
 
 const { window } = dom;
 
+const defaultImportMetaEnv = {
+  VITE_AUTH_SIGN_IN_ENDPOINT: process.env.VITE_AUTH_SIGN_IN_ENDPOINT || '/auth',
+  VITE_READY_TRACKS_ENDPOINT: process.env.VITE_READY_TRACKS_ENDPOINT || '/ready',
+  VITE_JOB_STATUS_ENDPOINT: process.env.VITE_JOB_STATUS_ENDPOINT || '/job-status',
+  VITE_CREATE_TASK_URL: process.env.VITE_CREATE_TASK_URL || '/task/url',
+  VITE_CREATE_TASK_FILE: process.env.VITE_CREATE_TASK_FILE || '/task/file',
+};
+
 function copyProps(src, target) {
   Object.defineProperties(target, {
     ...Object.getOwnPropertyDescriptors(src),
@@ -13,6 +21,7 @@ function copyProps(src, target) {
   });
 }
 
+globalThis.import_meta_env = defaultImportMetaEnv;
 globalThis.window = window;
 globalThis.document = window.document;
 globalThis.navigator = window.navigator;
