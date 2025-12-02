@@ -2,6 +2,7 @@ import React, { createContext, useCallback, useContext, useEffect, useMemo, useS
 
 const AuthContext = createContext({
   isAuthenticated: false,
+  token: '',
   login: () => {},
   logout: () => {},
 });
@@ -55,10 +56,11 @@ const AuthProvider = ({ children }) => {
   const value = useMemo(
     () => ({
       isAuthenticated,
+      token,
       login,
       logout,
     }),
-    [isAuthenticated, login, logout],
+    [isAuthenticated, login, logout, token],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
