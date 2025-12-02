@@ -51,6 +51,14 @@ test('renders authenticated navigation with AI karaoke and logout', () => {
   assert.equal(screen.queryByRole('link', { name: 'Вход' }), null);
 });
 
+test('navigates to AI karaoke page for authenticated users', () => {
+  const getLocation = renderLayout({ isAuthenticated: true });
+
+  fireEvent.click(screen.getByRole('link', { name: 'ИИ-Караоке' }));
+
+  assert.equal(getLocation(), '/ai-karaoke');
+});
+
 test('logout triggers auth cleanup and redirects to sign-in', async () => {
   const logoutMock = mock.fn();
   const getLocation = renderLayout({ isAuthenticated: true, logout: logoutMock });
