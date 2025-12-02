@@ -55,4 +55,17 @@ function spaFallbackPlugin() {
 export default defineConfig({
   base: './',
   plugins: [react(), spaFallbackPlugin()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://api.aik.bar',
+        changeOrigin: true,
+      },
+      '/karaoke/api': {
+        target: 'https://api.aik.bar',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/karaoke/, ''),
+      },
+    },
+  },
 });

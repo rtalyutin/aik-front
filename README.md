@@ -34,7 +34,7 @@ DEPLOY_PATH=/var/www/aik-front \
 npm run deploy
 ```
 
-When serving the UI on the same domain as the API (for example, `aik.bar`), configure the Nginx template in `deploy/nginx.conf` to proxy `/api` requests to `https://api.aik.bar`. This keeps the browser on a single origin and removes the need for CORS settings while preserving the SPA `try_files` routing.
+When serving the UI on the same domain as the API (for example, `aik.bar`), configure the Nginx template in `deploy/nginx.conf` to proxy `/api` requests to `https://api.aik.bar`. This keeps the browser on a single origin and removes the need for CORS settings while preserving the SPA `try_files` routing. The Vite dev server mirrors this behavior via a proxy, so `npm run dev` also routes `/api` and `/karaoke/api` calls through the frontend origin instead of making cross-origin requests.
 
 ### API endpoints via deployment variables
 
@@ -42,14 +42,14 @@ Frontend API URLs are read **only** from deployment-time environment variables. 
 
 | Variable | Purpose | Required |
 | --- | --- | --- |
-| `VITE_API_BASE_URL` | Optional base URL that prefixes all relative endpoints. Trailing slashes are trimmed. | No |
+| `VITE_API_BASE_URL` | Optional base URL that prefixes all relative endpoints. Trailing slashes are trimmed. Leave empty (recommended) or set to the frontend origin to keep requests same-origin. | No |
 | `VITE_AUTH_SIGN_IN_ENDPOINT` | Auth sign-in endpoint. | Yes |
 | `VITE_READY_TRACKS_ENDPOINT` | Catalog of ready karaoke tracks. | Yes |
 | `VITE_JOB_STATUS_ENDPOINT` | Task status polling endpoint. | Yes |
 | `VITE_CREATE_TASK_URL` | Create karaoke task from URL. | Yes |
 | `VITE_CREATE_TASK_FILE` | Create karaoke task from file upload. | Yes |
 
-If `VITE_API_BASE_URL` is set (for example, `https://api.aik.bar`), it is automatically prepended to all relative endpoints above. Missing required variables will stop the app from starting, making misconfigured deploys immediately visible.
+If `VITE_API_BASE_URL` is set to a different host (for example, `https://api.aik.bar`), it is automatically prepended to all relative endpoints above. To avoid CORS and redirects, prefer leaving `VITE_API_BASE_URL` empty so the app generates `/api/...` URLs that your reverse proxy forwards to `https://api.aik.bar`. Missing required variables will stop the app from starting, making misconfigured deploys immediately visible.
 
 Use `npm run check:env` (or run `VITE_…=value npm run build` in CI) to fail fast during the pipeline if any variable is absent or empty. In runtime the application renders a dedicated error screen listing all missing keys instead of crashing with a generic exception.
 
