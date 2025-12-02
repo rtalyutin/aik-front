@@ -17,6 +17,7 @@ This project uses Vite with React 18, ESLint, Prettier, and Node's built-in test
 - `npm run dev` – start the Vite development server.
 - `npm run build` – build the production bundle with Vite.
 - `npm run preview` – preview the production build locally.
+- `npm run check:env` – validate that all required `VITE_` variables are present before building.
 - `npm run lint` – run ESLint with the React, Hooks, and a11y presets.
 - `npm run format` – format the codebase with Prettier (single quotes, semicolons, 80 character width).
 - `npm run test` – execute the Node.js test runner (`node --test`).
@@ -49,6 +50,8 @@ Frontend API URLs are read **only** from deployment-time environment variables. 
 | `VITE_CREATE_TASK_FILE` | Create karaoke task from file upload. | Yes |
 
 If `VITE_API_BASE_URL` is set (for example, `https://api.aik.bar`), it is automatically prepended to all relative endpoints above. Missing required variables will stop the app from starting, making misconfigured deploys immediately visible.
+
+Use `npm run check:env` (or run `VITE_…=value npm run build` in CI) to fail fast during the pipeline if any variable is absent or empty. In runtime the application renders a dedicated error screen listing all missing keys instead of crashing with a generic exception.
 
 Keep individual endpoint values relative (for example, `/api/karaoke-tracks`) when relying on the Nginx proxy so that requests are routed through the same origin. Only set full URLs if you intentionally need cross-origin calls.
 
