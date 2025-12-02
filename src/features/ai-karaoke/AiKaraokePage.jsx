@@ -1,5 +1,6 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '../../context/AuthContext.jsx';
+import { getApiEndpoints, getApiInitError } from '../../config/apiEndpoints.js';
 import config from './config.js';
 import styles from './AiKaraokePage.module.css';
 
@@ -11,6 +12,40 @@ const AiKaraokePage = () => {
   const [error, setError] = useState(null);
   const [taskData, setTaskData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const apiInitError = getApiInitError();
+
+  const { createTaskFromFile } = useMemo(() => getApiEndpoints() ?? {}, []);
+
+  const configIssue = useMemo(() => {
+    if (apiInitError) {
+      const details = apiInitError?.details ?? [];
+      const message =
+        'Конфигурация API недоступна. Проверьте переменные окружения и настройки деплоя.';
+
+      return {
+        message,
+        details:
+          details.length > 0
+            ? details.join(' ')
+            : apiInitError.message ?? 'Неизвестная ошибка конфигурации.',
+      };
+    }
+
+    if (!createTaskFromFile) {
+      return {
+        message:
+          'Endpoint для создания задачи не настроен. Проверьте переменные окружения.',
+      };
+    }
+
+    return null;
+  }, [apiInitError, createTaskFromFile]);
+
+  useEffect(() => {
+    if (configIssue) {
+      setError(configIssue);
+    }
+  }, [configIssue]);
 
   const availableLanguages = useMemo(
     () => [
@@ -31,6 +66,11 @@ const AiKaraokePage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     resetErrors();
+
+    if (configIssue) {
+      setError(configIssue);
+      return;
+    }
 
     const errors = [];
 
@@ -54,7 +94,7 @@ const AiKaraokePage = () => {
       formData.append('file', file);
       formData.append('lang_code', langCode);
 
-      const response = await fetch('/api/karaoke-tracks/create-task-from-file', {
+      const response = await fetch(createTaskFromFile, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` },
         body: formData,

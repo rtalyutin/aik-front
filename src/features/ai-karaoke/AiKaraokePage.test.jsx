@@ -1,9 +1,10 @@
 import '../../../test/setup.js';
 import assert from 'node:assert/strict';
-import test, { afterEach, beforeEach } from 'node:test';
+import test, { afterEach, beforeEach, mock } from 'node:test';
 import React from 'react';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { AuthProvider } from '../../context/AuthContext.jsx';
+import * as apiEndpoints from '../../config/apiEndpoints.js';
 import AiKaraokePage from './AiKaraokePage.jsx';
 import config from './config.js';
 
@@ -35,18 +36,25 @@ const sampleTask = {
 
 let originalFetch;
 const defaultToken = 'test-token';
+const defaultCreateTaskUrl = 'https://api.example.com/karaoke-tracks/create-task-from-file';
 
 const renderWithAuth = (ui) => render(<AuthProvider>{ui}</AuthProvider>);
 
 beforeEach(() => {
+  mock.restoreAll();
   originalFetch = globalThis.fetch;
   window.localStorage.setItem('token', defaultToken);
+  mock.method(apiEndpoints, 'getApiEndpoints', () => ({
+    createTaskFromFile: defaultCreateTaskUrl,
+  }));
+  mock.method(apiEndpoints, 'getApiInitError', () => null);
 });
 
 afterEach(() => {
   cleanup();
   globalThis.fetch = originalFetch;
   window.localStorage.clear();
+  mock.restoreAll();
 });
 
 test('shows validation errors when required inputs are missing', () => {
@@ -91,7 +99,7 @@ test('submits multipart request and renders returned task data', async () => {
   });
 
   assert.equal(fetchCalls.length, 1);
-  assert.equal(fetchCalls[0].input, '/api/karaoke-tracks/create-task-from-file');
+  assert.equal(fetchCalls[0].input, defaultCreateTaskUrl);
   assert.equal(fetchCalls[0].init.method, 'POST');
   assert.equal(fetchCalls[0].init.headers.Authorization, `Bearer ${defaultToken}`);
 
@@ -180,5 +188,19 @@ test('shows loading state while request is pending', async () => {
 
   await waitFor(() => {
     assert.ok(screen.getByText(sampleTask.status));
+  });
+});
+
+test('surfaces API configuration issues', async () => {
+  const configError = new Error('missing env var');
+
+  mock.restoreAll();
+  mock.method(apiEndpoints, 'getApiInitError', () => configError);
+  mock.method(apiEndpoints, 'getApiEndpoints', () => ({ createTaskFromFile: '' }));
+
+  renderWithAuth(<AiKaraokePage />);
+
+  await waitFor(() => {
+    assert.ok(screen.getByText(/Конфигурация API недоступна/i));
   });
 });
