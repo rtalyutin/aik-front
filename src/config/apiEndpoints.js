@@ -12,6 +12,35 @@ const runtimeEnv =
   (typeof process !== 'undefined' ? process.env : {}) ??
   {};
 
+const assertCreateTaskFromFilePath = (value) => {
+  const url = (() => {
+    try {
+      return new URL(value, 'https://placeholder.local');
+    } catch (error) {
+      return null;
+    }
+  })();
+
+  const pathname = url?.pathname ?? '';
+  const isKaraokeTaskPath = /\/karaoke-tracks\/create-task-from-file\/?$/i.test(
+    pathname,
+  );
+
+  if (!isKaraokeTaskPath) {
+    throw new Error(
+      'VITE_CREATE_TASK_FILE должен указывать на путь ' +
+        '`/api/karaoke-tracks/create-task-from-file` (полный URL или относительный). ' +
+        'Неподдерживаемые значения вроде `/api/basic-tracks/create-task-from-file` приведут к CORS-ошибкам.',
+    );
+  }
+
+  return value;
+};
+
+const ENV_VALIDATORS = {
+  VITE_CREATE_TASK_FILE: assertCreateTaskFromFilePath,
+};
+
 const readEnv = (key) => {
   const value = runtimeEnv?.[key];
 
@@ -29,7 +58,9 @@ const readEnv = (key) => {
     );
   }
 
-  return trimmed;
+  const validator = ENV_VALIDATORS[key];
+
+  return validator ? validator(trimmed) : trimmed;
 };
 
 const REQUIRED_ENV_KEYS = [

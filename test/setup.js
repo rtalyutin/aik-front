@@ -11,7 +11,9 @@ const defaultImportMetaEnv = {
   VITE_READY_TRACKS_ENDPOINT: process.env.VITE_READY_TRACKS_ENDPOINT || '/ready',
   VITE_JOB_STATUS_ENDPOINT: process.env.VITE_JOB_STATUS_ENDPOINT || '/job-status',
   VITE_CREATE_TASK_URL: process.env.VITE_CREATE_TASK_URL || '/task/url',
-  VITE_CREATE_TASK_FILE: process.env.VITE_CREATE_TASK_FILE || '/task/file',
+  VITE_CREATE_TASK_FILE:
+    process.env.VITE_CREATE_TASK_FILE ||
+    '/api/karaoke-tracks/create-task-from-file',
 };
 
 function copyProps(src, target) {
