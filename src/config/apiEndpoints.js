@@ -7,19 +7,26 @@ const normalizeBaseUrl = (value) => {
 };
 
 const runtimeEnv =
-  import.meta?.env ?? globalThis?.import_meta_env ?? (typeof process !== 'undefined' ? process.env : {}) ?? {};
+  import.meta?.env ??
+  globalThis?.import_meta_env ??
+  (typeof process !== 'undefined' ? process.env : {}) ??
+  {};
 
 const readEnv = (key) => {
   const value = runtimeEnv?.[key];
 
   if (value === undefined || value === null) {
-    throw new Error(`Отсутствует переменная окружения ${key}. Проверьте настройки деплоя.`);
+    throw new Error(
+      `Отсутствует переменная окружения ${key}. Проверьте настройки деплоя.`,
+    );
   }
 
   const trimmed = String(value).trim();
 
   if (!trimmed) {
-    throw new Error(`Переменная окружения ${key} пуста. Заполните значение в настройках деплоя.`);
+    throw new Error(
+      `Переменная окружения ${key} пуста. Заполните значение в настройках деплоя.`,
+    );
   }
 
   return trimmed;
@@ -142,7 +149,10 @@ let apiInitError = null;
 let apiEndpoints = null;
 
 if (envValidationResult.missingKeys.length > 0) {
-  apiInitError = new EnvConfigError(envValidationResult.missingKeys, envValidationResult.details);
+  apiInitError = new EnvConfigError(
+    envValidationResult.missingKeys,
+    envValidationResult.details,
+  );
   apiEndpoints = EMPTY_API_ENDPOINTS;
 } else {
   apiEndpoints = buildApiEndpoints(envValidationResult.values);
@@ -151,6 +161,24 @@ if (envValidationResult.missingKeys.length > 0) {
 const getApiEndpoints = () => apiEndpoints;
 const getApiInitError = () => apiInitError;
 const getEnvValidationResult = () => envValidationResult;
+const overrideApiConfigForTests = ({ endpoints, initError } = {}) => {
+  if (endpoints) {
+    apiEndpoints = { ...apiEndpoints, ...endpoints };
+  }
 
-export { EnvConfigError, API_BASE_URL, withApiBase, getApiEndpoints, getApiInitError, getEnvValidationResult, REQUIRED_ENV_KEYS };
+  if (initError !== undefined) {
+    apiInitError = initError;
+  }
+};
+
+export {
+  EnvConfigError,
+  API_BASE_URL,
+  withApiBase,
+  getApiEndpoints,
+  getApiInitError,
+  getEnvValidationResult,
+  REQUIRED_ENV_KEYS,
+  overrideApiConfigForTests,
+};
 export default apiEndpoints;

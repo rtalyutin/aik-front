@@ -2,9 +2,19 @@ import '../../../test/setup.js';
 import assert from 'node:assert/strict';
 import test, { afterEach, beforeEach, mock } from 'node:test';
 import React from 'react';
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import { AuthProvider } from '../../context/AuthContext.jsx';
-import * as apiEndpoints from '../../config/apiEndpoints.js';
+import {
+  getApiEndpoints,
+  getApiInitError,
+  overrideApiConfigForTests,
+} from '../../config/apiEndpoints.js';
 import AiKaraokePage from './AiKaraokePage.jsx';
 import config from './config.js';
 
@@ -36,31 +46,56 @@ const sampleTask = {
 
 let originalFetch;
 const defaultToken = 'test-token';
-const defaultCreateTaskUrl = 'https://api.example.com/karaoke-tracks/create-task-from-file';
+const defaultCreateTaskUrl =
+  'http://api.example.com/karaoke-tracks/create-task-from-file';
 
 const renderWithAuth = (ui) => render(<AuthProvider>{ui}</AuthProvider>);
+const initialEndpoints = { ...getApiEndpoints() };
+const initialInitError = getApiInitError();
+const renderPage = ({ createTaskFromFile, apiInitError } = {}) => {
+  if (createTaskFromFile !== undefined || apiInitError !== undefined) {
+    overrideApiConfigForTests({
+      endpoints: {
+        ...initialEndpoints,
+        ...(createTaskFromFile !== undefined ? { createTaskFromFile } : {}),
+      },
+      initError: apiInitError ?? null,
+    });
+  }
+
+  return renderWithAuth(<AiKaraokePage />);
+};
 
 beforeEach(() => {
   mock.restoreAll();
   originalFetch = globalThis.fetch;
   window.localStorage.setItem('token', defaultToken);
-  mock.method(apiEndpoints, 'getApiEndpoints', () => ({
-    createTaskFromFile: defaultCreateTaskUrl,
-  }));
-  mock.method(apiEndpoints, 'getApiInitError', () => null);
+  overrideApiConfigForTests({
+    endpoints: {
+      ...initialEndpoints,
+      createTaskFromFile: defaultCreateTaskUrl,
+    },
+    initError: null,
+  });
 });
 
 afterEach(() => {
   cleanup();
   globalThis.fetch = originalFetch;
   window.localStorage.clear();
+  overrideApiConfigForTests({
+    endpoints: { ...initialEndpoints },
+    initError: initialInitError,
+  });
   mock.restoreAll();
 });
 
-test('shows validation errors when required inputs are missing', () => {
-  renderWithAuth(<AiKaraokePage />);
+test('shows validation errors when required inputs are missing', async () => {
+  renderPage();
 
-  fireEvent.click(screen.getByRole('button', { name: config.form.submitLabel }));
+  fireEvent.click(
+    screen.getByRole('button', { name: config.form.submitLabel }),
+  );
 
   assert.ok(screen.getByText(config.validationMessages.fileRequired));
   assert.ok(screen.getByText(config.validationMessages.langRequired));
@@ -80,7 +115,7 @@ test('submits multipart request and renders returned task data', async () => {
     });
   };
 
-  renderWithAuth(<AiKaraokePage />);
+  renderPage();
 
   const file = new File(['demo'], 'song.mp3', { type: 'audio/mpeg' });
 
@@ -92,16 +127,21 @@ test('submits multipart request and renders returned task data', async () => {
     target: { value: 'ru' },
   });
 
-  fireEvent.click(screen.getByRole('button', { name: config.form.submitLabel }));
+  fireEvent.click(
+    screen.getByRole('button', { name: config.form.submitLabel }),
+  );
 
   await waitFor(() => {
     assert.ok(screen.getByText(sampleTask.id));
   });
 
   assert.equal(fetchCalls.length, 1);
-  assert.equal(fetchCalls[0].input, defaultCreateTaskUrl);
+  assert.equal(String(fetchCalls[0].input), defaultCreateTaskUrl);
   assert.equal(fetchCalls[0].init.method, 'POST');
-  assert.equal(fetchCalls[0].init.headers.Authorization, `Bearer ${defaultToken}`);
+  assert.equal(
+    fetchCalls[0].init.headers.Authorization,
+    `Bearer ${defaultToken}`,
+  );
 
   const bodyEntries = Array.from(fetchCalls[0].init.body.entries());
   const fileEntry = bodyEntries.find(([key]) => key === 'file');
@@ -132,7 +172,7 @@ test('omits Authorization header when token is missing', async () => {
     });
   };
 
-  renderWithAuth(<AiKaraokePage />);
+  renderPage();
 
   const file = new File(['demo'], 'song.mp3', { type: 'audio/mpeg' });
 
@@ -144,7 +184,9 @@ test('omits Authorization header when token is missing', async () => {
     target: { value: 'ru' },
   });
 
-  fireEvent.click(screen.getByRole('button', { name: config.form.submitLabel }));
+  fireEvent.click(
+    screen.getByRole('button', { name: config.form.submitLabel }),
+  );
 
   await waitFor(() => {
     assert.ok(screen.getByText(sampleTask.id));
@@ -166,7 +208,7 @@ test('renders API error payload when request fails', async () => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-  renderWithAuth(<AiKaraokePage />);
+  renderPage();
 
   const file = new File(['demo'], 'song.mp3', { type: 'audio/mpeg' });
 
@@ -178,7 +220,9 @@ test('renders API error payload when request fails', async () => {
     target: { value: 'ru' },
   });
 
-  fireEvent.click(screen.getByRole('button', { name: config.form.submitLabel }));
+  fireEvent.click(
+    screen.getByRole('button', { name: config.form.submitLabel }),
+  );
 
   await waitFor(() => {
     assert.ok(screen.getByText(errorPayload.message));
@@ -196,7 +240,7 @@ test('shows loading state while request is pending', async () => {
       resolveRequest = resolve;
     });
 
-  renderWithAuth(<AiKaraokePage />);
+  renderPage();
 
   const file = new File(['demo'], 'song.mp3', { type: 'audio/mpeg' });
 
@@ -208,7 +252,9 @@ test('shows loading state while request is pending', async () => {
     target: { value: 'ru' },
   });
 
-  fireEvent.click(screen.getByRole('button', { name: config.form.submitLabel }));
+  fireEvent.click(
+    screen.getByRole('button', { name: config.form.submitLabel }),
+  );
 
   await waitFor(() => {
     assert.ok(screen.getByRole('button', { name: config.form.loadingLabel }));
@@ -229,13 +275,70 @@ test('shows loading state while request is pending', async () => {
 test('surfaces API configuration issues', async () => {
   const configError = new Error('missing env var');
 
-  mock.restoreAll();
-  mock.method(apiEndpoints, 'getApiInitError', () => configError);
-  mock.method(apiEndpoints, 'getApiEndpoints', () => ({ createTaskFromFile: '' }));
-
-  renderWithAuth(<AiKaraokePage />);
+  renderPage({ apiInitError: configError, createTaskFromFile: '' });
 
   await waitFor(() => {
     assert.ok(screen.getByText(/Конфигурация API недоступна/i));
   });
+});
+
+test('shows configuration error when endpoint protocol mismatches the page protocol', async () => {
+  const fetchSpy = mock.fn();
+  globalThis.fetch = fetchSpy;
+
+  renderPage({
+    createTaskFromFile:
+      'https://api.example.com/karaoke-tracks/create-task-from-file',
+  });
+
+  const file = new File(['demo'], 'song.mp3', { type: 'audio/mpeg' });
+
+  fireEvent.change(screen.getByLabelText(config.form.fileLabel), {
+    target: { files: [file] },
+  });
+
+  fireEvent.change(screen.getByLabelText(config.form.languageLabel), {
+    target: { value: 'ru' },
+  });
+
+  fireEvent.click(
+    screen.getByRole('button', { name: config.form.submitLabel }),
+  );
+
+  await waitFor(() => {
+    assert.ok(
+      screen.getByText(/Endpoint для создания задачи настроен некорректно/i),
+    );
+  });
+
+  assert.equal(fetchSpy.mock.calls.length, 0);
+});
+
+test('shows configuration error when endpoint URL cannot be parsed', async () => {
+  const fetchSpy = mock.fn();
+  globalThis.fetch = fetchSpy;
+
+  renderPage({ createTaskFromFile: 'http://' });
+
+  const file = new File(['demo'], 'song.mp3', { type: 'audio/mpeg' });
+
+  fireEvent.change(screen.getByLabelText(config.form.fileLabel), {
+    target: { files: [file] },
+  });
+
+  fireEvent.change(screen.getByLabelText(config.form.languageLabel), {
+    target: { value: 'ru' },
+  });
+
+  fireEvent.click(
+    screen.getByRole('button', { name: config.form.submitLabel }),
+  );
+
+  await waitFor(() => {
+    assert.ok(
+      screen.getByText(/Endpoint для создания задачи настроен некорректно/i),
+    );
+  });
+
+  assert.equal(fetchSpy.mock.calls.length, 0);
 });
