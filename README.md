@@ -55,11 +55,25 @@ Use `npm run check:env` (or run `VITE_…=value npm run build` in CI) to fail fa
 
 Keep individual endpoint values relative (for example, `/api/karaoke-tracks`) when relying on the Nginx proxy so that requests are routed through the same origin. Only set full URLs if you intentionally need cross-origin calls.
 
+When configuring cross-origin deployments, `VITE_CREATE_TASK_FILE` **must be a full HTTPS URL** that accepts `POST` requests with file uploads and exposes CORS headers for the frontend domain. If `VITE_API_BASE_URL` is also set, it must be an HTTPS origin and return CORS responses (including `Access-Control-Allow-Origin`) that list the UI host. Example configuration for a UI on `https://ui.aik.bar` and API on `https://api.aik.bar`:
+
+```bash
+VITE_API_BASE_URL=https://api.aik.bar
+VITE_CREATE_TASK_URL=https://api.aik.bar/api/karaoke-tracks/create-task-from-url
+VITE_CREATE_TASK_FILE=https://api.aik.bar/api/karaoke-tracks/create-task-from-file
+```
+
 For Nginx/CDN setups, ensure client-side routing falls back to the built index. The `deploy/nginx.conf` template configures `try_files` so that any unknown route resolves to `dist/index.html` while assets continue to be served directly from the `dist` folder.
 
 ## Quality Gates
 
 All pull requests should pass the lint, format, and test commands before merging. Run the commands above locally or in CI to ensure compliance with the project's quality standards.
+
+## Чеклист перед релизом AI-караоке
+
+- Переменные `VITE_CREATE_TASK_FILE` и, если используется, `VITE_API_BASE_URL` указывают на **полные HTTPS-адреса** без смешанного контента.
+- Эндпоинты создания задач (по ссылке и по файлу) и проверки статуса доступны из сети фронтенда и возвращают успешные ответы (`2xx`).
+- CORS настроен для домена UI: на `OPTIONS` и основных запросах возвращаются заголовки `Access-Control-Allow-Origin` с адресом фронтенда, а также методы (`POST`, `OPTIONS`, `GET`) и необходимые заголовки для загрузки файлов.
 
 ## Karaoke Playlist Data
 
