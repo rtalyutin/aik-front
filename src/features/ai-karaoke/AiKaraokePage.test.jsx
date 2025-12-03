@@ -282,13 +282,19 @@ test('surfaces API configuration issues', async () => {
   });
 });
 
-test('shows configuration error when endpoint protocol mismatches the page protocol', async () => {
-  const fetchSpy = mock.fn();
+test('allows https endpoint when page uses http protocol', async () => {
+  const httpsEndpoint =
+    'https://api.example.com/karaoke-tracks/create-task-from-file';
+  const fetchSpy = mock.fn(async () =>
+    new Response(JSON.stringify({ data: sampleTask }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    }),
+  );
   globalThis.fetch = fetchSpy;
 
   renderPage({
-    createTaskFromFile:
-      'https://api.example.com/karaoke-tracks/create-task-from-file',
+    createTaskFromFile: httpsEndpoint,
   });
 
   const file = new File(['demo'], 'song.mp3', { type: 'audio/mpeg' });
@@ -306,12 +312,11 @@ test('shows configuration error when endpoint protocol mismatches the page proto
   );
 
   await waitFor(() => {
-    assert.ok(
-      screen.getByText(/Endpoint для создания задачи настроен некорректно/i),
-    );
+    assert.equal(fetchSpy.mock.calls.length, 1);
+    assert.ok(screen.getByText(sampleTask.id));
   });
 
-  assert.equal(fetchSpy.mock.calls.length, 0);
+  assert.equal(String(fetchSpy.mock.calls[0].arguments[0]), httpsEndpoint);
 });
 
 test('shows configuration error when endpoint URL cannot be parsed', async () => {
