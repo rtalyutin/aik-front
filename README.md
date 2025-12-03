@@ -74,6 +74,7 @@ All pull requests should pass the lint, format, and test commands before merging
 - Переменные `VITE_CREATE_TASK_FILE` и, если используется, `VITE_API_BASE_URL` указывают на **полные HTTPS-адреса** без смешанного контента.
 - Эндпоинты создания задач (по ссылке и по файлу) и проверки статуса доступны из сети фронтенда и возвращают успешные ответы (`2xx`).
 - CORS настроен для домена UI: на `OPTIONS` и основных запросах возвращаются заголовки `Access-Control-Allow-Origin` с адресом фронтенда, а также методы (`POST`, `OPTIONS`, `GET`) и необходимые заголовки для загрузки файлов.
+- `VITE_CREATE_TASK_FILE` направлен на `/api/karaoke-tracks/create-task-from-file`; эндпоинты `/api/basic-tracks/...` не поддерживаются и приведут к ошибкам загрузки.
 
 ## Karaoke Playlist Data
 
