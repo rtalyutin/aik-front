@@ -27,7 +27,7 @@ const AiKaraokePage = () => {
         details:
           details.length > 0
             ? details.join(' ')
-            : apiInitError.message ?? 'Неизвестная ошибка конфигурации.',
+            : (apiInitError.message ?? 'Неизвестная ошибка конфигурации.'),
       };
     }
 
@@ -87,6 +87,28 @@ const AiKaraokePage = () => {
       return;
     }
 
+    let requestUrl;
+
+    try {
+      requestUrl = new URL(createTaskFromFile, window.location.origin);
+    } catch (urlError) {
+      setError({
+        message:
+          'Endpoint для создания задачи настроен некорректно. Проверьте URL и конфигурацию.',
+        details: urlError.message,
+      });
+      return;
+    }
+
+    if (requestUrl.protocol !== window.location.protocol) {
+      setError({
+        message:
+          'Endpoint для создания задачи настроен некорректно. Проверьте URL и конфигурацию.',
+        details: `Ожидаемый протокол: ${window.location.protocol}. Получен: ${requestUrl.protocol}.`,
+      });
+      return;
+    }
+
     setIsLoading(true);
 
     try {
@@ -98,14 +120,16 @@ const AiKaraokePage = () => {
         ? { Authorization: `Bearer ${token}` }
         : undefined;
 
-      const response = await fetch(createTaskFromFile, {
+      const response = await fetch(requestUrl, {
         method: 'POST',
         ...(headers ? { headers } : {}),
         body: formData,
       });
 
       const contentType = response.headers.get('content-type');
-      const isJson = typeof contentType === 'string' && contentType.includes('application/json');
+      const isJson =
+        typeof contentType === 'string' &&
+        contentType.includes('application/json');
       const payload = isJson ? await response.json() : null;
 
       if (!response.ok) {
@@ -184,9 +208,13 @@ const AiKaraokePage = () => {
 
         {error && (
           <div className={styles.error} role="alert">
-            {error.code && <p className={styles.errorCode}>Код: {error.code}</p>}
+            {error.code && (
+              <p className={styles.errorCode}>Код: {error.code}</p>
+            )}
             {error.message && <p>{error.message}</p>}
-            {error.details && <p className={styles.errorDetails}>{error.details}</p>}
+            {error.details && (
+              <p className={styles.errorDetails}>{error.details}</p>
+            )}
           </div>
         )}
 
@@ -215,47 +243,64 @@ const AiKaraokePage = () => {
 
           <h3 className={styles.subheading}>{config.filesHeading}</h3>
           <ul className={styles.fileList}>
-            {taskData.base_track_file && <li>Исходный файл: {taskData.base_track_file}</li>}
+            {taskData.base_track_file && (
+              <li>Исходный файл: {taskData.base_track_file}</li>
+            )}
             {taskData.vocal_file && <li>Вокал: {taskData.vocal_file}</li>}
-            {taskData.instrumental_file && <li>Минус: {taskData.instrumental_file}</li>}
-            {taskData.result_track_id && <li>Идентификатор результата: {taskData.result_track_id}</li>}
+            {taskData.instrumental_file && (
+              <li>Минус: {taskData.instrumental_file}</li>
+            )}
+            {taskData.result_track_id && (
+              <li>Идентификатор результата: {taskData.result_track_id}</li>
+            )}
           </ul>
 
-          {Array.isArray(taskData.transcript) && taskData.transcript.length > 0 && (
-            <div className={styles.timeline}>
-              <h3 className={styles.subheading}>{config.timelineHeading}</h3>
-              <ol className={styles.timelineList}>
-                {taskData.transcript.map((segment, index) => (
-                  <li key={`${segment.text}-${index}`} className={styles.timelineItem}>
-                    <div className={styles.timelineMeta}>
-                      <span>
-                        {segment.start}s — {segment.end}s
-                      </span>
-                    </div>
-                    <p className={styles.timelineText}>{segment.text}</p>
-                    {Array.isArray(segment.words) && segment.words.length > 0 && (
-                      <ul className={styles.wordList}>
-                        {segment.words.map((word, wordIndex) => (
-                          <li key={`${word.text}-${wordIndex}`}>
-                            <span className={styles.wordText}>{word.text}</span>
-                            <span className={styles.wordTime}>
-                              {word.start}s – {word.end}s
-                            </span>
-                            {typeof word.confidence === 'number' && (
-                              <span className={styles.wordConfidence}>
-                                {(word.confidence * 100).toFixed(0)}%
-                              </span>
-                            )}
-                            {word.speaker && <span className={styles.wordSpeaker}>{word.speaker}</span>}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </li>
-                ))}
-              </ol>
-            </div>
-          )}
+          {Array.isArray(taskData.transcript) &&
+            taskData.transcript.length > 0 && (
+              <div className={styles.timeline}>
+                <h3 className={styles.subheading}>{config.timelineHeading}</h3>
+                <ol className={styles.timelineList}>
+                  {taskData.transcript.map((segment, index) => (
+                    <li
+                      key={`${segment.text}-${index}`}
+                      className={styles.timelineItem}
+                    >
+                      <div className={styles.timelineMeta}>
+                        <span>
+                          {segment.start}s — {segment.end}s
+                        </span>
+                      </div>
+                      <p className={styles.timelineText}>{segment.text}</p>
+                      {Array.isArray(segment.words) &&
+                        segment.words.length > 0 && (
+                          <ul className={styles.wordList}>
+                            {segment.words.map((word, wordIndex) => (
+                              <li key={`${word.text}-${wordIndex}`}>
+                                <span className={styles.wordText}>
+                                  {word.text}
+                                </span>
+                                <span className={styles.wordTime}>
+                                  {word.start}s – {word.end}s
+                                </span>
+                                {typeof word.confidence === 'number' && (
+                                  <span className={styles.wordConfidence}>
+                                    {(word.confidence * 100).toFixed(0)}%
+                                  </span>
+                                )}
+                                {word.speaker && (
+                                  <span className={styles.wordSpeaker}>
+                                    {word.speaker}
+                                  </span>
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
         </div>
       )}
     </section>
