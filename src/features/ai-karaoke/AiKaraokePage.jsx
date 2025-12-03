@@ -100,11 +100,25 @@ const AiKaraokePage = () => {
       return;
     }
 
-    if (requestUrl.protocol !== window.location.protocol) {
+    const allowedProtocols = ['http:', 'https:'];
+
+    if (!allowedProtocols.includes(requestUrl.protocol)) {
       setError({
         message:
           'Endpoint для создания задачи настроен некорректно. Проверьте URL и конфигурацию.',
-        details: `Ожидаемый протокол: ${window.location.protocol}. Получен: ${requestUrl.protocol}.`,
+        details: `Недопустимый протокол: ${requestUrl.protocol}. Ожидайте один из: ${allowedProtocols.join(', ')}.`,
+      });
+      return;
+    }
+
+    const isSecurePage = window.location.protocol === 'https:';
+
+    if (isSecurePage && requestUrl.protocol !== 'https:') {
+      setError({
+        message:
+          'Endpoint для создания задачи настроен некорректно. Проверьте URL и конфигурацию.',
+        details:
+          'Для защищённых страниц используйте HTTPS endpoint. Получен некорректный протокол.',
       });
       return;
     }
