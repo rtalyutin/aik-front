@@ -745,3 +745,54 @@ test('переходит к следующему треку после заве�
   const nextVideo = await screen.findByLabelText('Воспроизведение: Огни большого города');
   assert.equal(nextVideo.getAttribute('src'), sampleTracks[1].src);
 });
+
+test('отображает YouTube-трек через embed и переходит к следующему после onEnded', async () => {
+  const pagination = karaokeConfig.pagination ?? (karaokeConfig.pagination = {});
+  pagination.pageSize = 2;
+  karaokeConfig.localTracks = [
+    {
+      id: 'yt-track',
+      title: 'YouTube Live',
+      artist: 'Creator',
+      src: 'https://youtu.be/mock-video',
+      type: 'youtube',
+    },
+    {
+      id: 'media-track',
+      title: 'Media трек',
+      artist: 'Cherry',
+      src: 'https://example.com/media-track.mp4',
+    },
+  ];
+
+  render(<KaraokePage />);
+
+  const youtubeButton = await screen.findByRole('button', {
+    name: 'YouTube Live — Creator',
+  });
+  const mediaButton = await screen.findByRole('button', {
+    name: 'Media трек — Cherry',
+  });
+
+  fireEvent.click(youtubeButton);
+  fireEvent.click(mediaButton);
+
+  const embedPlayer = await screen.findByTestId('react-player-mock');
+  assert.ok(embedPlayer.getAttribute('data-url')?.includes('youtu'));
+
+  const playButton = await screen.findByRole('button', { name: PLAY_BUTTON_LABEL });
+
+  await waitFor(() => {
+    assert.equal(playButton.hasAttribute('disabled'), false);
+  });
+
+  fireEvent.click(playButton);
+
+  await waitFor(() => {
+    const queueItems = document.querySelectorAll('.karaoke-page__queue-item');
+    assert.equal(queueItems.length, 1);
+  });
+
+  const nextVideo = await screen.findByLabelText('Воспроизведение: Media трек');
+  assert.equal(nextVideo.getAttribute('src'), 'https://example.com/media-track.mp4');
+});

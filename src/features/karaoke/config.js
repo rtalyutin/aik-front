@@ -17,6 +17,7 @@ export default {
   defaultCaptions: '/karaoke-subtitles.vtt',
   tracksSource, // Используется реальный API для списка готовых треков; если сервер недоступен, fallback — статичный json
   localTracks, // Локальный плейлист из text.json — основной источник для публичной страницы
+  // Допустимые поля трека: id, title, artist, src (прямые медиа), captions, type (youtube|vk|media) и embedUrl для внешних плееров
   queueInstructions: [
     'Добавьте треки в очередь, нажимая на понравившиеся композиции в плейлисте.',
     'Перетащите трек в списке очереди, чтобы поменять порядок выступлений.',

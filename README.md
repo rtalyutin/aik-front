@@ -80,6 +80,12 @@ All pull requests should pass the lint, format, and test commands before merging
 
 The `/karaoke` page now ships with a bundled playlist located at `src/features/karaoke/text.json`. The feature configuration (`src/features/karaoke/config.js`) exposes this array through the `localTracks` field, and the `useKaraokeTracks` hook consumes it via the `staticTracks` option to avoid HTTP calls when the JSON is present. A remote endpoint can still be configured through `VITE_READY_TRACKS_ENDPOINT`, which acts as a fallback if the local data is empty.
 
+Supported track sources:
+
+- Direct media files (audio/video) referenced via `src` with common extensions such as `.mp4`, `.webm`, `.mp3`, etc.
+- Embedded providers such as **YouTube** and **ВКонтакте**. For these, supply `type` (`youtube` | `vk`) and an `embedUrl` (or `src` with a watch/embed link). The UI keeps these fields intact without converting URLs, so API responses can pass external links directly.
+- Optional caption files can still be provided via `captions`; the hook preserves `id`, `title`, `artist`, `src`, `embedUrl`, `type`, and `captions` from API payloads.
+
 ## API сценарии караоке-треков
 
 Этот раздел фиксирует последовательность запросов и используемые эндпоинты для пользовательских сценариев создания и мониторинга задач караоке-треков.

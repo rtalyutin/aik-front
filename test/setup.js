@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { JSDOM } from 'jsdom';
 
 const dom = new JSDOM('<!doctype html><html><body></body></html>', {
@@ -74,4 +75,27 @@ if (!window.HTMLElement.prototype.scrollIntoView) {
     configurable: true,
     value() {},
   });
+}
+
+if (!globalThis.REACT_PLAYER_MOCK) {
+  globalThis.REACT_PLAYER_MOCK = function MockReactPlayer({ url, playing, onReady, onEnded }) {
+    useEffect(() => {
+      if (typeof onReady === 'function') {
+        onReady();
+      }
+    }, [onReady]);
+
+    useEffect(() => {
+      if (playing && typeof onEnded === 'function') {
+        onEnded();
+      }
+    }, [playing, onEnded]);
+
+    return React.createElement('div', {
+      'data-testid': 'react-player-mock',
+      'data-url': url,
+      'data-playing': playing ? 'true' : 'false',
+      'aria-label': 'Эмбед-плеер',
+    });
+  };
 }

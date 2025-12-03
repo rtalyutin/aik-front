@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import karaokeConfig from './config.js';
+import ReactPlayer from './ReactPlayerAdapter.js';
 import { useKaraokeTracks } from './useKaraokeTracks.js';
 
 const KaraokePage = () => {
@@ -71,6 +72,7 @@ const KaraokePage = () => {
   const playButtonLabel = karaokeConfig.playerPlayLabel || 'Воспроизвести';
 
   const [isVideoReady, setIsVideoReady] = useState(false);
+  const [shouldPlay, setShouldPlay] = useState(false);
 
   const handleAddToQueue = useCallback(
     (trackId) => {
@@ -136,10 +138,19 @@ const KaraokePage = () => {
   }, []);
 
   const handleVideoEnd = useCallback(() => {
+    setShouldPlay(false);
     setQueue((previousQueue) => previousQueue.slice(1));
   }, []);
 
   const handlePlayClick = useCallback(() => {
+    setShouldPlay(true);
+
+    const sourceType = selectedTrack?.sourceType || 'media';
+
+    if (sourceType !== 'media' && sourceType !== 'unknown') {
+      return;
+    }
+
     const element = videoRef.current;
 
     if (!element) {
@@ -151,10 +162,39 @@ const KaraokePage = () => {
     if (playPromise && typeof playPromise.catch === 'function') {
       playPromise.catch(() => {});
     }
-  }, []);
+  }, [selectedTrack]);
+
+  useEffect(() => {
+    if (!shouldPlay) {
+      return;
+    }
+
+    const sourceType = selectedTrack?.sourceType || 'media';
+
+    if (sourceType !== 'media' && sourceType !== 'unknown') {
+      return;
+    }
+
+    if (!isVideoReady) {
+      return;
+    }
+
+    const element = videoRef.current;
+
+    if (!element) {
+      return;
+    }
+
+    const playPromise = element.play();
+
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => {});
+    }
+  }, [isVideoReady, selectedTrack, shouldPlay]);
 
   useEffect(() => {
     setIsVideoReady(false);
+    setShouldPlay(false);
   }, [selectedTrackId]);
 
   useEffect(() => {
@@ -749,37 +789,75 @@ const KaraokePage = () => {
             </ul>
           </div>
           {selectedTrack ? (
-            <>
-              <video
-                key={selectedTrack.id}
-                ref={videoRef}
-                className="karaoke-page__video"
-                controls
-                src={selectedTrack.src}
-                onLoadedData={handleVideoReady}
-                onEnded={handleVideoEnd}
-                aria-label={`Воспроизведение: ${selectedTrack.title}`}
-              >
-                <track
-                  kind="captions"
-                  srcLang="ru"
-                  label="Русские субтитры"
-                  src={selectedTrack.captions || defaultCaptions}
-                  default
-                />
-                Ваш браузер не поддерживает воспроизведение видео.
-              </video>
-              <div className="karaoke-page__controls">
-                <button
-                  type="button"
-                  className="karaoke-page__play-button"
-                  onClick={handlePlayClick}
-                  disabled={!isVideoReady}
-                >
-                  {playButtonLabel}
-                </button>
-              </div>
-            </>
+            (() => {
+              const sourceType = selectedTrack.sourceType || 'media';
+              const isMediaSource = sourceType === 'media' || sourceType === 'unknown';
+              const captionsSource = selectedTrack.captions || defaultCaptions;
+              const embedUrl = selectedTrack.embedUrl || selectedTrack.src;
+
+              if (isMediaSource) {
+                return (
+                  <>
+                    <video
+                      key={selectedTrack.id}
+                      ref={videoRef}
+                      className="karaoke-page__video"
+                      controls
+                      src={selectedTrack.src}
+                      onLoadedData={handleVideoReady}
+                      onEnded={handleVideoEnd}
+                      aria-label={`Воспроизведение: ${selectedTrack.title}`}
+                    >
+                      <track
+                        kind="captions"
+                        srcLang="ru"
+                        label="Русские субтитры"
+                        src={captionsSource}
+                        default
+                      />
+                      Ваш браузер не поддерживает воспроизведение видео.
+                    </video>
+                    <div className="karaoke-page__controls">
+                      <button
+                        type="button"
+                        className="karaoke-page__play-button"
+                        onClick={handlePlayClick}
+                        disabled={!isVideoReady}
+                      >
+                        {playButtonLabel}
+                      </button>
+                    </div>
+                  </>
+                );
+              }
+
+              return (
+                <>
+                  <div className="karaoke-page__video karaoke-page__video--embed">
+                    <ReactPlayer
+                      key={selectedTrack.id}
+                      url={embedUrl}
+                      playing={shouldPlay}
+                      controls
+                      onReady={handleVideoReady}
+                      onEnded={handleVideoEnd}
+                      width="100%"
+                      height="100%"
+                    />
+                  </div>
+                  <div className="karaoke-page__controls">
+                    <button
+                      type="button"
+                      className="karaoke-page__play-button"
+                      onClick={handlePlayClick}
+                      disabled={!isVideoReady}
+                    >
+                      {playButtonLabel}
+                    </button>
+                  </div>
+                </>
+              );
+            })()
           ) : (
             <div className="karaoke-page__placeholder" aria-live="polite">
               {playerPlaceholder}
