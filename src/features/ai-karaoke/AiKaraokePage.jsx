@@ -158,6 +158,20 @@ const AiKaraokePage = () => {
       const normalized = payload?.data ?? payload;
       setTaskData(normalized ?? null);
     } catch (fetchError) {
+      const isCorsIssue =
+        fetchError instanceof TypeError ||
+        (typeof fetchError?.message === 'string' &&
+          /cors/i.test(fetchError.message));
+
+      if (isCorsIssue) {
+        setError({
+          message:
+            'Запрос был заблокирован. Проверьте CORS для /api/karaoke-tracks/create-task-from-file (например, убедитесь, что Access-Control-Allow-Headers содержит Authorization).',
+          details: fetchError.message,
+        });
+        return;
+      }
+
       setError({
         message: 'Ошибка сети: не удалось отправить запрос.',
         details: fetchError.message,
