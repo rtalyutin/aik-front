@@ -94,9 +94,13 @@ const AiKaraokePage = () => {
       formData.append('file', file);
       formData.append('lang_code', langCode);
 
+      const headers = token?.trim()
+        ? { Authorization: `Bearer ${token}` }
+        : undefined;
+
       const response = await fetch(createTaskFromFile, {
         method: 'POST',
-        headers: { Authorization: `Bearer ${token}` },
+        ...(headers ? { headers } : {}),
         body: formData,
       });
 

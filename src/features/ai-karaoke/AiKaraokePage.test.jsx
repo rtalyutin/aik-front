@@ -118,6 +118,41 @@ test('submits multipart request and renders returned task data', async () => {
   assert.ok(screen.getByText(sampleTask.transcript[0].words[0].text));
 });
 
+test('omits Authorization header when token is missing', async () => {
+  window.localStorage.removeItem('token');
+
+  let capturedHeaders;
+
+  globalThis.fetch = async (_, init) => {
+    capturedHeaders = init.headers;
+
+    return new Response(JSON.stringify({ data: sampleTask }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  };
+
+  renderWithAuth(<AiKaraokePage />);
+
+  const file = new File(['demo'], 'song.mp3', { type: 'audio/mpeg' });
+
+  fireEvent.change(screen.getByLabelText(config.form.fileLabel), {
+    target: { files: [file] },
+  });
+
+  fireEvent.change(screen.getByLabelText(config.form.languageLabel), {
+    target: { value: 'ru' },
+  });
+
+  fireEvent.click(screen.getByRole('button', { name: config.form.submitLabel }));
+
+  await waitFor(() => {
+    assert.ok(screen.getByText(sampleTask.id));
+  });
+
+  assert.equal(capturedHeaders, undefined);
+});
+
 test('renders API error payload when request fails', async () => {
   const errorPayload = {
     code: 'bad_request',
