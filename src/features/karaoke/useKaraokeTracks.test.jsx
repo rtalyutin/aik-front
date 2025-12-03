@@ -108,3 +108,22 @@ test('загружает по HTTP, если статические треки �
 
   assert.deepEqual(fetchCalls, ['/api/karaoke']);
 });
+
+test('поддерживает треки только с embedUrl и типом', async () => {
+  const staticTracks = [
+    {
+      id: 'youtube-1',
+      title: 'YouTube Karaoke',
+      artist: 'Creator',
+      embedUrl: 'https://youtu.be/video-id',
+      type: 'youtube',
+    },
+  ];
+
+  render(<TestHarness staticTracks={staticTracks} />);
+
+  const items = await screen.findAllByRole('listitem');
+  assert.equal(items.length, 1);
+  assert.ok(items[0].textContent?.includes('YouTube Karaoke'));
+  assert.deepEqual(fetchCalls, []);
+});

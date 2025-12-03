@@ -1,4 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { getTrackSourceType } from './getTrackSourceType.js';
+
+const ALLOWED_SOURCE_TYPES = ['media', 'youtube', 'vk', 'unknown'];
 
 const isNonEmptyString = (value) => typeof value === 'string' && value.trim().length > 0;
 
@@ -16,10 +19,19 @@ const normalizeTracks = (tracksLike) => {
       const artist = isNonEmptyString(item.artist) ? item.artist.trim() : '';
       const src = isNonEmptyString(item.src) ? item.src.trim() : '';
       const captions = isNonEmptyString(item.captions) ? item.captions.trim() : '';
+      const embedUrl = isNonEmptyString(item.embedUrl)
+        ? item.embedUrl.trim()
+        : isNonEmptyString(item.embed)
+          ? item.embed.trim()
+          : '';
+      const preferredType = isNonEmptyString(item.type) ? item.type.trim().toLowerCase() : '';
+      const sourceType = ALLOWED_SOURCE_TYPES.includes(preferredType)
+        ? preferredType
+        : getTrackSourceType(embedUrl || src);
 
-      return { id, title, artist, src, captions };
+      return { id, title, artist, src, captions, embedUrl, sourceType };
     })
-    .filter((track) => isNonEmptyString(track.src));
+    .filter((track) => isNonEmptyString(track.src) || isNonEmptyString(track.embedUrl));
 };
 
 const getPreferredTrackId = (currentId, nextTracks) => {
