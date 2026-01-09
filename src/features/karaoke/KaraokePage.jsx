@@ -8,6 +8,13 @@ import React, {
 import karaokeConfig from './config.js';
 import ReactPlayer from './ReactPlayerAdapter.js';
 import { useKaraokeTracks } from './useKaraokeTracks.js';
+import Accordion from '../../components/Accordion.jsx';
+import {
+  DevOnlyDownloadAllYoutubeVideos,
+  useLocalFileHandler,
+  saveFilesToDownloads,
+  LocalFileWarning,
+} from '../../../no-internet-scripts/index.js';
 
 const KaraokePage = () => {
   const videoRef = useRef(null);
@@ -32,7 +39,7 @@ const KaraokePage = () => {
   const paginationConfig = karaokeConfig.pagination || {};
   const paginationLabels = paginationConfig.labels || {};
   const pageSize = paginationConfig.pageSize || 6;
-  const defaultMaxVisiblePages = 7;
+  const defaultMaxVisiblePages = 5;
   const parsedMaxVisiblePages = Number(paginationConfig.maxVisiblePages);
   const normalizedMaxVisiblePages = Number.isFinite(parsedMaxVisiblePages)
     ? Math.floor(parsedMaxVisiblePages)
@@ -86,11 +93,30 @@ const KaraokePage = () => {
 
   const [isVideoReady, setIsVideoReady] = useState(false);
   const [shouldPlay, setShouldPlay] = useState(false);
+  const [isAutoplay, setIsAutoplay] = useState(true);
 
   const allTracks = useMemo(
     () => [...(remoteTracks ?? []), ...(localTracks ?? [])],
     [remoteTracks, localTracks],
   );
+
+  const selectedTrack = useMemo(() => {
+    const track = (allTracks ?? []).find((track) => track.id === activeTrackId) ?? null;
+    return track;
+  }, [activeTrackId, allTracks]);
+
+  // Используем хук для обработки локальных файлов
+  const { selectedTrackWithLocalSrc, handleVideoError } = useLocalFileHandler(
+    selectedTrack,
+    videoRef,
+    setIsVideoReady,
+  );
+
+  // Сбрасываем состояние при смене трека
+  useEffect(() => {
+    setIsVideoReady(false);
+    setShouldPlay(false);
+  }, [activeTrackId]);
 
   const handleAddToQueue = useCallback(
     (trackId) => {
@@ -164,6 +190,7 @@ const KaraokePage = () => {
     setIsVideoReady(true);
   }, []);
 
+
   const handleVideoEnd = useCallback(() => {
     setShouldPlay(false);
     setQueue((previousQueue) => previousQueue.slice(1));
@@ -196,7 +223,7 @@ const KaraokePage = () => {
       return;
     }
 
-    const sourceType = selectedTrack?.sourceType || 'media';
+    const sourceType = selectedTrackWithLocalSrc?.sourceType || 'media';
 
     if (sourceType !== 'media' && sourceType !== 'unknown') {
       return;
@@ -217,12 +244,22 @@ const KaraokePage = () => {
     if (playPromise && typeof playPromise.catch === 'function') {
       playPromise.catch(() => {});
     }
-  }, [isVideoReady, selectedTrack, shouldPlay]);
+  }, [isVideoReady, selectedTrackWithLocalSrc, shouldPlay]);
 
   useEffect(() => {
     setIsVideoReady(false);
     setShouldPlay(false);
   }, [activeTrackId]);
+
+  useEffect(() => {
+    if (isAutoplay && selectedTrackWithLocalSrc && isVideoReady && !shouldPlay && queue.length > 0) {
+      const timeoutId = setTimeout(() => {
+        setShouldPlay(true);
+      }, 100);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [isAutoplay, selectedTrackWithLocalSrc, isVideoReady, shouldPlay, queue.length]);
 
   useEffect(() => {
     if (!allTracks || allTracks.length === 0) {
@@ -265,12 +302,6 @@ const KaraokePage = () => {
       setActiveTrackId(nextTrackId);
     }
   }, [activeTrackId, allTracks, queue]);
-
-  const selectedTrack = useMemo(() => {
-    return (
-      (allTracks ?? []).find((track) => track.id === activeTrackId) ?? null
-    );
-  }, [activeTrackId, allTracks]);
 
   useEffect(() => {
     const previousTracks = previousLocalTracksRef.current;
@@ -622,7 +653,7 @@ const KaraokePage = () => {
     setDraggingIndex(null);
   }, []);
 
-  const handleLocalFilesChange = useCallback((event) => {
+  const handleLocalFilesChange = useCallback(async (event) => {
     const selectedFiles = Array.from(event.target.files ?? []);
 
     if (selectedFiles.length === 0) {
@@ -637,6 +668,9 @@ const KaraokePage = () => {
     if (mediaFiles.length === 0) {
       return;
     }
+
+    // В dev режиме сохраняем файлы на сервер
+    await saveFilesToDownloads(mediaFiles);
 
     const nextTracks = mediaFiles.map((file, index) => {
       const objectUrl = URL.createObjectURL(file);
@@ -674,13 +708,14 @@ const KaraokePage = () => {
       <div className="karaoke-page__content">
         <aside className="karaoke-page__playlist" aria-live="polite">
           <h2 className="karaoke-page__section-title">{playlistHeading}</h2>
-          <div className="karaoke-page__local">
-            <div className="karaoke-page__local-header">
-              <h3 className="karaoke-page__local-title">Локальные файлы</h3>
-              <p className="karaoke-page__local-description">
-                Добавьте аудио или видео с устройства, чтобы быстро поставить их
-                в очередь.
-              </p>
+          <Accordion
+            title="Локальные файлы"
+            defaultOpen={false}
+            className="karaoke-page__local"
+          >
+            <div className="karaoke-page__local-description">
+              Добавьте аудио или видео с устройства, чтобы быстро поставить их
+              в очередь.
             </div>
             <div className="karaoke-page__local-controls">
               <label
@@ -697,7 +732,9 @@ const KaraokePage = () => {
                 accept="video/*,audio/*"
                 onChange={handleLocalFilesChange}
               />
+              <LocalFileWarning />
             </div>
+            <DevOnlyDownloadAllYoutubeVideos />
             <div className="karaoke-page__search">
               <label
                 className="karaoke-page__search-label"
@@ -767,7 +804,7 @@ const KaraokePage = () => {
                 ))}
               </ul>
             ) : null}
-          </div>
+          </Accordion>
           {isLoading ? (
             <p className="karaoke-page__status">{loadingMessage}</p>
           ) : null}
@@ -825,64 +862,64 @@ const KaraokePage = () => {
             <p className="karaoke-page__status">Ничего не найдено</p>
           ) : null}
           {paginatedTracks.length > 0 ? (
-            <ul className="karaoke-page__list karaoke-page__playlist-list">
-              {renderItemsWithIndex.map((item) => {
-                if (item.type !== 'track' || item.source !== 'playlist') {
-                  return null;
-                }
-
-                const { track, isQueued, queueIndex, renderIndex } = item;
-                const isActiveQueueItem = isQueued && queueIndex === 0;
-                const buttonClasses = ['karaoke-page__track-button'];
-
-                if (isActiveQueueItem) {
-                  buttonClasses.push('karaoke-page__track-button--active');
-                }
-
-                const handleClick = () => {
-                  if (isQueued && Number.isInteger(queueIndex)) {
-                    handleRemoveFromQueue(queueIndex);
-                  } else {
-                    handleAddToQueue(track.id);
-                  }
-                };
-
-                return (
-                  <li
-                    key={item.key || track.id}
-                    className="karaoke-page__list-item karaoke-page__track-item"
-                    draggable
-                    onDragStart={(event) =>
-                      handleListItemDragStart(event, renderIndex)
-                    }
-                    onDragOver={handleQueueItemDragOver}
-                    onDrop={(event) => handleQueueItemDrop(event, renderIndex)}
-                    onDragEnd={handleQueueItemDragEnd}
-                  >
-                    <button
-                      type="button"
-                      className={buttonClasses.join(' ')}
-                      onClick={handleClick}
-                      aria-pressed={isQueued}
-                    >
-                      <span className="karaoke-page__track-title">
-                        {track.title}
-                      </span>
-                      {track.artist ? (
-                        <span className="karaoke-page__track-artist">
-                          — {track.artist}
-                        </span>
-                      ) : null}
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          ) : null}
-          {remoteTracks &&
-          remoteTracks.length > 0 &&
-          filteredTracks.length > 0 ? (
             <>
+              <ul className="karaoke-page__list karaoke-page__playlist-list">
+                {renderItemsWithIndex.map((item) => {
+                  if (item.type !== 'track' || item.source !== 'playlist') {
+                    return null;
+                  }
+
+                  const { track, isQueued, queueIndex, renderIndex } = item;
+                  const isActiveQueueItem = isQueued && queueIndex === 0;
+                  const buttonClasses = ['karaoke-page__track-button'];
+
+                  if (isQueued) {
+                    buttonClasses.push('karaoke-page__track-button--active');
+                  }
+
+                  if (isActiveQueueItem) {
+                    buttonClasses.push('karaoke-page__track-button--playing');
+                  }
+
+                  const handleClick = () => {
+                    if (isQueued && Number.isInteger(queueIndex)) {
+                      handleRemoveFromQueue(queueIndex);
+                    } else {
+                      handleAddToQueue(track.id);
+                    }
+                  };
+
+                  return (
+                    <li
+                      key={item.key || track.id}
+                      className="karaoke-page__list-item karaoke-page__track-item"
+                      draggable
+                      onDragStart={(event) =>
+                        handleListItemDragStart(event, renderIndex)
+                      }
+                      onDragOver={handleQueueItemDragOver}
+                      onDrop={(event) => handleQueueItemDrop(event, renderIndex)}
+                      onDragEnd={handleQueueItemDragEnd}
+                    >
+                      <button
+                        type="button"
+                        className={buttonClasses.join(' ')}
+                        onClick={handleClick}
+                        aria-pressed={isQueued}
+                      >
+                        <span className="karaoke-page__track-title">
+                          {track.title}
+                        </span>
+                        {track.artist ? (
+                          <span className="karaoke-page__track-artist">
+                            — {track.artist}
+                          </span>
+                        ) : null}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
               {totalPages > 1 ? (
                 <nav
                   className="karaoke-page__pagination"
@@ -941,27 +978,29 @@ const KaraokePage = () => {
         </aside>
         <div className="karaoke-page__player">
           <h2 className="karaoke-page__section-title">{playerHeading}</h2>
-          <div className="karaoke-page__queue" aria-live="polite">
-            <div className="karaoke-page__queue-header">
-              <h3 className="karaoke-page__queue-title">{queueHeading}</h3>
-              {queueInstructions.length > 0 ? (
-                <div
-                  className="karaoke-page__queue-instructions"
-                  role="presentation"
-                >
-                  <ol className="karaoke-page__queue-instructions-list">
-                    {queueInstructions.map((instruction, instructionIndex) => (
-                      <li
-                        key={`queue-instruction-${instructionIndex}`}
-                        className="karaoke-page__queue-instructions-item"
-                      >
-                        {instruction}
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-              ) : null}
-            </div>
+          <Accordion
+            title={queueHeading}
+            defaultOpen={false}
+            className="karaoke-page__queue"
+            aria-live="polite"
+          >
+            {queueInstructions.length > 0 ? (
+              <div
+                className="karaoke-page__queue-instructions"
+                role="presentation"
+              >
+                <ol className="karaoke-page__queue-instructions-list">
+                  {queueInstructions.map((instruction, instructionIndex) => (
+                    <li
+                      key={`queue-instruction-${instructionIndex}`}
+                      className="karaoke-page__queue-instructions-item"
+                    >
+                      {instruction}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ) : null}
             <ul
               className="karaoke-page__queue-list"
               onDragOver={
@@ -1049,27 +1088,28 @@ const KaraokePage = () => {
                 </li>
               )}
             </ul>
-          </div>
-          {selectedTrack ? (
+          </Accordion>
+          {selectedTrackWithLocalSrc ? (
             (() => {
-              const sourceType = selectedTrack.sourceType || 'media';
+              const sourceType = selectedTrackWithLocalSrc.sourceType || 'media';
               const isMediaSource =
                 sourceType === 'media' || sourceType === 'unknown';
-              const captionsSource = selectedTrack.captions || defaultCaptions;
-              const embedUrl = selectedTrack.embedUrl || selectedTrack.src;
+              const captionsSource = selectedTrackWithLocalSrc.captions || defaultCaptions;
+              const embedUrl = selectedTrackWithLocalSrc.embedUrl || selectedTrackWithLocalSrc.src;
 
               if (isMediaSource) {
                 return (
                   <>
                     <video
-                      key={selectedTrack.id}
+                      key={selectedTrackWithLocalSrc.id}
                       ref={videoRef}
                       className="karaoke-page__video"
                       controls
-                      src={selectedTrack.src}
+                      src={selectedTrackWithLocalSrc.src}
                       onLoadedData={handleVideoReady}
+                      onError={handleVideoError}
                       onEnded={handleVideoEnd}
-                      aria-label={`Воспроизведение: ${selectedTrack.title}`}
+                      aria-label={`Воспроизведение: ${selectedTrackWithLocalSrc.title}`}
                     >
                       <track
                         kind="captions"
@@ -1089,6 +1129,29 @@ const KaraokePage = () => {
                       >
                         {playButtonLabel}
                       </button>
+                      <button
+                        type="button"
+                        className={`karaoke-page__autoplay-button ${isAutoplay ? 'karaoke-page__autoplay-button--active' : ''}`}
+                        onClick={() => setIsAutoplay(!isAutoplay)}
+                        aria-label={isAutoplay ? 'Отключить автовоспроизведение' : 'Включить автовоспроизведение'}
+                        title={isAutoplay ? 'Автовоспроизведение включено' : 'Автовоспроизведение выключено'}
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                          <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                        <span className="karaoke-page__autoplay-label">Автовоспроизведение</span>
+                      </button>
                     </div>
                   </>
                 );
@@ -1098,7 +1161,7 @@ const KaraokePage = () => {
                 <>
                   <div className="karaoke-page__video karaoke-page__video--embed">
                     <ReactPlayer
-                      key={selectedTrack.id}
+                      key={selectedTrackWithLocalSrc.id}
                       url={embedUrl}
                       playing={shouldPlay}
                       controls
@@ -1116,6 +1179,29 @@ const KaraokePage = () => {
                       disabled={!isVideoReady}
                     >
                       {playButtonLabel}
+                    </button>
+                    <button
+                      type="button"
+                      className={`karaoke-page__autoplay-button ${isAutoplay ? 'karaoke-page__autoplay-button--active' : ''}`}
+                      onClick={() => setIsAutoplay(!isAutoplay)}
+                      aria-label={isAutoplay ? 'Отключить автовоспроизведение' : 'Включить автовоспроизведение'}
+                      title={isAutoplay ? 'Автовоспроизведение включено' : 'Автовоспроизведение выключено'}
+                    >
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                      </svg>
+                      <span className="karaoke-page__autoplay-label">Автовоспроизведение</span>
                     </button>
                   </div>
                 </>

@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext.jsx';
 import apiEndpoints from '../../config/apiEndpoints.js';
 import config from './config.js';
 import styles from './Aik2Page.module.css';
+import { LocalAuthButton } from '../../../no-internet-scripts/index.js';
 
 const Aik2Page = () => {
   const [formData, setFormData] = useState({ login: '', password: '' });
@@ -170,6 +171,10 @@ const Aik2Page = () => {
             <button className={styles.button} type="submit">
               {config.form?.submitLabel}
             </button>
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1.5rem' }}>
+            <LocalAuthButton buttonClassName={styles.button} />
           </div>
 
           {status.message && (

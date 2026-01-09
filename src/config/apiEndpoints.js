@@ -7,7 +7,7 @@ const normalizeBaseUrl = (value) => {
 };
 
 const runtimeEnv =
-  import.meta?.env ??
+  import.meta.env ??
   globalThis?.import_meta_env ??
   (typeof process !== 'undefined' ? process.env : {}) ??
   {};
