@@ -2,23 +2,31 @@ import '../../../test/setup.js';
 import assert from 'node:assert/strict';
 import test, { afterEach, beforeEach } from 'node:test';
 import React from 'react';
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import karaokeConfig from './config.js';
 import localTextTracks from './text.json';
 import KaraokePage from './KaraokePage.jsx';
 
 const TEST_PAGE_SIZE = 2;
 const TEST_MAX_VISIBLE_PAGES = 5;
-const PREVIOUS_PAGE_LABEL = karaokeConfig.pagination?.labels?.previous ?? 'Назад';
+const PREVIOUS_PAGE_LABEL =
+  karaokeConfig.pagination?.labels?.previous ?? 'Назад';
 const NEXT_PAGE_LABEL = karaokeConfig.pagination?.labels?.next ?? 'Вперёд';
 const PAGE_ARIA_LABEL = karaokeConfig.pagination?.labels?.page || 'Страница';
 const PLAY_BUTTON_LABEL = karaokeConfig.playerPlayLabel ?? 'Воспроизвести';
 const QUEUE_HEADING = karaokeConfig.queueHeading ?? 'Очередь воспроизведения';
-const QUEUE_INSTRUCTIONS = (Array.isArray(karaokeConfig.queueInstructions)
-  ? karaokeConfig.queueInstructions
-  : karaokeConfig.queueInstructions
-    ? [karaokeConfig.queueInstructions]
-    : []
+const QUEUE_INSTRUCTIONS = (
+  Array.isArray(karaokeConfig.queueInstructions)
+    ? karaokeConfig.queueInstructions
+    : karaokeConfig.queueInstructions
+      ? [karaokeConfig.queueInstructions]
+      : []
 )
   .map((instruction) => String(instruction ?? '').trim())
   .filter((instruction) => instruction.length > 0);
@@ -150,7 +158,9 @@ const goToPage = async (targetPage) => {
       const nextButton = screen.getByRole('button', { name: NEXT_PAGE_LABEL });
       fireEvent.click(nextButton);
     } else {
-      const previousButton = screen.getByRole('button', { name: PREVIOUS_PAGE_LABEL });
+      const previousButton = screen.getByRole('button', {
+        name: PREVIOUS_PAGE_LABEL,
+      });
       fireEvent.click(previousButton);
     }
 
@@ -174,7 +184,8 @@ beforeEach(() => {
   originalFetch = globalThis.fetch;
   fetchCalls = [];
 
-  const pagination = karaokeConfig.pagination ?? (karaokeConfig.pagination = {});
+  const pagination =
+    karaokeConfig.pagination ?? (karaokeConfig.pagination = {});
   originalPageSize = pagination.pageSize;
   hadOriginalMaxVisiblePages = Object.prototype.hasOwnProperty.call(
     pagination,
@@ -201,7 +212,8 @@ afterEach(() => {
   cleanup();
   globalThis.fetch = originalFetch;
 
-  const pagination = karaokeConfig.pagination ?? (karaokeConfig.pagination = {});
+  const pagination =
+    karaokeConfig.pagination ?? (karaokeConfig.pagination = {});
   pagination.pageSize = originalPageSize;
 
   if (hadOriginalMaxVisiblePages) {
@@ -216,7 +228,9 @@ afterEach(() => {
 test('загружает и отображает список треков из локального плейлиста', async () => {
   const { container } = render(<KaraokePage />);
 
-  const playlistHeading = await screen.findByRole('heading', { name: 'Плейлист' });
+  const playlistHeading = await screen.findByRole('heading', {
+    name: 'Плейлист',
+  });
   assert.ok(playlistHeading);
 
   await waitFor(() => {
@@ -225,7 +239,9 @@ test('загружает и отображает список треков из 
     assert.deepEqual(pageNumbers, [1, 2, 3, 4, TOTAL_PAGES]);
   });
 
-  const trackButtons = await screen.findAllByRole('button', { name: /Cherry RAiT$/ });
+  const trackButtons = await screen.findAllByRole('button', {
+    name: /Cherry RAiT$/,
+  });
   assert.equal(trackButtons.length, TEST_PAGE_SIZE);
 
   const playlistList = container.querySelector('.karaoke-page__playlist-list');
@@ -243,7 +259,10 @@ test('загружает и отображает список треков из 
 
   const queueList = queueContainer.querySelector('.karaoke-page__queue-list');
   assert.ok(queueList);
-  assert.equal(queueList.querySelectorAll('.karaoke-page__queue-item').length, 0);
+  assert.equal(
+    queueList.querySelectorAll('.karaoke-page__queue-item').length,
+    0,
+  );
 
   const placeholder = player.querySelector('.karaoke-page__placeholder');
   assert.ok(placeholder);
@@ -272,7 +291,8 @@ test('рендерит локальный JSON без HTTP-запросов', as
   const subset = (localTextTracks ?? []).slice(0, 4);
   karaokeConfig.localTracks = subset;
 
-  const pagination = karaokeConfig.pagination ?? (karaokeConfig.pagination = {});
+  const pagination =
+    karaokeConfig.pagination ?? (karaokeConfig.pagination = {});
   pagination.pageSize = subset.length;
 
   render(<KaraokePage />);
@@ -285,7 +305,9 @@ test('рендерит локальный JSON без HTTP-запросов', as
   const trackButtons = Array.from(
     document.querySelectorAll('.karaoke-page__track-button'),
   );
-  const renderedLabels = trackButtons.map((button) => button.textContent?.trim());
+  const renderedLabels = trackButtons.map((button) =>
+    button.textContent?.trim(),
+  );
   const expectedLabels = subset.map((track) => {
     return track.artist ? `${track.title} — ${track.artist}` : track.title;
   });
@@ -341,87 +363,143 @@ test('фильтрует треки по исполнителю и показы�
   fireEvent.change(searchInput, { target: { value: 'Cherry' } });
 
   await waitFor(() => {
-    const visibleButtons = screen.getAllByRole('button', { name: /Cherry RAiT$/ });
+    const visibleButtons = screen.getAllByRole('button', {
+      name: /Cherry RAiT$/,
+    });
     assert.equal(visibleButtons.length, TEST_PAGE_SIZE);
 
     const pageNumbers = queryVisiblePageNumbers();
     assert.equal(pageNumbers.length, TEST_MAX_VISIBLE_PAGES);
-    assert.ok(
-      screen.getByRole('button', { name: `${PAGE_ARIA_LABEL} 3` }),
-    );
+    assert.ok(screen.getByRole('button', { name: `${PAGE_ARIA_LABEL} 3` }));
   });
 
   fireEvent.change(searchInput, { target: { value: 'несуществующий артист' } });
 
   await waitFor(() => {
-    assert.equal(screen.queryAllByRole('button', { name: /Cherry RAiT$/ }).length, 0);
+    assert.equal(
+      screen.queryAllByRole('button', { name: /Cherry RAiT$/ }).length,
+      0,
+    );
     assert.ok(screen.getByText('Ничего не найдено'));
   });
 });
 
-test(
-  'добавляет трек в очередь и запускает воспроизведение только по запросу пользователя',
-  async () => {
-    const playCalls = [];
-    const originalPlay = window.HTMLMediaElement.prototype.play;
+test('загружает локальные файлы, фильтрует и добавляет в очередь', async () => {
+  const originalCreateObjectURL = globalThis.URL.createObjectURL;
+  const originalRevokeObjectURL = globalThis.URL.revokeObjectURL;
 
-    window.HTMLMediaElement.prototype.play = function play() {
-      playCalls.push(this.getAttribute('src'));
-      return Promise.resolve();
-    };
+  globalThis.URL.createObjectURL = (file) => `blob:${file.name}`;
+  globalThis.URL.revokeObjectURL = () => {};
 
-    try {
-      render(<KaraokePage />);
+  try {
+    render(<KaraokePage />);
 
-      await waitFor(() => {
-        const queueItems = document.querySelectorAll('.karaoke-page__queue-item');
-        assert.equal(queueItems.length, 0);
-      });
+    const fileInput = await screen.findByLabelText('Добавить локальные файлы');
+    const localSearchInput = screen.getByLabelText('Поиск по локальным файлам');
 
-      const secondTrackButton = await screen.findByRole('button', {
-        name: 'Огни большого города — Cherry RAiT',
-      });
+    const audioFile = new File(['audio'], 'Локальная песня.mp3', {
+      type: 'audio/mpeg',
+    });
+    const videoFile = new File(['video'], 'Видео пример.mp4', {
+      type: 'video/mp4',
+    });
 
-      fireEvent.click(secondTrackButton);
+    fireEvent.change(fileInput, { target: { files: [audioFile, videoFile] } });
 
-      await waitFor(() => {
-        const queueItems = document.querySelectorAll('.karaoke-page__queue-item');
-        assert.equal(queueItems.length, 1);
-      });
+    await waitFor(() => {
+      assert.ok(screen.getByText('Локальная песня.mp3'));
+      assert.ok(screen.getByText('Видео пример.mp4'));
+    });
 
-      const video = await screen.findByLabelText('Воспроизведение: Огни большого города');
+    fireEvent.change(localSearchInput, { target: { value: 'песня' } });
 
-      assert.equal(video.getAttribute('src'), sampleTracks[1].src);
+    await waitFor(() => {
+      assert.ok(screen.getByText('Локальная песня.mp3'));
+      assert.equal(screen.queryByText('Видео пример.mp4'), null);
+    });
 
-      const playButton = await screen.findByRole('button', {
-        name: PLAY_BUTTON_LABEL,
-      });
+    const addButtons = screen.getAllByRole('button', {
+      name: 'Добавить в очередь',
+    });
+    fireEvent.click(addButtons[0]);
 
-      assert.equal(playButton.hasAttribute('disabled'), true);
+    await waitFor(() => {
+      const queueTitles = Array.from(
+        document.querySelectorAll('.karaoke-page__queue-track-title'),
+      ).map((node) => node.textContent?.trim());
 
-      fireEvent(video, new window.Event('loadeddata'));
+      assert.ok(queueTitles.includes('Локальная песня.mp3'));
+    });
+  } finally {
+    globalThis.URL.createObjectURL = originalCreateObjectURL;
+    globalThis.URL.revokeObjectURL = originalRevokeObjectURL;
+  }
+});
 
-      await waitFor(() => {
-        assert.equal(playButton.hasAttribute('disabled'), false);
-      });
+test('добавляет трек в очередь и запускает воспроизведение только по запросу пользователя', async () => {
+  const playCalls = [];
+  const originalPlay = window.HTMLMediaElement.prototype.play;
 
-      assert.equal(playCalls.length, 0);
+  window.HTMLMediaElement.prototype.play = function play() {
+    playCalls.push(this.getAttribute('src'));
+    return Promise.resolve();
+  };
 
-      fireEvent.click(playButton);
+  try {
+    render(<KaraokePage />);
 
-      await waitFor(() => {
-        assert.ok(playCalls.includes(sampleTracks[1].src));
-      });
-    } finally {
-      window.HTMLMediaElement.prototype.play = originalPlay;
-    }
-  },
-);
+    await waitFor(() => {
+      const queueItems = document.querySelectorAll('.karaoke-page__queue-item');
+      assert.equal(queueItems.length, 0);
+    });
+
+    const secondTrackButton = await screen.findByRole('button', {
+      name: 'Огни большого города — Cherry RAiT',
+    });
+
+    fireEvent.click(secondTrackButton);
+
+    await waitFor(() => {
+      const queueItems = document.querySelectorAll('.karaoke-page__queue-item');
+      assert.equal(queueItems.length, 1);
+    });
+
+    const video = await screen.findByLabelText(
+      'Воспроизведение: Огни большого города',
+    );
+
+    assert.equal(video.getAttribute('src'), sampleTracks[1].src);
+
+    const playButton = await screen.findByRole('button', {
+      name: PLAY_BUTTON_LABEL,
+    });
+
+    assert.equal(playButton.hasAttribute('disabled'), true);
+
+    fireEvent(video, new window.Event('loadeddata'));
+
+    await waitFor(() => {
+      assert.equal(playButton.hasAttribute('disabled'), false);
+    });
+
+    assert.equal(playCalls.length, 0);
+
+    fireEvent.click(playButton);
+
+    await waitFor(() => {
+      assert.ok(playCalls.includes(sampleTracks[1].src));
+    });
+  } finally {
+    window.HTMLMediaElement.prototype.play = originalPlay;
+  }
+});
 
 test('управляет пагинацией в соответствии с конфигурацией', async () => {
   render(<KaraokePage />);
 
-  const previousButton = await screen.findByRole('button', { name: PREVIOUS_PAGE_LABEL });
+  const previousButton = await screen.findByRole('button', {
+    name: PREVIOUS_PAGE_LABEL,
+  });
   const nextButton = screen.getByRole('button', { name: NEXT_PAGE_LABEL });
 
   assert.equal(previousButton.hasAttribute('disabled'), true);
@@ -462,7 +540,9 @@ test('управляет пагинацией в соответствии с к�
     ]);
   });
 
-  const updatedNextButton = screen.getByRole('button', { name: NEXT_PAGE_LABEL });
+  const updatedNextButton = screen.getByRole('button', {
+    name: NEXT_PAGE_LABEL,
+  });
   assert.equal(updatedNextButton.hasAttribute('disabled'), true);
 
   const lastTrackButton = screen.getByRole('button', {
@@ -491,7 +571,9 @@ test('сбрасывает страницу после изменения пои
 
   await waitFor(() => {
     assert.ok(
-      screen.getByRole('button', { name: 'Огни большого города — Cherry RAiT' }),
+      screen.getByRole('button', {
+        name: 'Огни большого города — Cherry RAiT',
+      }),
     );
     assert.equal(
       screen.queryByRole('button', { name: 'Звёздная пыль — Cherry RAiT' }),
@@ -511,7 +593,9 @@ test('сбрасывает страницу после изменения пои
   });
 
   await waitFor(() => {
-    assert.ok(screen.getByRole('button', { name: 'Неоновые сны — Cherry RAiT' }));
+    assert.ok(
+      screen.getByRole('button', { name: 'Неоновые сны — Cherry RAiT' }),
+    );
   });
 
   assert.equal(
@@ -560,7 +644,10 @@ test('добавляет трек в очередь при дропе на эл�
   fireEvent.click(firstTrackButton);
 
   await waitFor(() => {
-    assert.equal(document.querySelectorAll('.karaoke-page__queue-item').length, 1);
+    assert.equal(
+      document.querySelectorAll('.karaoke-page__queue-item').length,
+      1,
+    );
   });
 
   const queueItem = document.querySelector('.karaoke-page__queue-item');
@@ -569,7 +656,9 @@ test('добавляет трек в очередь при дропе на эл�
   const targetTrackButton = screen.getByRole('button', {
     name: 'Огни большого города — Cherry RAiT',
   });
-  const targetTrackItem = targetTrackButton.closest('.karaoke-page__track-item');
+  const targetTrackItem = targetTrackButton.closest(
+    '.karaoke-page__track-item',
+  );
   assert.ok(targetTrackItem);
 
   const dataTransfer = createDataTransfer();
@@ -600,19 +689,28 @@ test('добавляет трек из плейлиста в очередь пр
   fireEvent.click(firstTrackButton);
 
   await waitFor(() => {
-    assert.equal(document.querySelectorAll('.karaoke-page__queue-item').length, 1);
+    assert.equal(
+      document.querySelectorAll('.karaoke-page__queue-item').length,
+      1,
+    );
     assert.ok(
-      document.querySelector('.karaoke-page__queue-list .karaoke-page__list-drop-zone'),
+      document.querySelector(
+        '.karaoke-page__queue-list .karaoke-page__list-drop-zone',
+      ),
     );
   });
 
   const playlistTrackButton = await screen.findByRole('button', {
     name: 'Огни большого города — Cherry RAiT',
   });
-  const playlistTrackItem = playlistTrackButton.closest('.karaoke-page__track-item');
+  const playlistTrackItem = playlistTrackButton.closest(
+    '.karaoke-page__track-item',
+  );
   assert.ok(playlistTrackItem);
 
-  const dropZone = document.querySelector('.karaoke-page__queue-list .karaoke-page__list-drop-zone');
+  const dropZone = document.querySelector(
+    '.karaoke-page__queue-list .karaoke-page__list-drop-zone',
+  );
   assert.ok(dropZone);
 
   const dataTransfer = createDataTransfer();
@@ -692,16 +790,22 @@ test('позволяет менять порядок очереди перета
   );
   assert.equal(videoAfterFirstReorder.getAttribute('src'), sampleTracks[1].src);
 
-  const updatedQueueElements = queueList.querySelectorAll('.karaoke-page__queue-item');
+  const updatedQueueElements = queueList.querySelectorAll(
+    '.karaoke-page__queue-item',
+  );
   const firstQueueElementAfterReorder = updatedQueueElements[0];
   const listDropDataTransfer = createDataTransfer();
   const dropZone = queueList.querySelector('.karaoke-page__list-drop-zone');
   assert.ok(dropZone);
 
-  fireEvent.dragStart(firstQueueElementAfterReorder, { dataTransfer: listDropDataTransfer });
+  fireEvent.dragStart(firstQueueElementAfterReorder, {
+    dataTransfer: listDropDataTransfer,
+  });
   fireEvent.dragOver(dropZone, { dataTransfer: listDropDataTransfer });
   fireEvent.drop(dropZone, { dataTransfer: listDropDataTransfer });
-  fireEvent.dragEnd(firstQueueElementAfterReorder, { dataTransfer: listDropDataTransfer });
+  fireEvent.dragEnd(firstQueueElementAfterReorder, {
+    dataTransfer: listDropDataTransfer,
+  });
 
   await waitFor(() => {
     const queueTitles = Array.from(
@@ -715,7 +819,9 @@ test('позволяет менять порядок очереди перета
     ]);
   });
 
-  const videoAfterListDrop = await screen.findByLabelText('Воспроизведение: Неоновые сны');
+  const videoAfterListDrop = await screen.findByLabelText(
+    'Воспроизведение: Неоновые сны',
+  );
   assert.equal(videoAfterListDrop.getAttribute('src'), sampleTracks[0].src);
 });
 
@@ -742,12 +848,15 @@ test('переходит к следующему треку после заве�
     assert.equal(queueItems.length, 1);
   });
 
-  const nextVideo = await screen.findByLabelText('Воспроизведение: Огни большого города');
+  const nextVideo = await screen.findByLabelText(
+    'Воспроизведение: Огни большого города',
+  );
   assert.equal(nextVideo.getAttribute('src'), sampleTracks[1].src);
 });
 
 test('отображает YouTube-трек через embed и переходит к следующему после onEnded', async () => {
-  const pagination = karaokeConfig.pagination ?? (karaokeConfig.pagination = {});
+  const pagination =
+    karaokeConfig.pagination ?? (karaokeConfig.pagination = {});
   pagination.pageSize = 2;
   karaokeConfig.localTracks = [
     {
@@ -780,7 +889,9 @@ test('отображает YouTube-трек через embed и переходи
   const embedPlayer = await screen.findByTestId('react-player-mock');
   assert.ok(embedPlayer.getAttribute('data-url')?.includes('youtu'));
 
-  const playButton = await screen.findByRole('button', { name: PLAY_BUTTON_LABEL });
+  const playButton = await screen.findByRole('button', {
+    name: PLAY_BUTTON_LABEL,
+  });
 
   await waitFor(() => {
     assert.equal(playButton.hasAttribute('disabled'), false);
@@ -794,5 +905,8 @@ test('отображает YouTube-трек через embed и переходи
   });
 
   const nextVideo = await screen.findByLabelText('Воспроизведение: Media трек');
-  assert.equal(nextVideo.getAttribute('src'), 'https://example.com/media-track.mp4');
+  assert.equal(
+    nextVideo.getAttribute('src'),
+    'https://example.com/media-track.mp4',
+  );
 });
