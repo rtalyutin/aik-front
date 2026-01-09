@@ -5,6 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:full": "concurrently -n \"SERVER,VITE\" -c \"cyan,green\" \"npm run local-server\" \"npm run dev:with-local\"",
+    "dev:with-local": "cross-env VITE_ENABLE_LOCAL_FEATURES=true vite",
+    "local-server": "cd no-internet-scripts/server && npm start",
     "build": "vite build",
     "preview": "vite preview",
     "check:env": "node scripts/check-env.js",
@@ -23,6 +26,8 @@
     "@esbuild-kit/esm-loader": "^2.6.5",
     "@testing-library/react": "^14.2.1",
     "@vitejs/plugin-react": "^4.2.0",
+    "concurrently": "^8.2.2",
+    "cross-env": "^10.1.0",
     "eslint": "^8.57.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.34.0",

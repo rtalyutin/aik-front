@@ -66,6 +66,11 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/karaoke/, ''),
       },
+      '/download-api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/download-api/, '/api'),
+      },
     },
   },
 });
