@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import karaokeConfig from './config.js';
 import ReactPlayer from './ReactPlayerAdapter.js';
 import { useKaraokeTracks } from './useKaraokeTracks.js';
@@ -7,12 +13,9 @@ const KaraokePage = () => {
   const videoRef = useRef(null);
   const dragSourceIndexRef = useRef(null);
   const {
-    tracks,
+    tracks: remoteTracks,
     isLoading,
     error,
-    selectedTrack,
-    selectedTrackId,
-    selectTrack,
   } = useKaraokeTracks({
     source: karaokeConfig.tracksSource,
     staticTracks: karaokeConfig.localTracks,
@@ -21,6 +24,10 @@ const KaraokePage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [queue, setQueue] = useState([]);
   const [draggingIndex, setDraggingIndex] = useState(null);
+  const [localTracks, setLocalTracks] = useState([]);
+  const [localSearch, setLocalSearch] = useState('');
+  const [activeTrackId, setActiveTrackId] = useState('');
+  const previousLocalTracksRef = useRef([]);
 
   const paginationConfig = karaokeConfig.pagination || {};
   const paginationLabels = paginationConfig.labels || {};
@@ -31,7 +38,9 @@ const KaraokePage = () => {
     ? Math.floor(parsedMaxVisiblePages)
     : defaultMaxVisiblePages;
   const maxVisiblePages = Math.max(
-    normalizedMaxVisiblePages > 0 ? normalizedMaxVisiblePages : defaultMaxVisiblePages,
+    normalizedMaxVisiblePages > 0
+      ? normalizedMaxVisiblePages
+      : defaultMaxVisiblePages,
     3,
   );
   const previousPageLabel = paginationLabels.previous || 'Назад';
@@ -45,7 +54,8 @@ const KaraokePage = () => {
   const playerHeading = karaokeConfig.playerHeading || 'Караоке-плеер';
   const queueHeading = karaokeConfig.queueHeading || 'Очередь воспроизведения';
   const queueEmptyState =
-    karaokeConfig.queueEmptyState || 'Очередь пуста. Добавьте трек из плейлиста.';
+    karaokeConfig.queueEmptyState ||
+    'Очередь пуста. Добавьте трек из плейлиста.';
   const queueInstructions = useMemo(() => {
     const instructions = karaokeConfig.queueInstructions;
 
@@ -63,16 +73,24 @@ const KaraokePage = () => {
 
     return [];
   }, []);
-  const removeFromQueueLabel = karaokeConfig.queueRemoveLabel || 'Убрать из очереди';
+  const removeFromQueueLabel =
+    karaokeConfig.queueRemoveLabel || 'Убрать из очереди';
   const loadingMessage = karaokeConfig.loadingMessage || 'Загрузка…';
   const emptyState = karaokeConfig.emptyState || 'Плейлист пока пуст.';
-  const errorFallback = karaokeConfig.errorFallback || 'Не удалось загрузить треки.';
-  const playerPlaceholder = karaokeConfig.playerPlaceholder || 'Выберите трек, чтобы начать.';
+  const errorFallback =
+    karaokeConfig.errorFallback || 'Не удалось загрузить треки.';
+  const playerPlaceholder =
+    karaokeConfig.playerPlaceholder || 'Выберите трек, чтобы начать.';
   const defaultCaptions = karaokeConfig.defaultCaptions || '';
   const playButtonLabel = karaokeConfig.playerPlayLabel || 'Воспроизвести';
 
   const [isVideoReady, setIsVideoReady] = useState(false);
   const [shouldPlay, setShouldPlay] = useState(false);
+
+  const allTracks = useMemo(
+    () => [...(remoteTracks ?? []), ...(localTracks ?? [])],
+    [remoteTracks, localTracks],
+  );
 
   const handleAddToQueue = useCallback(
     (trackId) => {
@@ -81,7 +99,9 @@ const KaraokePage = () => {
       }
 
       setQueue((previousQueue) => {
-        const isKnownTrack = (tracks ?? []).some((track) => track.id === trackId);
+        const isKnownTrack = (allTracks ?? []).some(
+          (track) => track.id === trackId,
+        );
 
         if (!isKnownTrack) {
           return previousQueue;
@@ -90,11 +110,13 @@ const KaraokePage = () => {
         return [...previousQueue, trackId];
       });
     },
-    [tracks],
+    [allTracks],
   );
 
   const handleRemoveFromQueue = useCallback((indexToRemove) => {
-    setQueue((previousQueue) => previousQueue.filter((_, index) => index !== indexToRemove));
+    setQueue((previousQueue) =>
+      previousQueue.filter((_, index) => index !== indexToRemove),
+    );
   }, []);
 
   const handleReorderQueue = useCallback((fromIndex, toIndex) => {
@@ -106,7 +128,9 @@ const KaraokePage = () => {
       }
 
       const normalizedFromIndex = Number.isInteger(fromIndex) ? fromIndex : -1;
-      const normalizedToIndex = Number.isInteger(toIndex) ? toIndex : Number.NaN;
+      const normalizedToIndex = Number.isInteger(toIndex)
+        ? toIndex
+        : Number.NaN;
 
       if (
         normalizedFromIndex < 0 ||
@@ -116,7 +140,10 @@ const KaraokePage = () => {
         return previousQueue;
       }
 
-      const clampedToIndex = Math.max(0, Math.min(normalizedToIndex, queueLength));
+      const clampedToIndex = Math.max(
+        0,
+        Math.min(normalizedToIndex, queueLength),
+      );
 
       if (normalizedFromIndex === clampedToIndex) {
         return previousQueue;
@@ -195,23 +222,25 @@ const KaraokePage = () => {
   useEffect(() => {
     setIsVideoReady(false);
     setShouldPlay(false);
-  }, [selectedTrackId]);
+  }, [activeTrackId]);
 
   useEffect(() => {
-    if (!tracks || tracks.length === 0) {
+    if (!allTracks || allTracks.length === 0) {
       setQueue([]);
       return;
     }
 
     setQueue((previousQueue) =>
-      previousQueue.filter((trackId) => (tracks ?? []).some((track) => track.id === trackId)),
+      previousQueue.filter((trackId) =>
+        (allTracks ?? []).some((track) => track.id === trackId),
+      ),
     );
-  }, [tracks]);
+  }, [allTracks]);
 
   useEffect(() => {
     if (!queue || queue.length === 0) {
-      if (selectedTrackId) {
-        selectTrack('');
+      if (activeTrackId) {
+        setActiveTrackId('');
       }
 
       return;
@@ -219,31 +248,101 @@ const KaraokePage = () => {
 
     const nextTrackId = queue[0];
 
-    if (nextTrackId && nextTrackId !== selectedTrackId) {
-      selectTrack(nextTrackId);
+    if (!nextTrackId) {
+      return;
     }
-  }, [queue, selectTrack, selectedTrackId]);
+
+    const isKnownTrack = (allTracks ?? []).some(
+      (track) => track.id === nextTrackId,
+    );
+
+    if (!isKnownTrack) {
+      setActiveTrackId('');
+      return;
+    }
+
+    if (nextTrackId !== activeTrackId) {
+      setActiveTrackId(nextTrackId);
+    }
+  }, [activeTrackId, allTracks, queue]);
+
+  const selectedTrack = useMemo(() => {
+    return (
+      (allTracks ?? []).find((track) => track.id === activeTrackId) ?? null
+    );
+  }, [activeTrackId, allTracks]);
+
+  useEffect(() => {
+    const previousTracks = previousLocalTracksRef.current;
+    const removedTracks = previousTracks.filter(
+      (previousTrack) =>
+        !(localTracks ?? []).some((track) => track.id === previousTrack.id),
+    );
+
+    removedTracks.forEach((track) => {
+      if (track.objectUrl) {
+        URL.revokeObjectURL(track.objectUrl);
+      }
+    });
+
+    previousLocalTracksRef.current = localTracks;
+  }, [localTracks]);
+
+  useEffect(() => {
+    return () => {
+      previousLocalTracksRef.current.forEach((track) => {
+        if (track.objectUrl) {
+          URL.revokeObjectURL(track.objectUrl);
+        }
+      });
+      previousLocalTracksRef.current = [];
+    };
+  }, []);
 
   const filteredTracks = useMemo(() => {
-    if (!tracks || tracks.length === 0) {
+    if (!remoteTracks || remoteTracks.length === 0) {
       return [];
     }
 
     const normalizedQuery = searchQuery.trim().toLowerCase();
 
     if (!normalizedQuery) {
-      return tracks;
+      return remoteTracks;
     }
 
-    return tracks.filter((track) => {
+    return remoteTracks.filter((track) => {
       const title = String(track.title || '').toLowerCase();
       const artist = String(track.artist || '').toLowerCase();
 
-      return title.includes(normalizedQuery) || artist.includes(normalizedQuery);
+      return (
+        title.includes(normalizedQuery) || artist.includes(normalizedQuery)
+      );
     });
-  }, [tracks, searchQuery]);
+  }, [remoteTracks, searchQuery]);
 
-  const totalPages = filteredTracks.length > 0 ? Math.ceil(filteredTracks.length / pageSize) : 0;
+  const filteredLocalTracks = useMemo(() => {
+    if (!localTracks || localTracks.length === 0) {
+      return [];
+    }
+
+    const normalizedQuery = localSearch.trim().toLowerCase();
+
+    if (!normalizedQuery) {
+      return localTracks;
+    }
+
+    return localTracks.filter((track) => {
+      const title = String(track.title || '').toLowerCase();
+      const artist = String(track.artist || '').toLowerCase();
+
+      return (
+        title.includes(normalizedQuery) || artist.includes(normalizedQuery)
+      );
+    });
+  }, [localSearch, localTracks]);
+
+  const totalPages =
+    filteredTracks.length > 0 ? Math.ceil(filteredTracks.length / pageSize) : 0;
 
   const visiblePageNumbers = useMemo(() => {
     if (totalPages === 0) {
@@ -331,7 +430,7 @@ const KaraokePage = () => {
   const queueEntries = useMemo(() => {
     return queue
       .map((trackId, position) => {
-        const track = (tracks ?? []).find((item) => item.id === trackId);
+        const track = (allTracks ?? []).find((item) => item.id === trackId);
 
         if (!track) {
           return null;
@@ -347,7 +446,7 @@ const KaraokePage = () => {
         };
       })
       .filter(Boolean);
-  }, [queue, tracks]);
+  }, [allTracks, queue]);
 
   const playlistEntries = useMemo(() => {
     if (!paginatedTracks || paginatedTracks.length === 0) {
@@ -523,6 +622,41 @@ const KaraokePage = () => {
     setDraggingIndex(null);
   }, []);
 
+  const handleLocalFilesChange = useCallback((event) => {
+    const selectedFiles = Array.from(event.target.files ?? []);
+
+    if (selectedFiles.length === 0) {
+      return;
+    }
+
+    const mediaFiles = selectedFiles.filter(
+      (file) =>
+        file.type.startsWith('video/') || file.type.startsWith('audio/'),
+    );
+
+    if (mediaFiles.length === 0) {
+      return;
+    }
+
+    const nextTracks = mediaFiles.map((file, index) => {
+      const objectUrl = URL.createObjectURL(file);
+      const safeName = file.name || `Локальный файл ${index + 1}`;
+      const id = `local-${safeName}-${file.lastModified}-${file.size}-${index}`;
+
+      return {
+        id,
+        title: safeName,
+        artist: '',
+        src: objectUrl,
+        sourceType: 'media',
+        objectUrl,
+      };
+    });
+
+    setLocalTracks((previousTracks) => [...previousTracks, ...nextTracks]);
+    event.target.value = '';
+  }, []);
+
   return (
     <section
       className="workspace karaoke-page"
@@ -540,20 +674,122 @@ const KaraokePage = () => {
       <div className="karaoke-page__content">
         <aside className="karaoke-page__playlist" aria-live="polite">
           <h2 className="karaoke-page__section-title">{playlistHeading}</h2>
+          <div className="karaoke-page__local">
+            <div className="karaoke-page__local-header">
+              <h3 className="karaoke-page__local-title">Локальные файлы</h3>
+              <p className="karaoke-page__local-description">
+                Добавьте аудио или видео с устройства, чтобы быстро поставить их
+                в очередь.
+              </p>
+            </div>
+            <div className="karaoke-page__local-controls">
+              <label
+                className="karaoke-page__local-label"
+                htmlFor="karaoke-local-input"
+              >
+                Добавить локальные файлы
+              </label>
+              <input
+                id="karaoke-local-input"
+                className="karaoke-page__local-input"
+                type="file"
+                multiple
+                accept="video/*,audio/*"
+                onChange={handleLocalFilesChange}
+              />
+            </div>
+            <div className="karaoke-page__search">
+              <label
+                className="karaoke-page__search-label"
+                htmlFor="karaoke-local-search"
+              >
+                Поиск по локальным файлам
+              </label>
+              <div className="karaoke-page__search-field">
+                <span className="karaoke-page__search-icon" aria-hidden="true">
+                  <svg
+                    className="karaoke-page__search-icon-graphic"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    role="presentation"
+                    focusable="false"
+                  >
+                    <path
+                      d="M10.5 3.75a6.75 6.75 0 0 1 5.404 10.862l4.992 4.992a.75.75 0 0 1-1.06 1.061l-4.992-4.992A6.75 6.75 0 1 1 10.5 3.75Zm0 1.5a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <input
+                  id="karaoke-local-search"
+                  type="search"
+                  className="karaoke-page__search-input"
+                  value={localSearch}
+                  onChange={(event) => setLocalSearch(event.target.value)}
+                  placeholder="Введите название файла или исполнителя"
+                />
+              </div>
+            </div>
+            {localTracks.length === 0 ? (
+              <p className="karaoke-page__status">
+                Локальные файлы пока не добавлены.
+              </p>
+            ) : null}
+            {localTracks.length > 0 && filteredLocalTracks.length === 0 ? (
+              <p className="karaoke-page__status">Ничего не найдено</p>
+            ) : null}
+            {filteredLocalTracks.length > 0 ? (
+              <ul className="karaoke-page__list karaoke-page__local-list">
+                {filteredLocalTracks.map((track) => (
+                  <li
+                    key={track.id}
+                    className="karaoke-page__list-item karaoke-page__local-item"
+                  >
+                    <div className="karaoke-page__local-track">
+                      <span className="karaoke-page__local-track-title">
+                        {track.title}
+                      </span>
+                      {track.artist ? (
+                        <span className="karaoke-page__local-track-artist">
+                          — {track.artist}
+                        </span>
+                      ) : null}
+                    </div>
+                    <button
+                      type="button"
+                      className="karaoke-page__local-add"
+                      onClick={() => handleAddToQueue(track.id)}
+                    >
+                      Добавить в очередь
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
           {isLoading ? (
             <p className="karaoke-page__status">{loadingMessage}</p>
           ) : null}
           {!isLoading && error ? (
-            <p role="alert" className="karaoke-page__status karaoke-page__status--error">
+            <p
+              role="alert"
+              className="karaoke-page__status karaoke-page__status--error"
+            >
               {error || errorFallback}
             </p>
           ) : null}
-          {!isLoading && !error && (!tracks || tracks.length === 0) ? (
+          {!isLoading &&
+          !error &&
+          (!remoteTracks || remoteTracks.length === 0) ? (
             <p className="karaoke-page__status">{emptyState}</p>
           ) : null}
-          {tracks && tracks.length > 0 ? (
+          {remoteTracks && remoteTracks.length > 0 ? (
             <div className="karaoke-page__search">
-              <label className="karaoke-page__search-label" htmlFor="karaoke-search-input">
+              <label
+                className="karaoke-page__search-label"
+                htmlFor="karaoke-search-input"
+              >
                 Поиск по трекам
               </label>
               <div className="karaoke-page__search-field">
@@ -583,7 +819,9 @@ const KaraokePage = () => {
               </div>
             </div>
           ) : null}
-          {tracks && tracks.length > 0 && filteredTracks.length === 0 ? (
+          {remoteTracks &&
+          remoteTracks.length > 0 &&
+          filteredTracks.length === 0 ? (
             <p className="karaoke-page__status">Ничего не найдено</p>
           ) : null}
           {paginatedTracks.length > 0 ? (
@@ -614,7 +852,9 @@ const KaraokePage = () => {
                     key={item.key || track.id}
                     className="karaoke-page__list-item karaoke-page__track-item"
                     draggable
-                    onDragStart={(event) => handleListItemDragStart(event, renderIndex)}
+                    onDragStart={(event) =>
+                      handleListItemDragStart(event, renderIndex)
+                    }
                     onDragOver={handleQueueItemDragOver}
                     onDrop={(event) => handleQueueItemDrop(event, renderIndex)}
                     onDragEnd={handleQueueItemDragEnd}
@@ -625,9 +865,13 @@ const KaraokePage = () => {
                       onClick={handleClick}
                       aria-pressed={isQueued}
                     >
-                      <span className="karaoke-page__track-title">{track.title}</span>
+                      <span className="karaoke-page__track-title">
+                        {track.title}
+                      </span>
                       {track.artist ? (
-                        <span className="karaoke-page__track-artist">— {track.artist}</span>
+                        <span className="karaoke-page__track-artist">
+                          — {track.artist}
+                        </span>
                       ) : null}
                     </button>
                   </li>
@@ -635,7 +879,9 @@ const KaraokePage = () => {
               })}
             </ul>
           ) : null}
-          {tracks && tracks.length > 0 && filteredTracks.length > 0 ? (
+          {remoteTracks &&
+          remoteTracks.length > 0 &&
+          filteredTracks.length > 0 ? (
             <>
               {totalPages > 1 ? (
                 <nav
@@ -655,7 +901,10 @@ const KaraokePage = () => {
                       const isActivePage = currentPage === pageNumber;
 
                       return (
-                        <li key={pageNumber} className="karaoke-page__pagination-page-item">
+                        <li
+                          key={pageNumber}
+                          className="karaoke-page__pagination-page-item"
+                        >
                           <button
                             type="button"
                             className={[
@@ -696,7 +945,10 @@ const KaraokePage = () => {
             <div className="karaoke-page__queue-header">
               <h3 className="karaoke-page__queue-title">{queueHeading}</h3>
               {queueInstructions.length > 0 ? (
-                <div className="karaoke-page__queue-instructions" role="presentation">
+                <div
+                  className="karaoke-page__queue-instructions"
+                  role="presentation"
+                >
                   <ol className="karaoke-page__queue-instructions-list">
                     {queueInstructions.map((instruction, instructionIndex) => (
                       <li
@@ -712,7 +964,9 @@ const KaraokePage = () => {
             </div>
             <ul
               className="karaoke-page__queue-list"
-              onDragOver={queueEntries.length === 0 ? handleQueueItemDragOver : undefined}
+              onDragOver={
+                queueEntries.length === 0 ? handleQueueItemDragOver : undefined
+              }
               onDrop={
                 queueEntries.length === 0
                   ? (event) => handleQueueItemDrop(event, 'end')
@@ -744,23 +998,31 @@ const KaraokePage = () => {
                     key={item.key || track.id}
                     className={queueItemClasses.join(' ')}
                     draggable
-                    onDragStart={(event) => handleListItemDragStart(event, renderIndex)}
+                    onDragStart={(event) =>
+                      handleListItemDragStart(event, renderIndex)
+                    }
                     onDragOver={handleQueueItemDragOver}
                     onDrop={(event) => handleQueueItemDrop(event, renderIndex)}
                     onDragEnd={handleQueueItemDragEnd}
                     aria-current={isActiveQueueItem ? 'true' : undefined}
                   >
                     <span className="karaoke-page__queue-track">
-                      <span className="karaoke-page__queue-track-title">{track.title}</span>
+                      <span className="karaoke-page__queue-track-title">
+                        {track.title}
+                      </span>
                       {track.artist ? (
-                        <span className="karaoke-page__queue-track-artist">— {track.artist}</span>
+                        <span className="karaoke-page__queue-track-artist">
+                          — {track.artist}
+                        </span>
                       ) : null}
                     </span>
                     <button
                       type="button"
                       className="karaoke-page__queue-remove"
                       onClick={() =>
-                        Number.isInteger(queueIndex) ? handleRemoveFromQueue(queueIndex) : null
+                        Number.isInteger(queueIndex)
+                          ? handleRemoveFromQueue(queueIndex)
+                          : null
                       }
                     >
                       {removeFromQueueLabel}
@@ -791,7 +1053,8 @@ const KaraokePage = () => {
           {selectedTrack ? (
             (() => {
               const sourceType = selectedTrack.sourceType || 'media';
-              const isMediaSource = sourceType === 'media' || sourceType === 'unknown';
+              const isMediaSource =
+                sourceType === 'media' || sourceType === 'unknown';
               const captionsSource = selectedTrack.captions || defaultCaptions;
               const embedUrl = selectedTrack.embedUrl || selectedTrack.src;
 

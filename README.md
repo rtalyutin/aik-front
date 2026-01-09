@@ -40,14 +40,14 @@ When serving the UI on the same domain as the API (for example, `aik.bar`), conf
 
 Frontend API URLs are read **only** from deployment-time environment variables. Configure them in `.env` files or via CI/CD so that the built bundle has the correct addresses baked in:
 
-| Variable | Purpose | Required |
-| --- | --- | --- |
-| `VITE_API_BASE_URL` | Optional base URL that prefixes all relative endpoints. Trailing slashes are trimmed. Leave empty (recommended) or set to the frontend origin to keep requests same-origin. | No |
-| `VITE_AUTH_SIGN_IN_ENDPOINT` | Auth sign-in endpoint. | Yes |
-| `VITE_READY_TRACKS_ENDPOINT` | Catalog of ready karaoke tracks. | Yes |
-| `VITE_JOB_STATUS_ENDPOINT` | Task status polling endpoint. | Yes |
-| `VITE_CREATE_TASK_URL` | Create karaoke task from URL. | Yes |
-| `VITE_CREATE_TASK_FILE` | Create karaoke task from file upload. | Yes |
+| Variable                     | Purpose                                                                                                                                                                     | Required |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `VITE_API_BASE_URL`          | Optional base URL that prefixes all relative endpoints. Trailing slashes are trimmed. Leave empty (recommended) or set to the frontend origin to keep requests same-origin. | No       |
+| `VITE_AUTH_SIGN_IN_ENDPOINT` | Auth sign-in endpoint.                                                                                                                                                      | Yes      |
+| `VITE_READY_TRACKS_ENDPOINT` | Catalog of ready karaoke tracks.                                                                                                                                            | Yes      |
+| `VITE_JOB_STATUS_ENDPOINT`   | Task status polling endpoint.                                                                                                                                               | Yes      |
+| `VITE_CREATE_TASK_URL`       | Create karaoke task from URL.                                                                                                                                               | Yes      |
+| `VITE_CREATE_TASK_FILE`      | Create karaoke task from file upload.                                                                                                                                       | Yes      |
 
 If `VITE_API_BASE_URL` is set to a different host (for example, `https://api.aik.bar`), it is automatically prepended to all relative endpoints above. To avoid CORS and redirects, prefer leaving `VITE_API_BASE_URL` empty so the app generates `/api/...` URLs that your reverse proxy forwards to `https://api.aik.bar`. Missing required variables will stop the app from starting, making misconfigured deploys immediately visible.
 
@@ -79,6 +79,8 @@ All pull requests should pass the lint, format, and test commands before merging
 ## Karaoke Playlist Data
 
 The `/karaoke` page now ships with a bundled playlist located at `src/features/karaoke/text.json`. The feature configuration (`src/features/karaoke/config.js`) exposes this array through the `localTracks` field, and the `useKaraokeTracks` hook consumes it via the `staticTracks` option to avoid HTTP calls when the JSON is present. A remote endpoint can still be configured through `VITE_READY_TRACKS_ENDPOINT`, which acts as a fallback if the local data is empty.
+
+In the `/karaoke` UI you can also load local audio/video files directly from the device. Use the **Локальные файлы** block to select multiple media files and then filter them with the dedicated local search field before adding them to the playback queue.
 
 Supported track sources:
 

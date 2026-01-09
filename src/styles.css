@@ -1,6 +1,12 @@
 :root {
   color-scheme: light;
-  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    'Inter',
+    'Segoe UI',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   line-height: 1.5;
   background-color: #f4f6f8;
   --color-bg: #f4f6f8;
@@ -22,7 +28,9 @@
   --radius-lg: 18px;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -36,7 +44,11 @@ body {
 
 #root {
   min-height: 100vh;
-  background: linear-gradient(180deg, rgba(248, 250, 252, 0.96) 0%, rgba(236, 240, 244, 0.92) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(248, 250, 252, 0.96) 0%,
+    rgba(236, 240, 244, 0.92) 100%
+  );
   padding: 1.5rem;
 }
 
@@ -78,7 +90,7 @@ input {
 .karaoke-page__content {
   display: grid;
   grid-template-columns: minmax(280px, 360px) 1fr;
-  grid-template-areas: "playlist player";
+  grid-template-areas: 'playlist player';
   gap: 1.5rem;
   align-items: stretch;
   min-height: 100%;
@@ -171,7 +183,10 @@ input {
   border: 1px solid transparent;
   background: var(--color-surface-muted);
   box-shadow: 0 12px 28px rgba(17, 24, 39, 0.1);
-  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .karaoke-page__queue-item--active {
@@ -210,7 +225,10 @@ input {
   padding: 0.5rem 0.8rem;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .karaoke-page__queue-remove:hover,
@@ -221,6 +239,105 @@ input {
 }
 
 .karaoke-page__queue-remove:active {
+  background: var(--accent-surface-strong);
+}
+
+.karaoke-page__local {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--accent-notice-border);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.karaoke-page__local-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.karaoke-page__local-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.karaoke-page__local-description {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.karaoke-page__local-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.karaoke-page__local-label {
+  font-weight: 600;
+}
+
+.karaoke-page__local-input {
+  padding: 0.4rem 0;
+}
+
+.karaoke-page__local-list {
+  margin-top: 0.25rem;
+}
+
+.karaoke-page__local-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--accent-notice-border);
+  background: var(--color-surface);
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
+}
+
+.karaoke-page__local-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.karaoke-page__local-track-title {
+  font-weight: 600;
+}
+
+.karaoke-page__local-track-artist {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.karaoke-page__local-add {
+  border: 1px solid var(--accent-notice-border);
+  background: var(--accent-surface);
+  color: inherit;
+  font: inherit;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.karaoke-page__local-add:hover,
+.karaoke-page__local-add:focus-visible {
+  border-color: var(--accent-stroke);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+  outline: none;
+}
+
+.karaoke-page__local-add:active {
   background: var(--accent-surface-strong);
 }
 
@@ -243,7 +360,9 @@ input {
   border: 1px solid var(--accent-notice-border);
   background: var(--color-surface);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .karaoke-page__search-field:hover {
@@ -364,7 +483,10 @@ input {
   color: inherit;
   text-align: left;
   cursor: pointer;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .karaoke-page__track-button:hover,
@@ -417,7 +539,10 @@ input {
   padding: 0.45rem 0.85rem;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .karaoke-page__pagination-button--control {
@@ -500,8 +625,8 @@ input {
   .karaoke-page__content {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "playlist"
-      "player";
+      'playlist'
+      'player';
   }
 }
 
